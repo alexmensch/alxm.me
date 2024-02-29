@@ -1,0 +1,37 @@
+:root {
+  font-family: $font-stack;
+  font-feature-settings: $font-features;
+  font-size: $font-size-root;
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: $color-text;
+  background-color: $color-background;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-primary;
+
+  @media (max-width: $breakpoint-md) {
+    margin-top: 1rem;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

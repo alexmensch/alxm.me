@@ -1,0 +1,20 @@
+{
+  "name": "11ty-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass assets/css/main.scss assets/css/main.css && npx @11ty/eleventy",
+    "build:11ty": "npx @11ty/eleventy",
+    "build:sass": "sass assets/css/main.scss assets/css/main.css",
+    "sass:watch": "sass --watch --source-map assets/css/main.scss assets/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "sass": "^1.71.1"
+  }
+}
