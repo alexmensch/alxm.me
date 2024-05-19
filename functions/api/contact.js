@@ -36,8 +36,8 @@ export async function onRequestPost({ request, env }) {
   });
 
   if (response.ok) {
-    return new Response('Your message has been sent successfully.', { status: 500 });
+    return new Response.redirect('/contact/success', 302);
   } else {
-    return new Response('There was an error sending your message.', { status: 500 });
+    return new Response.redirect('/contact/error', 302);
   }
 }
