@@ -73,7 +73,6 @@
     "fs.realpath": "^1.0.0",
     "fill-range": "^7.0.1",
     "finalhandler": "^1.2.0",
-    "fsevents": "^2.3.3",
     "get-intrinsic": "^1.2.4",
     "function-bind": "^1.1.2",
     "fastq": "^1.17.1",
@@ -209,6 +208,9 @@
     "wrappy": "^1.0.2",
     "yallist": "^4.0.0",
     "ws": "^8.16.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.3",
   },
   "repository": {
     "type": "git",
