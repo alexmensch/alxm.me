@@ -36,8 +36,13 @@ export async function onRequestPost({ request, env }) {
   });
 
   if (response.ok) {
-    return Response.redirect('/', 302);
+    // Get the origin of the request
+    const url = new URL(request.url);
+    const origin = url.origin;
+
+    const redirectUrl = '${origin}/contact/success';
+    return Response.redirect(redirectUrl, 302);
   } else {
-    return Response.redirect('/contact/error', 302);
+    return new Response('There was an error sending your message.', { status: 500 });
   }
 }
