@@ -36,8 +36,8 @@ export async function onRequestPost({ request, env }) {
   });
 
   if (response.ok) {
-    return new Response.redirect('/contact/success', 302);
+    return Response.redirect('/contact/success', 302);
   } else {
-    return new Response.redirect('/contact/error', 302);
+    return Response.redirect('/contact/error', 302);
   }
 }
