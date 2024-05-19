@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass assets/css/main.scss assets/css/main.css && npx @11ty/eleventy",
+    "build": "sass src/assets/css/main.scss src/assets/css/main.css && npx @11ty/eleventy",
     "build:11ty": "npx @11ty/eleventy",
-    "build:sass": "sass assets/css/main.scss assets/css/main.css",
-    "sass:watch": "sass --watch --source-map assets/css/main.scss assets/css/main.css",
+    "build:sass": "sass src/assets/css/main.scss src/assets/css/main.css",
+    "sass:watch": "sass --watch --source-map src/assets/css/main.scss src/assets/css/main.css",
     "11ty:watch": "npx @11ty/eleventy --serve"
   },
   "keywords": [],
