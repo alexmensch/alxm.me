@@ -36,7 +36,7 @@ export async function onRequestPost({ request, env }) {
   });
 
   if (response.ok) {
-    return new Response('Your message has been sent successfully.', { status: 200 });
+    return new Response('Your message has been sent successfully.', { status: 500 });
   } else {
     return new Response('There was an error sending your message.', { status: 500 });
   }
