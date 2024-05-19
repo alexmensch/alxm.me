@@ -40,7 +40,7 @@ export async function onRequestPost({ request, env }) {
     const url = new URL(request.url);
     const origin = url.origin;
 
-    const redirectUrl = '${origin}/contact/success';
+    const redirectUrl = `${origin}/contact/success`;
     return Response.redirect(redirectUrl, 302);
   } else {
     return new Response('There was an error sending your message.', { status: 500 });
