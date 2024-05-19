@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.liquid
+layout: layouts/coaching.liquid
 title: Consulting
 ---
 

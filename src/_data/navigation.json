@@ -4,6 +4,7 @@
     { "title": "Coaching", "url": "/coaching/" },
     { "title": "Advisory", "url": "/advisory/" },
     { "title": "Projects", "url": "/projects/" },
-    { "title": "Writing", "url": "/writing/" }
+    { "title": "Writing", "url": "/writing/" },
+    { "title": "Contact Me", "url": "/contact/" }
   ]
 }

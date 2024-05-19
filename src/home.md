@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.liquid
+layout: layouts/home.liquid
 title: Alex Marshall
 ---
 
