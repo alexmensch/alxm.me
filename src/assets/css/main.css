@@ -1,10 +1,41 @@
+/* --- Colors --- */
+/* LIGHT */
+/* DARK */
+/* --- Typography --- */
 /* fix for Chrome */
+/* --- Responsive design -- */
+/* --- Colors --- */
+/* LIGHT */
+/* DARK */
+/* --- Typography --- */
+/* fix for Chrome */
+/* --- Responsive design -- */
 :root {
   font-family: "Inter", sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
   font-size: 16px;
+  --color-text: rgb(28, 28, 30);
+  --color-heading: rgb(58, 58, 60);
+  --color-background: rgb(255, 255, 255);
+  --color-primary: rgb(0, 122, 255);
+  --color-secondary: rgb(142, 142, 147);
+  --color-muted: rgb(199, 199, 204);
+  --color-line: rgb(242, 242, 247);
+  --color-bg-fill: rgb(229, 229, 234);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: rgb(245, 245, 247);
+    --color-heading: rgb(215, 215, 217);
+    --color-background: rgb(22, 22, 23);
+    --color-primary: rgb(10, 132, 255);
+    --color-secondary: rgb(142, 142, 147);
+    --color-muted: rgb(72, 72, 74);
+    --color-line: rgb(28, 28, 30);
+    --color-bg-fill: rgb(44, 44, 46);
+  }
+}
 @supports (font-variation-settings: normal) {
   :root {
     font-family: InterVariable, sans-serif;
@@ -12,14 +43,17 @@
 }
 body {
   font-size: clamp(0.875rem, 2vw, 1rem);
-  color: #212529;
-  background-color: #fff;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
   margin: 0;
-  padding: 0;
+  padding: 0 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #007bff;
+  color: var(--color-heading);
+  line-height: 1.25;
+  margin: 1em 0 0.5em;
 }
 @media (max-width: 768px) {
   h1, h2, h3, h4, h5, h6 {
@@ -27,16 +61,85 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.875em;
+}
+
 p {
-  line-height: 1.5;
+  margin: 1em 0;
 }
 
 a {
-  color: #007bff;
+  color: var(--color-primary);
   text-decoration: none;
 }
-a:hover {
+a:hover, a:focus {
   text-decoration: underline;
+}
+
+ul, ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+blockquote {
+  border-left: 4px solid var(--color-line);
+  margin: 1em 0;
+  padding-left: 1em;
+  color: var(--color-muted);
+}
+
+code {
+  font-family: "Source Code Pro", monospace;
+  background-color: var(--color-bg-fill);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: "Source Code Pro", monospace;
+  background-color: var(--color-bg-fill);
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+table th, table td {
+  border: 1px solid var(--color-line);
+  padding: 0.5em;
+  text-align: left;
+}
+table th {
+  background-color: var(--color-bg-fill);
 }
 
 .container {
@@ -65,10 +168,16 @@ a:hover {
   }
 }
 
-header,
+header {
+  text-align: right;
+  padding: 1rem 0;
+}
+
 footer {
   text-align: center;
   padding: 1rem 0;
+  font-size: small;
+  color: rgb(199, 199, 204);
 }
 
 section {
@@ -76,28 +185,21 @@ section {
   padding: 2rem;
 }
 
+article {
+  max-width: 708px;
+  margin: 0 auto; /* Space for fixed header */
+  padding: 2rem;
+}
+
+article .date-byline {
+  font-style: italic;
+  color: rgb(199, 199, 204);
+}
+
 hr {
   margin: 2rem 0;
   border: none;
-  border-top: 1px solid #e0e0e0;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-.button:hover {
-  background-color: #0062cc;
-}
-@media (min-width: 992px) {
-  .button {
-    padding: 0.75rem 1.5rem;
-  }
+  border-top: 1px solid rgb(242, 242, 247);
 }
 
 .nav {
@@ -123,6 +225,64 @@ hr {
   .nav ul li {
     margin-right: 1rem;
   }
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgb(0, 122, 255);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #0062cc;
+}
+@media (min-width: 992px) {
+  .button {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* TOC Styles */
+.toc {
+  margin: 0;
+  padding: 0.25em 0 0.25em;
+  font-size: small;
+  line-height: 0.85;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc ul li {
+  margin: 0.75em 0 0.75em 0;
+}
+
+.toc ul li a {
+  text-decoration: none;
+  color: rgb(0, 122, 255);
+}
+
+.toc ul li a:hover {
+  text-decoration: underline;
+}
+
+.toc ul ul {
+  padding-left: 1em;
+  border-left: 2px solid rgb(242, 242, 247);
+  margin: 0.75em 0 0.75em 0.5em;
+}
+
+.toc ul ul li {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.header-anchor {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

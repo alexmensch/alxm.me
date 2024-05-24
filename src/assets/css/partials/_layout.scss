@@ -20,10 +20,16 @@
   }
 }
 
-header,
+header {
+  text-align: right;
+  padding: 1rem 0;
+}
+
 footer {
   text-align: center;
   padding: 1rem 0;
+  font-size: small;
+  color: $color-muted;
 }
 
 section {
@@ -31,8 +37,19 @@ section {
   padding: 2rem;
 }
 
+article {
+  max-width: 708px;
+  margin: 0 auto; /* Space for fixed header */
+  padding: 2rem;
+}
+
+  article .date-byline {
+    font-style: italic;
+    color: $color-muted;
+  }
+
 hr {
   margin: 2rem 0;
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid $color-line;
 }

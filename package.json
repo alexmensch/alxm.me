@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/assets/css/main.scss src/assets/css/main.css && npx @11ty/eleventy",
+    "build:clean": "rm -rf _site",
     "build:11ty": "npx @11ty/eleventy",
     "build:sass": "sass src/assets/css/main.scss src/assets/css/main.css",
     "sass:watch": "sass --watch --source-map src/assets/css/main.scss src/assets/css/main.css",
@@ -125,6 +126,8 @@
     "lru-cache": "^6.0.0",
     "luxon": "^3.4.4",
     "markdown-it": "^13.0.2",
+    "markdown-it-anchor": "^9.0.1",
+    "markdown-it-table-of-contents": "^0.6.0",
     "maximatch": "^0.1.0",
     "mdurl": "^1.0.1",
     "merge2": "^1.4.1",

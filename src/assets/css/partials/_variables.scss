@@ -1,15 +1,47 @@
-// Color palette
-$color-primary: #007bff; // Primary button color
-$color-secondary: #6c757d; // Secondary text color
-$color-background: #fff; // Background color
-$color-text: #212529; // Primary text color
+/* --- Colors --- */
+// Reference: https://developer.apple.com/design/human-interface-guidelines/color#Specifications
 
-// Typography
+/* LIGHT */
+// Color palette
+$color-text: rgb(28, 28, 30); // Gray6-dark, Primary text color
+$color-heading: rgb(58, 58, 60); // Gray4-dark, Heading text color
+$color-background: rgb(255, 255, 255); // Background color
+
+// Colors: text
+$color-primary: rgb(0, 122, 255); // Blue
+$color-secondary: rgb(142,142,147); // Gray
+$color-muted: rgb(199, 199, 204); // Gray3, for de-emphasized text
+
+// Colors: specific elements
+$color-bg-fill: rgb(229, 229, 234); // Gray5, Light fill
+$color-line: rgb(242, 242, 247); // Gray6, lines and borders
+
+/* DARK */
+// Color palette
+$color-text-dark: rgb(245, 245, 247); // Gray6-dark, Primary text color
+$color-heading-dark: rgb(215, 215, 217); // Gray4-dark, Heading text color
+$color-background-dark: rgb(22, 22, 23); // Background color
+
+// Colors: text
+$color-primary-dark: rgb(10, 132, 255); // Blue
+$color-secondary-dark: rgb(142,142,147); // Gray
+$color-muted-dark: rgb(72, 72, 74); // Gray3, for de-emphasized text
+
+// Colors: specific elements
+$color-bg-fill-dark: rgb(44, 44, 46); // Gray5, Light fill
+$color-line-dark: rgb(28, 28, 30); // Gray6, lines and borders
+
+/* --- Typography --- */
+
 $font-stack: 'Inter', sans-serif;
 $font-features: 'liga' 1, 'calt' 1; /* fix for Chrome */
 $font-size-root: 16px;
 
-// Breakpoints for responsive design
+$line-height-base: 1.6;
+$line-height-heading: 1.25;
+
+/* --- Responsive design -- */
+
 $breakpoint-sm: 576px; // Small devices (phones)
 $breakpoint-md: 768px; // Medium devices (tablets)
 $breakpoint-lg: 992px; // Large devices (desktops)
