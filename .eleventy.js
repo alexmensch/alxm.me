@@ -1,4 +1,7 @@
 module.exports = function(eleventyConfig) {
+  // Add a passthrough copy directive for assets
+  eleventyConfig.addPassthroughCopy("src/assets");
+
   eleventyConfig.addCollection("writing", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/writing/*.md");
   });
