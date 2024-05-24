@@ -1,12 +1,4 @@
 module.exports = function(eleventyConfig) {
-  // Add a passthrough copy directive for assets
-  eleventyConfig.addPassthroughCopy("src/assets");
-
-  // Define collections for projects and writing
-  eleventyConfig.addCollection("projects", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/projects/*.md");
-  });
-
   eleventyConfig.addCollection("writing", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/writing/*.md");
   });
