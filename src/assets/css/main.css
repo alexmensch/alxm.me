@@ -42,7 +42,7 @@
   }
 }
 body {
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: var(--color-text);
   background-color: var(--color-background);
   line-height: 1.6;
@@ -144,7 +144,7 @@ table th {
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 auto;
   width: 100%;
 }
 @media (min-width: 576px) {
@@ -187,8 +187,13 @@ section {
 
 article {
   max-width: 708px;
-  margin: 0 auto; /* Space for fixed header */
+  margin: 0 auto;
   padding: 2rem;
+}
+@media (max-width: 768px) {
+  article {
+    padding: 0.5rem;
+  }
 }
 
 article .date-byline {

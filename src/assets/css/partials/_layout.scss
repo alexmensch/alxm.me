@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 auto;
   width: 100%;
 
   @media (min-width: $breakpoint-sm) {
@@ -39,8 +39,12 @@ section {
 
 article {
   max-width: 708px;
-  margin: 0 auto; /* Space for fixed header */
+  margin: 0 auto;
   padding: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0.5rem;
+  }
 }
 
   article .date-byline {
