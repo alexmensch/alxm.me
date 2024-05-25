@@ -1,7 +1,8 @@
 ---
-title: "Working as a consultant in the UK as a US citizen"
+title: "Consulting in the UK as a US citizen"
 date: 2024-05-23
-update_date: 2024-05-24
+update_date: 2024-05-25
+permalink: "/writing/2024/05/23/working-as-a-consultant-in-the-uk-as-a-us-citizen/"
 ---
 
 [[toc]]
@@ -10,7 +11,7 @@ _**Disclaimer**: I am not a tax expert or accountant, so make sure you get profe
 
 # Context
 
-I am a dual UK/US citizen living in the UK, and I needed to determine the right approach to do consultancy work with clients in the UK. This is a complex area because of the need for US citizens to report and pay taxes on global income [regardless of their country of tax residency](https://en.wikipedia.org/wiki/Accidental_American#Taxation_of_non-residents). I'm writing down what I learned to help others because this is a common situation for US citizens in the UK, and it's not easy to find all of the answers.
+I am a dual UK/US national living in the UK, and I needed to determine the right approach to do consultancy work with clients in the UK. This is a complex area because of the need for US citizens to report and pay taxes on global income [regardless of their country of tax residency](https://en.wikipedia.org/wiki/Accidental_American#Taxation_of_non-residents). I'm writing down what I learned to help others because this is a common situation for US citizens in the UK, and it's not easy to find all of the answers.
 
 ## Goals
 
