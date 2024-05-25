@@ -2,7 +2,9 @@
   <nav>
     <ul>
       {% for item in navigation.items %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% unless item.hidden %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endunless %}
       {% endfor %}
     </ul>
   </nav>
