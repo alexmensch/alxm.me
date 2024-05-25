@@ -1,33 +1,14 @@
-nav {
-  margin-bottom: 2rem;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    li {
-      margin: 0.5rem 0;
-
-      @media (min-width: $breakpoint-md) {
-        margin-right: 1rem;
-      }
-    }
-  }
+hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--color-line);
 }
 
 .button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: $color-primary;
-  color: $color-background;
+  background-color: var(--color-primary);
+  color: var(--color-background);
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -48,34 +29,34 @@ nav {
   padding: 0.25em 0 0.25em;
   font-size: small;
   line-height: 0.85;
-}
 
-.toc ul {
-  list-style: none;
-  padding-left: 0;
-}
+  ul {
+    list-style: none;
+    padding-left: 0;
 
-.toc ul li {
-  margin: 0.75em 0 0.75em 0;
-}
+    li {
+      margin: 0.75em 0 0.75em 0;
 
-.toc ul li a {
-  text-decoration: none;
-  color: $color-primary;
-}
+      a {
+        text-decoration: none;
+        color: var(--color-primary);
 
-.toc ul li a:hover {
-  text-decoration: underline;
-}
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
 
-.toc ul ul {
-  padding-left: 1em;
-  border-left: 2px solid $color-line;
-  margin: 0.75em 0 0.75em 0.5em;
-}
+    ul {
+      padding-left: 1em;
+      border-left: 2px solid var(--color-muted);
+      margin: 0.75em 0 0.75em 0.5em;
 
-.toc ul ul li {
-  margin: 0.5em 0 0.5em 0;
+      li {
+        margin: 0.5em 0 0.5em 0;
+      }
+    }
+  }
 }
 
 // Hide header anchors & accessibility text
