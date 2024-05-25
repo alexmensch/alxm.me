@@ -1,10 +1,10 @@
 {
   "items": [
-    { "title": "Home", "url": "/" },
+    { "title": "Home", "url": "/", "hidden": "true" },
     { "title": "Coaching", "url": "/coaching/", "hidden": "true" },
     { "title": "Advisory", "url": "/advisory/", "hidden": "true" },
     { "title": "Projects", "url": "/projects/", "hidden": "true" },
-    { "title": "Writing", "url": "/writing/" },
+    { "title": "Writing", "url": "/writing/", "hidden": "true" },
     { "title": "Contact Me", "url": "/contact/", "hidden": "true" }
   ]
 }
