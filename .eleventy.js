@@ -15,6 +15,19 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/writing/*.md");
   });
 
+  // Custom collection to aggregate all writing tags
+  eleventyConfig.addCollection('writing-tags', function(collectionApi) {
+    let tagSet = new Set();
+    collectionApi.getFilteredByGlob("src/writing/*.md").forEach(item => {
+      if ('tags' in item.data) {
+        let tags = item.data.tags;
+        tags = Array.isArray(tags) ? tags : [tags];
+        tags.forEach(tag => tagSet.add(tag));
+      }
+    });
+    return [...tagSet];
+  });
+
   // Configure Markdown-It with the TOC plugin
   let markdownLib = md({
     typographer: true
