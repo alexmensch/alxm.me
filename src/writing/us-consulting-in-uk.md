@@ -3,6 +3,8 @@ title: "Consulting in the UK as a US citizen"
 date: 2024-05-23
 update_date: 2024-05-25
 permalink: "/writing/2024/05/23/working-as-a-consultant-in-the-uk-as-a-us-citizen/"
+tags:
+  - personal
 ---
 
 [[toc]]
