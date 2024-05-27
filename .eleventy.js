@@ -33,13 +33,7 @@ module.exports = function(eleventyConfig) {
     typographer: true
   })
   .use(mdAnchor, {
-    permalink: mdAnchor.permalink.linkAfterHeader({
-      style: 'visually-hidden',
-      assistiveText: title => `Permalink to "${title}"`,
-      visuallyHiddenClass: 'visually-hidden',
-      placement: 'before',
-      wrapper: ['<div class="header">','</div>']
-    })
+    permalink: mdAnchor.permalink.headerLink({ safariReaderFix: true })
   })
   .use(mdTOC, {
     includeLevel: [1, 2, 3], // Levels to include in the TOC
