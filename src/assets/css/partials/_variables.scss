@@ -16,6 +16,7 @@ $color-muted: rgb(199, 199, 204); // Gray3, for de-emphasized text
 $color-bg-fill: rgb(229, 229, 234); // Gray5, Light fill
 $color-line: rgb(242, 242, 247); // Gray6, lines and borders
 
+
 /* DARK */
 // Color palette
 $color-text-dark: rgb(245, 245, 247); // Gray6-dark, Primary text color
@@ -30,6 +31,18 @@ $color-muted-dark: rgb(72, 72, 74); // Gray3, for de-emphasized text
 // Colors: specific elements
 $color-bg-fill-dark: rgb(44, 44, 46); // Gray5, Light fill
 $color-line-dark: rgb(28, 28, 30); // Gray6, lines and borders
+
+/* --- Layout Grid --- */
+// Dimensions
+$grid-gap: 20px;
+
+// Colors
+// LIGHT
+$color-grid-top: green;
+// DARK
+$color-grid-top-dark: darkgreen;
+
+
 
 /* --- Typography --- */
 

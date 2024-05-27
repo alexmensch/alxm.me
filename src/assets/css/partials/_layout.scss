@@ -1,38 +1,85 @@
-header {
-  text-align: center;
-  padding: 0rem 0;
-}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: $color-grid-top;
 
-nav {
-  margin-bottom: 2rem;
+  .container-grid {
+    height: 100vh;
+    display: grid;
+    grid-template-columns:
+      [top-start bottom-start] 20px
+      [nav-start] 1fr
+      [nav-end intro-start content-start footer-start] 4fr [intro-end content-end footer-end]
+      1fr 20px [top-end bottom-end];
+    grid-template-rows:
+      [top-start] 20px
+      [nav-start] 1fr
+      [nav-end intro-start] 1fr
+      [intro-end top-end bottom-start content-start] 1fr
+      [content-end footer-start] 1fr [footer-end bottom-end];
+    gap: $grid-gap;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: center;
+    .top {
+      grid-area: top;
+      background-color: $color-grid-top;
     }
 
-    li {
-      margin: 0.5rem 0;
+    .bottom {
+      grid-area: bottom;
+      background-color: palevioletred;
+      margin-top: -$grid-gap;
+    }
 
-      @media (min-width: $breakpoint-md) {
-        margin-right: 1rem;
+    .navigation {
+      grid-area: nav;
+
+      text-align: center;
+      padding: 0rem 0;
+
+      margin-bottom: 2rem;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (min-width: $breakpoint-md) {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        li {
+          margin: 0.5rem 0;
+
+          @media (min-width: $breakpoint-md) {
+            margin-right: 1rem;
+          }
+        }
       }
     }
+
+    .introduction {
+      grid-area: intro;
+    }
+
+    .content {
+      grid-area: content;
+    }
+
+    .footer {
+      grid-area: footer;
+
+      text-align: center;
+      padding: 1rem 0;
+      font-size: small;
+      color: var(--color-muted);
+    }
   }
-}
 
-body .container {
-  margin: 0 auto;
-  padding: 0 auto;
-  width: 100%;
-
+  /*
   @media (min-width: $breakpoint-sm) {
     max-width: 540px;
   }
@@ -48,21 +95,10 @@ body .container {
   @media (min-width: $breakpoint-xl) {
     max-width: 1040px;
   }
+  */
 }
 
-section {
-  padding: 2rem 0 0 0;
-
-  .introduction {
-    
-  }
-
-  .content {
-    
-  }
-}
-
-article {
+.content article {
   max-width: 708px;
   margin: 0 auto;
   padding: 2rem;
@@ -75,11 +111,4 @@ article {
     font-style: italic;
     color: var(--color-muted);
   }
-}
-
-footer {
-  text-align: center;
-  padding: 1rem 0;
-  font-size: small;
-  color: var(--color-muted);
 }

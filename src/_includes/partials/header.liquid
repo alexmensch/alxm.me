@@ -1,11 +1,7 @@
-<header>
-  <nav>
-    <ul>
-      {% for item in navigation.items %}
-        {% unless item.hidden %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-        {% endunless %}
-      {% endfor %}
-    </ul>
-  </nav>
-</header>
+<ul>
+  {% for item in navigation.items %}
+    {% unless item.hidden %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endunless %}
+  {% endfor %}
+</ul>
