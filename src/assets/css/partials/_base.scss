@@ -8,16 +8,19 @@
 
   color-scheme: light dark;
 
-  --color-text: light-dark($color-text, $color-text-dark);
-  --color-heading: light-dark($color-heading, $color-heading-dark);
-  --color-background: light-dark($color-background, $color-background-dark);
+  --color-text: #{light-dark($color-text, $color-text-dark)};
+  --color-heading: #{light-dark($color-heading, $color-heading-dark)};
+  --color-background: #{light-dark($color-background, $color-background-dark)};
   
-  --color-primary: light-dark($color-primary, $color-primary-dark);
-  --color-secondary: light-dark($color-secondary, $color-secondary-dark);
-  --color-muted: light-dark($color-muted, $color-muted-dark);
+  --color-primary: #{light-dark($color-primary, $color-primary-dark)};
+  --color-secondary: #{light-dark($color-secondary, $color-secondary-dark)};
+  --color-muted: #{light-dark($color-muted, $color-muted-dark)};
 
-  --color-line: light-dark($color-line, $color-line-dark);
-  --color-bg-fill: light-dark($color-bg-fill, $color-bg-fill-dark);
+  --color-line: #{light-dark($color-line, $color-line-dark)};
+  --color-bg-fill: #{light-dark($color-bg-fill, $color-bg-fill-dark)};
+
+  --color-grid-upper: #{light-dark($color-grid-upper, $color-grid-upper-dark)};
+  --color-grid-lower: #{light-dark($color-grid-lower, $color-grid-lower-dark)};
 }
 
 @supports (font-variation-settings: normal) {
@@ -27,7 +30,6 @@
 body {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: var(--color-text);
-  background-color: var(--color-background);
   line-height: $line-height-base;
   margin: 0;
   padding: 0 20px;
@@ -77,6 +79,8 @@ a {
 
   &:hover, &:focus {
     text-decoration: underline;
+    background-color: var(--color-anchor-bg);
+    color: var(--color-anchor-text);
   }
 }
 

@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.liquid
 title: Projects
+navIndex: 2
 ---
-<section>
-  <img src="/assets/images/header-image.jpg" alt="Header Image">
-  <h1>Projects</h1>
-  <p>{{ content }}</p>
-  <hr>
+<div class="introduction">
+  {{ content }}
+</div>
+<div class="content">
   <ul>
     {% for project in collections.projects %}
       <li><a href="{{ project.url }}">{{ project.data.title }}</a></li>
     {% endfor %}
   </ul>
-</section>
+</div>

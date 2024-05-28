@@ -2,39 +2,45 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: $color-grid-top;
+  background-color: var(--color-grid-upper);
+
+  &.writing { background-color: yellow; }
 
   .container-grid {
     height: 100vh;
     display: grid;
     grid-template-columns:
-      [top-start bottom-start] 20px
+      [upper-start lower-start] 20px
       [nav-start] 1fr
       [nav-end intro-start content-start footer-start] 4fr [intro-end content-end footer-end]
-      1fr 20px [top-end bottom-end];
+      1fr 20px [upper-end lower-end];
     grid-template-rows:
-      [top-start] 20px
+      [upper-start] 20px
       [nav-start] 1fr
       [nav-end intro-start] 1fr
-      [intro-end top-end bottom-start content-start] 1fr
-      [content-end footer-start] 1fr [footer-end bottom-end];
+      [intro-end upper-end lower-start content-start] 1fr
+      [content-end footer-start] 1fr [footer-end lower-end];
     gap: $grid-gap;
 
-    .top {
-      grid-area: top;
-      background-color: $color-grid-top;
+    .upper {
+      grid-area: upper;
+      background-color: var(--color-grid-upper);
+
+      &.writing { background-color: yellow; }
     }
 
-    .bottom {
-      grid-area: bottom;
-      background-color: palevioletred;
+    .lower {
+      grid-area: lower;
+      background-color: var(--color-grid-lower);
       margin-top: -$grid-gap;
+
+      &.writing { background-color: pink; }
     }
 
     .navigation {
       grid-area: nav;
 
-      text-align: center;
+      text-align: right;
       padding: 0rem 0;
 
       margin-bottom: 2rem;
@@ -42,13 +48,17 @@ body {
       ul {
         list-style: none;
         padding: 0;
-        display: flex;
+        //display: flex;
         flex-direction: column;
         align-items: center;
 
         @media (min-width: $breakpoint-md) {
           flex-direction: row;
           justify-content: center;
+        }
+
+        li:first-child {
+          background-color: yellow;
         }
 
         li {

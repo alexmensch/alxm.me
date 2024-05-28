@@ -1,7 +1,8 @@
 ---
-layout: layouts/advisory.liquid
-title: Consulting
+layout: sections/advisory.liquid
 ---
 
-# {{ title }}
+### This is a title
+
+With some content
 

@@ -1,7 +1,6 @@
 ---
-layout: layouts/coaching.liquid
-title: Consulting
+layout: sections/coaching.liquid
 ---
 
-# {{ title }}
+## This is a heading
 

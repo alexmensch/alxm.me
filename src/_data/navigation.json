@@ -1,10 +1,10 @@
 {
   "items": [
-    { "title": "Home", "url": "/", "hidden": "true" },
-    { "title": "Coaching", "url": "/coaching/", "hidden": "true" },
-    { "title": "Advisory", "url": "/advisory/", "hidden": "true" },
-    { "title": "Projects", "url": "/projects/", "hidden": "true" },
+    { "title": "Home", "url": "/" },
     { "title": "Writing", "url": "/writing/" },
-    { "title": "Contact Me", "url": "/contact/", "hidden": "true" }
+    { "title": "Projects", "url": "/projects/" },
+    { "title": "Coaching", "url": "/coaching/" },
+    { "title": "Advisory", "url": "/advisory/" },
+    { "title": "Contact Me", "url": "/contact/" }
   ]
 }
