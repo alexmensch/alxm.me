@@ -16,10 +16,9 @@ body {
       1fr 20px [upper-end lower-end];
     grid-template-rows:
       [upper-start] 20px
-      [nav-start] 1fr
-      [nav-end intro-start] 1fr
-      [intro-end upper-end lower-start content-start] 1fr
-      [content-end footer-start] 1fr [footer-end lower-end];
+      [nav-start intro-start] min-content
+      [nav-end intro-end upper-end lower-start content-start] auto
+      [content-end footer-start] min-content [footer-end lower-end];
     gap: $grid-gap;
 
     .upper {
@@ -43,41 +42,33 @@ body {
       text-align: right;
       padding: 0rem 0;
 
-      margin-bottom: 2rem;
-
       ul {
         list-style: none;
-        padding: 0;
-        //display: flex;
+        margin: -0.2em 0.5rem 0 0;
+
+        display: flex;
         flex-direction: column;
-        align-items: center;
-
-        @media (min-width: $breakpoint-md) {
-          flex-direction: row;
-          justify-content: center;
-        }
-
-        li:first-child {
-          background-color: yellow;
-        }
+        align-items: margin-right;
 
         li {
-          margin: 0.5rem 0;
+          margin: 0;
 
-          @media (min-width: $breakpoint-md) {
-            margin-right: 1rem;
-          }
+          &:first-child { font-size: larger; }
         }
       }
     }
 
     .introduction {
       grid-area: intro;
+
+      columns: 3 auto;
+      font-size: smaller;
+      margin: 0 0.5rem 0.5rem 0.5rem;
+
+      & p { margin-top: 0; }
     }
 
-    .content {
-      grid-area: content;
-    }
+    .content { grid-area: content; }
 
     .footer {
       grid-area: footer;
