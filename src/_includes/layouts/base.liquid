@@ -16,10 +16,10 @@
         <div class="lower {{ layout-palette | downcase }}"></div>
         <!-- ^^^ -->
         {% unless fullPage %}
-        <div class="header"></div>
-        <div class="home-name">
-            <a href="/">Alex Marshall</a>
-        </div>
+            <div class="header"></div>
+            <div class="home-name">
+                <a class="no-underline" href="/">Alex Marshall</a>
+            </div>
             <div class="navigation">
                 {% for item in navigation.items %}
                     {% unless item.hidden %}
@@ -27,10 +27,13 @@
                     {% endunless %}
                 {% endfor %}
             </div>
+            <div class="title">
+                {{ title }}
+            </div>
         {% else %}
             <div class="header fullpage">
                 {% assign item = navigation.items[navIndex] %}
-                <span>Alex Marshall</span><span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
+                <a class="no-underline" href="/">Alex Marshall</a><span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
             </div>
         {% endunless %}
         {{ content }}
