@@ -8,19 +8,5 @@ layout-palette: writing
   {{ content }}
 </div>
 <div class="content">
-  <ul class="collection-grid">
-    {% for post in collections.writing %}
-      <li>
-        <div class="title"><a href="{{ post.url }}">{{ post.data.title }}</a></div>
-        <div class="summary">{{ post.data.summary }}</div>
-        {% if post.data.tags %}
-        <ul class="tags">
-          {% for tag in post.data.tags %}
-          <li>{{ tag }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>  
+  {% render "partials/collection-grid.liquid", collection: collections.writing %}
 </div>

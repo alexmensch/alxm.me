@@ -34,7 +34,7 @@ $color-line-dark: rgb(28, 28, 30); // Gray6, lines and borders
 
 /* --- Layout Grid --- */
 // Dimensions
-$grid-gap: 0px;
+$grid-gap: 20px;
 
 // Colors
 // DEFAULT
@@ -47,6 +47,7 @@ $color-upper-writing: oklch(95.1% 0.1773 105.22);
 $color-lower-writing: oklch(88.53% 0.107 339.88);
 $color-upper-writing-dark: oklch(from $color-upper-writing calc(l - 0.45) calc(c - 0.05) calc(h + 90deg));
 $color-lower-writing-dark: oklch(from $color-lower-writing calc(l - 0.45) calc(c - 0.05) calc(h - 90deg));
+
 // FULLPage
 $color-upper-fullpage: oklch(98% 0 0);
 $color-lower-fullpage: oklch(100% 0 0);

@@ -7,11 +7,10 @@ body {
   &.writing  { background-color: var(--color-upper-writing); }
   &.fullpage { background-color: var(--color-upper-fullpage); }
 }
-  
+
 .container-grid {
   height: 100vh;
   display: grid;
-  gap: $grid-gap;
   grid-template-columns:
     [header-start upper-start lower-start home-name-start] 1fr
     [home-name-end nav-start title-start intro-start content-start footer-start] minmax(min-content, 960px)
@@ -54,7 +53,6 @@ body {
   >.lower {
     grid-area: lower;
     background-color: var(--color-grid-lower);
-    margin-top: -$grid-gap;
 
     &.writing  { background-color: var(--color-lower-writing); }
     &.fullpage { background-color: var(--color-lower-fullpage); }
@@ -112,16 +110,14 @@ body {
 
     columns: 3 auto;
     column-fill: balance;
-    //font-size: 1rem;
-    margin: 0 0.5rem 2rem 1rem;
 
     :first-child { margin-top: 0; }
 
     p:first-child::first-letter {
       padding: 0 0.4rem 0 0;
 
-      font-size: 3rem;
-      font-weight: 150;
+      font-size: 3.1rem;
+      font-weight: 250;
       float: left;
       line-height: 1;
     }
@@ -156,3 +152,9 @@ body {
   }
 }
 
+.container-grid > .content > .collection-grid {
+  display: grid;
+  gap: $grid-gap;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: min-content;
+}

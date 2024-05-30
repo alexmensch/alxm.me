@@ -5,6 +5,9 @@ update_date: 2024-05-25
 permalink: "/writing/2024/05/23/working-as-a-consultant-in-the-uk-as-a-us-citizen/"
 tags:
   - personal
+summary: |
+  I share my personal experience on navigating international tax rules as a US citizen
+  abroad in order to help others navigating the rules in a similar situation.
 ---
 
 [[toc]]

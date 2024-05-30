@@ -7,9 +7,5 @@ navIndex: 1
   {{ content }}
 </div>
 <div class="content">
-  <ul>
-    {% for project in collections.projects %}
-      <li><a href="{{ project.url }}">{{ project.data.title }}</a></li>
-    {% endfor %}
-  </ul>
+  {% render "partials/collection-grid.liquid", collection: collections.projects %}
 </div>
