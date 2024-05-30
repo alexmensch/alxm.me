@@ -5,6 +5,7 @@
   font-family: $font-stack;
   font-feature-settings: $font-features;
   font-size: $font-size-root;
+  font-weight: $font-weight-root;
 
   color-scheme: light dark;
 
@@ -36,7 +37,6 @@
 
 body {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
-  font-weight: 300;
   color: var(--color-text);
   line-height: $line-height-base;
   margin: 0;
@@ -46,6 +46,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
   line-height: $line-height-heading;
+  font-weight: 300;
+  
   margin: 1em 0 0.5em;
 
   @media (max-width: $breakpoint-md) {
@@ -94,6 +96,10 @@ a {
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+strong {
+  font-weight: 400;
 }
 
 ul, ol {
