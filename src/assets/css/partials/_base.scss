@@ -19,8 +19,15 @@
   --color-line: #{light-dark($color-line, $color-line-dark)};
   --color-bg-fill: #{light-dark($color-bg-fill, $color-bg-fill-dark)};
 
+  // DEFAULT
   --color-grid-upper: #{light-dark($color-grid-upper, $color-grid-upper-dark)};
   --color-grid-lower: #{light-dark($color-grid-lower, $color-grid-lower-dark)};
+  // WRITING
+  --color-upper-writing: #{light-dark($color-upper-writing, $color-upper-writing-dark)};
+  --color-lower-writing: #{light-dark($color-lower-writing, $color-lower-writing-dark)};
+  // FULLPAGE
+  --color-upper-fullpage: #{light-dark($color-upper-fullpage, $color-upper-fullpage-dark)};
+  --color-lower-fullpage: #{light-dark($color-lower-fullpage, $color-lower-fullpage-dark)};
 }
 
 @supports (font-variation-settings: normal) {
@@ -79,8 +86,6 @@ a {
 
   &:hover, &:focus {
     text-decoration: underline;
-    background-color: var(--color-anchor-bg);
-    color: var(--color-anchor-text);
   }
 }
 

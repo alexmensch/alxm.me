@@ -4,21 +4,25 @@ body {
   width: 100%;
   background-color: var(--color-grid-upper);
 
-  &.writing { background-color: yellow; }
+  &.writing  { background-color: var(--color-upper-writing); }
+  &.fullpage { background-color: var(--color-upper-fullpage); }
 
   .container-grid {
     height: 100vh;
     display: grid;
     gap: $grid-gap;
     grid-template-columns:
-      [upper-start lower-start nav-start] 1fr
-      [nav-end intro-start content-start footer-start] minmax(min-content, 960px) [intro-end content-end footer-end]
-      1fr [upper-end lower-end];
+      [header-start upper-start lower-start home-name-start] 1fr
+      [home-name-end nav-start intro-start content-start footer-start] minmax(min-content, 960px)
+      [nav-end intro-end content-end footer-end] 1fr
+      [header-end upper-end lower-end];
     grid-template-rows:
-      [upper-start] 10%
-      [nav-start intro-start] min-content
-      [nav-end intro-end upper-end lower-start content-start] auto
-      [content-end footer-start] min-content [footer-end lower-end];
+      [upper-start header-start nav-start home-name-start] min-content
+      [header-end nav-end home-name-end title-start] min-content
+      [title-end intro-start] min-content
+      [intro-end upper-end lower-start content-start] auto
+      [content-end footer-start] min-content
+      [footer-end lower-end];
 
     /*
     @media (min-width: $breakpoint-sm) {
@@ -42,7 +46,8 @@ body {
       grid-area: upper;
       background-color: var(--color-grid-upper);
 
-      &.writing { background-color: yellow; }
+      &.writing  { background-color: var(--color-upper-writing); }
+      &.fullpage { background-color: var(--color-upper-fullpage); }
     }
 
     .lower {
@@ -50,29 +55,56 @@ body {
       background-color: var(--color-grid-lower);
       margin-top: -$grid-gap;
 
-      &.writing { background-color: pink; }
+      &.writing  { background-color: var(--color-lower-writing); }
+      &.fullpage { background-color: var(--color-lower-fullpage); }
     }
 
-    .navigation {
-      grid-area: nav;
+    .header {
+      grid-area: header;
+      border-bottom: 0.5px solid var(--color-text);
+    }
 
-      text-align: right;
-      white-space: nowrap;
-      padding: 0rem 0;
+    .home-name { grid-area: home-name; }
 
-      ul {
-        list-style: none;
-        margin-top: -0.2em;
+    .navigation { grid-area: nav; }
 
-        display: flex;
-        flex-direction: column;
-        align-items: margin-right;
+    .home-name, .navigation, .header.fullpage {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: flex-end;
 
-        li {
-          margin: 0;
+      a, span {
+        padding: 0rem 0.5rem;
+        padding-bottom: 0.5rem;
 
-          &:first-child { font-size: larger; }
-        }
+        color: var(--color-text);
+        font-weight: 150;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+    }
+
+    .home-name, .header.fullpage {
+       a, span {
+        padding-right: 0;
+        padding-left: 2rem;
+        
+        font-weight: 100;
+        font-size: 1.5rem;
+      } 
+
+      a:hover {
+          text-decoration: none;
+          cursor: pointer;
+      }
+    }
+
+    .header.fullpage {
+      justify-content: flex-start;
+      
+      a:hover {
+        text-decoration: revert;
       }
     }
 

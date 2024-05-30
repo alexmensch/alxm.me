@@ -9,25 +9,30 @@
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
-<body class="{{ title | downcase }}">
+<body class="{{ layout-palette | downcase }}">
     <div class="container-grid">
         <!-- Upper & lower divs must appear first in container-grid to ensure correct layering -->
-        <div class="upper {{ title | downcase }}"></div>
-        <div class="lower {{ title | downcase }}"></div>
+        <div class="upper {{ layout-palette | downcase }}"></div>
+        <div class="lower {{ layout-palette | downcase }}"></div>
         <!-- ^^^ -->
-        <div class="navigation">
-            <ul>
-                {% assign rotatedNavigation = navigation.items | rotateCollection: navIndex %}
-                {% for item in rotatedNavigation %}
-                    {% unless item.hidden %}
-                      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                    {% endunless %}
-                    {% if collapseNav %}
-                        {% break %}
-                    {% endif %}
-                {% endfor %}
-            </ul>
+        {% unless fullPage %}
+        <div class="header"></div>
+        <div class="home-name">
+            <a href="/">Alex Marshall</a>
         </div>
+            <div class="navigation">
+                {% for item in navigation.items %}
+                    {% unless item.hidden %}
+                      <a href="{{ item.url }}">{{ item.title }}</a>
+                    {% endunless %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="header fullpage">
+                {% assign item = navigation.items[navIndex] %}
+                <span>Alex Marshall</span><span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
+            </div>
+        {% endunless %}
         {{ content }}
         <div class="footer">
             <span>Copyright &copy; {{ currentYear }} Alex Marshall <<a href="mailto:">hello [at] alxm.me</a>></span>
