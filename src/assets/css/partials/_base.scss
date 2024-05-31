@@ -6,6 +6,9 @@
   font-feature-settings: $font-features;
   font-size: $font-size-root;
   font-weight: $font-weight-root;
+  
+  color: var(--color-text);
+  line-height: $line-height-base;
 
   color-scheme: light dark;
 
@@ -32,6 +35,9 @@
   // FULLPAGE
   --color-upper-fullpage: #{light-dark($color-upper-fullpage, $color-upper-fullpage-dark)};
   --color-lower-fullpage: #{light-dark($color-lower-fullpage, $color-lower-fullpage-dark)};
+  // PROJECTS
+  --color-upper-projects: #{light-dark($color-upper-projects, $color-upper-projects-dark)};
+  --color-lower-projects: #{light-dark($color-lower-projects, $color-lower-projects-dark)};  
 }
 
 @supports (font-variation-settings: normal) {
@@ -39,10 +45,6 @@
 }
 
 body {
-  //font-size: clamp(1rem, 2.5vw, 1.15rem);
-  color: var(--color-text);
-  line-height: $line-height-base;
-
   scroll-behavior: smooth;
 }
 

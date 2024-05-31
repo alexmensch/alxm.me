@@ -40,9 +40,7 @@
         </div>
     {% endunless %}
         {{ content }}
-        <div class="footer">
-            <span>Copyright &copy; {{ currentYear }} Alex Marshall <<a href="mailto:">hello [at] alxm.me</a>></span>
-        </div>
+        {% render "partials/footer.liquid", currentYear: currentYear %}
     </div>
 </body>
 </html>

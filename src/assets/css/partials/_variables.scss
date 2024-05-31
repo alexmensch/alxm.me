@@ -5,8 +5,8 @@
 
 /* LIGHT */
 // Colors: grid
-$color-grid-upper: green;
-$color-grid-lower: darkviolet;
+$color-grid-upper: oklch(93.03% 0.0489 225);
+$color-grid-lower: oklch(95.99% 0.107 105);
 
 // Colors: text
 $color-text:            rgb(28, 28, 30); // Gray6-dark,       Primary text color
@@ -29,12 +29,12 @@ $color-line:            rgb(242, 242, 247); // Gray6,         Lines and borders
 
 /* DARK */
 // Colors: grid
-$color-grid-upper-dark: darkgreen;
-$color-grid-lower-dark: palevioletred;
+$color-grid-upper-dark: oklch(47.65% 0.163 135);
+$color-grid-lower-dark: oklch(43.53% 0.096 190);
 
 // Colors: text
 $color-text-dark:       rgb(245, 245, 247); // Gray6-dark,    Primary text color
-$color-muted-dark:      rgb(72, 72, 74); // Gray3,            De-emphasized text
+$color-muted-dark:      rgb(179, 179, 184); // Gray3,         De-emphasized text
 $color-heading-dark:    rgb(215, 215, 217); // Gray4-dark,    Heading text color
 $color-background-dark: rgb(22, 22, 23); //                   Background color
 
@@ -56,16 +56,24 @@ $grid-gap: 20px;
 
 /****** MODIFIED COLOR PALETTES ******/
 // writing
-$color-upper-writing: oklch(95.1% 0.1773 105.22);
-$color-lower-writing: oklch(88.53% 0.107 339.88);
-$color-upper-writing-dark: oklch(from $color-upper-writing calc(l - 0.45) calc(c - 0.05) calc(h + 90deg));
-$color-lower-writing-dark: oklch(from $color-lower-writing calc(l - 0.45) calc(c - 0.05) calc(h - 90deg));
+//$color-upper-writing: oklch(95.1% 0.1773 105.22);
+//$color-lower-writing: oklch(88.53% 0.107 339.88);
+$color-upper-writing:       oklch(93.03% 0.0379 285);
+$color-lower-writing:       oklch(93.62% 0.11 165);
+$color-upper-writing-dark:  oklch(50.1% 0.1147 195);
+$color-lower-writing-dark:  oklch(43.5% 0.057 250);
 
 // fullpage
-$color-upper-fullpage: oklch(98% 0 0);
-$color-lower-fullpage: oklch(100% 0 0);
+$color-upper-fullpage:      oklch(98% 0 0);
+$color-lower-fullpage:      oklch(100% 0 0);
 $color-upper-fullpage-dark: oklch(10% 0 0);
 $color-lower-fullpage-dark: oklch(18% 0 0);
+
+// projects
+$color-upper-projects:      oklch(71.47% 0.2311 37.92);
+$color-lower-projects:      $color-lower-fullpage;
+$color-upper-projects-dark: $color-upper-fullpage-dark;
+$color-lower-projects-dark: $color-lower-fullpage-dark;
 
 /* --- Typography --- */
 

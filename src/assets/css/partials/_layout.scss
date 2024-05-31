@@ -6,6 +6,7 @@ body {
 
   &.writing  { background-color: var(--color-upper-writing); }
   &.fullpage { background-color: var(--color-upper-fullpage); }
+  &.projects { background-color: var(--color-upper-projects); }
 }
 
 .container-grid {
@@ -20,6 +21,7 @@ body {
 
     &.writing  { background-color: var(--color-lower-writing); }
     &.fullpage { background-color: var(--color-lower-fullpage); }
+    &.projects { background-color: var(--color-lower-projects); }
   }
 }
 
@@ -131,15 +133,19 @@ body {
     column-gap: $grid-gap;
     column-fill: balance;
 
-    :first-child { margin-top: 0; }
+    >p:first-child { margin-top: 0; }
 
-    p:first-child::first-letter {
+    >p:first-child::first-letter {
       padding: 0 0.4rem 0 0;
 
       font-size: 3.1rem;
       font-weight: 250;
       float: left;
       line-height: 1;
+    }
+
+    >p {
+      break-inside: avoid;
     }
   }
 
@@ -150,7 +156,7 @@ body {
 
     display: flex;
     flex-flow: column nowrap;
-    //align-items: flex-start;
+    //align-items: center;
   }
 
   >.footer {
@@ -165,7 +171,7 @@ body {
 
 .container-grid > .content > article {
   max-width: 708px;
-  margin: 0;
+  margin: auto;
   padding: 2rem;
 
   @media (max-width: $breakpoint-md) {
