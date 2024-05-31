@@ -15,27 +15,30 @@
         <div class="upper {{ layout-palette | downcase }}"></div>
         <div class="lower {{ layout-palette | downcase }}"></div>
         <!-- ^^^ -->
-        {% unless fullPage %}
-            <div class="header"></div>
-            <div class="home-name">
-                <a class="no-underline" href="/">Alex Marshall</a>
-            </div>
+    {% if fullPage %}
+        <div class="header fullpage">
+    {% else %}
+        <div class="header">
+    {% endif %}
+            {% render "partials/home-name.liquid" %}
             <div class="navigation">
+        {% if fullPage %}
+                {% assign item = navigation.items[navIndex] %}
+                <span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
+        {% else %}
                 {% for item in navigation.items %}
                     {% unless item.hidden %}
                       <a href="{{ item.url }}">{{ item.title }}</a>
                     {% endunless %}
                 {% endfor %}
+        {% endif %}
             </div>
-            <div class="title">
-                {{ title }}
-            </div>
-        {% else %}
-            <div class="header fullpage">
-                {% assign item = navigation.items[navIndex] %}
-                <a class="no-underline" href="/">Alex Marshall</a><span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
-            </div>
-        {% endunless %}
+        </div>
+    {% unless fullPage %}
+        <div class="title">
+            {{ title }}
+        </div>
+    {% endunless %}
         {{ content }}
         <div class="footer">
             <span>Copyright &copy; {{ currentYear }} Alex Marshall <<a href="mailto:">hello [at] alxm.me</a>></span>

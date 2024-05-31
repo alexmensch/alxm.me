@@ -39,8 +39,10 @@ body {
   //font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: var(--color-text);
   line-height: $line-height-base;
-  margin: 0;
-  padding: 0 20px;
+
+  scroll-behavior: smooth;
+
+  a { color: inherit; }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +86,6 @@ p {
 }
 
 a {
-  color: var(--color-primary);
   text-decoration: none;
 
   &:hover, &:focus {

@@ -5,6 +5,7 @@ update_date: 2024-05-25
 permalink: "/writing/2024/05/23/working-as-a-consultant-in-the-uk-as-a-us-citizen/"
 tags:
   - personal
+  - financial
 summary: |
   I share my personal experience on navigating international tax rules as a US citizen
   abroad in order to help others navigating the rules in a similar situation.
@@ -12,7 +13,7 @@ summary: |
 
 [[toc]]
 
-_**Disclaimer**: I am not a tax expert or accountant, so make sure you get professional advice to confirm that any decisions you make are right for you and your situation. The rules are complex and change regularly, so if you see any errors in what I have written, please feel free to contact me at hello [at] alxm.me._
+_**Disclaimer:** I am not a tax expert or accountant, so make sure you get professional advice to confirm that any decisions you make are right for you and your situation. The rules are complex and change regularly, so if you see any errors in what I have written, please feel free to contact me at hello [at] alxm.me._
 
 # Context
 
@@ -92,11 +93,11 @@ With all of that covered, here's a summary of your annual filings for both the U
 
 ## Professional help
 
-**Accounting**
+#### Accounting
 
 I would definitely recommend working with an accounting firm in the UK for your limited company. You can do a lot of it yourself, but it's not too expensive to retain a firm to get help where you need it, especially during the first year when everything will be new. You will be able to do more yourself in future years if you'd like to, but it will be heplful to have someone that you can get advice from when you need it.
 
-**Taxes**
+#### Taxes
 
 You can try to find a firm that does both UK and US taxation, but I've found that to be ridiculously expensive. I've been quoted no less than £4,000 and in one case a minimum of £5,500 to file combined US and UK taxes each year, which I personally find borderline criminal unless you are either quite wealthy or have a very complex tax situation that justifies the cost.
 
