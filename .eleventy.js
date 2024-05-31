@@ -15,22 +15,6 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/writing/*.md");
   });
 
-  // Add a custom filter to rotate a collection based on an index
-  eleventyConfig.addFilter("rotateCollection", function(collection, startIndex) {
-    if (!Array.isArray(collection)) {
-      throw new Error("Expected an array as the first argument to 'rotateCollection' filter");
-    }
-    
-    // Validate and adjust startIndex
-    startIndex = parseInt(startIndex, 10);
-    if (isNaN(startIndex) || startIndex < 0 || startIndex >= collection.length) {
-      throw new Error("Invalid start index for 'rotateCollection' filter");
-    }
-    
-    // Rotate the collection
-    return collection.slice(startIndex).concat(collection.slice(0, startIndex));
-  });
-
   // Custom collection to aggregate all writing tags
   eleventyConfig.addCollection('writing-tags', function(collectionApi) {
     let tagSet = new Set();
@@ -45,7 +29,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Configure Markdown-It with the TOC plugin
-  let markdownLib = md({
+  let markdownLibToc = md({
     typographer: true
   })
   .use(mdAnchor, {
@@ -57,7 +41,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Set the Markdown library to use
-  eleventyConfig.setLibrary('md', markdownLib);
+  eleventyConfig.setLibrary('md', markdownLibToc);
 
   return {
     // Set directories to watch

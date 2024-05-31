@@ -12,7 +12,10 @@
   --color-text: #{light-dark($color-text, $color-text-dark)};
   --color-heading: #{light-dark($color-heading, $color-heading-dark)};
   --color-background: #{light-dark($color-background, $color-background-dark)};
-  
+
+  --color-anchor: #{light-dark($color-anchor, $color-anchor-dark)};
+  --color-anchor-hover: #{light-dark($color-anchor-hover, $color-anchor-hover-dark)};
+
   --color-primary: #{light-dark($color-primary, $color-primary-dark)};
   --color-secondary: #{light-dark($color-secondary, $color-secondary-dark)};
   --color-muted: #{light-dark($color-muted, $color-muted-dark)};
@@ -41,14 +44,12 @@ body {
   line-height: $line-height-base;
 
   scroll-behavior: smooth;
-
-  a { color: inherit; }
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
   line-height: $line-height-heading;
-  font-weight: 300;
+  font-weight: $font-weight-heading;
   
   margin: 1em 0 0.5em;
 
@@ -86,9 +87,13 @@ p {
 }
 
 a {
+  color: var(--color-anchor);
   text-decoration: none;
+  font-weight: $font-weight-anchor;
 
   &:hover, &:focus {
+    color: var(--color-anchor-hover);
+
     text-decoration: underline;
     text-underline-position: under;
   }
@@ -100,7 +105,7 @@ a {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: $font-weight-strong;
 }
 
 ul, ol {
@@ -116,7 +121,6 @@ blockquote {
   border-left: 4px solid var(--color-line);
   margin: 1em 0;
   padding-left: 1em;
-  color: var(--color-muted);
 }
 
 code {

@@ -119,6 +119,7 @@ body {
 
     font-size: 8.5rem;
     font-weight: 150;
+    margin-left: -0.5rem;
   }
 
   >.introduction {
@@ -149,7 +150,7 @@ body {
 
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    //align-items: flex-start;
   }
 
   >.footer {
@@ -211,8 +212,6 @@ body {
       gap: 0.5rem;
 
       .tags.item {
-        // @use 'sass:math';
-        // math.random(10);
         background-color: lightgreen;
         padding: 0 5px;
         border-radius: 4px;
