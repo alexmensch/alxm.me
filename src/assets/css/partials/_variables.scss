@@ -49,38 +49,38 @@ $colors: (
 
   // Default grid
   grid-upper: (
-    light: oklch(93.03% 0.0489 225),
-    dark:  oklch(47.65% 0.163 135)
+    light: oklch(87.65% 0.0664 251.57),
+    dark: oklch(41.69% 0.23 272.94)
   ),
   grid-lower: (
-    light: oklch(95.99% 0.107 105),
-    dark:  oklch(43.53% 0.096 190)
+    light: oklch(95.99% 0.1466 105),
+    dark: oklch(28% 0 0)
   ),
 
   // Section color palettes 
   upper-writing: (
     light: oklch(93.03% 0.0379 285),
-    dark:  oklch(50.1% 0.1147 195)
+    dark:  oklch(47.63% 0.1081 195.8)
   ),
   lower-writing: (
-    light: oklch(93.62% 0.11 165),
-    dark:  oklch(43.5% 0.057 250)
+    light: oklch(93.62% 0.107 167.18),
+    dark: oklch(43.47% 0.1257 238.75)
   ),
   upper-fullpage: (
-    light: oklch(98% 0 0),
+    light: oklch(98.72% 0.024 167.18),
     dark:  oklch(10% 0 0)
   ),
   lower-fullpage: (
-    light: oklch(100% 0 0),
+    light: oklch(96.88% 0.0489 167.18),
     dark:  oklch(18% 0 0)
   ),
   upper-projects: (
-    light: oklch(71.47% 0.2311 37.92),
+    light: oklch(72.26% 0.2345 44.33),
     dark:  oklch(10% 0 0)
   ),
   lower-projects: (
     light: oklch(100% 0 0),
-    dark:  oklch(18% 0 0)
+    dark:  oklch(29.53% 0.1114 251.57)
   )
 );
 
@@ -97,7 +97,9 @@ $font-stack: 'Inter', sans-serif;
 $font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
 $font-size-root: 16px;
 
-$font-weight-root:                                   250;
+$font-size-section-title: 8.5rem;
+
+$font-weight-root:                                   300;
 $font-weight-section-title: calc($font-weight-root - 100);
 $font-weight-heading:       calc($font-weight-root + 100);;
 $font-weight-anchor:        calc($font-weight-root + 200);

@@ -7,8 +7,9 @@ tags:
   - personal
   - financial
 summary: |
-  I share my personal experience on navigating international tax rules as a US citizen
-  abroad in order to help others navigating the rules in a similar situation.
+  I share my personal experience setting up a consultancy business in the UK, with
+  emphasis on navigating competing tax regulations. I hope this will help others
+  in a similar situation.
 ---
 
 [[toc]]

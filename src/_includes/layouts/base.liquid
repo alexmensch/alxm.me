@@ -35,9 +35,17 @@
             </div>
         </div>
     {% unless fullPage %}
-        <div class="title">
-            {{ title }}
-        </div>
+            <div class="title">
+                {% if titleRotation %}
+                    <ul class="titleRotation">
+                    {% for greeting in titleRotation %}
+                        <li>{{ greeting }}</li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    {{ title }}
+                {% endif %}
+            </div>
     {% endunless %}
         {{ content }}
         {% render "partials/footer.liquid", currentYear: currentYear %}

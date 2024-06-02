@@ -15,6 +15,20 @@ body {
       }
     }
   }
+
+  // TODO: Add color inversion option into $section-palettes
+  &.projects {
+    .container-grid {
+      >.header {
+        a { color: white; }
+        border-color: white;
+      }
+      >.title, >.introduction {
+        color: white;
+        a { color: white; }
+      }
+    }
+  }
 }
 
 .container-grid {
@@ -117,32 +131,33 @@ body {
   >.title {
     grid-area: title;
 
-    font-size: 8.5rem;
+    font-size: $font-size-section-title;
     font-weight: $font-weight-section-title;
     margin-left: -0.1em;
+    letter-spacing: -0.02em;
   }
 
   >.introduction {
     grid-area: intro;
 
-    padding-bottom: $grid-gap;
+    padding-bottom: calc($grid-gap * 2);
 
     columns: 3 auto;
     column-gap: $grid-gap;
     column-fill: balance;
+    orphans: 3;
+    widows: 3;
 
-    >p:first-child { margin-top: 0; }
+    >p:first-child {
+      margin-top: 0;
 
-    >p:first-child::first-letter {
-      padding: 0 0.15em 0 0;
+      &::first-letter {
+        padding: 0 0.15em 0 0;
 
-      font-size: 3.1rem;
-      float: left;
-      line-height: 1;
-    }
-
-    >p {
-      break-inside: avoid;
+        font-size: 3.1rem;
+        float: left;
+        line-height: 1;
+      }
     }
   }
 
