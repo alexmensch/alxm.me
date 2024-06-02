@@ -4,29 +4,36 @@ body {
   width: 100%;
   background-color: var(--color-grid-upper);
 
-  &.writing  { background-color: var(--color-upper-writing); }
-  &.fullpage { background-color: var(--color-upper-fullpage); }
-  &.projects { background-color: var(--color-upper-projects); }
+  @each $theme in (
+    writing,
+    fullpage,
+    projects
+    ) {
+    &.#{$theme} {
+      background-color: var(--color-upper-#{$theme});
+
+      > .container-grid {
+        > .header, > .upper {
+          background-color: var(--color-upper-#{$theme});
+        }
+        > .lower {
+          background-color: var(--color-lower-#{$theme});
+        }
+      }
+    }
+  }
 }
 
 .container-grid {
-  >.upper {
-    grid-area: upper;
-    background-color: inherit;
-  }
-
-  >.lower {
-    grid-area: lower;
-    background-color: var(--color-grid-lower);
-
-    &.writing  { background-color: var(--color-lower-writing); }
-    &.fullpage { background-color: var(--color-lower-fullpage); }
-    &.projects { background-color: var(--color-lower-projects); }
+  @each $section in upper, lower {
+    >.#{$section} {
+      grid-area: #{$section};
+      background-color: var(--color-grid-#{$section});
+    }
   }
 }
 
 .container-grid {
-  background-color: inherit;
   overflow: scroll;
 
   height: 100vh;
@@ -70,7 +77,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: inherit;
 
     display: grid;
     grid-template-columns: subgrid;
@@ -82,7 +88,7 @@ body {
       align-items: flex-end;
 
       a, span {
-        padding: 0.5rem 0.5rem;
+        padding: 0.5em 0.5em;
 
         color: var(--color-text);
         font-size: 1rem;
@@ -111,7 +117,7 @@ body {
       
       a, span {
         padding-right: 0;
-        padding-left: 1rem;
+        padding-left: 1em;
       }   
     }
   }
@@ -120,8 +126,8 @@ body {
     grid-area: title;
 
     font-size: 8.5rem;
-    font-weight: 150;
-    margin-left: -0.5rem;
+    font-weight: $font-weight-section-title;
+    margin-left: -0.1em;
   }
 
   >.introduction {
@@ -136,10 +142,9 @@ body {
     >p:first-child { margin-top: 0; }
 
     >p:first-child::first-letter {
-      padding: 0 0.4rem 0 0;
+      padding: 0 0.15em 0 0;
 
       font-size: 3.1rem;
-      font-weight: 250;
       float: left;
       line-height: 1;
     }
@@ -163,7 +168,7 @@ body {
     grid-area: footer;
 
     text-align: center;
-    padding: 1rem 0;
+    padding: 1em 0;
     font-size: 0.8rem;
     color: var(--color-muted);
   }
@@ -215,7 +220,7 @@ body {
 
       display: flex;
       flex-flow: row wrap;
-      gap: 0.5rem;
+      gap: 0.5em;
 
       .tags.item {
         background-color: lightgreen;
