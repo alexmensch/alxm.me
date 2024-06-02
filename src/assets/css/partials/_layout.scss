@@ -1,22 +1,15 @@
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
   background-color: var(--color-grid-upper);
 
-  @each $theme in (
-    writing,
-    fullpage,
-    projects
-    ) {
+  @each $theme in $section-palettes {
     &.#{$theme} {
       background-color: var(--color-upper-#{$theme});
 
-      > .container-grid {
-        > .header, > .upper {
+      >.container-grid {
+        >.header, >.upper {
           background-color: var(--color-upper-#{$theme});
         }
-        > .lower {
+        >.lower {
           background-color: var(--color-lower-#{$theme});
         }
       }
@@ -91,7 +84,6 @@ body {
         padding: 0.5em 0.5em;
 
         color: var(--color-text);
-        font-size: 1rem;
         white-space: nowrap;
       }
     }

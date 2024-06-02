@@ -1,79 +1,95 @@
 /* --- Colors --- */
-// Reference: https://developer.apple.com/design/human-interface-guidelines/color#Specifications
+// Define the light and dark color maps
+// Text colors
+$colors: (
+  text: (
+    light: rgb(28, 28, 30),
+    dark:  rgb(245, 245, 247)
+  ),
+  muted: (
+    light: rgb(199, 199, 204),
+    dark:  rgb(179, 179, 184)
+  ),
+  heading: (
+    light: rgb(58, 58, 60),
+    dark:  rgb(215, 215, 217)
+  ),
+  background: (
+    light: rgb(255, 255, 255),
+    dark:  rgb(22, 22, 23)
+  ),
+  anchor: (
+    light: rgb(28, 28, 30),
+    dark:  rgb(245, 245, 247)
+  ),
+  anchor-hover: (
+    light: rgb(28, 28, 30),
+    dark:  rgb(245, 245, 247)
+  ),
 
-/****** DEFAULT COLOR PALETTE *******/
+  // ???
+  primary: (
+    light: rgb(0, 122, 255),
+    dark:  rgb(10, 132, 255)
+  ),
+  secondary: (
+    light: rgb(142, 142, 147),
+    dark:  rgb(142, 142, 147)
+  ),
 
-/* LIGHT */
-// Colors: grid
-$color-grid-upper: oklch(93.03% 0.0489 225);
-$color-grid-lower: oklch(95.99% 0.107 105);
+  // Specific elements
+  bg-fill: (
+    light: rgb(229, 229, 234),
+    dark:  rgb(44, 44, 46)
+  ),
+  line: (
+    light: rgb(242, 242, 247),
+    dark:  rgb(28, 28, 30)
+  ),
 
-// Colors: text
-$color-text:            rgb(28, 28, 30); // Gray6-dark,       Primary text color
-$color-muted:           rgb(199, 199, 204); // Gray3,         De-emphasized text
-$color-heading:         rgb(58, 58, 60); // Gray4-dark,       Heading text color
-$color-background:      rgb(255, 255, 255); //                Background color
+  // Default grid
+  grid-upper: (
+    light: oklch(93.03% 0.0489 225),
+    dark:  oklch(47.65% 0.163 135)
+  ),
+  grid-lower: (
+    light: oklch(95.99% 0.107 105),
+    dark:  oklch(43.53% 0.096 190)
+  ),
 
-// Colors: links
-$color-anchor:          $color-text; //                       Anchor text
-$color-anchor-hover:    $color-text; //                       Anchor hover color
-
-// Colors: ???
-$color-primary:         rgb(0, 122, 255); // Blue
-$color-secondary:       rgb(142,142,147); // Gray
-
-// Colors: specific elements
-$color-bg-fill:         rgb(229, 229, 234); // Gray5,         Light fill
-$color-line:            rgb(242, 242, 247); // Gray6,         Lines and borders
-
-
-/* DARK */
-// Colors: grid
-$color-grid-upper-dark: oklch(47.65% 0.163 135);
-$color-grid-lower-dark: oklch(43.53% 0.096 190);
-
-// Colors: text
-$color-text-dark:       rgb(245, 245, 247); // Gray6-dark,    Primary text color
-$color-muted-dark:      rgb(179, 179, 184); // Gray3,         De-emphasized text
-$color-heading-dark:    rgb(215, 215, 217); // Gray4-dark,    Heading text color
-$color-background-dark: rgb(22, 22, 23); //                   Background color
-
-// Colors: links
-$color-anchor-dark:          $color-text-dark; //             Anchor text
-$color-anchor-hover-dark:    $color-text-dark; //       Anchor hover color
-
-// Colors: ???
-$color-primary-dark:    rgb(10, 132, 255); // Blue
-$color-secondary-dark:  rgb(142,142,147); // Gray
-
-// Colors: specific elements
-$color-bg-fill-dark:    rgb(44, 44, 46); // Gray5,            Light fill
-$color-line-dark:       rgb(28, 28, 30); // Gray6,            Lines and borders
+  // Section color palettes 
+  upper-writing: (
+    light: oklch(93.03% 0.0379 285),
+    dark:  oklch(50.1% 0.1147 195)
+  ),
+  lower-writing: (
+    light: oklch(93.62% 0.11 165),
+    dark:  oklch(43.5% 0.057 250)
+  ),
+  upper-fullpage: (
+    light: oklch(98% 0 0),
+    dark:  oklch(10% 0 0)
+  ),
+  lower-fullpage: (
+    light: oklch(100% 0 0),
+    dark:  oklch(18% 0 0)
+  ),
+  upper-projects: (
+    light: oklch(71.47% 0.2311 37.92),
+    dark:  oklch(10% 0 0)
+  ),
+  lower-projects: (
+    light: oklch(100% 0 0),
+    dark:  oklch(18% 0 0)
+  )
+);
 
 /* --- Layout Grid --- */
 // Dimensions
 $grid-gap: 20px;
 
-/****** MODIFIED COLOR PALETTES ******/
-// writing
-//$color-upper-writing: oklch(95.1% 0.1773 105.22);
-//$color-lower-writing: oklch(88.53% 0.107 339.88);
-$color-upper-writing:       oklch(93.03% 0.0379 285);
-$color-lower-writing:       oklch(93.62% 0.11 165);
-$color-upper-writing-dark:  oklch(50.1% 0.1147 195);
-$color-lower-writing-dark:  oklch(43.5% 0.057 250);
-
-// fullpage
-$color-upper-fullpage:      oklch(98% 0 0);
-$color-lower-fullpage:      oklch(100% 0 0);
-$color-upper-fullpage-dark: oklch(10% 0 0);
-$color-lower-fullpage-dark: oklch(18% 0 0);
-
-// projects
-$color-upper-projects:      oklch(71.47% 0.2311 37.92);
-$color-lower-projects:      $color-lower-fullpage;
-$color-upper-projects-dark: $color-upper-fullpage-dark;
-$color-lower-projects-dark: $color-lower-fullpage-dark;
+// Palette names
+$section-palettes: (writing, fullpage, projects);
 
 /* --- Typography --- */
 
@@ -81,14 +97,14 @@ $font-stack: 'Inter', sans-serif;
 $font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
 $font-size-root: 16px;
 
-$font-weight-root: 250;
+$font-weight-root:                                   250;
 $font-weight-section-title: calc($font-weight-root - 100);
 $font-weight-heading:       calc($font-weight-root + 100);;
 $font-weight-anchor:        calc($font-weight-root + 200);
 $font-weight-strong:        calc($font-weight-root + 300);
 
 
-$line-height-base: 1.6;
+$line-height-base:    1.6;
 $line-height-heading: 1.25;
 
 /* --- Responsive design -- */

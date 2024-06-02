@@ -8,7 +8,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    // background-color: var(--color-primary);
   }
 
   // Larger buttons on larger screens

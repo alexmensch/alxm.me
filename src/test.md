@@ -14,9 +14,20 @@ permalink: "/test/{{ layout-palette }}/index.html"
 ##### Heading 5
 ###### Heading 6
 
-This is a line of text that will be inserted between paragraph HTML tags.
-
+# Heading 1
 A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+## Heading 2
+A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+### Heading 3
+A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+#### Heading 4
+A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+##### Heading 5
+A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+###### Heading 6
+A paragraph of text with lots of words in it so that we see how multiple lines of text come together with line spacing and so on and so forth. Hopefully by just trying whatever is coming out of my head we'll have enough randomness in this paragraph that we'll get a realistic sense of how the typsetting feels in a full English paragraph.
+
+This is a line of text that will be inserted between paragraph HTML tags.
 
 [This entire sentence is a link.](https://www.google.com/) Only the word [monkey](https://www.yahoo.com/) is a link in this sentence.
 

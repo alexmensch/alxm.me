@@ -3,6 +3,11 @@ const mdAnchor = require('markdown-it-anchor');
 const mdTOC = require('markdown-it-table-of-contents');
 
 module.exports = function(eleventyConfig) {
+  // Ignore test page if NODE_ENV=production
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.ignores.add("src/test.md");
+  }
+
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
