@@ -1,7 +1,9 @@
 <div class="collection-grid">
   {% for post in collection %}
     <div class="collection-grid item">
-      <div class="title"><a href="{{ post.url }}">{{ post.data.title }}</a></div>
+      <div class="title">
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </div>
       <div class="summary">{{ post.data.summary }}</div>
       <!-- {% if post.data.tags %}
       <div class="tags">
@@ -10,6 +12,7 @@
         {% endfor %}
       </div>
       {% endif %} -->
+      <div class="date">{{ post.date | date: "%e %b %Y" }}</div>
     </div>
   {% endfor %}
 </div>

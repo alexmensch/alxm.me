@@ -130,3 +130,67 @@ ul.titleRotation {
     0%, 15%  { opacity: 1; }    /* 8.33% (betwen 0 and 16.67%), set opacity 1 */
   }
 }
+
+article {
+  max-width: 708px;
+  margin: auto;
+  padding: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0.5rem;
+  }
+
+  .date-byline {
+    font-style: italic;
+    color: var(--color-muted);
+  }  
+}
+
+.collection-grid {
+  display: grid;
+  gap: $grid-gap;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(calc($font-size-root * 12), min-content);
+
+  .collection-grid.item {
+    display: flex;
+    gap: 0px;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    > * {
+      padding: 0.2rem 0;
+    }
+
+    > .title {
+      font-size: 1.1rem;
+      font-weight: $font-weight-strong;
+
+      a {
+        color: var(--color-text);
+      }
+    }
+    > .summary {
+
+    }
+
+    > .date {
+      align-self: flex-end;
+      font-weight: 100;
+    }
+
+    > .tags {
+      margin-top: auto;
+
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.5em;
+
+      .tags.item {
+        background-color: lightgreen;
+        padding: 0 5px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
