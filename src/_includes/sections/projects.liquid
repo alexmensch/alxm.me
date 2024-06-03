@@ -1,0 +1,12 @@
+---
+layout: layouts/base.liquid
+title: Projects
+navIndex: 1
+layout-palette: projects
+---
+<div class="introduction">
+  {{ content }}
+</div>
+<div class="content">
+  {% render "partials/collection-grid.liquid", collection: collections.projects %}
+</div>

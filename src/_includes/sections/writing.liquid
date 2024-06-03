@@ -1,0 +1,12 @@
+---
+layout: layouts/base.liquid
+title: Writing
+navIndex: 0
+layout-palette: writing
+---
+<div class="introduction">
+  {{ content }}
+</div>
+<div class="content">
+  {% render "partials/collection-grid.liquid", collection: collections.writing %}
+</div>

@@ -3,16 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="{{ eleventy.generator }}">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
-<body>
-    {% include "partials/header.liquid" %}
-    <div class="container">
+<body class="{{ layout-palette | downcase }}">
+    <div class="container-grid">
+        <!-- Upper & lower divs must appear first in container-grid to ensure correct layering -->
+        <div class="upper"></div>
+        <div class="lower"></div>
+        <!-- ^^^ -->
+    {% if fullPage %}
+        <div class="header fullpage">
+    {% else %}
+        <div class="header">
+    {% endif %}
+            {% render "partials/home-name.liquid" %}
+            <div class="navigation">
+        {% if fullPage %}
+                {% assign item = navigation.items[navIndex] %}
+                <span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
+        {% else %}
+                {% for item in navigation.items %}
+                    {% unless item.hidden %}
+                      <a href="{{ item.url }}">{{ item.title }}</a>
+                    {% endunless %}
+                {% endfor %}
+        {% endif %}
+            </div>
+        </div>
+    {% unless fullPage %}
+            <div class="title">
+                {% if titleRotation %}
+                    <ul class="titleRotation">
+                    {% for greeting in titleRotation %}
+                        <li>{{ greeting }}</li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    {{ title }}
+                {% endif %}
+            </div>
+    {% endunless %}
         {{ content }}
+        {% render "partials/footer.liquid", currentYear: currentYear %}
     </div>
-    {% include "partials/footer.liquid" %}
 </body>
 </html>

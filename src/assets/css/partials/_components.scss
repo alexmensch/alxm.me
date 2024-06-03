@@ -1,39 +1,14 @@
-nav {
-  margin-bottom: 2rem;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    li {
-      margin: 0.5rem 0;
-
-      @media (min-width: $breakpoint-md) {
-        margin-right: 1rem;
-      }
-    }
-  }
-}
-
 .button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: $color-primary;
-  color: $color-background;
+  background-color: var(--color-primary);
+  color: var(--color-background);
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    // background-color: var(--color-primary);
   }
 
   // Larger buttons on larger screens
@@ -48,37 +23,37 @@ nav {
   padding: 0.25em 0 0.25em;
   font-size: small;
   line-height: 0.85;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin: 0.75em 0 0.75em 0;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-underline-position: unset;
+        }
+      }
+    }
+
+    ul {
+      padding-left: 1em;
+      border-left: 2px solid var(--color-muted);
+      margin: 0.75em 0 0.75em 0.5em;
+
+      li {
+        margin: 0.5em 0 0.5em 0;
+      }
+    }
+  }
 }
 
-.toc ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.toc ul li {
-  margin: 0.75em 0 0.75em 0;
-}
-
-.toc ul li a {
-  text-decoration: none;
-  color: $color-primary;
-}
-
-.toc ul li a:hover {
-  text-decoration: underline;
-}
-
-.toc ul ul {
-  padding-left: 1em;
-  border-left: 2px solid $color-line;
-  margin: 0.75em 0 0.75em 0.5em;
-}
-
-.toc ul ul li {
-  margin: 0.5em 0 0.5em 0;
-}
-
-.header-anchor {
+a.header-anchor {
   color: var(--color-heading);
 
     &:hover {
@@ -97,7 +72,6 @@ h6 a[href^="#"]:before {
   font-size: 0.7em;
   line-height: 1;
   margin-left: -0.8em;
-  text-decoration: none;
   visibility: hidden;
   width: 0.8em;
 }
@@ -111,4 +85,112 @@ h6 a[href^="#"]:hover:before {
   visibility: visible;
 }
 
+ul.titleRotation {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  // Account for absolute positioning taking items out of the document flow
+  height: calc($font-size-section-title * $line-height-base);
+  position: relative; /* Relative positioning for containing absolute children */
 
+  li {
+    position: absolute; /* Absolute positioning for stacking items */
+    margin: 0;
+    width: 100%;
+    opacity: 0; /* Ensures that items do not overlap as each item starts invisible */
+    animation: fade 72s infinite;
+  }
+
+  li:nth-child(1) {
+    animation-delay: 0s; /* No delay for the first item, offset for the rest */
+  }
+
+  li:nth-child(2) {
+    animation-delay: 12s;
+  }
+
+  li:nth-child(3) {
+    animation-delay: 24s;
+  }
+
+  li:nth-child(4) {
+    animation-delay: 36s;
+  }
+
+  li:nth-child(5) {
+    animation-delay: 48s;
+  }
+
+  li:nth-child(6) {
+    animation-delay: 60s;
+  }
+
+  @keyframes fade {
+    0%, 16.67%  { opacity: 0; } /* At 0% and 16.67% (100%/6 items), opacity 0 */
+    0%, 15%  { opacity: 1; }    /* 8.33% (betwen 0 and 16.67%), set opacity 1 */
+  }
+}
+
+article {
+  max-width: 708px;
+  margin: auto;
+  padding: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0.5rem;
+  }
+
+  .date-byline {
+    font-style: italic;
+    color: var(--color-muted);
+  }  
+}
+
+.collection-grid {
+  display: grid;
+  gap: $grid-gap;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(calc($font-size-root * 12), min-content);
+
+  .collection-grid.item {
+    display: flex;
+    gap: 0px;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    > * {
+      padding: 0.2rem 0;
+    }
+
+    > .title {
+      font-size: 1.1rem;
+      font-weight: $font-weight-strong;
+
+      a {
+        color: var(--color-text);
+      }
+    }
+    > .summary {
+
+    }
+
+    > .date {
+      align-self: flex-end;
+      font-weight: 100;
+    }
+
+    > .tags {
+      margin-top: auto;
+
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.5em;
+
+      .tags.item {
+        background-color: lightgreen;
+        padding: 0 5px;
+        border-radius: 4px;
+      }
+    }
+  }
+}

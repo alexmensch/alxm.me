@@ -3,6 +3,11 @@ const mdAnchor = require('markdown-it-anchor');
 const mdTOC = require('markdown-it-table-of-contents');
 
 module.exports = function(eleventyConfig) {
+  // Ignore test page if NODE_ENV=production
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.ignores.add("src/test.md");
+  }
+
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
@@ -29,7 +34,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Configure Markdown-It with the TOC plugin
-  let markdownLib = md({
+  let markdownLibToc = md({
     typographer: true
   })
   .use(mdAnchor, {
@@ -40,8 +45,8 @@ module.exports = function(eleventyConfig) {
     containerClass: 'toc', // Class for the TOC container
   });
 
-  // Set the library to use
-  eleventyConfig.setLibrary('md', markdownLib);
+  // Set the Markdown library to use
+  eleventyConfig.setLibrary('md', markdownLibToc);
 
   return {
     // Set directories to watch

@@ -1,0 +1,18 @@
+---
+layout: layouts/base.liquid
+fullPage: true
+layout-palette: fullpage
+---
+<div class="content">
+  <article>
+    <h1>{{ title }}</h1>
+    <div class="date-byline">
+      {% if update_date %}
+        Last updated {{ update_date | date: "%e %B, %Y"}}, originally posted {{ date | date: "%e %B, %Y"}}
+      {% else %}
+        Posted {{ date | date: "%e %B, %Y"}}
+      {% endif %}
+    </div>
+    {{ content }}
+  </article>
+</div>

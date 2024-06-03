@@ -1,0 +1,27 @@
+---
+layout: layouts/base.liquid
+title: Test Page
+navIndex: 0
+---
+<div class="introduction">
+  <p>This is a bunch of text that I'm writing for the introduction. The idea is to have some content in place here that will roughly mimic what a real page would look like. Since paragraphs are rarely just a few words, it's important to include a realisitic number of sentences in each "paragraph" of "content" that I'm "creating". Just using some punctuation to see what happens...</p>
+  <p>Here's the start of the second paragraph. At this point I would like be expanding on the topic that I introduced in the first paragraph; that's usually how things go, anyway. Hopefully the reader is still, well, reading, at this point.</p>
+  <p>Just in case they're completely bored, I'll perhaps have a <a href="https://www.google.com/">link</a> or <a href="https://www.yahoo.com/">two</a> just to entice people with a little follow up. The idea is that they're so excited by this introductory section that they want to keep scrolling down the page to the rest of the content!</p>
+</div>
+<div class="content">
+  <div>
+    <div>
+      <p>Palettes:</p>
+      <ul>
+      {% for palette in palettes %}
+        {% unless palette == "" %}
+          <li><a href="/test/{{ palette }}">{{ palette }}</a></li>
+        {% else %}
+          <li><a href="/test/{{ palette }}">default</a></li>
+        {% endunless %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div>{{ content }}</div>
+</div>
