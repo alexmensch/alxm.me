@@ -86,46 +86,47 @@ h6 a[href^="#"]:hover:before {
 }
 
 ul.titleRotation {
-  list-style-type: none; /* Remove default list styling */
+  list-style-type: none;
   padding: 0;
   margin: 0;
+  // Account for absolute positioning taking items out of the document flow
   height: calc($font-size-section-title * $line-height-base);
   position: relative; /* Relative positioning for containing absolute children */
 
   li {
     position: absolute; /* Absolute positioning for stacking items */
     margin: 0;
-    width: 100%; /* Ensure the text block takes full width */
-    opacity: 0; /* Start with invisible text */
-    animation: fade 72s infinite; /* Define animation duration and loop */
+    width: 100%;
+    opacity: 0; /* Ensures that items do not overlap as each item starts invisible */
+    animation: fade 72s infinite;
   }
 
   li:nth-child(1) {
-    animation-delay: 0s; /* No delay for the first item */
+    animation-delay: 0s; /* No delay for the first item, offset for the rest */
   }
 
   li:nth-child(2) {
-    animation-delay: 12s; /* Delay for the second item */
+    animation-delay: 12s;
   }
 
   li:nth-child(3) {
-    animation-delay: 24s; /* Delay for the second item */
+    animation-delay: 24s;
   }
 
   li:nth-child(4) {
-    animation-delay: 36s; /* Delay for the second item */
+    animation-delay: 36s;
   }
 
   li:nth-child(5) {
-    animation-delay: 48s; /* Delay for the second item */
+    animation-delay: 48s;
   }
 
   li:nth-child(6) {
-    animation-delay: 60s; /* Delay for the second item */
+    animation-delay: 60s;
   }
 
   @keyframes fade {
     0%, 16.67%  { opacity: 0; } /* At 0% and 16.67% (100%/6 items), opacity 0 */
-    0%, 15%  { opacity: 1; } /* 8.33% (betwen 0 and 16.67%), set opacity 1 */
+    0%, 15%  { opacity: 1; }    /* 8.33% (betwen 0 and 16.67%), set opacity 1 */
   }
 }
