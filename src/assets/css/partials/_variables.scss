@@ -3,58 +3,54 @@
 // Text colors
 $colors: (
   text: (
-    light: rgb(28, 28, 30),
-    dark:  rgb(245, 245, 247)
+    light: oklch(20% 0 0),
+    dark:  oklch(98% 0 0)
   ),
   muted: (
-    light: rgb(199, 199, 204),
-    dark:  rgb(179, 179, 184)
+    light: oklch(70% 0 0),
+    dark:  oklch(70% 0 0)
   ),
   heading: (
-    light: rgb(58, 58, 60),
-    dark:  rgb(215, 215, 217)
+    light: oklch(35% 0 0),
+    dark:  oklch(88% 0 0)
   ),
   background: (
-    light: rgb(255, 255, 255),
-    dark:  rgb(22, 22, 23)
+    light: oklch(100% 0 0),
+    dark:  oklch(20% 0 0)
   ),
   anchor: (
-    light: rgb(28, 28, 30),
-    dark:  rgb(245, 245, 247)
+    light: oklch(23% 0 0),
+    dark:  oklch(97% 0 0)
   ),
   anchor-hover: (
-    light: rgb(28, 28, 30),
-    dark:  rgb(245, 245, 247)
+    light: oklch(23% 0 0),
+    dark:  oklch(97% 0 0)
   ),
 
-  // ???
+  // TODO: Change this to tertiary color based on grid palette
   primary: (
-    light: rgb(0, 122, 255),
-    dark:  rgb(10, 132, 255)
-  ),
-  secondary: (
-    light: rgb(142, 142, 147),
-    dark:  rgb(142, 142, 147)
+    light: oklch(60.28% 0.2333 257.42), // rgb(0, 122, 255)
+    dark:  oklch(62.43% 0.2212 255.49)  // rgb(10, 132, 255)
   ),
 
   // Specific elements
   bg-fill: (
-    light: rgb(229, 229, 234),
-    dark:  rgb(44, 44, 46)
+    light: oklch(92% 0 0),
+    dark:  oklch(29% 0 0)
   ),
   line: (
-    light: rgb(242, 242, 247),
-    dark:  rgb(28, 28, 30)
+    light: oklch(96% 0 0),
+    dark:  oklch(23% 0 0)
   ),
 
   // Default grid
   grid-upper: (
     light: oklch(87.65% 0.0664 251.57),
-    dark: oklch(41.69% 0.23 272.94)
+    dark:  oklch(41.69% 0.23 272.94)
   ),
   grid-lower: (
     light: oklch(95.99% 0.1466 105),
-    dark: oklch(28% 0 0)
+    dark:  oklch(28% 0 0)
   ),
 
   // Section color palettes 
@@ -64,7 +60,7 @@ $colors: (
   ),
   lower-writing: (
     light: oklch(93.62% 0.107 167.18),
-    dark: oklch(43.47% 0.1257 238.75)
+    dark:  oklch(43.47% 0.1257 238.75)
   ),
   upper-fullpage: (
     light: oklch(98.72% 0.024 167.18),
