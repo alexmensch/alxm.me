@@ -2,7 +2,7 @@
 title: "Happiness and the corporate You, Inc."
 date: 2010-04-24
 update_date: 
-permalink: "/writing/2024/05/23/workig-as-a-coltant-in-the-uk-as-a-us-citizen/"
+permalink: "/writing/happiness-and-the-corporate-you-inc-a1dbea66f1b4"
 tags:
   - personal
   - essay

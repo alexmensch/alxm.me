@@ -2,7 +2,7 @@
 title: "The Great Divide"
 date: 2010-05-13
 update_date: 
-permalink: "/writing/2024/05/23/workingas-a-coltant-in-the-uk-as-a-us-citizen/"
+permalink: "/writing/the-great-divide-273b9af410cb"
 tags:
   - travel
   - nature

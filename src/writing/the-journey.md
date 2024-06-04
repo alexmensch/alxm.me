@@ -2,7 +2,7 @@
 title: "The Journey"
 date: 2010-03-27
 update_date: 
-permalink: "/writing/2024/05/23/working-as-a-coltant-in-the-uk-as-a-us-citize/"
+permalink: "/writing/the-journey-e20f2e2a9afb"
 tags:
   - travel
 summary: |

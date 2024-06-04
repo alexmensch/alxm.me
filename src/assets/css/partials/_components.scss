@@ -150,7 +150,7 @@ article {
   display: grid;
   gap: $grid-gap;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: minmax(calc($font-size-root * 12), min-content);
+  grid-auto-rows: minmax(calc($font-size-root * 15), min-content);
 
   .collection-grid.item {
     display: flex;
@@ -175,6 +175,7 @@ article {
     }
 
     > .date {
+      margin-top: auto;
       align-self: flex-end;
       font-weight: 100;
     }

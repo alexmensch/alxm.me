@@ -2,7 +2,7 @@
 title: "Initial Travel Plans"
 date: 2010-03-06
 update_date: 
-permalink: "/writing/2024/05/23/working-as-a-coltnt-in-the-uk-as-a-us-citizen/"
+permalink: "/writing/initial-travel-plans-9ddc802c8fde"
 tags:
   - travel
 summary: |

@@ -2,7 +2,7 @@
 title: "The Land Down Under"
 date: 2010-06-28
 update_date: 
-permalink: "/writing/2024/05/23/working-as-a-coltant-in-the-uk-as-a-us-citzen/"
+permalink: "/writing/the-land-down-under-b7fd50784596"
 tags:
   - travel
 summary: |
