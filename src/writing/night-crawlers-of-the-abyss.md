@@ -2,7 +2,7 @@
 title: "Night Crawlers of the Abyss"
 date: 2011-01-10
 update_date: 
-permalink: "/writing/night-crawlers-of-the-abyss-db4fd4b52a17"
+permalink: "/writing/night-crawlers-of-the-abyss-db4fd4b52a17/"
 tags:
   - travel
 summary: |

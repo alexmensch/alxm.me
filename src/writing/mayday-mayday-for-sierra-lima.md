@@ -2,7 +2,7 @@
 title: "Mayday, Mayday for Sierra Lima!"
 date: 2010-12-02
 update_date: 
-permalink: "/writing/mayday-mayday-for-sierra-lima-6cf3ce8fc5d1"
+permalink: "/writing/mayday-mayday-for-sierra-lima-6cf3ce8fc5d1/"
 tags:
   - travel
   - aviation

@@ -2,7 +2,7 @@
 title: "Welcome to the Real World"
 date: 2010-02-18
 update_date: 
-permalink: "/writing/welcome-to-the-real-world-9604ba4fae1f"
+permalink: "/writing/welcome-to-the-real-world-9604ba4fae1f/"
 tags:
   - travel
   - personal

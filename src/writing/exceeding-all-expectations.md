@@ -2,7 +2,7 @@
 title: "Exceeding All Expectations"
 date: 2010-06-10
 update_date: 
-permalink: "/writing/exceeding-all-expectations-97a4156e0d30"
+permalink: "/writing/exceeding-all-expectations-97a4156e0d30/"
 tags:
   - travel
 summary: |

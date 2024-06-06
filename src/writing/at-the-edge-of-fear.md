@@ -2,7 +2,7 @@
 title: "At the Edge of Fear"
 date: 2012-07-29
 update_date: 
-permalink: "/writing/at-the-edge-of-fear-6693193fbe95"
+permalink: "/writing/at-the-edge-of-fear-6693193fbe95/"
 tags:
   - travel
 summary: |

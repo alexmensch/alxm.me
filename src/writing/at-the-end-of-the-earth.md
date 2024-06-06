@@ -2,7 +2,7 @@
 title: "At the End of the Earth"
 date: 2010-06-23
 update_date: 
-permalink: "/writing/at-the-end-of-the-earth-f427d3405b91"
+permalink: "/writing/at-the-end-of-the-earth-f427d3405b91/"
 tags:
   - travel
 summary: |

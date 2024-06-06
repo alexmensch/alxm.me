@@ -2,7 +2,7 @@
 title: "The Great Barrier Reef"
 date: 2010-07-13
 update_date: 
-permalink: "/writing/the-great-barrier-reef-4070174065be"
+permalink: "/writing/the-great-barrier-reef-4070174065be/"
 tags:
   - travel
 summary: |

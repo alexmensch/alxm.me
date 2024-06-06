@@ -2,7 +2,7 @@
 title: "The Journey"
 date: 2010-03-27
 update_date: 
-permalink: "/writing/the-journey-e20f2e2a9afb"
+permalink: "/writing/the-journey-e20f2e2a9afb/"
 tags:
   - travel
 summary: |
