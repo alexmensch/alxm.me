@@ -7,7 +7,7 @@ tags:
   - personal
   - financial
 summary: |
-  I share my personal experience setting up a consultancy business in the UK, with
+  I share my experience setting up a consultancy business in the UK, with
   emphasis on navigating competing tax regulations. I hope this will help others
   in a similar situation.
 ---
