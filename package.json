@@ -164,7 +164,7 @@
     "promise": "^7.3.1",
     "promise-each": "^2.2.0",
     "prr": "^1.0.1",
-    "pug": "^3.0.2",
+    "pug": "~>3.0.3",
     "pug-attrs": "^3.0.0",
     "pug-code-gen": "^3.0.2",
     "pug-error": "^2.0.0",
