@@ -6,7 +6,8 @@ permalink: "/writing/at-the-end-of-the-earth-f427d3405b91"
 tags:
   - travel
 summary: |
-  I share...
+  Reflections on my travels through the southernmost part of New Zealand, through the Catlins and
+  across the Foveaux Strait to Stewart Island.
 ---
 
 _May 8–11, 2010_

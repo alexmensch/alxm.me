@@ -7,7 +7,9 @@ tags:
   - travel
   - nature
 summary: |
-  I share...
+  A favorite piece, with some splashes of humour, this is really a deep reflection on the beauty of
+  the natural world, a favorite topic of mine. It also becomes clear that I'm not much of a planner
+  when traveling solo.
 ---
 
 _April 28, 2010_

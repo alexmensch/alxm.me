@@ -6,7 +6,7 @@ permalink: "/writing/initial-travel-plans-9ddc802c8fde"
 tags:
   - travel
 summary: |
-  I share...
+  I talk about my plans before leaving on a 12-month trip around the world.
 ---
 
 I booked my departure ticket a few weeks ago, and here are my plans for the next 12 months or so.

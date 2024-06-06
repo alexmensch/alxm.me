@@ -7,7 +7,8 @@ tags:
   - aviation
   - personal
 summary: |
-  I share...
+  Reflections on a gliding accident that I had in the Southern Alps of New Zealand. There's a long
+  tradition of sharing accident information to improve safety for other pilots in the future.
 ---
 
 _\[With minor edits, this is an article I wrote for New Zealand’s [Soaring NZ](http://www.gliding.co.nz/soaringnz/soaring-nz/) gliding magazine, published in the December 2010 / January 2011 issue. I’ve added a link to the [GPS record](/assets/files/0bhc0tk1.igc) of the flight in IGC format at the end of the article. You can read my first person account of the flight [here](/writing/mayday-mayday-for-sierra-lima-6cf3ce8fc5d1).\]_

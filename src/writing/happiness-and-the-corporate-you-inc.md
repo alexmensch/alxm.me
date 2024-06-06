@@ -7,7 +7,9 @@ tags:
   - personal
   - essay
 summary: |
-  I share...
+  An essay I wrote after leaving my first job. I talk about the demands of corporate life, how
+  employers are incentivized to extract as much as possible out of people, and how these behaviors
+  leak into regular life, particularly in the US.
 ---
 
 This is an impossible subject to tackle in a single blog post, but allow me the indulgence to relate some of my thoughts as I’ve been reflecting during my time off. As I indicated in my initial post, a large part of taking this break is to come to peace with myself by moving into an entirely different environment, doing something I enjoy, and having time to reflect. In particular, I attribute the single most significant reason for taking this long break to the culture imposed by my former employer, and I’ve spent a lot of time thinking about the implications.

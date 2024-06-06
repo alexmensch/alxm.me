@@ -6,7 +6,9 @@ permalink: "/writing/the-journey-e20f2e2a9afb"
 tags:
   - travel
 summary: |
-  I share...
+  Leaving for New Zealand and 12 months of travel was a huge event in my life at the time, and
+  this first piece tells the first person account of what it felt like to fly halfway around the
+  world, to destination mostly unknown, a town of only 250 people.
 ---
 
 _8:12pm Monday, March 22, 2010 GMT-8 / 4:12pm Tuesday, March 23, 2010 GMT+12_

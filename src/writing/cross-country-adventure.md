@@ -7,7 +7,7 @@ tags:
   - aviation
   - personal
 summary: |
-  I share...
+  Kicking off a 3,750km journey where I piloted a Cessna 182T with a friend of mine from Michigan to California across 18 states.
 ---
 
 It was August 1999, and I was sitting in the cockpit of a single-seat glider, a Czech-produced model called a [Junior](https://en.wikipedia.org/wiki/SZD-51_Junior). The only sound was the murmur of a slight breeze blowing over the aircraft, and the aircraft was tipped slightly, the end of one long wing resting gently on the grass runway. The landing had gone without incident, and it was starting to get cold as the sun set. I waited patiently on the silent runway for the crew to arrive; the luxury of cell phone communication was still in the future for most of us. My destination, [Enstone airfield](https://maps.app.goo.gl/pVwqXPoeiuc7Gidn9), and many more like it littered across the British countryside, was built during World War II by the Royal Air Force in support of [the bloodiest war](https://vimeo.com/128373915) human civilization has ever known. Today, long since decommissioned by the military, it serves a more peaceful purpose for light aircraft enthusiasts.

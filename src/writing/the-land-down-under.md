@@ -6,7 +6,8 @@ permalink: "/writing/the-land-down-under-b7fd50784596"
 tags:
   - travel
 summary: |
-  I share...
+  A short reflection on what land use and geography tell us about a country before we even set foot
+  on the ground.
 ---
 
 _May 14, 2010, 9:03am_

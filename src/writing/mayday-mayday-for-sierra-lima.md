@@ -8,7 +8,8 @@ tags:
   - aviation
   - personal
 summary: |
-  I share...
+  The most famous piece that I've written, I write about the experience of piloting an aircraft
+  in a competition and crash-landing in the Southern Alps of New Zealand.
 ---
 
 _November 17, 2010, 4:45pm_

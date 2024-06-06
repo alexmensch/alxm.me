@@ -6,7 +6,9 @@ permalink: "/writing/exceeding-all-expectations-97a4156e0d30"
 tags:
   - travel
 summary: |
-  I share...
+  I had a magical experience on the Dunedin peninsula observing wildlife, including endangered
+  penguins, and observing the quiet, timeliness interactions between geology and nature that came
+  through so clearly in the area.
 ---
 
 _May 3–5, 2010_

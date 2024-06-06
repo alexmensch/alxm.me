@@ -7,7 +7,9 @@ tags:
   - travel
   - aviation
 summary: |
-  I share...
+  An interview-style piece that answers the question in the title. Most people are not aware that
+  gliding exists in the aviation world, and this piece attempts to answer most of the questions
+  that I've gotten on the subject.
 ---
 
 This is a common question given the relative obscurity of the sport, and since I plan to be making posts detailing some of my flights, I’d better explain up front.

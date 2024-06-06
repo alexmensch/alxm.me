@@ -6,7 +6,9 @@ permalink: "/writing/night-crawlers-of-the-abyss-db4fd4b52a17"
 tags:
   - travel
 summary: |
-  I share...
+  One of my favorite pieces and most vivid memories, I talk about a night dive on the Great
+  Barrier Reef where virtually everything that could have gone wrong, went wrong. But it was
+  also one of the most magical experiences in nature that I've ever had.
 ---
 
 _May 19th, 2010, 7:34pm_

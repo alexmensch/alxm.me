@@ -6,7 +6,9 @@ permalink: "/writing/the-great-barrier-reef-4070174065be"
 tags:
   - travel
 summary: |
-  I share...
+  My first experience on a diving liveaboard ship, and one of the more remote journeys that I've
+  taken, I write about the initial experience of getting acquainted with the ship and the diving
+  routine.
 ---
 
 _May 19th, 2010, 9:54am_

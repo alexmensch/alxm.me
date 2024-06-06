@@ -5,8 +5,9 @@ update_date:
 permalink: "/writing/what-lies-beneath-6e914a774966"
 tags:
   - travel
+  - nature
 summary: |
-  I share...
+  An essay on SCUBA diving and the magical, alien world that is the ocean.
 ---
 
 _May 19th, 2010, 1:53am_
