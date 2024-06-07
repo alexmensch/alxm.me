@@ -5,7 +5,6 @@ update_date:
 permalink: "/writing/2011/01/10/golf-sierra-lima-lessons-learned/"
 tags:
   - aviation
-  - personal
 summary: |
   Reflections on a gliding accident that I had in the Southern Alps of New Zealand. There's a long
   tradition of sharing accident information to improve safety for other pilots in the future.

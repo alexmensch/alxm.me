@@ -8,5 +8,11 @@ layout-palette: writing
   {{ content }}
 </div>
 <div class="content">
-  {% render "partials/collection-grid.liquid", collection: collections.writing %}
+  {% for year in collections.writing-years reversed %}
+    {% unless year.year == currentYear %}
+      {% render "partials/collection-grid.liquid", collection: year.items, sectionTitle: year.year %}
+    {% else %}
+      {% render "partials/collection-grid.liquid", collection: year.items, sectionTitle: false %}
+    {% endunless %}
+  {% endfor %}
 </div>

@@ -9,7 +9,7 @@ body {
         >.header, >.upper {
           background-color: var(--color-upper-#{$theme});
         }
-        >.lower {
+        >.lower, .collection-grid.section-title {
           background-color: var(--color-lower-#{$theme});
         }
       }
@@ -78,7 +78,8 @@ body {
 
   >.header {
     grid-area: header;
-    border-bottom: 0.5px solid var(--color-text);
+    border-bottom: $nav-header-border solid var(--color-text);
+    height: $nav-header-height;
 
     position: sticky;
     top: 0;
