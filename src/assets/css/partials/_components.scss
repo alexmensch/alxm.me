@@ -132,9 +132,9 @@ ul.titleRotation {
 }
 
 article {
-  max-width: 708px;
+  max-width: 60ch;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2em;
 
   @media (max-width: $breakpoint-md) {
     padding: 0.5rem;
@@ -143,7 +143,7 @@ article {
   .date-byline {
     font-style: italic;
     color: var(--color-muted);
-  }  
+  }
 }
 
 .collection-grid.section-title {

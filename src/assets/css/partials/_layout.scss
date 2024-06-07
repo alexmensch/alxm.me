@@ -42,6 +42,7 @@ body {
 
 .container-grid {
   overflow: scroll;
+  scroll-padding-top: $nav-header-height + 5px;
 
   height: 100vh;
   display: grid;

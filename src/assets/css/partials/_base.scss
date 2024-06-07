@@ -24,6 +24,7 @@ body {
   width: 100%;
   
   scroll-behavior: smooth;
+  scroll-padding-top: $nav-header-height;
 }
 
 @mixin heading-styles($size) {
@@ -31,6 +32,7 @@ body {
   line-height: $line-height-heading;
   font-weight: $font-weight-heading;
   font-size: $size;
+  outline: none;
   
   margin: 1em 0 0.5em;
 
