@@ -18,12 +18,16 @@
   :root { font-family: InterVariable, sans-serif; }
 }
 
+// Properties that don't inherit by default
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   
-  scroll-behavior: smooth;
   scroll-padding-top: $nav-header-height;
 }
 
