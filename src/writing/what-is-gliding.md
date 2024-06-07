@@ -4,7 +4,6 @@ date: 2010-04-08
 update_date: 
 permalink: "/writing/2010/04/08/what-is-gliding/"
 tags:
-  - travel
   - aviation
 summary: |
   An interview-style piece that answers the question in the title. Most people are not aware that

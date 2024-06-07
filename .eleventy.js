@@ -15,26 +15,47 @@ module.exports = function(eleventyConfig) {
     "src/404.html": "404.html"
   });
 
-  // Define collections for projects and writing
-  eleventyConfig.addCollection("projects", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/projects/*.md");
-  });
+  let postCollections = new Set();
+  postCollections.add("writing");
+  postCollections.add("projects");
 
-  eleventyConfig.addCollection("writing", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/writing/*.md");
-  });
+  postCollections.forEach(collectionName => {
+    // Collection for tags
+    eleventyConfig.addCollection(`${collectionName}-tags`, function(collectionApi) {
+      let tagSet = new Set();
 
-  // Custom collection to aggregate all writing tags
-  eleventyConfig.addCollection('writing-tags', function(collectionApi) {
-    let tagSet = new Set();
-    collectionApi.getFilteredByGlob("src/writing/*.md").forEach(item => {
-      if ('tags' in item.data) {
-        let tags = item.data.tags;
-        tags = Array.isArray(tags) ? tags : [tags];
-        tags.forEach(tag => tagSet.add(tag));
-      }
+      collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`).forEach(item => {
+          if ('tags' in item.data) {
+              let tags = item.data.tags;
+              tags = Array.isArray(tags) ? tags : [tags];
+              tags.forEach(tag => tagSet.add(tag));
+          }
+      });
+
+      return [...tagSet];
     });
-    return [...tagSet];
+
+    // Collection for years
+    eleventyConfig.addCollection(`${collectionName}-years`, function(collectionApi) {
+      let yearMap = new Map();
+
+      collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`).forEach(item => {
+          if ('date' in item.data) {
+              let year = new Date(item.data.date).getFullYear();
+              if (!yearMap.has(year)) {
+                  yearMap.set(year, new Set());
+              }
+              yearMap.get(year).add(item);
+          }
+      });
+
+      return Array.from(yearMap, ([year, items]) => ({ year, items: [...items] }));
+    });
+
+    // Collection for all items
+    eleventyConfig.addCollection(`${collectionName}`, function(collectionApi) {
+      return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
+    });
   });
 
   // Configure Markdown-It with the TOC plugin

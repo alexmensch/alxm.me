@@ -6,9 +6,9 @@ permalink: "/writing/at-the-edge-of-fear-6693193fbe95/"
 tags:
   - travel
 summary: |
-  While traveling in Ladakh, in nothern India, we were hit by an unusually strong rainstorm
-  that completely cut us off from the rest of the world for a few days. I also happened to be
-  extremely sick with food poisoning at the same time.
+  While traveling in Ladakh, in nothern India, the area was hit by an unusually strong rainstorm
+  that completely cut off the town of Leh from the rest of the world for a few days. I also happened
+  to be extremely sick with food poisoning at the same time.
 ---
 
 _August 7, 2010_
