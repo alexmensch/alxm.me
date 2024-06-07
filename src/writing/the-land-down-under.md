@@ -2,7 +2,7 @@
 title: "The Land Down Under"
 date: 2010-06-28
 update_date: 
-permalink: "/writing/the-land-down-under-b7fd50784596/"
+permalink: "/writing/2010/06/28/the-land-down-under/"
 tags:
   - travel
 summary: |

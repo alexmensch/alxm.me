@@ -2,7 +2,7 @@
 title: "Happiness and the corporate You, Inc."
 date: 2010-04-24
 update_date: 
-permalink: "/writing/happiness-and-the-corporate-you-inc-a1dbea66f1b4/"
+permalink: "/writing/2010/04/24/happiness-and-the-corporate-you-inc/"
 tags:
   - personal
   - essay

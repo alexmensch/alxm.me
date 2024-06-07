@@ -1,8 +1,8 @@
 ---
 title: "Golf Sierra Lima: Lessons Learned"
-date: 2011-01-09
+date: 2011-01-10
 update_date: 
-permalink: "/writing/golf-sierra-lima-lessons-learned-c8f70c04cd48/"
+permalink: "/writing/2011/01/10/golf-sierra-lima-lessons-learned/"
 tags:
   - aviation
   - personal

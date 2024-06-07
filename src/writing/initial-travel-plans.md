@@ -1,8 +1,8 @@
 ---
 title: "Initial Travel Plans"
-date: 2010-03-06
+date: 2010-03-07
 update_date: 
-permalink: "/writing/initial-travel-plans-9ddc802c8fde/"
+permalink: "/writing/2010/03/07/initial-travel-plans/"
 tags:
   - travel
 summary: |

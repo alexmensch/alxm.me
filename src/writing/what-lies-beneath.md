@@ -1,8 +1,8 @@
 ---
 title: "What Lies Beneath?"
-date: 2010-07-01
+date: 2010-07-02
 update_date: 
-permalink: "/writing/what-lies-beneath-6e914a774966/"
+permalink: "/writing/2010/07/02/what-lies-beneath/"
 tags:
   - travel
   - nature
