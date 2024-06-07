@@ -2,7 +2,7 @@
 title: "The Great Divide"
 date: 2010-05-13
 update_date: 
-permalink: "/writing/the-great-divide-273b9af410cb/"
+permalink: "/writing/2010/05/13/the-great-divide/"
 tags:
   - travel
   - nature

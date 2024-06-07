@@ -9,7 +9,11 @@ module.exports = function(eleventyConfig) {
   }
 
   // Add a passthrough copy directive for assets
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets",
+    "src/_redirects": "_redirects",
+    "src/404.html": "404.html"
+  });
 
   // Define collections for projects and writing
   eleventyConfig.addCollection("projects", function(collectionApi) {

@@ -1,8 +1,8 @@
 ---
 title: "What is gliding?"
-date: 2010-04-07
+date: 2010-04-08
 update_date: 
-permalink: "/writing/what-is-gliding-d883a70eb929/"
+permalink: "/writing/2010/04/08/what-is-gliding/"
 tags:
   - travel
   - aviation
