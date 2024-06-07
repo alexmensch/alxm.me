@@ -1,3 +1,6 @@
+## blog.moveolabs.com redirects
+#  Cloudflare redirect rule adds "/writing" to the incoming URI path
+##
 /writing/welcome-to-the-real-world-9604ba4fae1f/            /writing/2010/02/17/welcome-to-the-real-world/              301
 /writing/initial-travel-plans-9ddc802c8fde/                 /writing/2010/03/07/initial-travel-plans/                   301
 /writing/the-journey-e20f2e2a9afb/                          /writing/2010/03/27/the-journey/                            301
@@ -12,3 +15,21 @@
 /writing/mayday-mayday-for-sierra-lima-6cf3ce8fc5d1/        /writing/2010/12/02/mayday-mayday-for-sierra-lima/          301
 /writing/night-crawlers-of-the-abyss-db4fd4b52a17/          /writing/2011/01/11/night-crawlers-of-the-abyss/            301
 /writing/golf-sierra-lima-lessons-learned-c8f70c04cd48/     /writing/2011/01/10/golf-sierra-lima-lessons-learned/       301
+
+## omarama.wordpress.com redirects
+#  Wordpress redirects omarama.wordpress.com -> alxm.me
+##
+/2010/02/17/welcome-to-the-real-world/            /writing/2010/02/17/welcome-to-the-real-world/              301
+/2010/03/07/initial-travel-plans/                 /writing/2010/03/07/initial-travel-plans/                   301
+/2010/03/27/the-journey/                          /writing/2010/03/27/the-journey/                            301
+/2010/04/08/what-is-gliding/                      /writing/2010/04/08/what-is-gliding/                        301
+/2010/04/24/happiness-and-the-corporate-you-inc/  /writing/2010/04/24/happiness-and-the-corporate-you-inc/    301
+/2010/05/13/the-great-divide/                     /writing/2010/05/13/the-great-divide/                       301
+/2010/06/06/exceeding-all-expectations/           /writing/2010/06/06/exceeding-all-expectations/             301
+/2010/06/23/at-the-end-of-the-earth/              /writing/2010/06/23/at-the-end-of-the-earth/                301
+/2010/06/28/the-land-down-under/                  /writing/2010/06/28/the-land-down-under/                    301
+/2010/07/02/what-lies-beneath/                    /writing/2010/07/02/what-lies-beneath/                      301
+/2010/07/14/the-great-barrier-reef/               /writing/2010/07/14/the-great-barrier-reef/                 301
+/2010/12/02/mayday-mayday-for-sierra-lima/        /writing/2010/12/02/mayday-mayday-for-sierra-lima/          301
+/2011/01/11/night-crawlers-of-the-abyss/          /writing/2011/01/11/night-crawlers-of-the-abyss/            301
+/2011/01/10/golf-sierra-lima-lessons-learned/     /writing/2011/01/10/golf-sierra-lima-lessons-learned/       301
