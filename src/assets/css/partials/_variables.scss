@@ -97,7 +97,9 @@ $font-stack: 'Inter', sans-serif;
 $font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
 $font-size-root: 16px;
 
-$font-size-section-title: 8.5rem;
+//$font-size-section-title: 8.5rem;
+//$font-size-section-title: min(8.5rem, 12vh);
+$font-size-section-title: clamp(5rem, 12vh, 8.5rem);
 
 $font-weight-root:                                   300;
 $font-weight-section-title: calc($font-weight-root - 100);
@@ -105,13 +107,16 @@ $font-weight-heading:       calc($font-weight-root + 100);;
 $font-weight-anchor:        calc($font-weight-root + 200);
 $font-weight-strong:        calc($font-weight-root + 300);
 
-
 $line-height-base:    1.6;
+$line-height-title:   1.1;
 $line-height-heading: 1.25;
+
+$max-reading-width: 60ch;
 
 /* --- Responsive design -- */
 
-$breakpoint-sm: 576px; // Small devices (phones)
-$breakpoint-md: 768px; // Medium devices (tablets)
-$breakpoint-lg: 992px; // Large devices (desktops)
-$breakpoint-xl: 1200px; // Extra large devices (large desktops)
+$breakpoint-sm:  640px; // Small devices (phones)
+$breakpoint-md:  768px; // Medium devices (tablets)
+$breakpoint-lg:  1024px; // Large devices (desktops)
+$breakpoint-xl:  1280px; // Extra large devices (large desktops)
+$breakpoint-2xl: 1536px; // Super duper large devices (spaceships)

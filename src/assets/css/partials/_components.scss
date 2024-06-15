@@ -90,7 +90,7 @@ ul.titleRotation {
   padding: 0;
   margin: 0;
   // Account for absolute positioning taking items out of the document flow
-  height: calc($font-size-section-title * $line-height-base);
+  height: calc($font-size-section-title * $line-height-title);
   position: relative; /* Relative positioning for containing absolute children */
 
   li {
@@ -132,13 +132,10 @@ ul.titleRotation {
 }
 
 article {
-  max-width: 60ch;
+  max-width: $max-reading-width;
   margin: 0 auto;
-  padding: 2em;
-
-  @media (max-width: $breakpoint-md) {
-    padding: 0.5rem;
-  }
+  align-self: center;
+  padding: 0.5em;
 
   .date-byline {
     font-style: italic;
@@ -146,37 +143,34 @@ article {
   }
 }
 
-.collection-grid.section-title {
-  font-size: 3em;
-  font-weight: $font-weight-section-title;
-  font-feature-settings: "ss01";
-
-  border-bottom: var(--color-text) $nav-header-border solid;
-  margin: 0.5em 0;
-
-  position: sticky;
-  top: $nav-header-height + $nav-header-border;
-}
-
 .collection-grid {
   display: grid;
   gap: $grid-gap;
-  grid-template-columns: repeat(8, 1fr);
-  //grid-auto-rows: minmax(calc($font-size-root * 15), min-content);
+  grid-template-columns: 1fr;
   grid-auto-rows: min-content;
 
-  .collection-grid.item {
-    grid-column: span 2;
+  &.section-title {
+    font-size: 3em;
+    font-weight: $font-weight-section-title;
+    font-feature-settings: "ss01";
+
+    border-bottom: var(--color-text) $nav-header-border solid;
+    margin: 0.5em 0;
+
+    position: sticky;
+    top: calc($nav-header-height + $nav-header-border);
+    z-index: 1000;
+  }
+
+  &.item {
+    grid-column: span 1;
     display: flex;
     gap: 0px;
     flex-flow: column nowrap;
     justify-content: flex-start;
 
     &.feature {
-      grid-column: span 4;
-      //border-radius: 8px;
-      //border: var(--color-text) 1px solid;
-      //padding: 5px 15px;
+      
     }
 
     > * {

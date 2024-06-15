@@ -1,0 +1,101 @@
+// Design is for mobile-first, hence min-width
+
+// 640px
+// eg. iPhone 15 is 393px x 852px @3x
+@media (min-width: $breakpoint-sm) {
+  .collection-grid {
+    grid-template-columns: repeat(4, 1fr);
+
+    &.item {
+      grid-column: span 2;
+
+      &.feature {
+        
+      }
+    }
+  }
+}
+
+//768px
+// eg. iPad Pro 11" is 834px x 1194px @2x
+@media (min-width: $breakpoint-md) {
+  .container-grid > .introduction {
+    columns: 2 auto;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(6, 1fr);
+
+    &.item {
+      grid-column: span 2;
+
+      &.feature {
+        
+      }
+    }
+  }
+}
+
+// 1024px
+@media (min-width: $breakpoint-lg) {
+  .container-grid {
+    // Break into 3 grid columns for the page
+    grid-template-columns:
+      [header-start home-name-start upper-start lower-start] 1fr
+      [home-name-end nav-start title-start intro-start content-start footer-start] minmax(min-content, 960px)
+      [nav-end title-end intro-end content-end footer-end] 1fr
+      [header-end upper-end lower-end];
+
+    > .header > .home-name {
+      grid-area: home-name;
+      justify-content: flex-end;
+    }
+
+    .header.fullpage {
+      > .home-name {
+        justify-content: flex-end;
+      }
+
+      > .navigation {
+        justify-content: flex-start;
+        
+        a, span {
+          padding-right: 0;
+          padding-left: 1em;
+        }
+
+        span {
+          visibility: visible;
+        }
+      }
+    }
+
+    > .title {
+      margin-left: -0.1em;
+    }
+
+    > .introduction {
+      columns: 3 auto;
+    }
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(8, 1fr);
+
+    &.item {
+      grid-column: span 2;
+
+      &.feature {
+        
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  
+}
+
+@media (min-width: $breakpoint-2xl) {
+  
+}
