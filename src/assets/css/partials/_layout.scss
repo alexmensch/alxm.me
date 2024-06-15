@@ -47,15 +47,11 @@ body {
 
   height: 100vh;
   display: grid;
-  /* grid-template-columns:
-    [header-start home-name-start upper-start lower-start nav-start title-start intro-start content-start footer-start] minmax(auto, 960px)
-    [home-name-end nav-end title-end header-end upper-end lower-end intro-end content-end footer-end];
-    */
   grid-template-columns:
-      [header-start home-name-start upper-start lower-start] 1fr
-      [home-name-end nav-start title-start intro-start content-start footer-start] auto
-      [nav-end title-end intro-end content-end footer-end] 1fr
-      [header-end upper-end lower-end];
+    [header-start home-name-start upper-start lower-start] 1fr
+    [home-name-end nav-start title-start intro-start content-start footer-start] auto
+    [nav-end title-end intro-end content-end footer-end] 1fr
+    [header-end upper-end lower-end];
   grid-template-rows:
     [upper-start header-start home-name-start nav-start] min-content
     [header-end home-name-end nav-end title-start] min-content

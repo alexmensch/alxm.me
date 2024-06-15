@@ -97,8 +97,6 @@ $font-stack: 'Inter', sans-serif;
 $font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
 $font-size-root: 16px;
 
-//$font-size-section-title: 8.5rem;
-//$font-size-section-title: min(8.5rem, 12vh);
 $font-size-section-title: clamp(5rem, 12vh, 8.5rem);
 
 $font-weight-root:                                   300;
