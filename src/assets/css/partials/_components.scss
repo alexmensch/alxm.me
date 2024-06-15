@@ -145,6 +145,7 @@ article {
     font-weight: $font-weight-section-title;
     font-feature-settings: "ss01";
 
+    background-color: var(--color-grid-lower);
     border-bottom: var(--color-text) $nav-header-border solid;
     margin: 0.5em 0;
 

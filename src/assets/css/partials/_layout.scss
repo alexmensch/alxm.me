@@ -6,7 +6,7 @@ body {
       background-color: var(--color-upper-#{$theme});
 
       >.container-grid {
-        >.header, >.upper {
+        >.upper, >.header {
           background-color: var(--color-upper-#{$theme});
         }
         >.lower, .collection-grid.section-title {
@@ -36,6 +36,7 @@ body {
     >.#{$section} {
       grid-area: #{$section};
       background-color: var(--color-grid-#{$section});
+      z-index: -1;
     }
   }
 }
@@ -65,6 +66,7 @@ body {
 
   >.header {
     grid-area: header;
+    background-color: var(--color-grid-upper);
     border-bottom: $nav-header-border solid var(--color-text);
     height: $nav-header-height;
 
@@ -72,7 +74,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 999;
 
     display: grid;
     grid-template-columns: subgrid;
