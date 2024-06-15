@@ -76,15 +76,6 @@ h6 a[href^="#"]:before {
   width: 0.8em;
 }
 
-h1 a[href^="#"]:hover:before,
-h2 a[href^="#"]:hover:before,
-h3 a[href^="#"]:hover:before,
-h4 a[href^="#"]:hover:before,
-h5 a[href^="#"]:hover:before,
-h6 a[href^="#"]:hover:before {
-  visibility: visible;
-}
-
 ul.titleRotation {
   list-style-type: none;
   padding: 0;
