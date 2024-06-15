@@ -10,4 +10,4 @@ On the creative side, I approach a new subject with a beginner's curiosity, and 
 
 I credit my curiosity to an early exposure by my father to science and the wonder of the natural world. If you're looking to design something new, nature probably already has.
 
-Within this site you'll find a broad, roughly organized collection of my creations and thinking. I've built this as much for myself and its own sake (another creative project!) as for any audience that I can expect to arrive here. I hope you'll have the experience of learning something new or unexpected.
+Within this site you'll find a broad, roughly organized collection of my creations and thinking. I've built this as much for myself and its own sake (another creative project!) as for any audience that I can expect to arrive here. I hope you'll have the experience of learning something new or surprising.
