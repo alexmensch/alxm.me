@@ -6,15 +6,16 @@ tags:
   - personal
   - essay
   - psychology
+feature: true
 summary: |
-  A link to the title question, which I answered in a widely-viewed answer on Quora.
+  Awareness is a foundational skill for any type of self-development work. I describe how you can
+  start to see things more clearly by shifting your perspective of others' actions. With
+  practice and time, this can transform your relationship with both yourself and the people around you.
 ---
 
 > “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
 > 
 > Christopher Alexander, _The Timeless Way of Building_
-
-_Awareness is such a critical prerequisite skill to any area of self-development that, even in this era of short attention spans, I’ve written a significant number of words on the subject. I’ll refer to this essay in other explorations of the self, so I can promise that reading this will be a valuable way to spend 10 minutes._
 
 I’m going to start with a bold claim that I aim to convince you of by the end of this essay: bringing full awareness to your perceived reality is the key to unlocking any personal growth, improving the quality of your relationships, and bringing more satisfaction to your life. It requires a degree of continual practice and honesty with yourself that most of us are not accustomed to, but the good news is that each incremental step is rewarding, and it’s within everyone’s reach. What it mostly requires is bravery.
 
