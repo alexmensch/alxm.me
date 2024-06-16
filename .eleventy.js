@@ -1,6 +1,7 @@
 const md = require('markdown-it');
 const mdAnchor = require('markdown-it-anchor');
 const mdTOC = require('markdown-it-table-of-contents');
+const mdFN = require('markdown-it-footnote');
 
 module.exports = function(eleventyConfig) {
   // Ignore test page if NODE_ENV=production
@@ -59,7 +60,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Configure Markdown-It with the TOC plugin
-  let markdownLibToc = md({
+  let markdownLib = md({
     typographer: true
   })
   .use(mdAnchor, {
@@ -68,10 +69,24 @@ module.exports = function(eleventyConfig) {
   .use(mdTOC, {
     includeLevel: [1, 2, 3], // Levels to include in the TOC
     containerClass: 'toc', // Class for the TOC container
-  });
+  })
+  .use(mdFN);
+
+  markdownLib.renderer.rules.footnote_block_open = () => (
+    '<hr class="footnotes-sep">\n'  +
+    '<h4 class="footnotes">Notes</h4>\n' +
+    '<section class="footnotes">\n' +
+    '<ol class="footnotes-list">\n'
+  );
+
+  markdownLib.renderer.rules.footnote_caption = (tokens, idx) => {
+    let n = Number(tokens[idx].meta.id + 1).toString()
+    if (tokens[idx].meta.subId > 0) n += `:${tokens[idx].meta.subId}`
+    return `${n}`
+  };
 
   // Set the Markdown library to use
-  eleventyConfig.setLibrary('md', markdownLibToc);
+  eleventyConfig.setLibrary('md', markdownLib);
 
   return {
     // Set directories to watch

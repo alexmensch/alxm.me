@@ -212,3 +212,10 @@ article {
     }
   }
 }
+
+sup.footnote-ref {
+  vertical-align: initial;
+  font-size: initial;
+
+  font-feature-settings: 'sups' 1;
+}

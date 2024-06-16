@@ -122,6 +122,7 @@ body {
 
     font-size: $font-size-section-title;
     font-weight: $font-weight-section-title;
+    font-feature-settings: $font-features-section-title;
     letter-spacing: -0.02em;
     line-height: $line-height-title;
     margin: calc(0.3 * $font-size-section-title) 0;

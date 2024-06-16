@@ -98,6 +98,7 @@ $font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
 $font-size-root: 16px;
 
 $font-size-section-title: clamp(5rem, 12vh, 8.5rem);
+$font-features-section-title: 'liga' 1, 'calt' 1, 'ss03' 1, 'dlig' 1;
 
 $font-weight-root:                                   300;
 $font-weight-section-title: calc($font-weight-root - 100);

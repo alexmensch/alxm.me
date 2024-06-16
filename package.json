@@ -127,6 +127,7 @@
     "luxon": "^3.4.4",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^9.0.1",
+    "markdown-it-footnote": "^4.0.0",
     "markdown-it-table-of-contents": "^0.6.0",
     "maximatch": "^0.1.0",
     "mdurl": "^1.0.1",

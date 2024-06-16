@@ -5,8 +5,8 @@ update_date: 2024-06-16
 tags:
   - fiction
 summary: |
-  An ultra short fiction piece in the style of Joy Williams, an American author. I heard her
-  doing a reading of some of her short fiction and was inspired to try the format myself.
+  An ultra short fiction piece in the style of Joy Williams, an American author. I listened to
+  her doing a reading of some of her short fiction and was inspired to try the format myself.
   It's amazing how much can be conveyed in just eight sentences.
 ---
 
