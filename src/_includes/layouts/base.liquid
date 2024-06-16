@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ eleventy.generator }}">
-    <title>{{ title }}</title>
+    <title>{{ title }} | Alex Marshall</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body class="{{ layout-palette | downcase }}">
     <div class="container-grid">
-        <!-- Upper & lower divs must appear first in container-grid to ensure correct layering -->
         <div class="upper"></div>
         <div class="lower"></div>
-        <!-- ^^^ -->
     {% if fullPage %}
         <div class="header fullpage">
     {% else %}
