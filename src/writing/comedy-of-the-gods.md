@@ -14,6 +14,6 @@ It is said that there was a man to whom things came easily. Whereas others’ ho
 
 The gods that had granted him this much-envied ability, however, evidently had a cruel sense of humor, for this man’s every attempt at love would falter, stillbirths next to his easy labors.
 
-With time, this man’s heart bore the many scars of its stunted passions, until it could bear just one more attempt at conceiving love. It was thus that he met his wife and that he finally understood the meaning of long, hard work and how conceited he’d been about everything else.
+With time, this man’s heart bore the many scars of its stunted passions, until it could bear just one more attempt at conceiving love. It was thus that he met his wife-to-be and that he finally understood the meaning of long, hard work and how conceited he’d been about everything else.
 
 She died on their wedding night. They said it was a rare genetic disorder; nothing could have been done. The man died alone.
