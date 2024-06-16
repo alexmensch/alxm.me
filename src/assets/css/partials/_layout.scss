@@ -78,7 +78,7 @@ body {
     .home-name, .navigation {
       display: flex;
       flex-flow: row nowrap;
-      align-items: baseline;
+      align-items: flex-end;
 
       a, span {
         padding: 0.5em 0.5em;
