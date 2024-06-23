@@ -4,80 +4,84 @@
 $colors: (
   text: (
     light: oklch(20% 0 0),
-    dark:  oklch(98% 0 0)
+    dark: oklch(98% 0 0),
   ),
   muted: (
     light: oklch(70% 0 0),
-    dark:  oklch(70% 0 0)
+    dark: oklch(70% 0 0),
   ),
   heading: (
     light: oklch(35% 0 0),
-    dark:  oklch(88% 0 0)
+    dark: oklch(88% 0 0),
   ),
   background: (
     light: oklch(100% 0 0),
-    dark:  oklch(22% 0 0)
+    dark: oklch(22% 0 0),
   ),
   anchor: (
     light: oklch(23% 0 0),
-    dark:  oklch(97% 0 0)
+    dark: oklch(97% 0 0),
   ),
   anchor-hover: (
     light: oklch(23% 0 0),
-    dark:  oklch(97% 0 0)
+    dark: oklch(97% 0 0),
   ),
 
   // TODO: Change this to tertiary color based on grid palette
-  primary: (
-    light: oklch(60.28% 0.2333 257.42), // rgb(0, 122, 255)
-    dark:  oklch(62.43% 0.2212 255.49)  // rgb(10, 132, 255)
-  ),
+  primary:
+    (
+      light: oklch(60.28% 0.2333 257.42),
+      dark: oklch(62.43% 0.2212 255.49),
+    ),
 
   // Specific elements
-  bg-fill: (
-    light: oklch(92% 0 0),
-    dark:  oklch(29% 0 0)
-  ),
+  bg-fill:
+    (
+      light: oklch(92% 0 0),
+      dark: oklch(29% 0 0),
+    ),
   line: (
     light: oklch(96% 0 0),
-    dark:  oklch(23% 0 0)
+    dark: oklch(23% 0 0),
   ),
 
   // Default grid
-  grid-upper: (
-    light: oklch(87.65% 0.0664 251.57),
-    dark:  oklch(41.69% 0.23 272.94)
-  ),
+  grid-upper:
+    (
+      light: oklch(87.65% 0.0664 251.57),
+      dark: oklch(41.69% 0.23 272.94),
+    ),
   grid-lower: (
     light: oklch(95.99% 0.1466 105),
-    dark:  oklch(28% 0 0)
+    dark: oklch(28% 0 0),
   ),
 
-  // Section color palettes 
-  upper-writing: (
-    light: oklch(93.03% 0.0379 285),
-    dark:  oklch(47.63% 0.1081 195.8)
-  ),
+  // Section color palettes
+  upper-writing:
+    (
+      light: oklch(93.03% 0.0379 285),
+      dark: oklch(47.63% 0.1081 195.8),
+    ),
   lower-writing: (
     light: oklch(93.62% 0.107 167.18),
-    dark:  oklch(43.47% 0.1257 238.75)
+    dark: oklch(43.47% 0.1257 238.75),
   ),
   upper-fullpage: (
     light: oklch(98.72% 0.024 167.18),
-    dark:  oklch(10% 0 0)
+    dark: oklch(10% 0 0),
   ),
   lower-fullpage: (
     light: oklch(96.88% 0.0489 167.18),
-    dark:  oklch(22% 0 0)
+    dark: oklch(22% 0 0),
   ),
   upper-projects: (
     light: oklch(72.26% 0.2345 44.33),
-    dark:  oklch(10% 0 0)
+    dark: oklch(10% 0 0),
   ),
   lower-projects: (
     light: oklch(100% 0 0),
-    dark:  oklch(29.53% 0.1114 251.57)
-  )
+    dark: oklch(29.53% 0.1114 251.57),
+  ),
 );
 
 /* --- Navigation header */
@@ -93,29 +97,36 @@ $section-palettes: (writing, fullpage, projects);
 
 /* --- Typography --- */
 
-$font-stack: 'Inter', sans-serif;
-$font-features: 'liga' 1, 'calt' 1, 'ss03' 1;
+$font-stack: "Inter", sans-serif;
+$font-features:
+  "liga" 1,
+  "calt" 1,
+  "ss03" 1;
 $font-size-root: 16px;
 
 $font-size-section-title: clamp(5rem, 12vh, 8.5rem);
-$font-features-section-title: 'liga' 1, 'calt' 1, 'ss03' 1, 'dlig' 1;
+$font-features-section-title:
+  "liga" 1,
+  "calt" 1,
+  "ss03" 1,
+  "dlig" 1;
 
-$font-weight-root:                                   350;
+$font-weight-root: 350;
 $font-weight-section-title: calc($font-weight-root - 100);
-$font-weight-heading:       calc($font-weight-root + 100);;
-$font-weight-anchor:        calc($font-weight-root + 200);
-$font-weight-strong:        calc($font-weight-root + 300);
+$font-weight-heading: calc($font-weight-root + 100);
+$font-weight-anchor: calc($font-weight-root + 200);
+$font-weight-strong: calc($font-weight-root + 300);
 
-$line-height-base:    1.6;
-$line-height-title:   1.1;
+$line-height-base: 1.6;
+$line-height-title: 1.1;
 $line-height-heading: 1.25;
 
 $max-reading-width: 50ch;
 
 /* --- Responsive design -- */
 
-$breakpoint-sm:  640px; // Small devices (phones)
-$breakpoint-md:  768px; // Medium devices (tablets)
-$breakpoint-lg:  1024px; // Large devices (desktops)
-$breakpoint-xl:  1280px; // Extra large devices (large desktops)
+$breakpoint-sm: 640px; // Small devices (phones)
+$breakpoint-md: 768px; // Medium devices (tablets)
+$breakpoint-lg: 1024px; // Large devices (desktops)
+$breakpoint-xl: 1280px; // Extra large devices (large desktops)
 $breakpoint-2xl: 1536px; // Super duper large devices (spaceships)

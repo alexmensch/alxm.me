@@ -1,7 +1,7 @@
 ---
 title: "Mayday, Mayday for Sierra Lima!"
 date: 2010-12-02
-update_date: 
+update_date:
 permalink: "/writing/2010/12/02/mayday-mayday-for-sierra-lima/"
 feature: true
 tags:

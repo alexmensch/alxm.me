@@ -39,7 +39,10 @@
     // Break into 3 grid columns for the page
     grid-template-columns:
       [header-start home-name-start upper-start lower-start] 1fr
-      [home-name-end nav-start title-start intro-start content-start footer-start] minmax(min-content, 960px)
+      [home-name-end nav-start title-start intro-start content-start footer-start] minmax(
+        min-content,
+        960px
+      )
       [nav-end title-end intro-end content-end footer-end] 1fr
       [header-end upper-end lower-end];
 
@@ -55,8 +58,9 @@
 
       > .navigation {
         justify-content: flex-start;
-        
-        a, span {
+
+        a,
+        span {
           padding-right: 0;
           padding-left: 1em;
         }
@@ -82,9 +86,7 @@
 }
 
 @media (min-width: $breakpoint-xl) {
-  
 }
 
 @media (min-width: $breakpoint-2xl) {
-  
 }

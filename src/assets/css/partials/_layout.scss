@@ -5,11 +5,13 @@ body {
     &.#{$theme} {
       background-color: var(--color-upper-#{$theme});
 
-      >.container-grid {
-        >.upper, >.header {
+      > .container-grid {
+        > .upper,
+        > .header {
           background-color: var(--color-upper-#{$theme});
         }
-        >.lower, .collection-grid.section-title {
+        > .lower,
+        .collection-grid.section-title {
           background-color: var(--color-lower-#{$theme});
         }
       }
@@ -19,13 +21,18 @@ body {
   // TODO: Add color inversion option into $section-palettes
   &.projects {
     .container-grid {
-      >.header {
-        a { color: white; }
+      > .header {
+        a {
+          color: white;
+        }
         border-color: white;
       }
-      >.title, >.introduction {
+      > .title,
+      > .introduction {
         color: white;
-        a { color: white; }
+        a {
+          color: white;
+        }
       }
     }
   }
@@ -33,7 +40,7 @@ body {
 
 .container-grid {
   @each $section in upper, lower {
-    >.#{$section} {
+    > .#{$section} {
       grid-area: #{$section};
       background-color: var(--color-grid-#{$section});
       z-index: -1;
@@ -60,7 +67,7 @@ body {
     [content-end footer-start] min-content
     [footer-end lower-end];
 
-  >.header {
+  > .header {
     grid-area: header;
     background-color: var(--color-grid-upper);
     border-bottom: $nav-header-border solid var(--color-text);
@@ -75,12 +82,14 @@ body {
     display: grid;
     grid-template-columns: subgrid;
 
-    .home-name, .navigation {
+    .home-name,
+    .navigation {
       display: flex;
       flex-flow: row nowrap;
       align-items: flex-end;
 
-      a, span {
+      a,
+      span {
         padding: 0.5em 0.5em;
 
         color: var(--color-text);
@@ -92,16 +101,18 @@ body {
       grid-area: nav;
       justify-content: flex-start;
 
-      a, span {
+      a,
+      span {
         font-weight: $font-weight-root;
       }
     }
-    
+
     .navigation {
       grid-area: nav;
       justify-content: flex-end;
 
-      a, span {
+      a,
+      span {
         font-weight: calc($font-weight-root - 100);
       }
     }
@@ -113,11 +124,13 @@ body {
     }
   }
 
-  >.title, >.introduction, >.content {
+  > .title,
+  > .introduction,
+  > .content {
     padding: 0 0.5rem;
   }
 
-  >.title {
+  > .title {
     grid-area: title;
 
     font-size: $font-size-section-title;
@@ -128,7 +141,7 @@ body {
     margin: calc(0.3 * $font-size-section-title) 0;
   }
 
-  >.introduction {
+  > .introduction {
     grid-area: intro;
 
     padding-bottom: calc($grid-gap * 2);
@@ -139,7 +152,7 @@ body {
     orphans: 3;
     widows: 3;
 
-    >p:first-child {
+    > p:first-child {
       margin-top: 0;
 
       &::first-letter {
@@ -152,7 +165,7 @@ body {
     }
   }
 
-  >.content {
+  > .content {
     grid-area: content;
 
     padding: $grid-gap 0.5em;
@@ -162,7 +175,7 @@ body {
     justify-content: flex-start;
   }
 
-  >.footer {
+  > .footer {
     grid-area: footer;
 
     text-align: center;

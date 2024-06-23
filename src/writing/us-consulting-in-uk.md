@@ -72,24 +72,29 @@ Lastly, when it comes time to file, your tax advisor can file IRS [Form 8858](ht
 With all of that covered, here's a summary of your annual filings for both the UK and US.
 
 **UK Self-assessment**
+
 - You need to [tell HMRC](https://www.gov.uk/register-for-self-assessment) that you intend to file a self-assessment return in advance.
 - If you are non-domiciled in the UK or a part-year resident, you may also need to file [SA109](https://www.gov.uk/government/publications/self-assessment-residence-remittance-basis-etc-sa109) as part of your self-assessment return.
 
 **UK Limited company**
+
 - Statutory (annual) accounts, which are reported both to Companies House and HMRC.
 - Company tax return.
 - You'll also need to [keep specific records](https://www.gov.uk/running-a-limited-company/taking-money-out-of-a-limited-company) any time you pay dividends out of your company.
 
 **US Federal**
+
 - Form 1040 with any relevant additional forms & schedules.
 - [FBAR](https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar) if any foreign bank accounts you own ever reached $10,000 USD equivalent during the US tax year.
 - Form 8858, which covers your FDE.
 - [Form 8938](https://www.irs.gov/forms-pubs/about-form-8938) (FATCA) if your total foreign accounts ever reached $300,000 equivalent or more during the year, or $200,000 at the end of the US tax year.
 
 **US State**
+
 - You should only need to file a final state return if you have a partial year of residence in the US. This may also be required if you have any state-sourced income (eg. deferred income via stock options earned in that state), which will involve filing a non-resident state return.
 
 **US Other**
+
 - Form 8832 is a one-time election to designate your UK limited company as a FDE, which is a form you can mail to the IRS yourself.
 
 ## Professional help

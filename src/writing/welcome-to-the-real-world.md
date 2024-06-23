@@ -1,7 +1,7 @@
 ---
 title: "Welcome to the Real World"
 date: 2010-02-17
-update_date: 
+update_date:
 permalink: "/writing/2010/02/17/welcome-to-the-real-world/"
 tags:
   - travel

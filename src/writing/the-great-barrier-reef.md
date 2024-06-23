@@ -1,7 +1,7 @@
 ---
 title: "The Great Barrier Reef"
 date: 2010-07-14
-update_date: 
+update_date:
 permalink: "/writing/2010/07/14/the-great-barrier-reef/"
 tags:
   - travel

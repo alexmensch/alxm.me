@@ -1,7 +1,7 @@
 ---
 title: "Cross-Country Adventure"
 date: 2016-02-20
-update_date: 
+update_date:
 permalink: "/writing/cross-country-adventure-65e9eaba33c/"
 tags:
   - aviation

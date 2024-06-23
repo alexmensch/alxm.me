@@ -2,7 +2,7 @@
 layout: sections/home.liquid
 ---
 
-From writing to electronic circuits to artwork to business, I've been incredibly fortunate to enjoy a wide range of experiences across different disciplines. I particularly delight in the unexpected interactions and connections that come up between different areas. Creation and discovery are my primary motivators, which together have shaped many of the choices in my life. 
+From writing to electronic circuits to artwork to business, I've been incredibly fortunate to enjoy a wide range of experiences across different disciplines. I particularly delight in the unexpected interactions and connections that come up between different areas. Creation and discovery are my primary motivators, which together have shaped many of the choices in my life.
 
 I currently live in London, and my childhood years were mostly spent in Europe. Growing up, my family moved between four countries, and this experience during my formative years had a huge impact on my life and how I relate to the world today. In particular, I learned early on that beliefs we frequently hold to be objectively correct are often only jointly-held opinions.
 

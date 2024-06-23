@@ -1,7 +1,7 @@
 ---
 title: "Initial Travel Plans"
 date: 2010-03-07
-update_date: 
+update_date:
 permalink: "/writing/2010/03/07/initial-travel-plans/"
 tags:
   - travel

@@ -1,7 +1,7 @@
 ---
 title: "Seeing things clearly"
 date: 2024-06-15
-update_date: 
+update_date:
 tags:
   - essay
   - psychology
@@ -13,7 +13,7 @@ summary: |
 ---
 
 > “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
-> 
+>
 > Christopher Alexander, _The Timeless Way of Building_
 
 Bringing more awareness into your perceived reality is one of the most powerful things that you can do. It’s a foundational skill to unlocking personal growth and improving the quality of your relationships, including the relationship you have with yourself. Learning to notice and pay closer attention to what is happening allows you to adopt a more honest viewpoint, and it’s from honesty that truly enduring growth and change can emerge. What it requires is lots of curiosity and some bravery. Whether you decide to take action on your increased awareness is up to you, but I hope that I will convince you why you should.
@@ -23,6 +23,7 @@ This is a difficult topic to cover in an essay because the first step you need t
 To ease into this idea, I’m going to start by approaching increased awareness of other people first. I’ll then shift the frame of reference to yourself, where the same concepts will apply, even if the practice is different. I’m also deliberately choosing to avoid delving deeply into theory or research and will instead take an experiential line of argument.^[The theoretical underpinnings are fascinating, though, and I encourage you to read more if you’re curious.] Take my word for it that this area has a significant body of scientific research and empirical evidence—not to mention several millennia of spiritual practice—supporting the arguments that I’ll make.
 
 Let’s begin with something we’re all much more familiar with: observing, evaluating, and reacting to other people’s behavior. Consider how many of these types of scenarios are familiar in your experience:
+
 - A family member who refuses the advice and pleading from loved ones to see a doctor for a health condition that could have serious consequences if left undiagnosed.
 - A close friend who confides the frequent misery that a romantic relationship is causing them but chooses to excuse or tolerate their partner’s behavior because the prospect of dating and finding a new partner involves too much uncertainty.
 - The business leader who appears to acknowledge troubling patterns (missed targets, high employee attrition, etc.) but avoids honestly evaluating the role they play in the outcomes.

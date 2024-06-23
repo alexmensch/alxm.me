@@ -1,7 +1,7 @@
 ---
 title: "The Journey"
 date: 2010-03-27
-update_date: 
+update_date:
 permalink: "/writing/2010/03/27/the-journey/"
 tags:
   - travel

@@ -1,7 +1,7 @@
 ---
 title: "Golf Sierra Lima: Lessons Learned"
 date: 2011-01-10
-update_date: 
+update_date:
 permalink: "/writing/2011/01/10/golf-sierra-lima-lessons-learned/"
 tags:
   - aviation

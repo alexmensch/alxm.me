@@ -1,7 +1,7 @@
 ---
 title: "Night Crawlers of the Abyss"
 date: 2011-01-11
-update_date: 
+update_date:
 permalink: "/writing/2011/01/11/night-crawlers-of-the-abyss/"
 feature: true
 tags:
