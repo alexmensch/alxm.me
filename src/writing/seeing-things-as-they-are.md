@@ -13,7 +13,7 @@ summary: |
 ---
 
 > “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
-> 
+>
 > Christopher Alexander, _The Timeless Way of Building_
 
 Bringing more awareness into your perceived reality is one of the most powerful things that you can do. It’s a foundational skill to unlocking personal growth and improving the quality of your relationships, including the relationship you have with yourself. Learning to notice and pay closer attention to what is happening allows you to adopt a more honest viewpoint, and it’s from honesty that truly enduring growth and change can emerge. What it requires is lots of curiosity and some bravery. Whether you decide to take action on your increased awareness is up to you, but I hope to convince you as to why you should.
@@ -25,6 +25,7 @@ To ease into this idea, I’m going to start by approaching increased awareness 
 ### Observing Others
 
 Let’s begin with something with which we’re all much more familiar: observing, evaluating, and reacting to other people’s behavior. Consider how many of these types of scenarios are familiar in your experience:
+
 - A family member who refuses the advice and pleading from loved ones to see a doctor for a health condition that could have serious consequences if left undiagnosed.
 - A close friend who confides the frequent misery that a romantic relationship is causing them but chooses to excuse or tolerate their partner’s behavior because the prospect of dating and finding a new partner involves too much uncertainty.
 - The business leader who appears to acknowledge troubling patterns (missed targets, high employee attrition, lack of motivation, etc.) but avoids honestly evaluating the role they play in the outcomes.
@@ -114,9 +115,11 @@ As you begin to expand your self-awareness, the best thing you can do is to remi
 So, go ahead and take that first step towards more self-awareness, be open to what comes forwards, and stay curious.
 
 ### Further Reading
-- _The Body Keeps the Score_, Bessel van der Kolk
-- _Waking Up_, Sam Harris
-- _How to Change Your Mind_, Michael Pollen
-- _Mindfullness_, Ellen Langer
-- _Determined_, Robert Sapolsky
-- _The Gift of Therapy_, Irvin D. Yalom
+
+- Kolk, Bessel van der (2015). _[The Body Keeps the Score](https://www.abebooks.co.uk/9780141978611/Body-Keeps-Score-Brain-Mind-0141978619/plp)_.
+- Harris, Sam (2014). _[Waking Up](https://www.abebooks.co.uk/9781476777726/Waking-Harris-Sam-978147677X/plp)_.
+- Pollen, Michael (2019). _[How to Change Your Mind](https://www.abebooks.co.uk/9780735224155/Change-Mind-What-New-Science-9780735224/plp)_.
+- Langer, Ellen J. (2014). _[Mindfulness](https://www.abebooks.co.uk/9780738217994/Mindfulness-25th-anniversary-edition-Merloyd-0738217999/plp)_.
+- Sapolsky, Robert (2023). _[Determined](https://www.abebooks.co.uk/9781847925541/Determined-Sapolsky-Robert-M-9781847921/plp)_.
+- Yalom, Irvin D. (2010). _[The Gift of Therapy](https://www.abebooks.co.uk/9780749923730/Gift-Therapy-open-letter-new-9780749926/plp)_.
+- Bradford, David L.; Robin, Carole (2022). _[Connect](https://www.abebooks.co.uk/9780241986868/Connect-Building-Exceptional-Relationships-Family-9780241981/plp)_.
