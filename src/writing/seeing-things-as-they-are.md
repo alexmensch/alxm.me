@@ -7,9 +7,9 @@ tags:
   - psychology
 feature: true
 summary: |
-  Awareness is a foundational skill for any type of self-development work. I describe how you can
-  start to see things more clearly by shifting your perspective of others' actions. With
-  practice and time, this can transform your relationship with both yourself and the people around you.
+  An essay on how to access your potential via greater self-awareness, which allows you to foster empathy,
+  understand deeper motivations, and make informed choices. Embracing curiosity and challenging your
+  self-beliefs can enable you to transform your personal and professional life with enduring change.
 ---
 
 > “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
@@ -18,7 +18,7 @@ summary: |
 
 Bringing more awareness into your perceived reality is one of the most powerful things that you can do. It’s a foundational skill to unlocking personal growth and improving the quality of your relationships, including the relationship you have with yourself. Learning to notice and pay closer attention to what is happening allows you to adopt a more honest viewpoint, and it’s from honesty that truly enduring growth and change can emerge. What it requires is lots of curiosity and some bravery. Whether you decide to take action on your increased awareness is up to you, but I hope to convince you as to why you should.
 
-This is a difficult topic to cover in an essay because the first step you need to take to improve _self_-awareness can feel very unnatural: you need to accept that you are not always consciously aware of why you do what you do. Since we all have the subjective experience of consciousness that we experience as being in the “driver’s seat”, the idea that we’re not in 100% control of ourselves at all times may sound preposterous. If you have experience with mindfulness, meditation, psychotherapy, psychological concepts or Buddhism, then this concept may be more familiar to you, but it can still be difficult to wrap your head around, let alone practice it.
+The first step you need to take to improve _self_-awareness can feel very unnatural: you need to accept that you are not always consciously aware of why you do what you do. Since we all have the subjective experience of consciousness that we experience as being in the “driver’s seat”, the idea that we’re not in 100% control of ourselves at all times may sound preposterous. If you have experience with mindfulness, meditation, psychotherapy, psychological concepts or Buddhism, then this concept may be more familiar to you, but it can still be difficult to wrap your head around, let alone practice it.
 
 To ease into this idea, I’m going to start by approaching increased awareness of other people first. I’ll then shift the frame of reference to yourself, where the same concepts will apply, even if the practice is different. I’m also deliberately choosing to avoid delving deeply into theory or research and will instead take an experiential line of argument.^[The theoretical underpinnings are fascinating, though, and I encourage you to read more if you’re curious.] There is a significant body of scientific research and empirical evidence—not to mention several millennia of spiritual practice—supporting the arguments that I’ll make, and I’ve included recommended further reading at the end of this essay.
 
