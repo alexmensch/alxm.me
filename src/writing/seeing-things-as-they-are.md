@@ -1,6 +1,6 @@
 ---
 title: "Seeing things clearly"
-date: 2024-06-15
+date: 2024-07-02
 update_date:
 tags:
   - essay
