@@ -1,16 +1,16 @@
 ---
 title: "Night Crawlers of the Abyss"
 date: 2011-01-11
-update_date: 
+update_date:
 permalink: "/writing/2011/01/11/night-crawlers-of-the-abyss/"
 feature: true
 tags:
   - travel
   - nature
 summary: |
-  One of my favorite pieces and most vivid memories, I talk about a night dive on the Great
-  Barrier Reef where virtually everything that could have gone wrong, went wrong. But it was
-  also one of the most magical experiences in nature that I've ever had.
+  One of my most vivid memories, I write about a night dive on the Great Barrier Reef where virtually
+  everything that could have gone wrong, went wrong. But it was also one of the most magical
+  experiences in nature that I've ever had.
 ---
 
 _May 19th, 2010, 7:34pm_

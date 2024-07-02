@@ -1,7 +1,7 @@
 ---
 title: "The Land Down Under"
 date: 2010-06-28
-update_date: 
+update_date:
 permalink: "/writing/2010/06/28/the-land-down-under/"
 tags:
   - travel

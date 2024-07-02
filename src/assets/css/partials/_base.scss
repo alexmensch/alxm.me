@@ -3,7 +3,7 @@
   font-feature-settings: $font-features;
   font-size: $font-size-root;
   font-weight: $font-weight-root;
-  
+
   color: var(--color-text);
   line-height: $line-height-base;
 
@@ -15,7 +15,9 @@
 }
 
 @supports (font-variation-settings: normal) {
-  :root { font-family: InterVariable, sans-serif; }
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
 }
 
 // Properties that don't inherit by default
@@ -27,7 +29,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  
+
   scroll-padding-top: $nav-header-height;
 }
 
@@ -37,7 +39,7 @@ body {
   font-weight: $font-weight-heading;
   font-size: $size;
   outline: none;
-  
+
   margin: 1em 0 0.5em;
 
   @media (max-width: $breakpoint-md) {
@@ -45,12 +47,24 @@ body {
   }
 }
 
-h1 { @include heading-styles(2rem); }
-h2 { @include heading-styles(1.75rem); }
-h3 { @include heading-styles(1.5rem); }
-h4 { @include heading-styles(1.25rem); }
-h5 { @include heading-styles(1rem); }
-h6 { @include heading-styles(0.875rem); }
+h1 {
+  @include heading-styles(2rem);
+}
+h2 {
+  @include heading-styles(1.75rem);
+}
+h3 {
+  @include heading-styles(1.5rem);
+}
+h4 {
+  @include heading-styles(1.25rem);
+}
+h5 {
+  @include heading-styles(1rem);
+}
+h6 {
+  @include heading-styles(0.875rem);
+}
 
 p {
   margin: 1rem 0;
@@ -61,7 +75,8 @@ a {
   text-decoration: none;
   font-weight: $font-weight-anchor;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: var(--color-anchor-hover);
 
     text-decoration: underline;
@@ -78,7 +93,8 @@ strong {
   font-weight: $font-weight-strong;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 1em 0;
   padding-left: 1.5em;
 }
@@ -94,14 +110,14 @@ blockquote {
 }
 
 code {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   background-color: var(--color-bg-fill);
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
 
 pre {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   background-color: var(--color-bg-fill);
   padding: 1em;
   border-radius: 5px;
@@ -113,7 +129,8 @@ table {
   border-collapse: collapse;
   margin: 1em 0;
 
-  th, td {
+  th,
+  td {
     border: 1px solid var(--color-line);
     padding: 0.5em;
     text-align: left;

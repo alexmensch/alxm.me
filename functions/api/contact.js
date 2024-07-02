@@ -1,25 +1,25 @@
 export async function onRequestPost({ request, env }) {
   // Parse the form data
   const formData = await request.formData();
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
 
   // Email parameters
   const sendGridApiKey = env.SENDGRID_API_KEY;
-  const sendGridUrl = 'https://api.sendgrid.com/v3/mail/send';
+  const sendGridUrl = "https://api.sendgrid.com/v3/mail/send";
 
   const emailBody = {
     personalizations: [
       {
-        to: [{ email: 'form-submit@alxm.me' }],
+        to: [{ email: "form-submit@alxm.me" }],
       },
     ],
-    from: { email: 'no-reply@alxm.me' },
+    from: { email: "no-reply@alxm.me" },
     subject: `New contact form submission from ${name}`,
     content: [
       {
-        type: 'text/plain',
+        type: "text/plain",
         value: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       },
     ],
@@ -27,10 +27,10 @@ export async function onRequestPost({ request, env }) {
 
   // Send the email via SendGrid
   const response = await fetch(sendGridUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Authorization': `Bearer ${sendGridApiKey}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${sendGridApiKey}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(emailBody),
   });
@@ -43,6 +43,8 @@ export async function onRequestPost({ request, env }) {
     const redirectUrl = `${origin}/contact/success`;
     return Response.redirect(redirectUrl, 302);
   } else {
-    return new Response('There was an error sending your message.', { status: 500 });
+    return new Response("There was an error sending your message.", {
+      status: 500,
+    });
   }
 }

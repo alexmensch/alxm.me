@@ -1,7 +1,7 @@
 ---
 title: "What Lies Beneath?"
 date: 2010-07-02
-update_date: 
+update_date:
 permalink: "/writing/2010/07/02/what-lies-beneath/"
 tags:
   - travel

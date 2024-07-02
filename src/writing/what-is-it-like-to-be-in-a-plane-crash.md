@@ -1,7 +1,7 @@
 ---
 title: "What is it like to be in a plane crash?"
 date: 2012-08-02
-update_date: 
+update_date:
 permalink: "/writing/what-is-it-like-to-be-in-a-plane-crash-7392ec23294/"
 tags:
   - personal

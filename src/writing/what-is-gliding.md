@@ -1,7 +1,7 @@
 ---
 title: "What is gliding?"
 date: 2010-04-08
-update_date: 
+update_date:
 permalink: "/writing/2010/04/08/what-is-gliding/"
 tags:
   - aviation

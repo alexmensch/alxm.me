@@ -1,7 +1,7 @@
 ---
 title: "Exceeding All Expectations"
 date: 2010-06-06
-update_date: 
+update_date:
 permalink: "/writing/2010/06/06/exceeding-all-expectations/"
 tags:
   - travel

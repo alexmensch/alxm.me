@@ -1,7 +1,7 @@
 ---
 title: "At the End of the Earth"
 date: 2010-06-23
-update_date: 
+update_date:
 permalink: "/writing/2010/06/23/at-the-end-of-the-earth/"
 tags:
   - travel
@@ -42,7 +42,7 @@ The sound of birdcalls is almost deafening. Rakiura, the Māori name for Stewart
 
 I spent a day and a half walking along some of the local forest paths, including half a day spent at Ulva Island, a 15-minute boat ride from Oban. Ulva Island is a unique conservation area in that it is viciously protected from any land-based predators that could disrupt the native bird life. Native New Zealand birds are particularly vulnerable to predators as there were few on land before their introduction by European settlers. Signs warn visitors to check for rats in anything they might be carrying.
 
-Walking along the small island’s tracks you have the ability to feel almost entirely alone with nature, wandering through the dense temperate rainforest and deserted rocky beaches. Sitting motionless for a few minutes at the side of the track, you might be lucky to spot a rare [Saddleback](http://en.wikipedia.org/wiki/Saddleback_(bird)), a once endangered species that has been recently reintroduced to Ulva Island. Taking in the calm view from one of the beaches in seeming isolation from the modern world, a group of [wekas’](http://en.wikipedia.org/wiki/Weka) insatiable curiosity for what I was carrying in my backpack quickly reminded me that I was probably not the first human to set foot on these shores.
+Walking along the small island’s tracks you have the ability to feel almost entirely alone with nature, wandering through the dense temperate rainforest and deserted rocky beaches. Sitting motionless for a few minutes at the side of the track, you might be lucky to spot a rare [Saddleback](<http://en.wikipedia.org/wiki/Saddleback_(bird)>), a once endangered species that has been recently reintroduced to Ulva Island. Taking in the calm view from one of the beaches in seeming isolation from the modern world, a group of [wekas’](http://en.wikipedia.org/wiki/Weka) insatiable curiosity for what I was carrying in my backpack quickly reminded me that I was probably not the first human to set foot on these shores.
 
 Rakiura is beautifully peaceful, a tight-knit sanctuary far from the reaches of the modern and busy world. The more I explored, the more I realized that remoteness requires additional preparation. Options for activities are fairly limited unless you’ve come with the right equipment or have made arrangements in advance. The Rakiura Track, one of New Zealand’s [Great Walks](http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/great-walks/), is a 3-day tramp around the northern part of the island, and can be extended in various places to make up to a 10–12 day tramping excursion. With the undeveloped land preventing any sediment runoff, scuba diving is also said to be phenomenal in the crystal-clear, if cold, waters around the island. Brachiopods — living fossils, having first appeared on Earth over 500 million years ago — abound in the [Te Wharawhara Marine Reserve](http://www.doc.govt.nz/parks-and-recreation/places-to-visit/southland/southern-islands/ulva-island-te-wharawhara-marine-reserve/). Though I had my diving gear with me, there is no operator on the island, and diving trips need to be arranged in advance on the mainland.
 
