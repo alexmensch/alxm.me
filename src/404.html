@@ -3,11 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>404 - Page Not Found</title>
+    <style>
+      :root {
+        font-family: "Inter", sans-serif;
+        font-feature-settings: "tnum" 1, "ss01" 1, "zero" 1;
+        font-size: 22px;
+        font-weight: 500;
+
+        color: var(--color-text);
+
+        color-scheme: light dark;
+
+        --color-text: light-dark(black, white);
+      }
+
+      @supports (font-variation-settings: normal) {
+        :root {
+          font-family: InterVariable, sans-serif;
+        }
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        background: light-dark(oklch(100% 0.16 195), oklch(42% 0.19 262));
+      }
+
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .fullpage {
+          position: absolute;
+          color: light-dark(oklch(90% 0.06 315), oklch(70% 0.19 55));
+
+          font-size: 50vw;
+          font-weight: 700;
+          line-height: 1;
+          white-space: nowrap;
+      }
+
+      .center {
+        z-index: 99;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        background: light-dark(oklch(97% 0.21 110), oklch(50% 0.17 160));
+        mix-blend-mode: multiply;
+
+        padding: 5vh 10vw;
+        border-radius: 5px;
+      }
+
+      a {
+        align-self: flex-end;
+        color: var(--color-text);
+        text-underline-position: under;
+      }
+
+      p, a {
+        text-shadow: 1.5px 1.5px 1px light-dark(white, black);
+      }
+
+      @media (min-aspect-ratio: 1/1) {
+        .fullpage {
+            font-size: min(50vw, 120vh);
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .center {
+          mix-blend-mode: screen;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>404 - Page Not Found</h1>
-    <p>The page you are looking for does not exist.</p>
-    <a href="/">Go back to the homepage</a>
+    <div class="container">
+      <div class="fullpage">
+        404
+      </div>
+      <div class="center">
+        <p>This is nought the page you seek</p>
+        <a href="/">Back home &#x21BA;</a>
+      </div>
+    </div>
   </body>
 </html>
