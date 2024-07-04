@@ -10,7 +10,7 @@
       :root {
         font-family: "Inter", sans-serif;
         font-feature-settings: "tnum" 1, "ss01" 1, "zero" 1;
-        font-size: 22px;
+        font-size: clamp(16px, 2vw, 22px);
         font-weight: 500;
 
         color: var(--color-text);
@@ -44,11 +44,14 @@
 
       .fullpage {
           position: absolute;
+          left: 6vw;
           color: light-dark(oklch(90% 0.06 315), oklch(70% 0.19 55));
 
           font-size: 50vw;
           font-weight: 700;
+          letter-spacing: -0.075em;
           line-height: 1;
+
           white-space: nowrap;
       }
 
@@ -63,7 +66,7 @@
         background: light-dark(oklch(97% 0.21 110), oklch(50% 0.17 160));
         mix-blend-mode: multiply;
 
-        padding: 5vh 10vw;
+        padding: clamp(1vh, 4vw, 5vh) 5vw;
         border-radius: 5px;
       }
 
