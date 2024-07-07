@@ -3,7 +3,10 @@ const mdAnchor = require("markdown-it-anchor");
 const mdTOC = require("markdown-it-table-of-contents");
 const mdFN = require("markdown-it-footnote");
 
-module.exports = function (eleventyConfig) {
+module.exports = async function (eleventyConfig) {
+  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
+  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+
   // Ignore test page if NODE_ENV=production
   if (process.env.NODE_ENV === "production") {
     eleventyConfig.ignores.add("src/test.md");
