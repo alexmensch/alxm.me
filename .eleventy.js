@@ -4,6 +4,7 @@ const mdTOC = require("markdown-it-table-of-contents");
 const mdFN = require("markdown-it-footnote");
 
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = async function (eleventyConfig) {
   // Ignore test page if NODE_ENV=production
@@ -26,6 +27,8 @@ module.exports = async function (eleventyConfig) {
       decoding: "async",
     },
   });
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy({
