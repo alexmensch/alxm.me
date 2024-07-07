@@ -6,6 +6,7 @@ const mdFN = require("markdown-it-footnote");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
+const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 
 module.exports = async function (eleventyConfig) {
   // Ignore test page if NODE_ENV=production
@@ -48,6 +49,11 @@ module.exports = async function (eleventyConfig) {
         email: "", // Optional
       }
     }
+  });
+
+  eleventyConfig.setQuietMode(true);
+  eleventyConfig.addPlugin(directoryOutputPlugin, {
+    warningFileSize: 250 * 1000,
   });
 
   // Add a passthrough copy directive for assets
