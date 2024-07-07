@@ -3,14 +3,29 @@ const mdAnchor = require("markdown-it-anchor");
 const mdTOC = require("markdown-it-table-of-contents");
 const mdFN = require("markdown-it-footnote");
 
-module.exports = async function (eleventyConfig) {
-  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
-  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
+module.exports = async function (eleventyConfig) {
   // Ignore test page if NODE_ENV=production
   if (process.env.NODE_ENV === "production") {
     eleventyConfig.ignores.add("src/test.md");
   }
+
+  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
+  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    extensions: "html",
+    formats: ["webp", "auto"],
+    widths: ["auto"],
+    urlPath: "/assets/images/",
+
+    // optional, attributes assigned on <img> override these values.
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+    },
+  });
 
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy({

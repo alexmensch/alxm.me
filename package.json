@@ -20,11 +20,12 @@
   },
   "dependencies": {
     "@11ty/eleventy": ">=3.0.0-alpha.14",
-    "sass": "^1.71.1",
+    "@11ty/eleventy-img": "^4.0.2",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^9.0.1",
     "markdown-it-footnote": "^4.0.0",
-    "markdown-it-table-of-contents": "^0.6.0"
+    "markdown-it-table-of-contents": "^0.6.0",
+    "sass": "^1.71.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.3"
