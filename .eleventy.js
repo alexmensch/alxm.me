@@ -3,14 +3,58 @@ const mdAnchor = require("markdown-it-anchor");
 const mdTOC = require("markdown-it-table-of-contents");
 const mdFN = require("markdown-it-footnote");
 
-module.exports = async function (eleventyConfig) {
-  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
-  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
+const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 
+module.exports = async function (eleventyConfig) {
   // Ignore test page if NODE_ENV=production
   if (process.env.NODE_ENV === "production") {
     eleventyConfig.ignores.add("src/test.md");
   }
+
+  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
+  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    extensions: "html",
+    formats: ["webp", "auto"],
+    widths: ["auto"],
+    urlPath: "/assets/images/",
+
+    // optional, attributes assigned on <img> override these values.
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+    },
+  });
+
+  eleventyConfig.addPlugin(syntaxHighlight);
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom", // or "rss", "json"
+    outputPath: "/writing.atom",
+    collection: {
+      name: "writing", // iterate over `collections.posts`
+      limit: 0,     // 0 means no limit
+    },
+    metadata: {
+      language: "en",
+      title: "Alex Marshall | Writing",
+      subtitle: "A collection of all of my writing on various topics.",
+      base: "https://alxm.me/writing",
+      author: {
+        name: "Alex Marshall",
+        email: "", // Optional
+      }
+    }
+  });
+
+  eleventyConfig.setQuietMode(true);
+  eleventyConfig.addPlugin(directoryOutputPlugin, {
+    warningFileSize: 250 * 1000,
+  });
 
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy({
@@ -113,7 +157,7 @@ module.exports = async function (eleventyConfig) {
       output: "_site",
     },
     // Define other options like pathPrefix
-    templateFormats: ["liquid", "md"],
+    templateFormats: ["liquid", "md", "njk"],
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "liquid",
   };
