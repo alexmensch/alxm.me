@@ -14,7 +14,8 @@ module.exports = async function (eleventyConfig) {
 
   // Add a passthrough copy directive for assets
   eleventyConfig.addPassthroughCopy({
-    "src/assets": "assets",
+    "src/assets/css": "assets/css",
+    "src/assets/files": "assets/files",
     "src/_redirects": "_redirects",
     "src/404.html": "404.html",
   });
