@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <title>404 - Page Not Found</title>
     <style>
       :root {
         font-family: "Inter", sans-serif;
-        font-feature-settings: "tnum" 1, "ss01" 1, "zero" 1;
+        font-feature-settings:
+          "tnum" 1,
+          "ss01" 1,
+          "zero" 1;
         font-size: clamp(16px, 2vw, 22px);
         font-weight: 500;
 
@@ -43,16 +46,16 @@
       }
 
       .fullpage {
-          position: absolute;
-          left: 6vw;
-          color: light-dark(oklch(90% 0.06 315), oklch(70% 0.19 55));
+        position: absolute;
+        left: 6vw;
+        color: light-dark(oklch(90% 0.06 315), oklch(70% 0.19 55));
 
-          font-size: 50vw;
-          font-weight: 700;
-          letter-spacing: -0.075em;
-          line-height: 1;
+        font-size: 50vw;
+        font-weight: 700;
+        letter-spacing: -0.075em;
+        line-height: 1;
 
-          white-space: nowrap;
+        white-space: nowrap;
       }
 
       .center {
@@ -76,13 +79,14 @@
         text-underline-position: under;
       }
 
-      p, a {
+      p,
+      a {
         text-shadow: 1.5px 1.5px 1px light-dark(white, black);
       }
 
       @media (min-aspect-ratio: 1/1) {
         .fullpage {
-            font-size: min(50vw, 120vh);
+          font-size: min(50vw, 120vh);
         }
       }
 
@@ -95,9 +99,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="fullpage">
-        404
-      </div>
+      <div class="fullpage">404</div>
       <div class="center">
         <p>This is nought the page you seek</p>
         <a href="/">Back home &#x21BA;</a>
