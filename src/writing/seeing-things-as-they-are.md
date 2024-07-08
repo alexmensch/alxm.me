@@ -1,7 +1,7 @@
 ---
 title: "Seeing things clearly"
 date: 2024-07-02
-update_date:
+update_date: 2024-07-08
 tags:
   - essay
   - psychology
@@ -108,7 +108,7 @@ I picked this as an example of something apparently small hiding something large
 
 ### Putting it all together
 
-We’ve covered a huge amount of psychological ground together. Almost every topic I’ve touched upon has enough behind it to fill a book, and I encourage you to keep learning more. The briefest summary I can offer is the following: Your life experiences have created beliefs and patterns that define who you are. These beliefs are contained with the concept that is your ego, your perceived sense of self. Being consciously aware of why you do every single thing you do would be overwhelming to your conscious mind, so we evolved to get through life by responding to our feelings.^[It’s more correct to say that feelings came first in our evolution as animals, and the sense of consciousness that we perceive came later on with the development of the neocortex. Anyone with a pet at home most certainly knows that animals have feelings, and perhaps even some level of basic consciousness. The most important thing is to understand that feelings are what primarily drive us; it is our conscious mind that gives meaning, story, and coherence to the actions that we take based on our feelings.] Feelings are expressed through our bodies and effectively summarize our reactions to our lived experiences. Understanding and changing behavior requires noticing that feelings arise at all, and when they do, what they might be saying and why. With awareness and understanding, compassion and enduring change can take place by making different choices.
+We’ve covered a huge amount of psychological ground together. Almost every topic I’ve touched upon has enough behind it to fill a book, and I encourage you to keep learning more. The briefest summary I can offer is the following: Your life experiences have created beliefs and patterns that define who you are. These beliefs are contained within the concept that is your ego, your perceived sense of self. Being consciously aware of why you do every single thing you do would be overwhelming to your conscious mind, so we evolved to get through life by responding to our feelings.^[It’s more correct to say that feelings came first in our evolution as animals, and the sense of consciousness that we perceive came later on with the development of the neocortex. Anyone with a pet at home most certainly knows that animals have feelings, and perhaps even some level of basic consciousness. The most important thing is to understand that feelings are what primarily drive us; it is our conscious mind that gives meaning, story, and coherence to the actions that we take based on our feelings.] Feelings are expressed through our bodies and effectively summarize our reactions to our lived experiences. Understanding and changing behavior requires noticing that feelings arise at all, and when they do, what they might be saying and why. With awareness and understanding, compassion and enduring change can take place by making different choices.
 
 As you begin to expand your self-awareness, the best thing you can do is to remind yourself to notice. Do it now. Do it the very next time you feel something, big or small. Get curious. Does me telling you to practice make you feel something? If so, what? If it’s easy to name the feeling, take the next step and ask yourself why. Once you start noticing, you’ll become increasingly aware that there is a lot going on beneath the surface and that there is a huge amount of material we each have to work with.
 
@@ -120,6 +120,7 @@ So, go ahead and take that first step towards more self-awareness, be open to wh
 - Harris, Sam (2014). _[Waking Up](https://www.abebooks.co.uk/9781476777726/Waking-Harris-Sam-978147677X/plp)_.
 - Kolk, Bessel van der (2015). _[The Body Keeps the Score](https://www.abebooks.co.uk/9780141978611/Body-Keeps-Score-Brain-Mind-0141978619/plp)_.
 - Langer, Ellen J. (2014). _[Mindfulness](https://www.abebooks.co.uk/9780738217994/Mindfulness-25th-anniversary-edition-Merloyd-0738217999/plp)_.
+- Maté, Gabor; Maté, Daniel (2022). _[The Myth of Normal](https://www.abebooks.co.uk/9781785042737/Myth-Normal-Illness-health-healing-1785042734/plp)_.
 - Pollen, Michael (2019). _[How to Change Your Mind](https://www.abebooks.co.uk/9780735224155/Change-Mind-What-New-Science-9780735224/plp)_.
 - Sapolsky, Robert (2023). _[Determined](https://www.abebooks.co.uk/9781847925541/Determined-Sapolsky-Robert-M-9781847921/plp)_.
 - Yalom, Irvin D. (2010). _[The Gift of Therapy](https://www.abebooks.co.uk/9780749923730/Gift-Therapy-open-letter-new-9780749926/plp)_.
