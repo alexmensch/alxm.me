@@ -4,7 +4,9 @@ const mdTOC = require("markdown-it-table-of-contents");
 const mdFN = require("markdown-it-footnote");
 const { DateTime } = require("luxon");
 
-const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const eleventyImg = require("@11ty/eleventy-img");
+const eleventyImageTransformPlugin = eleventyImg.eleventyImageTransformPlugin;
+
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
@@ -70,6 +72,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
     "src/assets/files": "assets/files",
+    "src/assets/fonts": "assets/fonts",
     "src/_redirects": "_redirects",
     "src/404.html": "404.html",
   });
@@ -210,16 +213,23 @@ module.exports = async function (eleventyConfig) {
   });
 
   // Post-process SVGs to convert to JPEG for OpenGraph compatibility
-  eleventyConfig.on("eleventy.after", async ({}) => {
+  eleventyConfig.on("eleventy.after", () => {
     const socialPreviewImagesDir = "_site/assets/images/open-graph/";
 
     fs.readdir(socialPreviewImagesDir, function (err, files) {
       if (files.length > 0) {
-        files.forEach(function (filename) {
+        files.forEach((filename) => {
           if (filename.endsWith(".svg")) {
             let imageUrl = socialPreviewImagesDir + filename;
-            eleventyImageTransformPlugin(imageUrl, {
+
+            // Image processing options: https://sharp.pixelplumbing.com/api-output#webp
+            eleventyImg(imageUrl, {
               formats: ["jpeg"],
+              sharpWebpOptions: {
+                quality: 100,
+                preset: "text",
+                effort: 6,
+              },
               outputDir: "./" + socialPreviewImagesDir,
               filenameFormat: function (id, src, width, format, options) {
                 let outputFilename = filename.substring(0, filename.length - 4);
