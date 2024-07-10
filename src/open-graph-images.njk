@@ -14,13 +14,14 @@ eleventyExcludeFromCollections: true
 
     {% set descriptionInLines = post.data.og_description | ogSplitLines(36) %}
 
-    {% set verticalStartingPoint = 180 %}
+    {% set verticalStartingPoint = 165 %}
     {% set horizontalStartingPoint = 300 %}
     
     <defs>
       <style type="text/css">
         text {
             font-family: "Inter";
+            letter-spacing: -0.025em;
         }
 
         .site {
@@ -79,7 +80,7 @@ eleventyExcludeFromCollections: true
         <tspan
             class="desc font-light"
             x="{{ horizontalStartingPoint }}"
-            y="{{ 25 + verticalStartingPoint + numberOfTitleLines * 80 + loop.index0 * (48 + 5) }}">
+            y="{{ 35 + verticalStartingPoint + numberOfTitleLines * 80 + loop.index0 * (48 + 5) }}">
             {{ line }}
         </tspan>
     {% endfor %}
