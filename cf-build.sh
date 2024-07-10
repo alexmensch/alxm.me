@@ -1,5 +1,6 @@
 #!/bin/bash
 export FONTCONFIG_FILE=${pwd}/fonts.conf
+export FC_DEBUG=1024
 
 # Debug stuff
 fc-list
