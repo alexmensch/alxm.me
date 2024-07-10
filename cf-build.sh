@@ -11,10 +11,6 @@ cat <<EOF > fonts.conf
 </fontconfig>
 EOF
 
-# Debug stuff
-fc-match "Inter Variable"
-fc-query src/assets/fonts/inter/InterVariable.woff2
-
 sass src/assets/scss/main.scss src/assets/css/main.css
 npx @11ty/eleventy
 
