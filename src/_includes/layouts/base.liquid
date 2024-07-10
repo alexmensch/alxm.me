@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ eleventy.generator }}">
-    {% capture pageTitle %}
-    {{ title }} • Alex Marshall
-    {% endcapture %}
+    {% capture pageTitle %}{{ title }} • Alex Marshall{% endcapture %}
     <title>{{ pageTitle }}</title>
     <link rel="stylesheet" href="/assets/fonts/inter/inter.css">
     <link rel="stylesheet" href="/assets/css/prism.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" title="Alex Marshall • Writing" type="application/atom+xml" href="/writing.atom">
     <!-- Open Graph meta tags -->
-    {% capture img_url %}
-    https://alxm.me/assets/images/open-graph/{{ post.data.date | ogPostDate }}-{{ post.data.title | slug }}-preview.webp"
-    {% endcapture %}
+    {% capture img_url %}https://alxm.me/assets/images/open-graph/{{ date | ogPostDate }}-{{ title | slug }}-preview.webp"{% endcapture %}
     {% assign defaultImg_url = "https://alxm.me/assets/images/open-graph/default-preview.webp" %}
     <meta
         property="og:title"
