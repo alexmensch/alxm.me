@@ -14,16 +14,19 @@
     {% capture img_url %}https://alxm.me/assets/images/open-graph/{{ date | ogPostDate }}-{{ title | slug }}-preview.webp"{% endcapture %}
     {% assign defaultImg_url = "https://alxm.me/assets/images/open-graph/default-preview.webp" %}
     <meta
+        name="title"
         property="og:title"
         content="{% if page.url == "/" %}alxm.me • Alex Marshall{% else %}{{ pageTitle }}{% endif %}"
         />
     <meta property="og:url" content="{{ page.url }}" />
+    <meta name="author" content="Alex Marshall" />
 {% if og_description %}
-    <meta property="og:image" content="{{ img_url }}" />
-    <meta property="og:image:secure_url" content="{{ img_url }}" />
+    <meta name="image" property="og:image" content="{{ img_url }}" />
+    <meta name="image" property="og:image:secure_url" content="{{ img_url }}" />
+    <meta name="description" property="og:description" content="{{ og_description }}" />
 {% else %}
-    <meta property="og:image" content="{{ defaultImg_url }}" />
-    <meta property="og:image:secure_url" content="{{ defaultImg_url }}" />
+    <meta name="image" property="og:image" content="{{ defaultImg_url }}" />
+    <meta name="image" property="og:image:secure_url" content="{{ defaultImg_url }}" />
 {% endif %}
 </head>
 <body class="{{ layout-palette | downcase }}">
