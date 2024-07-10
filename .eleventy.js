@@ -212,7 +212,7 @@ module.exports = async function (eleventyConfig) {
     return lines;
   });
 
-  // Post-process SVGs to convert to JPEG for OpenGraph compatibility
+  // Post-process SVGs to convert to WebP for OpenGraph compatibility
   eleventyConfig.on("eleventy.after", () => {
     const socialPreviewImagesDir = "_site/assets/images/open-graph/";
 
@@ -224,12 +224,7 @@ module.exports = async function (eleventyConfig) {
 
             // Image processing options: https://sharp.pixelplumbing.com/api-output#webp
             eleventyImg(imageUrl, {
-              formats: ["jpeg"],
-              sharpWebpOptions: {
-                quality: 100,
-                preset: "text",
-                effort: 6,
-              },
+              formats: ["webp"],
               outputDir: "./" + socialPreviewImagesDir,
               filenameFormat: function (id, src, width, format, options) {
                 let outputFilename = filename.substring(0, filename.length - 4);

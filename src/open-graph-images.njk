@@ -9,10 +9,10 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="1200" height="628" viewBox="0 0 1200 628" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
 
-    {% set titleInLines = post.data.title | ogSplitLines(19) %}
+    {% set titleInLines = post.data.title | ogSplitLines(21) %}
     {% set numberOfTitleLines = titleInLines.length %}
 
-    {% set descriptionInLines = post.data.og_description | ogSplitLines(40) %}
+    {% set descriptionInLines = post.data.og_description | ogSplitLines(36) %}
 
     {% set verticalStartingPoint = 180 %}
     {% set horizontalStartingPoint = 300 %}
@@ -20,11 +20,40 @@ eleventyExcludeFromCollections: true
     <defs>
       <style type="text/css">
         @font-face {
-            font-family: InterVariable;
+            font-family: "InterVariable";
             font-style: normal;
             font-weight: 100 900;
             font-display: swap;
-            src: url('https://rsms.me/inter/font-files/InterVariable.woff2?v=4.0') format('woff2');
+            src: url("../../fonts/inter/InterVariable.woff2") format("woff2"),
+                 url("_site/assets/fonts/inter/InterVariable.woff2") format("woff2"),
+                 url("https://rsms.me/inter/font-files/InterVariable.woff2?v=4.0") format("woff2");
+        }
+
+        text {
+            font-family: "InterVariable";
+            font-feature-settings: "liga" 1,"calt" 1,"ss03" 1,"dlig" 1;
+        }
+
+        .site {
+            font-size: 265px;
+            font-weight: 900;
+        }
+
+        .font-light {
+            font-weight: 250;
+        }
+
+        .date {
+            font-size: 30px;
+        }
+
+        .title {
+            font-size: 80px;
+            font-weight: 600;
+        }
+
+        .desc {
+            font-size: 48px;
         }
       </style>
     </defs>
@@ -32,23 +61,17 @@ eleventyExcludeFromCollections: true
     <rect width="100%" height="100%" fill="#1A1A1A" />
 
     <text 
-        font-size="265px"
-        font-weight="900"
-        font-family="InterVariable"
-        fill="#006D6E"
+        fill="#00B1B2"
         fill-opacity="1"
         x="-625"
         y="225"
         transform="rotate(-90)">
-        <tspan>alxm</tspan>
+        <tspan class="site">alxm</tspan>
     </text>
 
-    <text
-        font-family="InterVariable"
-        fill="#FFFFFF">
+    <text fill="#FFFFFF">
         <tspan
-            font-size="30"
-            font-weight="250"
+            class="date font-light"
             x="{{ horizontalStartingPoint }}"
             y="{{verticalStartingPoint - 90}}">
             {{ post.data.date | readablePostDate }}
@@ -56,8 +79,7 @@ eleventyExcludeFromCollections: true
     
     {% for line in titleInLines %}
         <tspan
-            font-size="80"
-            font-weight="600"
+            class="title"
             x="{{ horizontalStartingPoint }}"
             y="{{ 5 + verticalStartingPoint + loop.index0 * 80 }}">
             {{ line }}
@@ -66,8 +88,7 @@ eleventyExcludeFromCollections: true
 
     {% for line in descriptionInLines %}
         <tspan
-            font-size="48"
-            font-weight="250"
+            class="desc font-light"
             x="{{ horizontalStartingPoint }}"
             y="{{ 25 + verticalStartingPoint + numberOfTitleLines * 80 + loop.index0 * (48 + 5) }}">
             {{ line }}
