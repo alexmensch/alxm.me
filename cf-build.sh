@@ -12,7 +12,9 @@ cat <<EOF > fonts.conf
 EOF
 
 # Debug stuff
-fc-list
+fc-match "Inter Variable"
 
 sass src/assets/scss/main.scss src/assets/css/main.css
 npx @11ty/eleventy
+
+rm fonts.conf
