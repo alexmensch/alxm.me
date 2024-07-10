@@ -7,7 +7,7 @@
     "build": "sass src/assets/scss/main.scss src/assets/css/main.css && npx @11ty/eleventy",
     "build:11ty": "npx @11ty/eleventy",
     "build:sass": "sass src/assets/scss/main.scss src/assets/css/main.css",
-    "build:cloudflare": "sass src/assets/scss/main.scss src/assets/css/main.css && FONTCONFIG_PATH=${PWD}/src/assets/fonts/inter npx @11ty/eleventy",
+    "build:cloudflare": "sass src/assets/scss/main.scss src/assets/css/main.css && FONTCONFIG_PATH=${PWD}/src/assets/fonts/inter fc-cache -v && npx @11ty/eleventy",
     "clean": "rm -rf _site",
     "sass:watch": "sass --watch --source-map src/assets/scss/main.scss src/assets/css/main.css",
     "11ty:watch": "npx @11ty/eleventy --serve",
