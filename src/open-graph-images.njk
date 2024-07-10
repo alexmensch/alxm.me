@@ -1,0 +1,88 @@
+---
+pagination:
+  data: collections.writing
+  size: 1
+  alias: post
+permalink: "/assets/images/open-graph/{{ post.data.date | ogPostDate }}-{{ post.data.title | slug }}-preview.svg"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="628" viewBox="0 0 1200 628" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+
+    {% set titleInLines = post.data.title | ogSplitLines(21) %}
+    {% set numberOfTitleLines = titleInLines.length %}
+
+    {% set descriptionInLines = post.data.og_description | ogSplitLines(36) %}
+
+    {% set verticalStartingPoint = 165 %}
+    {% set horizontalStartingPoint = 300 %}
+    
+    <defs>
+      <style type="text/css">
+        text {
+            font-family: "Inter";
+            letter-spacing: -0.025em;
+        }
+
+        .site {
+            font-size: 265px;
+            font-weight: 900;
+        }
+
+        .font-light {
+            font-weight: 250;
+        }
+
+        .date {
+            font-size: 30px;
+        }
+
+        .title {
+            font-size: 80px;
+            font-weight: 600;
+        }
+
+        .desc {
+            font-size: 48px;
+        }
+      </style>
+    </defs>
+
+    <rect width="100%" height="100%" fill="#1A1A1A" />
+
+    <text 
+        fill="#00B1B2"
+        fill-opacity="1"
+        x="-625"
+        y="225"
+        transform="rotate(-90)">
+        <tspan class="site">alxm</tspan>
+    </text>
+
+    <text fill="#FFFFFF">
+        <tspan
+            class="date font-light"
+            x="{{ horizontalStartingPoint }}"
+            y="{{verticalStartingPoint - 90}}">
+            {{ post.data.date | readablePostDate }}
+        </tspan>
+    
+    {% for line in titleInLines %}
+        <tspan
+            class="title"
+            x="{{ horizontalStartingPoint }}"
+            y="{{ 5 + verticalStartingPoint + loop.index0 * 80 }}">
+            {{ line }}
+        </tspan>
+    {% endfor %}
+
+    {% for line in descriptionInLines %}
+        <tspan
+            class="desc font-light"
+            x="{{ horizontalStartingPoint }}"
+            y="{{ 35 + verticalStartingPoint + numberOfTitleLines * 80 + loop.index0 * (48 + 5) }}">
+            {{ line }}
+        </tspan>
+    {% endfor %}
+    </text>
+</svg>

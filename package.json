@@ -7,6 +7,7 @@
     "build": "sass src/assets/scss/main.scss src/assets/css/main.css && npx @11ty/eleventy",
     "build:11ty": "npx @11ty/eleventy",
     "build:sass": "sass src/assets/scss/main.scss src/assets/css/main.css",
+    "build:cloudflare": "_build/cf-build.sh",
     "clean": "rm -rf _site",
     "sass:watch": "sass --watch --source-map src/assets/scss/main.scss src/assets/css/main.css",
     "11ty:watch": "npx @11ty/eleventy --serve",
@@ -16,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "3.3.2"
+    "prettier": "^3.3.2"
   },
   "dependencies": {
     "@11ty/eleventy": ">=3.0.0-alpha.14",
@@ -24,6 +25,7 @@
     "@11ty/eleventy-plugin-directory-output": "^1.0.1",
     "@11ty/eleventy-plugin-rss": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "luxon": "^3.4.4",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^9.0.1",
     "markdown-it-footnote": "^4.0.0",
