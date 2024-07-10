@@ -12,8 +12,7 @@ cat <<EOF > fonts.conf
 EOF
 
 # DEBUG
-fc-list :family=Inter
-fc-match Inter
+fc-match Inter Variable
 
 sass src/assets/scss/main.scss src/assets/css/main.css
 npx @11ty/eleventy
