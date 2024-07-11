@@ -20,13 +20,16 @@
         />
     <meta property="og:url" content="{{ page.url }}" />
     <meta name="author" content="Alex Marshall" />
+    <meta name="locale" property="og:locale" content="en_GB" />
 {% if og_description %}
     <meta name="image" property="og:image" content="{{ img_url }}" />
     <meta name="image" property="og:image:secure_url" content="{{ img_url }}" />
     <meta name="description" property="og:description" content="{{ og_description }}" />
+    <meta name="type" property="og:type" content="article" />
 {% else %}
     <meta name="image" property="og:image" content="{{ defaultImg_url }}" />
     <meta name="image" property="og:image:secure_url" content="{{ defaultImg_url }}" />
+    <meta name="type" property="og:type" content="website" />
 {% endif %}
 </head>
 <body class="{{ layout-palette | downcase }}">
