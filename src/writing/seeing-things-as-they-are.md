@@ -15,6 +15,10 @@ og_description: |
    it prevents you from seeing what is actually going on […]”
 ---
 
+> ”If we’re out to see things as they are, we must be willing—even hungry—to shed our illusions.”
+>
+> Gabor Maté, _[The Myth of Normal](https://www.abebooks.co.uk/9781785042737/Myth-Normal-Paperback-Gabor-Mate-1785042734/plp)_
+
 > “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
 >
 > Christopher Alexander, _[The Timeless Way of Building](https://www.abebooks.co.uk/9780195024029/Timeless-Way-Building-Alexander-Christopher-9780195025/plp)_
