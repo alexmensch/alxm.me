@@ -1,7 +1,7 @@
 ---
-title: "Seeing things clearly"
+title: "Seeing things as they are"
 date: 2024-07-02
-update_date: 2024-07-08
+update_date: 2024-08-06
 tags:
   - essay
   - psychology
