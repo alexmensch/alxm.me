@@ -13,6 +13,7 @@ summary: |
 og_description: |
   “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality;
    it prevents you from seeing what is actually going on […]”
+permalink: "/writing/2024/07/02/seeing-things-clearly/"
 ---
 
 > ”If we’re out to see things as they are, we must be willing—even hungry—to shed our illusions.”
