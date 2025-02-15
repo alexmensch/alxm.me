@@ -1,10 +1,10 @@
 import fonts from "./fonts.js";
 
 export default {
-  domain: "your-domain.com",
+  domain: "alxm.me",
   authorName: "Alex Marshall",
   authorEmail: "",
-  siteName: "Cubetopia",
+  siteName: "Alex Marshall",
   includes: [
     {
       rel: "stylesheet",
@@ -26,8 +26,7 @@ export default {
   },
   nav: [
     { title: "Styles", url: "/styles/" },
-    { title: "Posts", url: "/posts/", collection: true },
+    { title: "Writing", url: "/writing/", collection: true },
     { title: "Hidden Section", url: "/hidden-section/", hidden: true },
-    { title: "Contact", url: "/contact/" },
   ],
 };

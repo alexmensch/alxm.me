@@ -1,4 +1,4 @@
 {
-  "layout": "pages/post.liquid",
+  "layout": "layouts/posts",
   "navIndex": 0
 }

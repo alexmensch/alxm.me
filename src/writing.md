@@ -1,5 +1,5 @@
 ---
-layout: "layouts/posts"
+layout: "layouts/writing"
 ---
 
 # Posts
