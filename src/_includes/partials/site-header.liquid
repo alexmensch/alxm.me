@@ -1,0 +1,26 @@
+<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
+<header role="banner" class="site-header">
+    <div class="wrapper">
+        <div class="[ site-header__inner cluster ] [ flow-space-s font-sans ]">
+            <a href="/" aria-label="{{ site.siteName }} - Home" class="[ site-header__brand ] [ text-2 ] [ weight-black ]">
+                {{ site.siteName }}
+            </a>
+            <nav class="[ nav site-header__nav ] [ weight-extra-bold flow-space-xs ]" aria-label="Primary">
+                <ul class="cluster">
+                    {% for item in site.nav %}
+                        {% unless item.hidden %}
+                            <li>
+                                <a
+                                    href="{{ item.url }}"
+                                    {{ item.url | getLinkActiveState: page.url }}
+                                    >
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        {% endunless %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

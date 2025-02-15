@@ -1,7 +1,0 @@
-// Mixin for defining light-dark color variables
-@mixin define-light-dark-colors($name, $color-map) {
-  --color-#{$name}: #{light-dark(
-      #{map-get($color-map, light)},
-      #{map-get($color-map, dark)}
-    )};
-}

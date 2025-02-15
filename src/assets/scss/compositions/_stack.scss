@@ -1,0 +1,31 @@
+@mixin stack($split-after) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & > * {
+    margin-block: 0;
+  }
+
+  & > * + * {
+    margin-block-start: var(--flow-space);
+  }
+
+  @if $split-after >= 1 {
+    &:only-child {
+      block-size: 100%;
+    }
+
+    & > :nth-child(#{$split-after}) {
+      margin-block-end: auto;
+    }
+  }
+}
+
+.stack-split-1 {
+  @include stack(1);
+}
+
+.stack {
+  @include stack(0);
+}

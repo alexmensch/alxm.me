@@ -1,0 +1,47 @@
+---
+layout: layouts/base
+---
+<div class="[ wrapper flow ]">
+  <section class="[ intro ] [ cluster ] [ flow-space-xs ]">
+    <div class="intro__header">
+      <h1 class="weight-bold">
+        {{ intro.main }}
+      </h1>
+    </div>
+    <div class="intro__content">
+      <p>{{ intro.summary | markdownify }}</p>
+    </div>
+  </section>
+  <section class="[ sidebar ]">
+    <div class="">
+      <h1 class="weight-bold">
+        {{ intro.main }}
+      </h1>
+    </div>
+    <div class="">
+      <p>{{ intro.summary | markdownify }}</p>
+    </div>
+  </section>
+  <article class="flow">
+    <h2>{{ highlights.heading }}</h2>
+    <p>{{ highlights.summary | markdownify }}</p>
+    <section class="[ switcher ] [ flow-space-m ]">
+      {% for item in highlights.list %}
+        <div class="[ box flow ] [ border-thick border-style-solid border-color-primary bg-light-glare ]">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.body }}</p>
+        </div>
+      {% endfor %}
+    </section>
+    <h2>{{ features.heading }}</h2>
+    <p>{{ features.summary | markdownify }}</p>
+    <section class="[ grid ] [ flow-space-m ]">
+      {% for feature in features.list %}
+        <div class="[ box stack-split-1 ] [ color-light-glare bg-primary ]">
+          <h3>{{ feature.title }}</h3>
+          <p class="[ flow-space-m ]">{{ feature.body | markdownify }}</p>
+        </div>
+      {% endfor %}
+    </section>
+  </article>
+</div>

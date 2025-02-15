@@ -1,0 +1,22 @@
+@mixin switcher($max-items, $min-item-width) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--flow-space);
+
+  --min-width: calc(
+    (#{$max-items} * #{$min-item-width}) + (var(--flow-space) * #{$max-items - 1}));
+
+  & > * {
+    flex: 1 1 calc((var(--min-width) - 100%) * 999);
+  }
+
+  // No more than $max-items across
+  & > :nth-last-child(n + #{$max-items + 1}),
+  & > :nth-last-child(n + #{$max-items + 1}) ~ * {
+    flex-basis: 100%;
+  }
+}
+
+.switcher {
+  @include switcher(3, #{get-utility-value("measure", "compact")});
+}

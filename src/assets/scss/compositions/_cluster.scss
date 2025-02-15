@@ -1,0 +1,9 @@
+@mixin cluster($gap: "var(--flow-space)") {
+  display: flex;
+  flex-wrap: wrap;
+  gap: #{$gap};
+}
+
+.cluster {
+  @include cluster;
+}

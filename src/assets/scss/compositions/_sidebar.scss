@@ -1,0 +1,42 @@
+@mixin is-sidebar($width) {
+  flex: 1 1 #{$width};
+}
+
+@mixin not-sidebar($min) {
+  flex: 999 999 0;
+  min-inline-size: #{$min};
+}
+
+@mixin sidebar($width, $min, $gap: "var(--flow-space)") {
+  @include cluster($gap);
+
+  & > :first-child {
+    @include is-sidebar($width);
+  }
+
+  & > :last-child {
+    @include not-sidebar($min);
+  }
+
+  &[data-state="reversed"] {
+    & > :first-child {
+      @include not-sidebar($min);
+    }
+
+    & > :last-child {
+      @include is-sidebar($width);
+    }
+  }
+
+  &[data-state="mirrored"] {
+    flex-direction: row-reverse;
+  }
+}
+
+.sidebar {
+  $sidebar-width: #{get-utility-value("measure", "compact")};
+  $min-not-sidebar-proportion: 50%;
+  $gap: #{get-size("xs")};
+
+  @include sidebar($sidebar-width, $min-not-sidebar-proportion, $gap);
+}

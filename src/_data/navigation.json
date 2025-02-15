@@ -1,9 +1,0 @@
-{
-  "items": [
-    { "title": "Writing", "url": "/writing/" },
-    { "title": "Projects", "url": "/projects/", "hidden": "true" },
-    { "title": "Coaching", "url": "/coaching/", "hidden": "true" },
-    { "title": "Advisory", "url": "/advisory/", "hidden": "true" },
-    { "title": "Contact", "url": "/contact/", "hidden": "true" }
-  ]
-}
