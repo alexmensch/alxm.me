@@ -1,13 +1,14 @@
 @use "../../../../../node_modules/utopia-core-scss/src/utopia";
+@use "sass:map";
 
 @function generate-size-scale($params) {
   $output: ();
 
   @each $key, $value in utopia.calculateSpaceScale($params) {
     @each $item in $value {
-      $label: map-get($item, "label");
-      $clamp: map-get($item, "clamp");
-      $output: map-merge(
+      $label: map.get($item, "label");
+      $clamp: map.get($item, "clamp");
+      $output: map.merge(
         $output,
         (
           $label: $clamp,
@@ -23,9 +24,9 @@
   $output: ();
 
   @each $item in utopia.calculateTypeScale($params) {
-    $label: map-get($item, "step");
-    $clamp: map-get($item, "clamp");
-    $output: map-merge(
+    $label: map.get($item, "step");
+    $clamp: map.get($item, "clamp");
+    $output: map.merge(
       $output,
       (
         $label: $clamp,

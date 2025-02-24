@@ -1,0 +1,14 @@
+@use "sass:map";
+
+@mixin generate-tokens($tokens) {
+  @each $category, $config in $tokens {
+    $property: map.get($config, "property");
+    $variants: map.get($config, "variants");
+
+    @each $var, $value in $variants {
+      .#{$category}-#{$var} {
+        #{$property}: #{$value};
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
+@use "../utilities";
+
 .button {
-  @include radius;
+  @include utilities.radius;
 
   display: inline-block;
   padding: 0.5rem 2rem;

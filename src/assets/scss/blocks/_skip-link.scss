@@ -1,3 +1,5 @@
+@use "../utilities";
+
 .skip-link {
   position: absolute;
   top: #{get-size("s")};
@@ -5,6 +7,6 @@
   z-index: 99;
 
   &:not(:focus) {
-    @include visually-hidden;
+    @include utilities.visually-hidden;
   }
 }
