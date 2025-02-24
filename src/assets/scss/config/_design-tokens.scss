@@ -5,7 +5,7 @@
 //       and 7 single step space values: 2xs-xs, xs-s, etc..
 // NB: $gorko-size-scale is a special case variable allowing lookups
 // via #{get-size($key)}
-$gorko-size-scale: helpers.generate-size-scale(
+$size-scale: helpers.generate-size-scale(
   (
     "minWidth": 320,
     "maxWidth": 1240,
@@ -44,13 +44,7 @@ $type-scale: helpers.generate-type-scale(
   )
 );
 
-// COLORS
-// Colors are shared between backgrounds and text by default.
-// You can also use them to power borders, fills or shadows, for example.
-
-// NB: $gorko-colors is a special case variable allowing lookups
-// via get-color($key)
-$gorko-colors: (
+$colors: (
   "dark": #38445b,
   "dark-shade": #263147,
   "dark-glare": #505c73,
@@ -79,16 +73,9 @@ $fonts: (
   "sans": '"Inter", Helvetica, sans-serif',
 );
 
-// CORE CONFIG
-// This powers everything from utility class generation to breakpoints
-// to enabling/disabling pre-built components/utilities.
-
-// NB: Any of the items below can be retrieved via get-utility-value($key, $item)
-// or via @include apply-utility($key, $value).
-$gorko-config: (
+$tokens: (
   "bg": (
-    "items": $gorko-colors,
-    "output": "standard",
+    "items": $colors,
     "property": "background",
   ),
   "border": (
@@ -97,7 +84,6 @@ $gorko-config: (
       "normal": "2px",
       "thick": "4px",
     ),
-    "output": "standard",
     "property": "border-width",
   ),
   "border-style": (
@@ -107,27 +93,22 @@ $gorko-config: (
       "dashed": "dashed",
       "double": "double",
     ),
-    "output": "standard",
     "property": "border-style",
   ),
   "border-color": (
-    "items": $gorko-colors,
-    "output": "standard",
+    "items": $colors,
     "property": "border-color",
   ),
   "color": (
-    "items": $gorko-colors,
-    "output": "standard",
+    "items": $colors,
     "property": "color",
   ),
   "flow-space": (
-    "items": $gorko-size-scale,
-    "output": "standard",
+    "items": $size-scale,
     "property": "--flow-space",
   ),
   "font": (
     "items": $fonts,
-    "output": "standard",
     "property": "font-family",
   ),
   "leading": (
@@ -136,7 +117,6 @@ $gorko-config: (
       "tight": 1.3,
       "flat": 1.1,
     ),
-    "output": "standard",
     "property": "line-height",
   ),
   "measure": (
@@ -146,12 +126,10 @@ $gorko-config: (
       "short": 45ch,
       "long": 65ch,
     ),
-    "output": "standard",
     "property": "max-width",
   ),
   "text": (
     "items": $type-scale,
-    "output": "standard",
     "property": "font-size",
   ),
   "weight": (
@@ -166,8 +144,6 @@ $gorko-config: (
       "extra-bold": 800,
       "black": 900,
     ),
-    "output": "standard",
     "property": "font-weight",
   ),
-  "breakpoints": (),
 );
