@@ -16,7 +16,7 @@ export default {
     },
     {
       rel: "stylesheet",
-      href: "/assets/css/global.css",
+      href: "/assets/css/root.css",
     },
   ],
   rss: {
