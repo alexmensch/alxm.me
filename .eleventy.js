@@ -191,6 +191,9 @@ export default async function (eleventyConfig) {
     },
   });
 
+  // Prevent _index.scss files from being rendered by Eleventy
+  eleventyConfig.ignores.add("src/assets/scss/**/_*.scss");
+
   /* Custom filters */
   /******************/
 

@@ -1,9 +1,11 @@
+@use "../config/design-tokens" as dt;
+
 body {
   background: get-color("light");
   color: get-color("dark-shade");
 
-  @include apply-utility("text", 0);
-  @include apply-utility("font", "base");
+  @include dt.use("text", 0);
+  @include dt.use("font", "base");
 }
 
 a:not([class]) {
@@ -23,27 +25,27 @@ main:focus {
 }
 
 h1 {
-  @include apply-utility("text", 5);
+  @include dt.use("text", 5);
 }
 
 h2 {
-  @include apply-utility("text", 4);
+  @include dt.use("text", 4);
 }
 
 h3 {
-  @include apply-utility("text", 3);
+  @include dt.use("text", 3);
 }
 
 h4 {
-  @include apply-utility("text", 2);
+  @include dt.use("text", 2);
 }
 
 h5 {
-  @include apply-utility("text", 1);
+  @include dt.use("text", 1);
 }
 
 h6 {
-  @include apply-utility("text", 0);
+  @include dt.use("text", 0);
 }
 
 h1,
@@ -52,10 +54,10 @@ h3,
 h4,
 h5,
 h6 {
-  @include apply-utility("weight", "bold");
-  @include apply-utility("font", "sans");
-  @include apply-utility("leading", "flat");
-  @include apply-utility("measure", "compact");
+  @include dt.use("weight", "bold");
+  @include dt.use("font", "sans");
+  @include dt.use("leading", "flat");
+  @include dt.use("measure", "compact");
 }
 
 :is(h1, h2, h3, h4, h5, h6) + * {
@@ -63,12 +65,12 @@ h6 {
 }
 
 p {
-  @include apply-utility("measure", "long");
+  @include dt.use("measure", "long");
 }
 
 code {
   // Compensate for visual difference between mono & serif fonts
-  @include apply-utility("text", -1);
+  @include dt.use("text", -1);
 }
 
 // Override PrismJS syntax highlight styling
@@ -82,14 +84,14 @@ pre {
 }
 
 blockquote {
-  @include apply-utility("measure", "short");
+  @include dt.use("measure", "short");
 
   border-inline-start: #{get-size("2xs")} solid get-color("quinary");
   padding-inline-start: #{get-size("m")};
   padding-block: #{get-size("2xs")};
 
   font-style: italic;
-  @include apply-utility("text", 1);
+  @include dt.use("text", 1);
 
   & > blockquote {
     margin-block-start: #{get-size("xs")};

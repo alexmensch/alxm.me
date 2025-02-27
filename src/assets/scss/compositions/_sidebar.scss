@@ -1,4 +1,4 @@
-@forward "cluster";
+@use "cluster";
 
 @mixin is-sidebar($width) {
   flex: 1 1 #{$width};
@@ -10,7 +10,7 @@
 }
 
 @mixin sidebar($width, $min, $gap: "var(--flow-space)") {
-  @include cluster($gap);
+  @include cluster.cluster($gap);
 
   & > :first-child {
     @include is-sidebar($width);

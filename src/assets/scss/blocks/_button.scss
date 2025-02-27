@@ -1,3 +1,4 @@
+@use "../config/design-tokens" as dt;
 @use "../utilities";
 
 .button {
@@ -12,8 +13,8 @@
   text-decoration: none;
   text-align: center;
 
-  @include apply-utility("font", "sans");
-  @include apply-utility("weight", "bold");
+  @include dt.use("font", "sans");
+  @include dt.use("weight", "bold");
 
   // Make sure hover state trumps all variants
   &:hover {
