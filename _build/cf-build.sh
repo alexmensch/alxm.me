@@ -11,5 +11,4 @@ cat <<EOF > _build/fonts.conf
 </fontconfig>
 EOF
 
-sass src/assets/scss/main.scss src/assets/css/main.css
 npx @11ty/eleventy

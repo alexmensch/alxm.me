@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "build:cloudflare": "_build/cf-build.sh",
     "clean": "rm -rf _site",
     "pretty": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
