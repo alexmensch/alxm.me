@@ -27,7 +27,7 @@
     // alignment. Better to switch a little late than early if a larger gap size
     // were chosen. It would be nice to fix this in the future to have a precise
     // switchover container width
-    @container intro (width < calc(#{$header-width} + #{$content-width} + #{get-size("2xs")})) {
+    @container intro (width < calc(#{$header-width} + #{$content-width} + #{dt.get-size("2xs")})) {
       .intro__header {
         text-align: start;
       }

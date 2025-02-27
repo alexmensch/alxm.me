@@ -1,5 +1,7 @@
+@use "../config/design-tokens" as dt;
+
 .box {
-  padding: #{get-size("xs")};
+  padding: #{dt.get-size("xs")};
 
   // Make box "visible" in high contrast themes for accessibility
   outline: 0.125rem solid transparent;

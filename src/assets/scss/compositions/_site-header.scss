@@ -1,6 +1,8 @@
+@use "../config/design-tokens" as dt;
+
 .site-header {
-  padding-block-start: #{get-size("s")};
-  padding-block-end: #{get-size("l")};
+  padding-block-start: #{dt.get-size("s")};
+  padding-block-end: #{dt.get-size("l")};
 
   &__inner {
     justify-content: space-between;
@@ -9,7 +11,7 @@
 
   &__brand {
     flex-shrink: 0;
-    padding-inline-end: #{get-size("l")};
+    padding-inline-end: #{dt.get-size("l")};
 
     text-decoration: none;
   }

@@ -1,8 +1,8 @@
 @use "../config/design-tokens" as dt;
 
 body {
-  background: get-color("light");
-  color: get-color("dark-shade");
+  background: dt.get-color("light");
+  color: dt.get-color("dark-shade");
 
   @include dt.use("text", 0);
   @include dt.use("font", "base");
@@ -10,13 +10,13 @@ body {
 
 a:not([class]) {
   color: currentColor;
-  text-decoration-color: get-color("quinary");
+  text-decoration-color: dt.get-color("quinary");
   text-decoration-thickness: 0.2ex;
   text-underline-offset: 0.35ex;
 }
 
 :focus {
-  outline: 2px dashed get-color("primary");
+  outline: 2px dashed dt.get-color("primary");
   outline-offset: 0.25rem;
 }
 
@@ -61,7 +61,7 @@ h6 {
 }
 
 :is(h1, h2, h3, h4, h5, h6) + * {
-  --flow-space: #{get-size("2xs")};
+  --flow-space: #{dt.get-size("2xs")};
 }
 
 p {
@@ -79,31 +79,31 @@ pre {
   font-size: smaller !important;
 
   &[class*="language-"] {
-    background: get-color("light-glare");
+    background: dt.get-color("light-glare");
   }
 }
 
 blockquote {
   @include dt.use("measure", "short");
 
-  border-inline-start: #{get-size("2xs")} solid get-color("quinary");
-  padding-inline-start: #{get-size("m")};
-  padding-block: #{get-size("2xs")};
+  border-inline-start: #{dt.get-size("2xs")} solid dt.get-color("quinary");
+  padding-inline-start: #{dt.get-size("m")};
+  padding-block: #{dt.get-size("2xs")};
 
   font-style: italic;
   @include dt.use("text", 1);
 
   & > blockquote {
-    margin-block-start: #{get-size("xs")};
+    margin-block-start: #{dt.get-size("xs")};
   }
 }
 
 :is(ul, ol)[role="list"] {
-  padding-inline-start: #{get-size("m")};
+  padding-inline-start: #{dt.get-size("m")};
 
   li + li,
   li > :is(ul, ol) {
-    margin-block-start: #{get-size("2xs")};
+    margin-block-start: #{dt.get-size("2xs")};
   }
 }
 
@@ -114,18 +114,18 @@ table {
   font-variant-numeric: tabular-nums;
 
   thead {
-    border-block-end: 0.35ex solid get-color("quinary");
+    border-block-end: 0.35ex solid dt.get-color("quinary");
 
     th {
       vertical-align: bottom;
-      background: get-color("light-glare");
+      background: dt.get-color("light-glare");
     }
   }
 
   th,
   td {
-    border: 1px solid get-color("dark-glare");
-    padding: #{get-size("2xs")} #{get-size("2xs")};
+    border: 1px solid dt.get-color("dark-glare");
+    padding: #{dt.get-size("2xs")} #{dt.get-size("2xs")};
 
     vertical-align: baseline;
     text-align: end;
@@ -133,16 +133,16 @@ table {
 }
 
 hr {
-  border: 2px solid get-color("dark-shade");
-  width: #{get-size("xl-2xl")};
+  border: 2px solid dt.get-color("dark-shade");
+  width: #{dt.get-size("xl-2xl")};
 }
 
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
 ::selection {
-  color: get-color("light");
+  color: dt.get-color("light");
 
-  background: get-color("dark-shade");
+  background: dt.get-color("dark-shade");
 }
 
 // Scrollbar style
@@ -152,9 +152,9 @@ hr {
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
-  border: 1px solid get-color("dark-glare");
+  border: 1px solid dt.get-color("dark-glare");
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: get-color("dark");
+  background-color: dt.get-color("dark");
 }

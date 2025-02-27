@@ -1,9 +1,10 @@
 @use "../utilities";
+@use "../config/design-tokens" as dt;
 
 .skip-link {
   position: absolute;
-  top: #{get-size("s")};
-  left: #{get-size("s")};
+  top: #{dt.get-size("s")};
+  left: #{dt.get-size("s")};
   z-index: 99;
 
   &:not(:focus) {

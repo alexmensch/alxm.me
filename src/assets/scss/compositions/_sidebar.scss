@@ -39,7 +39,7 @@
 .sidebar {
   $sidebar-width: #{dt.get-value("measure", "compact")};
   $min-not-sidebar-proportion: 50%;
-  $gap: #{get-size("xs")};
+  $gap: #{dt.get-size("xs")};
 
   @include sidebar($sidebar-width, $min-not-sidebar-proportion, $gap);
 }

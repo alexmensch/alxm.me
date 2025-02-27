@@ -33,3 +33,14 @@
     @return false;
   }
 }
+
+@function safe-map-get($key, $map) {
+  $resp: map.get($map, $key);
+
+  @if ($resp) {
+    @return $resp;
+  } @else {
+    @warn #{'Key "' + $key + '" not found in map lookup'};
+    @return null;
+  }
+}

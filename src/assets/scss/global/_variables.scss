@@ -1,3 +1,5 @@
+@use "../config/design-tokens" as dt;
+
 :root {
-  --flow-space: #{get-size("l")};
+  --flow-space: #{dt.get-size("l")};
 }

@@ -1,8 +1,8 @@
 @use "../config/design-tokens" as dt;
 
 .site-footer {
-  padding-block-start: #{get-size("xl")};
-  padding-block-end: #{get-size("m")};
+  padding-block-start: #{dt.get-size("xl")};
+  padding-block-end: #{dt.get-size("m")};
   text-align: center;
   @include dt.use("text", -2);
 }
