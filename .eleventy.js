@@ -48,9 +48,9 @@ export default async function (eleventyConfig) {
     config: {
       content: ["./_site/**/*.html"],
       css: ["./_site/assets/css/*.css"],
-      rejected: false
+      rejected: false,
     },
-    quiet: true
+    quiet: true,
   });
 
   // RSS / Atom feed
@@ -208,7 +208,7 @@ export default async function (eleventyConfig) {
 
   // Process input as Markdown, useful for Markdown included in frontmatter
   eleventyConfig.addFilter("markdownify", (markdownString) =>
-    markdownLib.renderInline(markdownString)
+    markdownLib.renderInline(markdownString),
   );
 
   /* Build event handlers */
@@ -240,4 +240,3 @@ export default async function (eleventyConfig) {
     htmlTemplateEngine: "liquid",
   };
 }
-

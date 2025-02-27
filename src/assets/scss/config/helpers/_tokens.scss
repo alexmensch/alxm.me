@@ -15,12 +15,12 @@
 
 @function get-variant($token, $variant, $tokens) {
   $node: map.get($tokens, $token);
-  $css-property: map.get($node, 'property');
-  $variants: map.get($node, 'variants');
+  $css-property: map.get($node, "property");
+  $variants: map.get($node, "variants");
   $variant-value: map.get($variants, $variant);
 
   @if ($css-property and $variant-value) {
-    @return ('property': #{$css-property}, 'variant': #{$variant-value});
+    @return ("property": #{$css-property}, "variant": #{$variant-value});
   } @else {
     @if ($css-property) {
       @warn #{'Value: ‘' + $variant-value + '’ doesn’t exist in ‘' + $token + '’' };
