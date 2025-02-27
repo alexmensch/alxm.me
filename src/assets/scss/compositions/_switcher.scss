@@ -1,3 +1,5 @@
+@use "../config/design-tokens" as dt;
+
 @mixin switcher($max-items, $min-item-width) {
   display: flex;
   flex-wrap: wrap;
@@ -18,5 +20,5 @@
 }
 
 .switcher {
-  @include switcher(3, #{get-utility-value("measure", "compact")});
+  @include switcher(3, #{dt.get-value("measure", "compact")});
 }

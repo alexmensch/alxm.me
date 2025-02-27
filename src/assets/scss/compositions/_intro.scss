@@ -1,6 +1,8 @@
+@use "../config/design-tokens" as dt;
+
 .intro {
-  $header-width: get-utility-value("measure", "compact");
-  $content-width: get-utility-value("measure", "short");
+  $header-width: dt.get-value("measure", "compact");
+  $content-width: dt.get-value("measure", "short");
   container: intro / inline-size;
 
   &__header {

@@ -1,25 +1,27 @@
 @use "sass:map";
 
-@use "helpers";
+@use "helpers/tokens";
 @use "config";
 
-@include helpers.generate-tokens(config.$tokens);
+$_config-tokens: config.$tokens;
 
-@mixin use($token, $variant) {
-  $node: map.get(config.$tokens, $token);
-  $css-property: map.get($node, 'property');
-  $variants: map.get($node, 'variants');
-  $variant-value: map.get($variants, $variant);
 
-  @if ($css-property and $variant-value) {
-    #{$css-property}: $variant-value;
+@include tokens.generate($_config-tokens);
+
+@mixin use($token, $variant, $config: $_config-tokens) {
+  $var: tokens.get-variant($token, $variant, $config);
+
+  @if ($var) {
+    #{map.get($var, 'property')}: map.get($var, 'value');
+  }
+}
+
+@function get-value($token, $variant, $config: $_config-tokens) {
+  $var: tokens.get-variant($token, $variant, $config);
+
+  @if ($var) {
+    @return map.get($var, 'value');
   } @else {
-    @if ($css-property) {
-      @warn #{'Value: ‘' + $variant-value + '’ doesn’t exist in ‘' + $token + '’' };
-    }
-
-    @if ($variant-value) {
-      @warn #{'Design token ‘' + $token + '’ doesn’t exist'};
-    }
+    @return null;
   }
 }
