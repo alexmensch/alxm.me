@@ -27,7 +27,7 @@ export default {
   nav: [
     { title: "About", url: "/about/" },
     { title: "Coaching", url: "/coaching/" },
-    { title: "Advising", url: "/advisory/" },
+    { title: "Advisory", url: "/advisory/" },
     { title: "Writing", url: "/writing/", collection: true },
     { title: "Contact", url: "/contact/" },
     { title: "Styles", url: "/styles/", hidden: true },

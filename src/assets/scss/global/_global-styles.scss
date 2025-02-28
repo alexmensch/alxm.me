@@ -8,7 +8,7 @@ body {
   @include dt.use("font", "base");
 }
 
-a:not([class]) {
+a {
   color: currentColor;
   text-decoration-color: dt.get-color("primary");
   text-decoration-thickness: 0.2ex;
