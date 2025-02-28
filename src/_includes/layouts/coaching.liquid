@@ -1,26 +1,8 @@
 ---
 layout: layouts/base
 ---
-<section class="cover">
-  <div class="[ stack ] [ center ] [ padding-2xs ]" data-target>
-    <div class="[ box ]">
-      <h1 class="[ measure-compact weight-bold ]">{{ main.title }}</h1>
-    </div>
-    <div class="[ cluster ] [ flow-space-s font-sans weight-semi-bold ]">
-      <section class="[ box ] [ flow flow-space-m weight-semi-bold ]">
-        {% for line in main.text %}
-          <p class="measure-compact">{{ line | markdownify }}</p>
-        {% endfor %}
-      </section>
-      <section class="box">
-        <ul class="[ stack ] [ flow-space-2xs text--1 weight-light ]">
-            {% for link in links %}
-                <li>
-                    <a class="[ hover-show arrow-shift ]" href="{{ link.url }}">{{ link.text }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-      </section>
-    </div>
-  </div>
-</section>
+
+<article class="flow">
+  <h1 class="[ measure-compact weight-bold ]">{{ heading }}</h1>
+  {{ content }}
+</article>

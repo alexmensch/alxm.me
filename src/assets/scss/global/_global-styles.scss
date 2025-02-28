@@ -65,7 +65,7 @@ h6 {
 }
 
 p {
-  @include dt.use("measure", "long");
+  max-width: var(--measure);
 }
 
 code {
@@ -104,6 +104,7 @@ blockquote {
   li + li,
   li > :is(ul, ol) {
     margin-block-start: #{dt.get-size("2xs")};
+    max-width: var(--measure);
   }
 }
 
