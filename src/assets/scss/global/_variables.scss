@@ -1,5 +1,7 @@
 @use "../config/design-tokens" as dt;
 
+// Default variables, overriden using design tokens
 :root {
   --flow-space: #{dt.get-size("l")};
+  --padding: #{dt.get-size("xs")};
 }

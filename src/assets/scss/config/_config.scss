@@ -3,8 +3,6 @@
 // @link https://utopia.fyi/space/calculator?c=320,16,1.067,1240,22,1.125,5,2,&s=0.75|0.5,1.5|2|3|4|6,&g=s,l,xl,12
 // Generates 8 individual space values:  2xs, xs, s, m, l, xl, 2xl, 3xl
 //       and 7 single step space values: 2xs-xs, xs-s, etc..
-// NB: $gorko-size-scale is a special case variable allowing lookups
-// via #{get-size($key)}
 $size-scale: scales.generate-size-scale(
   (
     "minWidth": 320,
@@ -127,6 +125,10 @@ $tokens: (
       "long": 65ch,
     ),
     "property": "max-width",
+  ),
+  "padding": (
+    "variants": $size-scale,
+    "property": "--padding",
   ),
   "text": (
     "variants": $type-scale,

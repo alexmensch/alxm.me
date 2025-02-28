@@ -2,19 +2,19 @@
 layout: layouts/base
 ---
 <section class="cover">
-  <div class="box">
-    <div class="stack">
+  <div class="box padding-2xs">
+    <div class="stack flow-space-2xs">
       <div class="box">
         <h1 class="measure-compact">{{ main.title }}</h1>
       </div>
-      <div class="[ cluster ] [ flow-space-xs ]">
+      <div class="[ cluster ] [ flow-space-2xs ]">
         <section class="[ box ] [ flow ]">
           {% for line in main.text %}
             <p class="measure-compact">{{ line | markdownify }}</p>
           {% endfor %}
         </section>
         <section class="box">
-          <ul class="[ stack ] [ flow-space-xs ]">
+          <ul class="[ stack ] [ flow-space-2xs ]">
               {% for link in links %}
                   <li>
                       <a href="{{ link.url }}">{{ link.text }}</a>
