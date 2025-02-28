@@ -2,27 +2,25 @@
 layout: layouts/base
 ---
 <section class="cover">
-  <div class="box padding-2xs">
-    <div class="stack flow-space-2xs">
-      <div class="box">
-        <h1 class="measure-compact">{{ main.title }}</h1>
-      </div>
-      <div class="[ cluster ] [ flow-space-2xs ]">
-        <section class="[ box ] [ flow ]">
-          {% for line in main.text %}
-            <p class="measure-compact">{{ line | markdownify }}</p>
-          {% endfor %}
-        </section>
-        <section class="box">
-          <ul class="[ stack ] [ flow-space-2xs ]">
-              {% for link in links %}
-                  <li>
-                      <a href="{{ link.url }}">{{ link.text }}</a>
-                  </li>
-              {% endfor %}
-          </ul>
-        </section>
-      </div>
+  <div class="[ stack center ] [ flow-space-2xs padding-2xs ]" data-target>
+    <div class="[ box ]">
+      <h1 class="[ measure-compact ]">{{ main.title }}</h1>
+    </div>
+    <div class="[ cluster ] [ flow-space-2xs font-sans weight-semi-bold ]">
+      <section class="[ box ] [ flow ]">
+        {% for line in main.text %}
+          <p class="measure-compact">{{ line | markdownify }}</p>
+        {% endfor %}
+      </section>
+      <section class="box">
+        <ul class="[ stack ] [ flow-space-2xs ]">
+            {% for link in links %}
+                <li>
+                    <a href="{{ link.url }}">{{ link.text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+      </section>
     </div>
   </div>
 </section>
