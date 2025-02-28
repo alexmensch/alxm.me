@@ -127,7 +127,7 @@ body {
 
 a:not([class]) {
   color: currentColor;
-  text-decoration-color: get-color("quinary");
+  text-decoration-color: get-color("primary");
 }
 
 :focus {
