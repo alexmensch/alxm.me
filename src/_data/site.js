@@ -25,8 +25,11 @@ export default {
     subtitle: "A feed of all of my posts",
   },
   nav: [
-    { title: "Styles", url: "/styles/" },
+    { title: "About", url: "/about/" },
+    { title: "Coaching", url: "/coaching/" },
+    { title: "Advising", url: "/advisory/" },
     { title: "Writing", url: "/writing/", collection: true },
-    { title: "Hidden Section", url: "/hidden-section/", hidden: true },
+    { title: "Contact", url: "/contact/" },
+    { title: "Styles", url: "/styles/", hidden: true },
   ],
 };
