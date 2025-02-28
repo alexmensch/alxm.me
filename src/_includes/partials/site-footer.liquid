@@ -1,5 +1,10 @@
 <footer role="contentinfo" class="site-footer">
-    <div class="[ wrapper center ]">
-        <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }} </p>
+    <div class="[ wrapper center ] [ measure-reset ]">
+        <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }}</p>
+        {%if company_info %}
+            <br/>
+            <p>Services are provided via Thoughtful Design Ltd (No.15642102), a limited company registered in England and Wales.</p>
+            <p>2 Oak Court, North Leigh Business Park, Oxfordshire, OX29 6SW</p>
+        {%endif %}
     </div>
 </footer>

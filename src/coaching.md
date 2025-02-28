@@ -3,6 +3,7 @@ layout: "layouts/coaching"
 title: Coaching
 heading: You have the power to change your reality
 portrait_url: /assets/images/portrait-coaching.jpeg
+company_info: true
 ---
 
 Hi, I’m [Alex](/about), and I support clients as they explore fundamental life change and growth.

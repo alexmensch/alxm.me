@@ -1,8 +1,5 @@
 @use "../config/design-tokens" as dt;
 
-// WRAPPER
-// Sets a max width, adds a consistent gutter and horizontally
-// centers the contents
 .wrapper {
   max-width: 70rem;
   padding: 0 #{dt.get-size("m")};
