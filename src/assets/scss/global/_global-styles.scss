@@ -100,11 +100,11 @@ blockquote {
 
 :is(ul, ol)[role="list"] {
   padding-inline-start: #{dt.get-size("m")};
+  max-width: var(--measure);
 
   li + li,
   li > :is(ul, ol) {
     margin-block-start: #{dt.get-size("2xs")};
-    max-width: var(--measure);
   }
 }
 

@@ -1,5 +1,5 @@
 ---
-layout: "layouts/coaching"
+layout: layouts/landing
 title: Coaching
 heading: You have the power to change your reality
 portrait_url: /assets/images/portrait-coaching.jpeg
