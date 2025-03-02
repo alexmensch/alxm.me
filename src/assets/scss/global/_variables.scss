@@ -3,6 +3,7 @@
 // Default variables, overriden using design tokens
 :root {
   --flow-space: #{dt.get-size("l")};
-  --padding: #{dt.get-size("xs")};
+  --gutter: #{dt.get-size("m")};
   --measure: #{dt.get-value("measure", "long")};
+  --padding: #{dt.get-size("xs")};
 }

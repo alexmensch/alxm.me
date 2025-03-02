@@ -1,0 +1,13 @@
+@use "../config/design-tokens" as dt;
+
+.article {
+  --gutter: #{dt.get-size("m")};
+
+  &__content {
+    padding-inline: var(--gutter);
+
+    :is(h1, h2, h3, h4, h5, h6) + * {
+      --flow-space: #{dt.get-size("2xs")};
+    }
+  }
+}

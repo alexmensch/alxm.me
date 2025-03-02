@@ -42,6 +42,22 @@ $type-scale: scales.generate-type-scale(
   )
 );
 
+// @link https://utopia.fyi/type/calculator/?c=320,35,1.067,1240,90,1.125,0,2,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12
+// Generates 3 fone size steps: 0, -1, -2
+// Follows the same scaling parameters as above
+$type-scale-mega: scales.generate-type-scale((
+    "minWidth": 320,
+    "maxWidth": 1240,
+    "minFontSize": 35,
+    "maxFontSize": 90,
+    "minTypeScale": 1.067,
+    "maxTypeScale": 1.125,
+    "positiveSteps": 0,
+    "negativeSteps": 2,
+    "prefix": "step-",
+    "relativeTo": "viewport-width"
+  ));
+
 $colors: (
   "dark": #38445b,
   "dark-shade": #263147,
@@ -52,6 +68,9 @@ $colors: (
   "primary": #fa576e,
   "primary-shade": #fc3e59,
   "primary-glare": #f26c7f,
+  "secondary": "#ffc600",
+  "secondary-shade": "#ffb300",
+  "secondary-glare": "#ffd733",
 );
 
 $fonts: (
@@ -97,6 +116,10 @@ $tokens: (
     "variants": $fonts,
     "property": "font-family",
   ),
+  "gutter": (
+    "variants": $size-scale,
+    "property": "--gutter",
+  ),
   "leading": (
     "variants": (
       "loose": 1.7,
@@ -121,6 +144,10 @@ $tokens: (
   ),
   "text": (
     "variants": $type-scale,
+    "property": "font-size",
+  ),
+  "text-mega": (
+    "variants": $type-scale-mega,
     "property": "font-size",
   ),
   "weight": (

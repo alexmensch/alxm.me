@@ -1,8 +1,14 @@
 ---
 layout: layouts/landing
 title: Coaching
-heading: You have the power to change your reality
-portrait_url: /assets/images/portrait-coaching.jpeg
+hero: 
+  header: You have the power to change your reality
+photos:
+  - /assets/images/portrait-coaching.jpeg
+cta:
+  header: Let's work together
+  body: |
+    [Contact me](/contact) for an initial consultation, and I’ll be happy to answer any questions that you may have.
 company_info: true
 ---
 
@@ -43,7 +49,3 @@ I believe that through the power of a supportive and unconditional relationship,
 My role is to support you as you bring awareness to the patterns that shape your reality, gradually allowing a deeper, more authentic self to emerge.
 
 I do this via an integral approach, which means giving consideration to how your body, heart (emotions), and mind communicate with you as a whole person. The only agenda I hold is yours, and clients are often surprised at the clarity that already exists within them, waiting to be heard.
-
-### Let’s work together
-
-[Contact me](/contact) for an initial consultation, and I’ll be happy to answer any questions that you may have.

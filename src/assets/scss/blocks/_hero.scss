@@ -1,0 +1,19 @@
+@use "../config/design-tokens" as dt;
+
+.hero {
+  @include dt.use("bg", "secondary-shade");
+
+  padding-block: var(--gutter, #{dt.get-size("xl")});
+  padding-inline: var(--gutter, #{dt.get-size("m")});
+
+  &__header {
+    @include dt.use("text-mega", -2);
+    padding-block-end: var(--gutter);
+
+    mark {
+      $bottom: 20%;
+      $top: 84%;
+      background: linear-gradient(to top,transparent $bottom,#{dt.get-color("light")} $bottom,#{dt.get-color("light")} $top,transparent $top);
+    }
+  }
+}

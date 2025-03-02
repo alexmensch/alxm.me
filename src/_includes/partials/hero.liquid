@@ -1,0 +1,6 @@
+<div class="[ hero ] [ flow flow-space-xl ]">
+  <h1 class="hero__header"><mark>{{ hero.header }}</mark></h1>
+  {% if hero.byline %}
+  <p>{{ hero.byline | markdownify }}</p>
+  {%endif%}
+</div>

@@ -1,8 +1,14 @@
 ---
 layout: layouts/landing
 title: Product Advisory
-heading: Product advisory for startups that value magical user experiences
-portrait_url: /assets/images/portrait-coaching.jpeg
+hero:
+  header: Advisory for startups that value magical product experiences
+photos:
+  -  /assets/images/portrait-coaching.jpeg
+cta:
+  header: Let's work together
+  body: |
+    [Contact me](/contact) for an initial consultation, and I’ll be happy to answer any questions that you may have.
 company_info: true
 ---
 
@@ -25,7 +31,3 @@ More fundamental than choosing *what* to prioritize and build is *how* you d
 - Are you satisfied with your product velocity overall?
 
 With an understanding of the bigger picture, we’ll work together to focus on the highest impact changes to make in your approach to building product and move towards the outcome you desire.
-
-### Let’s work together
-
-[Contact me](https://www.notion.so/Contact-17d598bbd955807ca0e1dbfa2d920307?pvs=21) for an initial consultation, and I’ll be happy to answer any questions that you may have.
