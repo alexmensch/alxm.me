@@ -1,5 +1,5 @@
 <footer role="contentinfo" class="[ site-footer ] [ wrapper ]">
-    <div class="[ site-footer__content ] [ flow flow-space-m measure-reset ]">
+    <div class="[ site-footer__content ] [ flow flow-space-l measure-reset ]">
         <nav class="[ nav ] [ text-0 weight-extra-bold flow-space-xs ]">
             <ul class="[ cluster ] [ font-sans ]">
                 {% for item in site.nav %}
@@ -17,9 +17,9 @@
             </ul>
         </nav>
         {%if company_info %}
-            <div>
+            <div class="flow">
                 <p>Services are provided via Thoughtful Design (&numero;15642102), a limited company registered in England and Wales.</p>
-                <address>Thoughtful Design Ltd, 2 Oak Court, North Leigh Business Park, Oxfordshire, OX29 6SW</address>
+                <address class="flow-space-xs">Thoughtful Design Ltd, 2 Oak Court, North Leigh Business Park, Oxfordshire, OX29 6SW</address>
             </div>
         {%endif %}
         <div class="cluster" data-state="repel">
