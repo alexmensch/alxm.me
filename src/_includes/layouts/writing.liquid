@@ -2,15 +2,8 @@
 layout: layouts/base
 ---
 
-<article class="[ article ] [ flow ]">
-  {%render "partials/hero"
-            hero: hero %}
-  <div class="[ article__content ] [ flow flow-space-m ]">
-    {{ content }}
-  </div>
-  {% for year in collections.writing-years reversed %}
-    {% render "partials/writing-collection"
-              collection: year.items,
-              year: year.year %}
-  {% endfor %}
-</article>
+{% render "partials/article",
+          type: "writing",
+          hero: hero,
+          content: content,
+          years: collections.writing-years %}

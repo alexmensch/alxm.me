@@ -1,0 +1,16 @@
+<article class="[ article ] [ flow flow-space-m ]">
+  {% render "partials/hero", hero: hero %}
+  <div class="[ article__content ] [ flow ]">
+    {{ content }}
+  </div>
+
+  {% if type == "writing" %}
+    {% for year in years reversed %}
+      {% render "partials/writing-collection", collection: year.items, year: year.year %}
+    {% endfor %}
+  {% endif %}
+
+  {% if type == "landing" and cta %}
+    {% render "partials/cta", cta: cta %}
+  {% endif %}
+</article>

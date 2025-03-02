@@ -2,14 +2,8 @@
 layout: layouts/base
 ---
 
-<article class="[ article ] [ flow ]">
-  {%render "partials/hero"
-            hero: hero %}
-  <div class="[ article__content ] [ flow flow-space-m ]">
-    {{ content }}
-  </div>
-  {%if cta %}
-    {%render "partials/cta"
-              cta: cta %}
-  {%endif%}
-</article>
+{% render "partials/article"
+          type: "landing",
+          hero: hero,
+          content: content,
+          cta: cta %}

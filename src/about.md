@@ -2,7 +2,7 @@
 layout: layouts/landing
 title: About me
 hero: 
-  header: The currents that shaped my life
+  header: The currents that have shaped my life
 photos:
   - /assets/images/portrait-coaching.jpeg
 ---
