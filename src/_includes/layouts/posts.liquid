@@ -1,6 +1,17 @@
 ---
 layout: layouts/base
 ---
-<div class="[ wrapper flow ]">
-    {{ content }}
-</div>
+
+{% capture byline %}
+{% if update_date %}
+Last updated {{ update_date | date: "%e %B, %Y"}}, originally posted {{ date | date: "%e %B, %Y"}}
+{% else %}
+Posted {{ date | date: "%e %B, %Y"}}
+{% endif %}
+{% endcapture %}
+
+{% render "partials/article"
+          header: title,
+          byline: byline,
+          content: content,
+          cta: cta %}

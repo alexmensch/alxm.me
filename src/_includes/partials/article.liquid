@@ -1,5 +1,8 @@
 <article class="[ article ] [ flow flow-space-m ]">
-  {% render "partials/hero", hero: hero %}
+  {% render "partials/hero"
+            hero: hero,
+            header: header,
+            byline: byline %}
   <div class="[ article__content ] [ flow ]">
     {{ content }}
   </div>

@@ -1,6 +1,10 @@
 <div class="[ hero ] [ flow flow-space-xl ]">
-  <h1 class="hero__header"><mark>{{ hero.header }}</mark></h1>
-  {% if hero.byline %}
-  <p>{{ hero.byline | markdownify }}</p>
+  {% if hero %}
+    {% assign header = hero.header %}
+    {% assign byline = hero.byline %}
+  {% endif %}
+  <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+  {% if byline %}
+  <p><em>{{ byline | markdownify }}</em></p>
   {%endif%}
 </div>
