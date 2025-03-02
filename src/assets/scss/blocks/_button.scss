@@ -6,7 +6,7 @@
 
   display: inline-block;
   padding: 0.5rem 2rem;
-  background: dt.get-color("quaternary-glare");
+  background: dt.get-color("secondary-glare");
   color: dt.get-color("dark-shade");
   border: 2px solid;
   text-transform: uppercase;
@@ -18,12 +18,12 @@
 
   // Make sure hover state trumps all variants
   &:hover {
-    background: dt.get-color("quaternary") !important;
+    background: dt.get-color("secondary") !important;
     color: dt.get-color("dark-shade") !important;
   }
 
   &[data-variant="ghost"] {
     background: transparent;
-    color: dt.get-color("quaternary-glare");
+    color: dt.get-color("secondary-glare");
   }
 }

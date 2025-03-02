@@ -1,18 +1,16 @@
 ---
 layout: layouts/base
 ---
-<div class="[ wrapper flow ]">
-  <section class="[ intro ] [ cluster ] [ flow-space-xs ]" data-state="reversed">
-    <div class="intro__header">
-      <h1 class="weight-bold">
-        {{ intro.main }}
-      </h1>
-    </div>
-    <div class="intro__content">
-      <p>{{ intro.summary }}</p>
-    </div>
-  </section>
-  <article class="[ page-content ] [ flow ]">
+
+<article class="[ article ] [ flow ]">
+  {%render "partials/hero"
+            hero: hero %}
+  <div class="[ article__content ] [ flow flow-space-m ]">
     {{ content }}
-  </article>
-</div>
+  </div>
+  {% for year in collections.writing-years reversed %}
+    {% render "partials/writing-collection"
+              collection: year.items,
+              year: year.year %}
+  {% endfor %}
+</article>

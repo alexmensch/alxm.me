@@ -8,4 +8,3 @@ After cloning the repository and installing Node, run `npm install` to download 
 
 - `npm run build` builds the site on demand
 - For local development, `npm run 11ty:watch` will watch for any changes to files and immediatley rebuild the site
-- `npm run sass:watch` will do the equivalent to generate CSS
