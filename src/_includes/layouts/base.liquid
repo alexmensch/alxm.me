@@ -9,7 +9,7 @@
         <title>{{ title }} • {{ site.siteName }}</title>
     </head>
     <body>
-        <div class="site-wrap">
+        <div class="[ site-wrap ] [ flow flow-space-xl ]">
             {%unless hide_header %}
                 {% render "partials/site-header"
                     site: site,
@@ -17,7 +17,7 @@
                     %}
             {%endunless %}
             <main tabindex="-1" id="main-content">
-                <div class="[ wrapper flow ]">
+                <div class="[ wrapper ]">
                     {{ content }}
                 </div>
             </main>
@@ -25,6 +25,7 @@
                 {% render "partials/site-footer"
                     helpers: helpers,
                     site: site,
+                    page: page,
                     company_info: company_info %}
             {%endunless %}
         </div>

@@ -1,8 +1,8 @@
 @use "../config/design-tokens" as dt;
 
 body {
-  background: dt.get-color("light");
-  color: dt.get-color("dark-shade");
+  background: var(--bg-color);
+  color: var(--text-color);
 
   @include dt.use("text", 0);
   @include dt.use("font", "base");

@@ -1,8 +1,15 @@
 @use "../config/design-tokens" as dt;
 
 .site-footer {
-  padding-block-start: #{dt.get-size("xl")};
-  padding-block-end: #{dt.get-size("m")};
-  text-align: center;
+  margin-block-end: var(--gutter);
+
   @include dt.use("text", -2);
+
+  &__content {
+    padding-block: var(--gutter);
+    padding-inline: var(--gutter);
+
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
 }

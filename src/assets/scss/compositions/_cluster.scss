@@ -6,4 +6,8 @@
 
 .cluster {
   @include cluster;
+
+  &[data-state="repel"] {
+    justify-content: space-between;
+  }
 }

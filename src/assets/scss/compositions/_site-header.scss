@@ -1,11 +1,9 @@
 @use "../config/design-tokens" as dt;
 
 .site-header {
-  padding-block-start: #{dt.get-size("s")};
-  padding-block-end: #{dt.get-size("l")};
+  margin-block-start: var(--gutter);
 
   &__inner {
-    justify-content: space-between;
     align-items: baseline;
   }
 
@@ -14,9 +12,5 @@
     padding-inline-end: #{dt.get-size("l")};
 
     text-decoration: none;
-  }
-
-  &__nav {
-    line-height: 1;
   }
 }

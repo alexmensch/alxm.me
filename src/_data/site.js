@@ -28,8 +28,8 @@ export default {
     { title: "Coaching", url: "/coaching/" },
     { title: "Advisory", url: "/advisory/" },
     { title: "Writing", url: "/writing/", collection: true },
-    { title: "Contact", url: "/contact/" },
-    { title: "About", url: "/about/" },
+    { title: "Contact", url: "/contact/", footer: true },
+    { title: "About", url: "/about/", footer: true },
     { title: "Styles", url: "/styles/", hidden: true },
   ],
 };

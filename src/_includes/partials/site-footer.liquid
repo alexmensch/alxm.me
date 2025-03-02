@@ -1,10 +1,30 @@
-<footer role="contentinfo" class="site-footer">
-    <div class="[ wrapper center ] [ measure-reset ]">
-        <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }}</p>
+<footer role="contentinfo" class="[ site-footer ] [ wrapper ]">
+    <div class="[ site-footer__content ] [ flow flow-space-m measure-reset ]">
+        <nav class="[ nav ] [ text-0 weight-extra-bold flow-space-xs ]">
+            <ul class="[ cluster ] [ font-sans ]">
+                {% for item in site.nav %}
+                    {% unless item.hidden or not item.footer %}
+                        <li>
+                            <a
+                                href="{{ item.url }}"
+                                {{ item.url | getLinkActiveState: page.url }}
+                                >
+                                {{ item.title }}
+                            </a>
+                        </li>
+                    {% endunless %}
+                {% endfor %}
+            </ul>
+        </nav>
         {%if company_info %}
-            <br/>
-            <p>Services are provided via Thoughtful Design Ltd (No.15642102), a limited company registered in England and Wales.</p>
-            <p>2 Oak Court, North Leigh Business Park, Oxfordshire, OX29 6SW</p>
+            <div>
+                <p>Services are provided via Thoughtful Design (&numero;15642102), a limited company registered in England and Wales.</p>
+                <address>Thoughtful Design Ltd, 2 Oak Court, North Leigh Business Park, Oxfordshire, OX29 6SW</address>
+            </div>
         {%endif %}
+        <div class="cluster" data-state="repel">
+            <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }}</p>
+            <p>Powered by <a href="https://www.11ty.dev/">Eleventy</a>, source code on <a href="https://github.com/alexmensch/alxm.me">Github</a>.</p>
+        </div>
     </div>
 </footer>

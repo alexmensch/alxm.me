@@ -3,8 +3,8 @@
 .hero {
   @include dt.use("bg", "secondary-shade");
 
-  padding-block: var(--gutter, #{dt.get-size("xl")});
-  padding-inline: var(--gutter, #{dt.get-size("m")});
+  padding-block: var(--gutter);
+  padding-inline: var(--gutter);
 
   &__header {
     @include dt.use("text-mega", -2);
