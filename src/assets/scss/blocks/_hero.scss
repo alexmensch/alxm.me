@@ -13,7 +13,13 @@
     mark {
       $bottom: 20%;
       $top: 84%;
-      background: linear-gradient(to top,transparent $bottom,#{dt.get-color("light")} $bottom,#{dt.get-color("light")} $top,transparent $top);
+      background: linear-gradient(
+        to top,
+        transparent $bottom,
+        #{dt.get-color("light")} $bottom,
+        #{dt.get-color("light")} $top,
+        transparent $top
+      );
     }
   }
 }

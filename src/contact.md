@@ -1,7 +1,7 @@
 ---
 layout: layouts/contact
 title: Contact
-hero: 
+hero:
   header: Get in touch with me
 options:
   - body: For general inquires, you can reach me at [hello@alxm.me](mailto:hello@alxm.me).

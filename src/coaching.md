@@ -1,7 +1,7 @@
 ---
 layout: layouts/landing
 title: Coaching
-hero: 
+hero:
   header: You have the power to change your reality
 photos:
   - /assets/images/portrait-coaching.jpeg
@@ -16,15 +16,15 @@ Hi, I’m [Alex](/about), and I support clients as they explore fundamental life
 
 My motivation to become a coach comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing care of a therapist, I gradually rediscovered myself and developed the courage to begin to reshape my life to be in tune with who I am.
 
-My belief is that everyone is intrinsically motivated to fulfill their life purpose, and it is through the power of an unconditional and supportive relationship that this self-exploration can be actualized.  I find it incredibly rewarding to help others unfold their own journeys.
+My belief is that everyone is intrinsically motivated to fulfill their life purpose, and it is through the power of an unconditional and supportive relationship that this self-exploration can be actualized. I find it incredibly rewarding to help others unfold their own journeys.
 
 I am a trained [Co-Active](https://coactive.com) coach, and my approach is also heavily influenced by [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) and [existential](https://en.wikipedia.org/wiki/Existential_therapy) schools of psychotherapy.
 
 ### Authenticity and self-inquiry
 
-> […] we cannot change, we cannot move away from what we are, until we thoroughly *accept* what we are. Then change seems to come about almost unnoticed.
+> […] we cannot change, we cannot move away from what we are, until we thoroughly _accept_ what we are. Then change seems to come about almost unnoticed.
 
-Carl Rogers, *On Becoming A Person*
+Carl Rogers, _On Becoming A Person_
 
 We are all in constant negotiation between authentic self-expression and the security of social belonging that comes from conformity. When there is a large enough disconnect between these two forces, we can feel unfulfilled, lost, or be constantly seeking without satisfaction. This can manifest across any of the dimensions of our lives, from family to career to relationships.
 
