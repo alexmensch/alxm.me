@@ -2,25 +2,16 @@
 layout: layouts/base
 ---
 <section class="cover">
-  <div class="[ stack ] [ center ] [ padding-2xs ]" data-target>
-    <div class="[ box ]">
-      <h1 class="[ measure-compact weight-bold ]">{{ main.title }}</h1>
-    </div>
-    <div class="[ cluster ] [ flow-space-s font-sans weight-semi-bold ]">
-      <section class="[ box ] [ flow flow-space-m weight-semi-bold ]">
+  <div class="[ box ] [ center ] [ bg-light-glare radius ]" data-target data-shadow>
+    <div class="[ stack ] [ padding-2xs ]">
+      <div class="[ box ]">
+        <h1 class="[ text-mega--3 measure-compact weight-bold ]">{{ main.title }}</h1>
+      </div>
+      <div class="[ box ] [ flow flow-space-m weight-semi-bold ]">
         {% for line in main.text %}
-          <p class="measure-compact">{{ line | markdownify }}</p>
+          <p class="measure-short">{{ line | markdownify }}</p>
         {% endfor %}
-      </section>
-      <section class="box">
-        <ul class="[ stack ] [ flow-space-2xs text--1 weight-light ]">
-            {% for link in links %}
-                <li>
-                    <a class="[ hover-show arrow-shift ]" href="{{ link.url }}">{{ link.text }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-      </section>
+      </div>
     </div>
   </div>
 </section>

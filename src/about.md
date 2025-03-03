@@ -15,13 +15,13 @@ Amidst the chaos and challenges of running a [Silicon Valley startup](https://ww
 
 I was very fortunate to start working with a therapist during this period who helped me to begin to understand how to reclaim my life as my own. She taught me the beautiful power held in her capacity for unconditional care and acceptance of others. This permission to feel safe and accepting with myself exactly as I was gave me the confidence and freedom to grow. I fundamentally changed my relationship with myself, and in turn to those around me, and how I chose to live my life.
 
-I have deep curiosity and compassion for people, and I find joy in building intimate relationships with others. This safety within a container of intimate trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it within a caring relationship with someone else.
+I have deep curiosity and compassion for people in all of their wonderful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it within a caring relationship with someone else.
 
-If you’re both motivated and scared about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
+If you’re both motivated and nervous about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
 
 ### Cultural background & influences
 
-I grew up in four countries (Mexico, the US, Spain, and England) before the age of 18, and this unusual upbringing opened up my acceptance to the wide variety and complexity of people’s experiences. I’ve seen how arbitrary cultural customs, rules, and thought patterns are, allowing me to more clearly see the individual personal experiences behind them. There are no objective rights and wrongs. We live in a world of human-created nuance within which we seek to understand our own life’s meaning.
+I grew up in four countries (Mexico, the US, Spain, and England) before the age of 18, and this unusual upbringing opened up my acceptance to the wide variety and nuance of people’s experiences. I’ve seen how arbitrary cultural customs, rules, and thought patterns are, allowing me to more clearly see the individual personal experiences behind them. There are no objective rights and wrongs. We live in a world of human-created subjectivity within which we seek to understand our own life’s meaning.
 
 The majority of my childhood was spent in Spain and England, and I was born in Mexico to a Mexican mother and American father. “Home” is a difficult concept to identify for me, but England and Northwestern Europe come closest. I grew up speaking both English and Spanish, and I have varying degrees of proficiency in Swedish, German, French, and Mandarin Chinese.
 
@@ -33,4 +33,4 @@ Before I reshaped my life’s priorities, I spent [nearly 20 years](https://www.
 
 This experience is so rare in the software market that products that support, rather than frustrate, users’ needs are lauded as “magical” in their experience. Building these types of powerful experiences are the result of deep empathy with target customers, elevating design thinking to a high level of importance across engineering, product, and design, and having strong opinions on how you want your customers to experience you.
 
-As a former startup founder, I work with and advise a select set of B2B startups that are pre-Series C. If the above approach resonates with you, and your company falls into this category, you can [read more](/advisory) or [contact me](/contact) to see if we’re a fit.
+As a former startup founder, I work with and advise a select set of B2B startups that are pre-Series C. If the above approach resonates with you, and your company falls into this category, you can [read more](/advisory) or [contact me](/contact) to have an introductory conversation.

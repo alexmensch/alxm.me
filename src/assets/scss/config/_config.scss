@@ -42,8 +42,8 @@ $type-scale: scales.generate-type-scale(
   )
 );
 
-// @link https://utopia.fyi/type/calculator/?c=320,35,1.067,1240,90,1.125,0,2,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12
-// Generates 3 fone size steps: 0, -1, -2
+// @link https://utopia.fyi/type/calculator/?c=320,35,1.067,1240,90,1.125,0,4,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12
+// Generates 3 font size steps: 0, -1, -2
 // Follows the same scaling parameters as above
 $type-scale-mega: scales.generate-type-scale((
     "minWidth": 320,
@@ -53,24 +53,24 @@ $type-scale-mega: scales.generate-type-scale((
     "minTypeScale": 1.067,
     "maxTypeScale": 1.125,
     "positiveSteps": 0,
-    "negativeSteps": 2,
+    "negativeSteps": 4,
     "prefix": "step-",
     "relativeTo": "viewport-width"
   ));
 
 $colors: (
-  "dark": #38445b,
-  "dark-shade": #263147,
-  "dark-glare": #505c73,
-  "light": #f3f1f6,
-  "light-shade": #fff6d7,
-  "light-glare": #fdfbf3,
+  "dark": #2e3a50,
+  "dark-shade": #212a3d,
+  "dark-glare": #465270,
+  "light": #fdf8f3,
+  "light-shade": #f6ebdb,
+  "light-glare": #fffdf9,
   "primary": #fa576e,
-  "primary-shade": #fc3e59,
-  "primary-glare": #f26c7f,
-  "secondary": "#ffc600",
-  "secondary-shade": "#ffb300",
-  "secondary-glare": "#ffd733",
+  "primary-shade": #f8415c,
+  "primary-glare": #f87788,
+  "secondary": #26c4a8,
+  "secondary-shade": #006b4f,
+  "secondary-glare": #4cd9c9
 );
 
 $fonts: (
