@@ -3,7 +3,7 @@ import fonts from "./fonts.js";
 export default {
   domain: "alxm.me",
   authorName: "Alex Marshall",
-  authorEmail: "",
+  authorEmail: "hello@alxm.me",
   siteName: "Alex Marshall",
   includes: [
     {
@@ -20,9 +20,9 @@ export default {
     },
   ],
   rss: {
-    collection: "posts",
-    title: "My Posts",
-    subtitle: "A feed of all of my posts",
+    collection: "writing",
+    title: "Alex Marshall | Writing",
+    subtitle: "A collection of my writing on various topics.",
   },
   nav: [
     { title: "Coaching", url: "/coaching/" },
