@@ -1,7 +1,7 @@
 @use "../config/design-tokens" as dt;
 
 .hero {
-  @include dt.use("bg", "secondary-shade");
+  @include dt.use("bg", "secondary");
 
   padding-block: var(--gutter);
   padding-inline: var(--gutter);

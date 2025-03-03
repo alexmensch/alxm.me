@@ -10,7 +10,7 @@ summary: |
   tradition of sharing accident information to improve safety for other pilots in the future.
 ---
 
-_\[With minor edits, this is an article I wrote for New Zealand’s [Soaring NZ](http://www.gliding.co.nz/soaringnz/soaring-nz/) gliding magazine, published in the December 2010 / January 2011 issue. I’ve added a link to the [GPS record](/assets/files/0bhc0tk1.igc) of the flight in IGC format at the end of the article. You can read my first person account of the flight [here](/writing/mayday-mayday-for-sierra-lima-6cf3ce8fc5d1).\]_
+_\[With minor edits, this is an article I wrote for New Zealand’s [Soaring NZ](http://www.gliding.co.nz/soaringnz/soaring-nz/) gliding magazine, published in the December 2010 / January 2011 issue. I’ve added a link to the [GPS record](/assets/files/0bhc0tk1.igc) of the flight in IGC format at the end of the article. You can read my first person account of the flight [here](/writing/2010/12/02/mayday-mayday-for-sierra-lima/).\]_
 
 I’ve repeatedly defended the safety of gliding to my non-pilot friends, and I also believed that I was a safe and conservative pilot. I fit none of the characteristics of a stereotypical risk-taker. Highly analytical, trained as an engineer, I’m a strong believer in planning and procedure as ways to reduce risk. I regularly read two different aviation safety publications, and most would describe me as thoughtful, careful, and certainly mindful of minimizing risk.
 

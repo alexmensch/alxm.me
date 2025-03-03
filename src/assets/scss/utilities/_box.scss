@@ -12,7 +12,7 @@
   color: inherit;
 }
 
-// All boxes inherit padding value unless overridden
+// All descendant boxes inherit padding value unless overridden
 .box .box {
   padding: var(--padding);
 }

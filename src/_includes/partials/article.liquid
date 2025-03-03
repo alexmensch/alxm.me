@@ -3,6 +3,7 @@
             hero: hero,
             header: header,
             byline: byline %}
+
   <div class="[ article__content ] [ flow ]">
     {{ content }}
   </div>
@@ -15,5 +16,9 @@
 
   {% if type == "landing" and cta %}
     {% render "partials/cta", cta: cta %}
+  {% endif %}
+
+  {% if type == "contact" %}
+    {% render "partials/contact-options", options: options %}
   {% endif %}
 </article>
