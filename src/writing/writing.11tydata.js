@@ -1,7 +1,7 @@
-const slugify = require("slugify");
-const { DateTime } = require("luxon");
+import slugify from "slugify";
+import { DateTime } from "luxon";
 
-module.exports = {
+export default {
   permalink: function ({ title, date }) {
     return `/writing/${DateTime.fromJSDate(date).toFormat("yyyy/LL/dd")}/${slugify(
       title,

@@ -1,0 +1,46 @@
+@use "sass:map";
+
+@mixin generate($tokens) {
+  @each $category, $config in $tokens {
+    $property: map.get($config, "property");
+    $variants: map.get($config, "variants");
+
+    @each $var, $value in $variants {
+      .#{$category}-#{$var} {
+        #{$property}: #{$value};
+      }
+    }
+  }
+}
+
+@function get-variant($token, $variant, $tokens) {
+  $node: map.get($tokens, $token);
+  $css-property: map.get($node, "property");
+  $variants: map.get($node, "variants");
+  $variant-value: map.get($variants, $variant);
+
+  @if ($css-property and $variant-value) {
+    @return ("property": #{$css-property}, "variant": #{$variant-value});
+  } @else {
+    @if ($css-property) {
+      @warn #{'Value: ‘' + $variant-value + '’ doesn’t exist in ‘' + $token + '’' };
+    }
+
+    @if ($variant-value) {
+      @warn #{'Design token ‘' + $token + '’ doesn’t exist'};
+    }
+
+    @return false;
+  }
+}
+
+@function safe-map-get($key, $map) {
+  $resp: map.get($map, $key);
+
+  @if ($resp) {
+    @return $resp;
+  } @else {
+    @warn #{'Key "' + $key + '" not found in map lookup'};
+    @return null;
+  }
+}

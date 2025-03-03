@@ -1,0 +1,34 @@
+@use "../config/design-tokens" as dt;
+
+.box {
+  padding: var(--padding);
+
+  // Make box "visible" in high contrast themes for accessibility
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.125rem;
+
+  &[data-shadow] {
+    position: relative;
+  }
+
+  &[data-shadow]::before {
+    content: "";
+    position: absolute;
+    top: var(--padding);
+    left: var(--padding);
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places it behind the main box */
+    border-radius: inherit;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 6 6'%3E%3Cpath d='M0 6 L6 0 M-1 1 L1 -1 M5 7 L7 5' stroke='rgba(0,0,0,0.7)' stroke-width='2'/%3E%3C/svg%3E");
+  }
+}
+
+.box * {
+  color: inherit;
+}
+
+// All descendant boxes inherit padding value unless overridden
+.box .box {
+  padding: var(--padding);
+}

@@ -1,0 +1,157 @@
+@use "../config/design-tokens" as dt;
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+
+  @include dt.use("text", 0);
+  @include dt.use("font", "base");
+}
+
+a {
+  color: currentColor;
+  text-decoration-color: dt.get-color("primary");
+  text-decoration-thickness: 0.2ex;
+  text-underline-offset: 0.35ex;
+}
+
+:focus {
+  outline: 2px dashed dt.get-color("primary");
+  outline-offset: 0.25rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+h1 {
+  @include dt.use("text", 5);
+}
+
+h2 {
+  @include dt.use("text", 4);
+}
+
+h3 {
+  @include dt.use("text", 3);
+}
+
+h4 {
+  @include dt.use("text", 2);
+}
+
+h5 {
+  @include dt.use("text", 1);
+}
+
+h6 {
+  @include dt.use("text", 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include dt.use("weight", "bold");
+  @include dt.use("font", "sans");
+  @include dt.use("leading", "flat");
+  @include dt.use("measure", "compact");
+}
+
+p {
+  max-width: var(--measure);
+}
+
+code {
+  // Compensate for visual difference between mono & serif fonts
+  @include dt.use("text", -1);
+}
+
+// Override PrismJS syntax highlight styling
+pre {
+  margin-block-start: var(--flow-space) !important;
+  font-size: smaller !important;
+
+  &[class*="language-"] {
+    background: dt.get-color("light-glare");
+  }
+}
+
+blockquote {
+  @include dt.use("measure", "short");
+
+  border-inline-start: #{dt.get-size("2xs")} solid dt.get-color("primary");
+  padding-inline-start: #{dt.get-size("m")};
+  padding-block: #{dt.get-size("2xs")};
+
+  font-style: italic;
+  @include dt.use("text", 1);
+
+  & > blockquote {
+    margin-block-start: #{dt.get-size("xs")};
+  }
+}
+
+:is(ul, ol)[role="list"] {
+  padding-inline-start: #{dt.get-size("m")};
+  max-width: var(--measure);
+
+  li + li,
+  li > :is(ul, ol) {
+    margin-block-start: #{dt.get-size("2xs")};
+  }
+}
+
+table {
+  text-align: start;
+  border-collapse: collapse;
+  caption-side: bottom;
+  font-variant-numeric: tabular-nums;
+
+  thead {
+    border-block-end: 0.35ex solid dt.get-color("primary");
+
+    th {
+      vertical-align: bottom;
+      background: dt.get-color("light-glare");
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid dt.get-color("dark-glare");
+    padding: #{dt.get-size("2xs")} #{dt.get-size("2xs")};
+
+    vertical-align: baseline;
+    text-align: end;
+  }
+}
+
+hr {
+  border: 2px solid dt.get-color("dark-shade");
+  width: #{dt.get-size("xl-2xl")};
+}
+
+// High contrast selection because it can help visually-impaired
+// folks read the text easier
+::selection {
+  color: dt.get-color("light");
+
+  background: dt.get-color("dark-shade");
+}
+
+// Scrollbar style
+::-webkit-scrollbar {
+  height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid dt.get-color("dark-glare");
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: dt.get-color("dark");
+}

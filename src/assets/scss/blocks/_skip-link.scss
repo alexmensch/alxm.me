@@ -1,0 +1,13 @@
+@use "../utilities";
+@use "../config/design-tokens" as dt;
+
+.skip-link {
+  position: absolute;
+  top: #{dt.get-size("s")};
+  left: #{dt.get-size("s")};
+  z-index: 99;
+
+  &:not(:focus) {
+    @include utilities.visually-hidden;
+  }
+}

@@ -12,8 +12,6 @@ summary: |
   in a similar situation.
 ---
 
-[[toc]]
-
 _**Disclaimer:** I am not a tax expert or accountant, so make sure you get professional advice to confirm that any decisions you make are right for you and your situation. The rules are complex and change regularly, so if you see any errors in what I have written, please feel free to contact me at hello [at] alxm.me._
 
 # Context

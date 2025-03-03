@@ -1,0 +1,16 @@
+@use "../config/design-tokens" as dt;
+
+.site-header {
+  margin-block-start: var(--gutter);
+
+  &__inner {
+    align-items: baseline;
+  }
+
+  &__brand {
+    flex-shrink: 0;
+    padding-inline-end: #{dt.get-size("l")};
+
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,11 @@
+@use "../config/design-tokens" as dt;
+
+.drop-cap > p:first-of-type::first-letter {
+  float: inline-start;
+  padding-inline-end: 0.075em;
+  margin-block-start: -0.1em;
+
+  font-size: 3.2lh;
+  @include dt.use("weight", "black");
+  line-height: 1;
+}

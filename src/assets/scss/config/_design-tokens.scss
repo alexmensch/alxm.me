@@ -1,0 +1,36 @@
+@use "sass:map";
+
+@use "helpers/tokens";
+@use "config";
+
+$_config-tokens: config.$tokens;
+$_config-size-scale: config.$size-scale;
+$_config-colors: config.$colors;
+
+@include tokens.generate($_config-tokens);
+
+@mixin use($token, $variant, $config: $_config-tokens) {
+  $var: tokens.get-variant($token, $variant, $config);
+
+  @if ($var) {
+    #{map.get($var, 'property')}: map.get($var, "variant");
+  }
+}
+
+@function get-value($token, $variant, $config: $_config-tokens) {
+  $var: tokens.get-variant($token, $variant, $config);
+
+  @if ($var) {
+    @return map.get($var, "variant");
+  } @else {
+    @return null;
+  }
+}
+
+@function get-size($size, $map: $_config-size-scale) {
+  @return tokens.safe-map-get($size, $map);
+}
+
+@function get-color($color, $map: $_config-colors) {
+  @return tokens.safe-map-get($color, $map);
+}

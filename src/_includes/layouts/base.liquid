@@ -1,75 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="{{ eleventy.generator }}">
-    {% capture pageTitle %}{{ title }} • Alex Marshall{% endcapture %}
-    <title>{{ pageTitle }}</title>
-    <link rel="stylesheet" href="/assets/fonts/inter/inter.css">
-    <link rel="stylesheet" href="/assets/css/prism.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="alternate" title="Alex Marshall • Writing" type="application/atom+xml" href="/writing.atom">
-    <!-- Open Graph meta tags -->
-    {% capture img_url %}/assets/images/open-graph/{{ date | ogPostDate }}-{{ title | slug }}-preview.webp"{% endcapture %}
-    {% assign defaultImg_url = "/assets/images/open-graph/default-preview.webp" %}
-    <meta
-        name="title"
-        property="og:title"
-        content="{% if page.url == "/" %}alxm.me • Alex Marshall{% else %}{{ pageTitle }}{% endif %}"
-        />
-    <meta property="og:url" content="{{ page.url }}" />
-    <meta name="author" content="Alex Marshall" />
-    <meta name="locale" property="og:locale" content="en_GB" />
-{% if og_description %}
-    <meta name="image" property="og:image" content="{{ img_url }}" />
-    <meta name="image" property="og:image:secure_url" content="{{ img_url }}" />
-    <meta name="description" property="og:description" content="{{ og_description }}" />
-    <meta name="type" property="og:type" content="article" />
-{% else %}
-    <meta name="image" property="og:image" content="{{ defaultImg_url }}" />
-    <meta name="image" property="og:image:secure_url" content="{{ defaultImg_url }}" />
-    <meta name="type" property="og:type" content="website" />
-{% endif %}
-</head>
-<body class="{{ layout-palette | downcase }}">
-    <div class="container-grid">
-        <div class="upper"></div>
-        <div class="lower"></div>
-    {% if fullPage %}
-        <div class="header fullpage">
-    {% else %}
-        <div class="header">
-    {% endif %}
-            {% render "partials/home-name.liquid" %}
-            <div class="navigation">
-        {% if fullPage %}
-                {% assign item = navigation.items[navIndex] %}
-                <span>/</span><a href="{{ item.url }}">{{ item.title }}</a>
-        {% else %}
-                {% for item in navigation.items %}
-                    {% unless item.hidden %}
-                      <a href="{{ item.url }}">{{ item.title }}</a>
-                    {% endunless %}
-                {% endfor %}
-        {% endif %}
-            </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="{{ eleventy.generator }}" />
+        {% render "partials/site-includes" site: site %}
+        {% render "partials/rss" site: site %}
+        <title>{{ title }} • {{ site.siteName }}</title>
+    </head>
+    <body>
+        <div class="[ site-wrap ] [ flow flow-space-xl ]">
+            {%unless hide_header %}
+                {% render "partials/site-header"
+                    site: site,
+                    page: page
+                    %}
+            {%endunless %}
+            <main tabindex="-1" id="main-content">
+                <div class="[ wrapper ]">
+                    {{ content }}
+                </div>
+            </main>
+            {%unless hide_footer %}
+                {% render "partials/site-footer"
+                    helpers: helpers,
+                    site: site,
+                    page: page,
+                    company_info: company_info %}
+            {%endunless %}
         </div>
-    {% unless fullPage %}
-            <div class="title">
-                {% if titleRotation %}
-                    <ul class="titleRotation">
-                    {% for greeting in titleRotation %}
-                        <li>{{ greeting }}</li>
-                    {% endfor %}
-                    </ul>
-                {% else %}
-                    {{ title }}
-                {% endif %}
-            </div>
-    {% endunless %}
-        {{ content }}
-        {% render "partials/footer.liquid", currentYear: currentYear %}
-    </div>
-</body>
+    </body>
 </html>

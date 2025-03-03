@@ -1,0 +1,14 @@
+<div class="[ gutter flow ]">
+  <div class="[ switcher ]">
+    {% for option in options %}
+    <div>
+      <div class="[ contact-options box ] [ radius ] [ padding-xs ]">
+        <div class="stack-split-1">
+          <p>{{ option.body | markdownify }}</p>
+          <a class="contact-options__link" href="{{ option.cta_url }}">{{ option.cta }}</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

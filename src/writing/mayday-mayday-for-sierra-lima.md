@@ -27,17 +27,17 @@ I sat for a few moments, resting the back of my head against the leading edge of
 
 I unclipped the parachute straps, shifting it under myself so I could sit on the wool-lined backing. It was getting cold. I turned my attention to the instrument panel and wondered why everything was dead. Craning my neck to look back into the cockpit, I could see the front battery lying on its side, ejected from the glider. I flicked a switch to select the rear battery and everything came back to life. The radio was silent. Turning off the squelch, I could hear a faint, urgent voice.
 
-_“ … Mayday Mayday for Sierra Lima … GPS coordinates four four point four … “)_
+_"… Mayday Mayday for Sierra Lima … GPS coordinates four four point four …"_
 
 X-ray Golf was radioing in my position. The rescue helicopter would be here soon. I switched to the emergency frequency, 121.50MHz, to make sure my emergency beacon had triggered. I could hear its warble. Good news. I switched back to the gliding competition frequency.
 
-_“Sierra Lima, Sierra Lima X-ray Golf, do you copy?“_
+_"Sierra Lima, Sierra Lima X-ray Golf, do you copy?"_
 
-“X-ray Golf this is Sierra Lima I read you, can you hear me?”
+"X-ray Golf this is Sierra Lima I read you, can you hear me?"
 
-_“Sierra Lima X-ray Golf, do you copy?”_
+_"Sierra Lima X-ray Golf, do you copy?"_
 
-“I can hear you George, are you receiving this?”
+"I can hear you George, are you receiving this?"
 
 I was virtually shouting into the microphone, struggling to get as close to it as my broken foot would allow.
 
@@ -77,39 +77,39 @@ Soon we reached the summit of the bowl and began circling tightly in a tiny ther
 
 Glancing toward the Dingle ridge, I could see my escape path. When I felt I had sufficient altitude, I would level off and fly directly under a line of clouds that was approximately aligned with a smaller ridge, gently leading up to the Dingle at a ninety degree angle. From there, I could see a saddle in the ridge that I would cross over to reach the lift on the windward side.
 
-After gaining another 500ft, I leveled my wings and set off first. Pulling up to slow down in areas of rising area and pushing forward to speed up in areas of sink, I “dolphined” through the air, trying to make the best of the available energy. Soon, I noticed X-ray Golf about 50ft above me to my left. I fell in behind him and started to follow him, implicitly trusting his greater experience having grown up flying in these mountains.
+After gaining another 500ft, I leveled my wings and set off first. Pulling up to slow down in areas of rising area and pushing forward to speed up in areas of sink, I "dolphined" through the air, trying to make the best of the available energy. Soon, I noticed X-ray Golf about 50ft above me to my left. I fell in behind him and started to follow him, implicitly trusting his greater experience having grown up flying in these mountains.
 
 Nearing the saddle, we pushed through sinking air and my clearance above the ridge decreased to a few hundred feet. X-ray Golf remained within 100ft above me. As we crossed into the next valley, I was surprised to find no lift on the other side. I continued flying along the ridge, still with no luck. Realizing that I might be in a landout situation if I couldn’t find any lift, I turned to continue crossing the valley, X-ray Golf still ahead.
 
 Looking to the left, I was horrified to see that not only was this definitely not the Dingle Valley, but there was absolutely nowhere to land. One of my unbreakable rules was to never, ever fly into a valley with no landout options. My stress levels were suddenly elevated through the roof. Passing through an area of strong lift, I pulled up and began to circle, but the lift was rough, and it was difficult to find a center to it. Losing height, I leveled off and flew back to the saddle that we had just crossed. If I could gain some height, I might be able to sneak back out again —
 
-“Sierra Lima, is everything OK?”
+"Sierra Lima, is everything OK?"
 
 This was the first time that X-ray Golf and I had spoken over the radio. I could sense concern in his voice. And the damned ridge wasn’t cooperating. The lift wasn’t consistent, and every turn back to search for a pocket of lift was another hundred feet lost. My exit was blocked. I was trapped.
 
-“Uhh … Not really. Any suggestions? It’s all sink.”
+"Uhh … Not really. Any suggestions? It’s all sink."
 
 Though I tried to remain calm, there was a hint of desperation in my voice that must have been clear over the radio. Quickly running out of options, I opened the water ballast dump valve to jettison the 80 liters of water I had on board.
 
-“I’d try the sunny slopes.”
+"I’d try the sunny slopes."
 
 I flew down the sunny side of the valley, but even as I did so, I had a sinking feeling in my stomach that I would be making a crash landing in this valley, though I wasn’t yet ready to accept that fate. Doing my best to fly as close to the hillsides as possible in search of a saviour pocket of lift, I looked out to the right below me and spotted the best possible option in sight — a small gravelly area that looked landable. I made a mental note of it and continued to fly.
 
 Everything was happening very quickly. I hadn’t yet registered the fact that the air in the valley was doing something very different to what I had expected. I was flying downwind, which not only explained why the ridges were producing no lift, but also why the terrain seemed to be going by so quickly as the valley began to swallow me.
 
-“So is there any way out of this valley? There’s nothing but sink.”
+"So is there any way out of this valley? There’s nothing but sink."
 
 There was no time to think as the variometer told me that the air around me was descending at close to 1,000ft per minute. As I wound my way around the hillsides, I was still trying to accept the fact that I might not get away. I was vaguely aware that my piloting skills were degrading under the stress, but I’d managed to sneak away from tricky situations before, and I kept trying.
 
-“Sierra Lima, what’s your altitude above the valley floor?”
+"Sierra Lima, what’s your altitude above the valley floor?"
 
 I hadn’t the faintest idea. I heard the variometer increase in pitch and I turned around with the optimistic hope of trying to catch the area of rising air I’d just flown through. As I turned, I didn’t need the instruments to tell me that I was sinking fast. Things were getting desperate.
 
-“No idea … It can’t be more than 1,000ft.”
+"No idea … It can’t be more than 1,000ft."
 
 I turned back towards my chosen landing spot when all of a sudden it became clear that I had a significant headwind. It was going to be extremely close. I lowered the landing gear and eked out my final radio call, announcing my intentions.
 
-“I’m going to land in the gravelly area.”
+"I’m going to land in the gravelly area."
 
 The picture ahead was depressing. As if somehow descending vertically, I watched as the valley in front of me seemed to rise up and out of the ground. It was inevitable that I was going to land short of my intended spot, but it was too late to do anything about it. I had no altitude left. All I could do was soften the impact and land as carefully as possible. At this point my brain was completely overloaded with stress.
 

@@ -1,0 +1,8 @@
+@use "../config/design-tokens" as dt;
+
+.wrapper {
+  max-width: 70rem;
+  padding: 0 #{dt.get-size("m")};
+  margin-inline: auto;
+  position: relative;
+}

@@ -1,28 +1,25 @@
-const md = require("markdown-it");
-const mdAnchor = require("markdown-it-anchor");
-const mdTOC = require("markdown-it-table-of-contents");
-const mdFN = require("markdown-it-footnote");
-const { DateTime } = require("luxon");
+import md from "markdown-it";
+import mdFN from "markdown-it-footnote";
+import * as sass from "sass";
+import path from "node:path";
+import { promises as fs } from "node:fs";
 
-const eleventyImg = require("@11ty/eleventy-img");
-const eleventyImageTransformPlugin = eleventyImg.eleventyImageTransformPlugin;
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
+import { IdAttributePlugin } from "@11ty/eleventy";
+import purgeCssPlugin from "eleventy-plugin-purgecss";
 
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
-const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
+import helpers from "./src/_data/helpers.js";
+import siteConfig from "./src/_data/site.js";
+import fonts from "./src/_data/fonts.js";
 
-const fs = require("fs");
-
-module.exports = async function (eleventyConfig) {
-  // Ignore test page if NODE_ENV=production
-  if (process.env.NODE_ENV === "production") {
-    eleventyConfig.ignores.add("src/test.md");
-  }
-
+export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
   // Image transforms
-  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
@@ -41,22 +38,37 @@ module.exports = async function (eleventyConfig) {
   // Syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Add anchors to headings
+  eleventyConfig.addPlugin(IdAttributePlugin, {
+    // Use standard slugify filter
+    slugify: helpers.toSlug,
+  });
+
+  eleventyConfig.addPlugin(purgeCssPlugin, {
+    config: {
+      content: ["./_site/**/*.html"],
+      css: ["./_site/assets/css/*.css"],
+      rejected: false,
+    },
+    quiet: true,
+  });
+
   // RSS / Atom feed
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
-    outputPath: "/writing.atom",
+    outputPath: `/${siteConfig.rss.collection}.atom`,
     collection: {
-      name: "writing", // iterate over `collections.posts`
+      name: siteConfig.rss.collection, // iterate over `collections.posts`
       limit: 0, // 0 means no limit
     },
     metadata: {
       language: "en",
-      title: "Alex Marshall | Writing",
-      subtitle: "A collection of all of my writing on various topics.",
-      base: "https://alxm.me/writing",
+      title: `${siteConfig.siteName} | ${siteConfig.rss.title}`,
+      subtitle: siteConfig.rss.subtitle,
+      base: `https://${siteConfig.domain}`,
       author: {
-        name: "Alex Marshall",
-        email: "", // Optional
+        name: siteConfig.authorName,
+        email: siteConfig.authorEmail, // Optional
       },
     },
   });
@@ -71,40 +83,24 @@ module.exports = async function (eleventyConfig) {
   /**********************/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
-    "src/assets/files": "assets/files",
-    "src/assets/fonts": "assets/fonts",
-    "src/_redirects": "_redirects",
     "src/404.html": "404.html",
   });
 
   /* Collections config */
   /**********************/
+  // Collections are defined in src/_data/site.js in the "nav" object
   let postCollections = new Set();
-  postCollections.add("writing");
-  postCollections.add("projects");
+  siteConfig.nav.forEach((item) => {
+    if (item.collection) {
+      postCollections.add(item.url.replace(/\//g, ""));
+    }
+  });
 
   postCollections.forEach((collectionName) => {
-    // Collection for unique tags
-    eleventyConfig.addCollection(
-      `${collectionName}-tags`,
-      function (collectionApi) {
-        let tagSet = new Set();
+    eleventyConfig.addCollection(`${collectionName}`, function (collectionApi) {
+      return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
+    });
 
-        collectionApi
-          .getFilteredByGlob(`src/${collectionName}/*.md`)
-          .forEach((item) => {
-            if ("tags" in item.data) {
-              let tags = item.data.tags;
-              tags = Array.isArray(tags) ? tags : [tags];
-              tags.forEach((tag) => tagSet.add(tag));
-            }
-          });
-
-        return [...tagSet];
-      },
-    );
-
-    // Collection for years
     eleventyConfig.addCollection(
       `${collectionName}-years`,
       function (collectionApi) {
@@ -128,11 +124,6 @@ module.exports = async function (eleventyConfig) {
         }));
       },
     );
-
-    // Collection for all items
-    eleventyConfig.addCollection(`${collectionName}`, function (collectionApi) {
-      return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
-    });
   });
 
   /* Markdown Configuration */
@@ -140,24 +131,14 @@ module.exports = async function (eleventyConfig) {
   let markdownLib = md({
     typographer: true,
   })
-    // Heading anchors
-    .use(mdAnchor, {
-      permalink: mdAnchor.permalink.headerLink({ safariReaderFix: true }),
-    })
-    // Table of Contents
-    .use(mdTOC, {
-      includeLevel: [1, 2, 3], // Levels to include in the TOC
-      containerClass: "toc", // Class for the TOC container
-    })
     // Footnotes
     .use(mdFN);
 
   // Footnote HTML customization
   markdownLib.renderer.rules.footnote_block_open = () =>
-    '<hr class="footnotes-sep">\n' +
-    '<h4 class="footnotes">Notes</h4>\n' +
-    '<section class="footnotes">\n' +
-    '<ol class="footnotes-list">\n';
+    '<section class="[ footnotes ] [ flow ]">\n' +
+    "<h2>Notes</h2>\n" +
+    '<ol role="list">\n';
 
   // Override footnote indicator render to output a number without square brackets
   markdownLib.renderer.rules.footnote_caption = (tokens, idx) => {
@@ -166,75 +147,108 @@ module.exports = async function (eleventyConfig) {
     return `${n}`;
   };
 
+  // Add role="list" attribute for accessibility and correct styling
+  markdownLib.renderer.rules.bullet_list_open = (
+    tokens,
+    idx,
+    options,
+    env,
+    self,
+  ) => {
+    tokens[idx].attrPush(["role", "list"]);
+    return self.renderToken(tokens, idx, options);
+  };
+
+  // Add role="list" attribute for accessibility and correct styling
+  markdownLib.renderer.rules.ordered_list_open = (
+    tokens,
+    idx,
+    options,
+    env,
+    self,
+  ) => {
+    tokens[idx].attrPush(["role", "list"]);
+    return self.renderToken(tokens, idx, options);
+  };
+
   // Set the Markdown library to use
   eleventyConfig.setLibrary("md", markdownLib);
 
-  /* Open Graph image generation */
-  /*******************************/
+  /* Sass support as a template format */
+  /*************************************/
 
-  // Custom filter for date in OG image permalink
-  eleventyConfig.addFilter("ogPostDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {
-      zone: "Europe/London",
-    })
-      .setLocale("en")
-      .toISODate();
-  });
+  eleventyConfig.addTemplateFormats("scss");
 
-  // Custom filter for a human-readable post date
-  eleventyConfig.addFilter("readablePostDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {
-      zone: "Europe/London",
-    })
-      .setLocale("en")
-      .toLocaleString(DateTime.DATE_FULL);
-  });
+  // Creates the extension for use
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css", // optional, default: "html"
 
-  // Custom filter to split text into multiple lines
-  eleventyConfig.addFilter("ogSplitLines", function (input, chars) {
-    const parts = input.split(" ");
-    const lines = parts.reduce(function (prev, current) {
-      if (!prev.length) {
-        return [current];
+    // Customizing the permalink for the output file
+    compileOptions: {
+      permalink: function (inputContent, inputPath) {
+        let parsed = path.parse(inputPath);
+
+        const outputDir = "/assets/css";
+        const outputFilePath = path.join(outputDir, `${parsed.name}.css`);
+
+        // Return the new permalink
+        return outputFilePath;
+      },
+    },
+
+    // `compile` is called once per .scss file in the input directory
+    compile: async function (inputContent, inputPath) {
+      let parsed = path.parse(inputPath);
+      // Adhere to convention of not outputting Sass underscore files
+      if (parsed.name.startsWith("_")) {
+        return;
       }
 
-      let lastOne = prev[prev.length - 1];
+      let result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || "."],
+      });
 
-      if (lastOne.length + current.length > chars) {
-        return [...prev, current];
-      }
-
-      prev[prev.length - 1] = lastOne + " " + current;
-
-      return prev;
-    }, []);
-
-    return lines;
+      // This is the render function, `data` is the full data cascade
+      return async (data) => {
+        return result.css;
+      };
+    },
   });
 
-  // Post-process SVGs to convert to WebP for OpenGraph compatibility
-  eleventyConfig.on("eleventy.after", () => {
-    const socialPreviewImagesDir = "_site/assets/images/open-graph/";
+  // Prevent _index.scss files from being rendered by Eleventy
+  eleventyConfig.ignores.add("src/assets/scss/**/_*.scss");
 
-    fs.readdir(socialPreviewImagesDir, function (err, files) {
-      if (files.length > 0) {
-        files.forEach((filename) => {
-          if (filename.endsWith(".svg")) {
-            let imageUrl = socialPreviewImagesDir + filename;
+  /* Custom filters */
+  /******************/
 
-            // Image processing options: https://sharp.pixelplumbing.com/api-output#webp
-            eleventyImg(imageUrl, {
-              formats: ["webp"],
-              outputDir: "./" + socialPreviewImagesDir,
-              filenameFormat: function (id, src, width, format, options) {
-                let outputFilename = filename.substring(0, filename.length - 4);
-                return `${outputFilename}.${format}`;
-              },
-            });
-          }
-        });
-      }
-    });
+  // Custom filter to determine if current page is within parent link path
+  // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
+  eleventyConfig.addFilter("getLinkActiveState", helpers.getLinkActiveState);
+
+  // Generate lorem ipsum for use in content
+  // Called like this: {{ count | loremIpsum: type }}
+  // Where type is one of: words, sentences, paragraphs
+  eleventyConfig.addFilter("loremIpsum", helpers.loremIpsum);
+
+  // Process input as Markdown, useful for Markdown included in frontmatter
+  eleventyConfig.addFilter("markdownify", (markdownString) =>
+    markdownLib.renderInline(markdownString),
+  );
+
+  /* Build event handlers */
+  /************************/
+
+  // Write configured Google Fonts to build output
+  eleventyConfig.on("eleventy.after", async () => {
+    const fontBuffers = await fonts.files();
+
+    for (const { fontBuffer, fileName } of fontBuffers) {
+      const outputPath = path.join("_site", fonts.buildFontPath, fileName);
+      const outputDir = path.dirname(outputPath);
+
+      await fs.mkdir(outputDir, { recursive: true });
+      await fs.writeFile(outputPath, fontBuffer);
+    }
   });
 
   return {
@@ -246,8 +260,7 @@ module.exports = async function (eleventyConfig) {
       output: "_site",
     },
     // Define other options like pathPrefix
-    templateFormats: ["liquid", "md", "njk"],
-    markdownTemplateEngine: "liquid",
+    templateFormats: ["liquid", "md"],
     htmlTemplateEngine: "liquid",
   };
-};
+}
