@@ -5,7 +5,7 @@ import { ofetch } from "ofetch";
 import { Hookable } from "hookable";
 import deepmerge from "deepmerge";
 
-const GOOGLE_FONTS_DOMAIN = "fonts.googleapis.com";
+const GOOGLE_FONTS_DOMAIN = "fonts\\.googleapis\\.com";
 function isValidDisplay(display) {
   return ["auto", "block", "swap", "fallback", "optional"].includes(display);
 }
