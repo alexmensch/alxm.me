@@ -4,7 +4,9 @@ title: Coaching
 hero:
   header: You have the power to change your reality
 photos:
-  - /assets/images/portrait-coaching.jpeg
+  -
+    src: /assets/images/portrait-coaching.jpg
+    alt: Portrait photo of Alex
 cta:
   header: Let's work together
   body: |

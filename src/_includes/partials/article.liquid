@@ -5,6 +5,15 @@
             byline: byline %}
 
   <div class="[ article__content ] [ flow ]">
+    {% if photos[0] %}
+    <div class="[ float ] [ padding-xl ]">
+      <div class="[ box ] [ padding-none shadow-xs-s measure-mini ]" data-shadow>
+        <div class="frame" data-ratio="4-5">
+          <img src="{{ photos[0].src }}" alt="{{ photos[0].alt }}" />
+        </div>
+      </div>
+    </div>
+    {% endif %}
     {{ content }}
   </div>
 

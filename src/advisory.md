@@ -3,8 +3,6 @@ layout: layouts/landing
 title: Product Advisory
 hero:
   header: Advisory for startups that value magical product experiences
-photos:
-  - /assets/images/portrait-coaching.jpeg
 cta:
   header: Let's work together
   body: |

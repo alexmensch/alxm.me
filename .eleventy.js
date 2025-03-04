@@ -48,6 +48,7 @@ export default async function (eleventyConfig) {
     config: {
       content: ["./_site/**/*.html"],
       css: ["./_site/assets/css/*.css"],
+      fontFace: true,
       rejected: false,
     },
     quiet: true,
@@ -83,6 +84,8 @@ export default async function (eleventyConfig) {
   /**********************/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
+    "src/assets/files": "assets/files",
+    "src/assets/images": "assets/images",
     "src/404.html": "404.html",
   });
 
