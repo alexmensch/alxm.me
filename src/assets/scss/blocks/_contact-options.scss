@@ -6,7 +6,7 @@
   height: 100%;
 
   &__link {
-    background: #{dt.get-color("secondary-glare")};
+    background: #{dt.get-color("secondary")};
     padding-block: #{dt.get-size("2xs")};
 
     @include dt.use("font", "sans");
@@ -15,7 +15,7 @@
     text-align: center;
 
     &:hover {
-      background: #{dt.get-color("secondary")};
+      background: #{dt.get-color("secondary-glare")};
     }
   }
 }
