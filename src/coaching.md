@@ -3,10 +3,6 @@ layout: layouts/landing
 title: Coaching
 hero:
   header: You have the power to change your reality
-photos:
-  -
-    src: /assets/images/portrait-coaching.jpg
-    alt: Portrait photo of Alex
 cta:
   header: Let's work together
   body: |
