@@ -16,7 +16,7 @@
 
   blockquote > p::before,
   blockquote > p::after {
-    content: "\"";
+    content: '"';
   }
 
   blockquote + p {
