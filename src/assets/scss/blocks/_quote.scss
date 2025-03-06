@@ -1,0 +1,25 @@
+@use "../config/design-tokens" as dt;
+
+.quote {
+  border-inline-start: #{dt.get-size("2xs")} solid dt.get-color("primary");
+  padding-inline-start: #{dt.get-size("m")};
+
+  @include dt.use("measure", "short");
+
+  & > blockquote {
+    border-inline: unset;
+    padding-inline: unset;
+    padding-block: unset;
+
+    max-width: inherit;
+  }
+
+  blockquote > p::before,
+  blockquote > p::after {
+    content: "\"";
+  }
+
+  blockquote + p {
+    text-align: right;
+  }
+}

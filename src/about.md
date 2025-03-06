@@ -5,9 +5,7 @@ hero:
   header: The currents that have shaped my life
 ---
 
-> The good life is a _process_, not a state of being. It is a direction, not a destination. […] This process of the good life is not, I am convinced, a life for the faint-hearted. It involves the stretching and growing of becoming more and more of one's potentialities. It involves the courage to be. It means launching oneself fully into the stream of life.
-
-Carl Rogers, _On Becoming a Person_
+{% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}The good life is a _process_, not a state of being. It is a direction, not a destination. […] This process of the good life is not, I am convinced, a life for the faint-hearted. It involves the stretching and growing of becoming more and more of one's potentialities. It involves the courage to be. It means launching oneself fully into the stream of life.{% endblockQuote %}
 
 Amidst the chaos and challenges of running a [Silicon Valley startup](https://www.forbes.com/sites/kenrickcai/2022/04/14/twingate-series-b-400-million-taking-down-vpn/), at what many in our society would consider the pinnacle of my career, I felt like I was living someone else’s life. I had achieved everything I had set my mind to, but the result felt empty.
 

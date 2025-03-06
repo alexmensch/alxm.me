@@ -16,13 +16,8 @@ og_description: |
 permalink: "/writing/2024/07/02/seeing-things-clearly/"
 ---
 
-> ”If we’re out to see things as they are, we must be willing—even hungry—to shed our illusions.”
->
-> Gabor Maté, _[The Myth of Normal](https://www.abebooks.co.uk/9781785042737/Myth-Normal-Paperback-Gabor-Mate-1785042734/plp)_
-
-> “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
->
-> Christopher Alexander, _[The Timeless Way of Building](https://www.abebooks.co.uk/9780195024029/Timeless-Way-Building-Alexander-Christopher-9780195025/plp)_
+{% blockQuote "Gabor Maté", "The Myth of Normal", "https://www.abebooks.co.uk/9781785042737/Myth-Normal-Paperback-Gabor-Mate-1785042734/plp" %}If we’re out to see things as they are, we must be willing—even hungry—to shed our illusions.{% endblockQuote %}
+{% blockQuote "Christopher Alexander", "The Timeless Way of Building", "https://www.abebooks.co.uk/9780195024029/Timeless-Way-Building-Alexander-Christopher-9780195025/plp" %}Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]{% endblockQuote %}
 
 Bringing more awareness into your perceived reality is one of the most powerful things that you can do. It’s a foundational skill to unlocking personal growth and improving the quality of your relationships, including the relationship you have with yourself. Learning to notice and pay closer attention to what is happening allows you to adopt a more honest viewpoint, and it’s from honesty that truly enduring growth and change can emerge. What it requires is lots of curiosity and some bravery. Whether you decide to take action on your increased awareness is up to you, but I hope to convince you as to why you should.
 

@@ -258,6 +258,18 @@ export default async function (eleventyConfig) {
     return html;
   });
 
+  eleventyConfig.addPairedShortcode("blockQuote", function(content, name, source, url = false) {
+    let html = `
+      <div class="[ quote ] [ flow ]">
+        <blockquote>
+          <p>${content}</p>
+        </blockquote>
+        <p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? `</a>` : ""}</p>
+      </div>
+    `;
+    return html;
+  });
+
   /* Build event handlers */
   /************************/
 
