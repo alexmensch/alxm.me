@@ -30,7 +30,7 @@ $size-scale: scales.generate-size-scale(
 $size-scale: map.merge(
   $size-scale,
   (
-    "none": 0,
+    "none": "0rem",
   )
 );
 
