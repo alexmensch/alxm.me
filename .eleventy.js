@@ -1,5 +1,6 @@
 import md from "markdown-it";
 import mdFN from "markdown-it-footnote";
+import mdIterator from "markdown-it-for-inline";
 import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
@@ -136,7 +137,23 @@ export default async function (eleventyConfig) {
     html: true,
   })
     // Footnotes
-    .use(mdFN);
+    .use(mdFN)
+    .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
+      console.log(tokens[idx]);
+      const [attrName, href] = tokens[idx].attrs.find(
+        (attr) => attr[0] === "href",
+      );
+
+      if (
+        href &&
+        !href.includes(siteConfig.domain) &&
+        !href.startsWith("/") &&
+        !href.startsWith("#")
+      ) {
+        tokens[idx].attrPush(["target", "_blank"]);
+        tokens[idx].attrPush(["rel", "noopener"]);
+      }
+    });
 
   // Footnote HTML customization
   markdownLib.renderer.rules.footnote_block_open = () =>
@@ -245,9 +262,11 @@ export default async function (eleventyConfig) {
   // Shortcode to add inline photos to articles
   // 'src' is the filename within assets/images
   // Valid ratios are set in assets/scss/blocks/_frame.scss
-  eleventyConfig.addLiquidShortcode("articleImage", function(src, alt, ratio, portrait = true) {
-    let html = `
-      <div class="[ article__photo ]" ${ portrait ? `data-portrait` : ""}>
+  eleventyConfig.addLiquidShortcode(
+    "articleImage",
+    function (src, alt, ratio, portrait = true) {
+      let html = `
+      <div class="[ article__photo ]" ${portrait ? `data-portrait` : ""}>
         <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
           <div class="frame" data-ratio="${ratio}">
             <img src="assets/images/${src}" alt="${alt}" />
@@ -255,11 +274,14 @@ export default async function (eleventyConfig) {
         </div>
       </div>
     `;
-    return html;
-  });
+      return html;
+    },
+  );
 
-  eleventyConfig.addPairedShortcode("blockQuote", function(content, name, source, url = false) {
-    let html = `
+  eleventyConfig.addPairedShortcode(
+    "blockQuote",
+    function (content, name, source, url = false) {
+      let html = `
       <div class="[ quote ] [ flow ]">
         <blockquote>
           <p>${content}</p>
@@ -267,8 +289,9 @@ export default async function (eleventyConfig) {
         <p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? `</a>` : ""}</p>
       </div>
     `;
-    return html;
-  });
+      return html;
+    },
+  );
 
   /* Build event handlers */
   /************************/
