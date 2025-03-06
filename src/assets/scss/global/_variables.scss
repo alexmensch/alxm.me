@@ -6,6 +6,7 @@
   --gutter: #{dt.get-size("m")};
   --measure: #{dt.get-value("measure", "long")};
   --padding: #{dt.get-size("xs")};
+  --shadow-size: #{dt.get-size("2xs-xs")};
 
   --bg-color: #{dt.get-color("light")};
   --text-color: #{dt.get-color("dark-shade")};

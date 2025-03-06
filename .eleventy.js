@@ -48,6 +48,7 @@ export default async function (eleventyConfig) {
     config: {
       content: ["./_site/**/*.html"],
       css: ["./_site/assets/css/*.css"],
+      fontFace: true,
       rejected: false,
     },
     quiet: true,
@@ -83,6 +84,8 @@ export default async function (eleventyConfig) {
   /**********************/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
+    "src/assets/files": "assets/files",
+    "src/assets/images": "assets/images",
     "src/404.html": "404.html",
   });
 
@@ -130,6 +133,7 @@ export default async function (eleventyConfig) {
   /**************************/
   let markdownLib = md({
     typographer: true,
+    html: true,
   })
     // Footnotes
     .use(mdFN);
@@ -234,6 +238,25 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("markdownify", (markdownString) =>
     markdownLib.renderInline(markdownString),
   );
+
+  /* Shortcodes */
+  /**************/
+
+  // Shortcode to add inline photos to articles
+  // 'src' is the filename within assets/images
+  // Valid ratios are set in assets/scss/blocks/_frame.scss
+  eleventyConfig.addLiquidShortcode("articleImage", function(src, alt, ratio, portrait = true) {
+    let html = `
+      <div class="[ article__photo ]" ${ portrait ? `data-portrait` : ""}>
+        <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
+          <div class="frame" data-ratio="${ratio}">
+            <img src="assets/images/${src}" alt="${alt}" />
+          </div>
+        </div>
+      </div>
+    `;
+    return html;
+  });
 
   /* Build event handlers */
   /************************/

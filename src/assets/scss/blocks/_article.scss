@@ -5,9 +5,23 @@
 
   &__content {
     padding-inline: var(--gutter);
+    max-width: calc(var(--measure) + 2 * var(--gutter));
 
     :is(h1, h2, h3, h4, h5, h6) + * {
       --flow-space: #{dt.get-size("2xs")};
+    }
+  }
+
+  &__photo {
+    margin-inline: auto;
+    max-width: 90%;
+
+    &[data-portrait] {
+      max-width: 70%;
+    }
+
+    &:has([data-shadow]) + * {
+      margin-block-start: calc(var(--flow-space) + var(--shadow-size));
     }
   }
 }

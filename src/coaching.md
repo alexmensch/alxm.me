@@ -3,8 +3,6 @@ layout: layouts/landing
 title: Coaching
 hero:
   header: You have the power to change your reality
-photos:
-  - /assets/images/portrait-coaching.jpeg
 cta:
   header: Let's work together
   body: |
@@ -14,7 +12,9 @@ company_info: true
 
 Hi, I’m [Alex](/about), and I support clients as they explore fundamental life change and growth.
 
-My motivation to become a coach comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing care of a therapist, I gradually rediscovered myself and developed the courage to begin to reshape my life to be in tune with who I am.
+My calling to become a coach comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing care of a therapist, I gradually rediscovered myself and developed the courage to begin to reshape my life to be in tune with who I am.
+
+{% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5" %}
 
 My belief is that everyone is intrinsically motivated to fulfill their life purpose, and it is through the power of an unconditional and supportive relationship that this self-exploration can be actualized. I find it incredibly rewarding to help others unfold their own journeys.
 

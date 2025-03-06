@@ -14,8 +14,8 @@
   &[data-shadow]::before {
     content: "";
     position: absolute;
-    top: var(--padding);
-    left: var(--padding);
+    top: var(--shadow-size);
+    left: var(--shadow-size);
     width: 100%;
     height: 100%;
     z-index: -1; /* Places it behind the main box */
