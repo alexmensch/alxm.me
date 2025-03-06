@@ -22,7 +22,7 @@ I am a trained [Co-Active](https://coactive.com) coach, and my approach is also 
 
 ## Authenticity and self-inquiry
 
-{% blockQuote "Carl Rogers", "On Becoming A Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}[…] we cannot change, we cannot move away from what we are, until we thoroughly _accept_ what we are. Then change seems to come about almost unnoticed.{% endblockQuote %}
+{% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}[…] we cannot change, we cannot move away from what we are, until we thoroughly _accept_ what we are. Then change seems to come about almost unnoticed.{% endblockQuote %}
 
 We are all in constant negotiation between authentic self-expression and the security of social belonging that comes from conformity. When there is a large enough disconnect between these two forces, we can feel unfulfilled, lost, or be constantly seeking without satisfaction. This can manifest across any of the dimensions of our lives, from family to career to relationships.
 
