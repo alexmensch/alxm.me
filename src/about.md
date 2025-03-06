@@ -15,7 +15,7 @@ I have deep curiosity and compassion for people in all of their wonderful comple
 
 If you’re both motivated and nervous about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
 
-### Cultural background & influences
+## Cultural background & influences
 
 I grew up in four countries (Mexico, the US, Spain, and England) before the age of 18, and this unusual upbringing opened up my acceptance to the wide variety and nuance of people’s experiences. I’ve seen how arbitrary cultural customs, rules, and thought patterns are, allowing me to more clearly see the individual personal experiences behind them. There are no objective rights and wrongs. We live in a world of human-created subjectivity within which we seek to understand our own life’s meaning.
 
@@ -23,7 +23,7 @@ The majority of my childhood was spent in Spain and England, and I was born in M
 
 Spiritually, I am not religious, but I meditate regularly, and recognize the deep and timeless wisdom in Buddhism’s ancient teachings, which are as relevant today as they were several millennia ago. To deeply know oneself and see the inherent beauty of the world without judgement is the work of a lifetime.
 
-### Building thoughtful products
+## Building thoughtful products
 
 Before I reshaped my life’s priorities, I spent [nearly 20 years](https://www.linkedin.com/in/awmars) founding and working for some of the most recognizable brands and technology companies in the world, including [Twingate](https://www.twingate.com/), [Dropbox](https://www.dropbox.com), and [Bloomberg](https://www.bloomberg.net). I believe that a product is at its best when the customer is least aware of it, and my specialty is building intuitive, thoughtfully-designed products that “just work” for users.
 

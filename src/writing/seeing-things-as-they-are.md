@@ -25,7 +25,7 @@ The first step you need to take to improve _self_-awareness can feel very unnatu
 
 To ease into this idea, I’m going to start by approaching increased awareness of other people first. I’ll then shift the frame of reference to yourself, where the same concepts will apply, even if the practice is different. I’m also deliberately choosing to avoid delving deeply into theory or research and will instead take an experiential line of argument.^[The theoretical underpinnings are fascinating, though, and I encourage you to read more if you’re curious.] There is a significant body of scientific research and empirical evidence—not to mention several millennia of spiritual practice—supporting the arguments that I’ll make, and I’ve included recommended further reading at the end of this essay.
 
-### Observing Others
+## Observing Others
 
 Let’s begin with something with which we’re all much more familiar: observing, evaluating, and reacting to other people’s behavior. Consider how many of these types of scenarios are familiar in your experience:
 
@@ -52,7 +52,7 @@ Take a moment to consider the massive leap we’ve made in the last few paragrap
 
 At this point, I’m hoping that it’s starting to become clear how you might apply this same approach to your own decisions and behaviors. Just as showing curiosity about someone else’s choices can entirely change your reaction to and understanding of them, the same is possible with curiosity applied to yourself. By opening yourself up to inspecting why you do or feel or react the way you do, you create the conditions for growth and evolution. If you feel some resistance to the idea that you may not already know why you do what you do, that’s your ego speaking up. We’ll get to that shortly.
 
-### Observing the Self
+## Observing the Self
 
 I’ll start the perspective shift from greater awareness of other people’s behavior to understanding your own behavior by reproducing a table from _[The Gift of Therapy](https://www.abebooks.co.uk/9780749923730/Gift-Therapy-open-letter-new-0749923733/plp)_ by Irvin D. Yalom, which efficiently illustrates our relationship to self-awareness.
 
@@ -73,7 +73,7 @@ By questioning your level of self-awareness, you’re questioning the accuracy a
 
 The simplest of these defenses is to reject contradictory information (“that’s wrong”, “they just don’t know me”), but our defenses can be remarkably complex and nuanced, frequently operating at an unconscious level. The stronger the defense, the more complex the justifications and explanations can be, which will always necessarily make sense to you but can be confounding to others. This is why improving self-awareness can be such a challenging process. Your sense of identity is intrinsically resistant to any change, making it a very unwilling partner to self-discovery. If you choose to do the work of becoming more self-aware, you’ll need to learn to embrace and work with that resistance.
 
-### Notice, Don’t Judge, and Be Curious
+## Notice, Don’t Judge, and Be Curious
 
 So, knowing that self-inspection can be difficult, what’s an approach that you can take? You can divide the process up into the following three steps:
 
@@ -109,7 +109,7 @@ I’ve gone into a fair amount of detail in this example because I want to empha
 
 I picked this as an example of something apparently small hiding something larger, but the psychological chain is also one that is already well-known to me. I only came to understand and learn to identify it over time through psychotherapy. You don’t need to immediately understand all the links in the chain for the practice of self-awareness to be valuable. Practicing awareness is the foundation you start with, and more intimate knowledge comes with time.
 
-### Putting it all together
+## Putting it all together
 
 We’ve covered a huge amount of psychological ground together. Almost every topic I’ve touched upon has enough behind it to fill a book, and I encourage you to keep learning more. The briefest summary I can offer is the following: Your life experiences have created beliefs and patterns that define who you are. These beliefs are contained within the concept that is your ego, your perceived sense of self. Being consciously aware of why you do every single thing you do would be overwhelming to your conscious mind, so we evolved to get through life by responding to our feelings.^[It’s more correct to say that feelings came first in our evolution as animals, and the sense of consciousness that we perceive came later on with the development of the neocortex. Anyone with a pet at home most certainly knows that animals have feelings, and perhaps even some level of basic consciousness. The most important thing is to understand that feelings are what primarily drive us; it is our conscious mind that gives meaning, story, and coherence to the actions that we take based on our feelings.] Feelings are expressed through our bodies and effectively summarize our reactions to our lived experiences. Understanding and changing behavior requires noticing that feelings arise at all, and when they do, what they might be saying and why. With awareness and understanding, compassion and enduring change can take place by making different choices.
 
@@ -117,7 +117,7 @@ As you begin to expand your self-awareness, the best thing you can do is to remi
 
 So, go ahead and take that first step towards more self-awareness, be open to what comes forwards, and stay curious.
 
-### Further Reading
+## Further Reading
 
 - Bradford, David L.; Robin, Carole (2022). _[Connect](https://www.abebooks.co.uk/9780241986868/Connect-Building-Exceptional-Relationships-Family-9780241981/plp)_.
 - Harris, Sam (2014). _[Waking Up](https://www.abebooks.co.uk/9781476777726/Waking-Harris-Sam-978147677X/plp)_.

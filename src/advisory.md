@@ -18,7 +18,7 @@ My product experience spans [nearly 20 years](https://www.linkedin.com/in/awmars
 
 This experience is so rare in the software market that products that support, rather than frustrate, users’ needs are labeled as “magical” in their experience. Building these types of powerful experiences are the result of deep empathy with target customers, elevating design thinking to a high level of importance across engineering, product, and design, and having strong opinions on how you want your customers to experience you. Consistency in design ethos creates a unified experience across all aspects of the product.
 
-### Getting started
+## Getting started
 
 More fundamental than choosing *what* to prioritize and build is *how* you decide to build, which has wide-reaching impact on the perception of your product. Some questions that we might explore when getting started are:
 
