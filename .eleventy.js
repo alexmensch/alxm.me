@@ -139,7 +139,6 @@ export default async function (eleventyConfig) {
     // Footnotes
     .use(mdFN)
     .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
-      console.log(tokens[idx]);
       const [attrName, href] = tokens[idx].attrs.find(
         (attr) => attr[0] === "href",
       );
