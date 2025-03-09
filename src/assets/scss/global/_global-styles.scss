@@ -56,6 +56,7 @@ h5,
 h6 {
   @include dt.use("weight", "bold");
   @include dt.use("font", "sans");
+  @include dt.use("font-features", "sans");
   @include dt.use("leading", "flat");
   @include dt.use("measure", "compact");
 }
