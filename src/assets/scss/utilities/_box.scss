@@ -22,10 +22,16 @@
     border-radius: inherit;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 6 6'%3E%3Cpath d='M0 6 L6 0 M-1 1 L1 -1 M5 7 L7 5' stroke='rgba(0,0,0,0.7)' stroke-width='2'/%3E%3C/svg%3E");
   }
+
+  &[data-outline] {
+    outline: 0.2rem solid var(--text-color);
+    outline-offset: -0.15rem;
+  }
 }
 
 .box * {
   color: inherit;
+  outline: none;
 }
 
 // All descendant boxes inherit padding value unless overridden

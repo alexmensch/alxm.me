@@ -2,12 +2,12 @@
 layout: layouts/base
 ---
 <section class="cover">
-  <div class="[ box ] [ center ] [ bg-light-glare radius ]" data-target data-shadow>
+  <div class="[ box ] [ center padding-m ] [ bg-light-glare radius ]" data-target data-shadow data-outline>
     <div class="[ stack ] [ padding-2xs ]">
       <div class="[ box ]">
         <h1 class="[ text-mega--3 measure-compact weight-bold ]">{{ main.title }}</h1>
       </div>
-      <div class="[ box ] [ flow flow-space-m weight-semi-bold ]">
+      <div class="[ box ] [ flow flow-space-m ]">
         {% for line in main.text %}
           <p class="measure-short">{{ line | markdownify }}</p>
         {% endfor %}
