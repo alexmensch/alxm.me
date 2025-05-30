@@ -1,7 +1,7 @@
 ---
 title: "Consulting in the UK as a US citizen"
 date: 2024-05-23
-update_date: 2024-05-25
+update_date: 2025-05-30
 permalink: "/writing/2024/05/23/working-as-a-consultant-in-the-uk-as-a-us-citizen/"
 tags:
   - personal
@@ -30,7 +30,7 @@ I decided to incorporate a UK [limited company](https://www.gov.uk/limited-compa
 
 As a for-profit consultant, you can register yourself as a sole trader or as a limited company. This is roughly equivalent to the option between setting up a sole proprietorship or LLC in the US.
 
-- A **sole trader** is a pass-through designation, so you have to declare all of your earnings (turnover) as income and pay regular income tax on all profit for the year. Because of my specific goals, I didn't look into this options in much detail, but ultimately your responsible for keeping records for the business and then filing a [self-assessment tax return](https://www.gov.uk/self-assessment-tax-return-forms) with HMRC.
+- A **sole trader** is a pass-through designation, so you have to declare all of your earnings (turnover) as income and pay regular income tax on all profit for the year. Because of my specific goals, I didn't look into this options in much detail, but ultimately you're responsible for keeping records for the business and then filing a [self-assessment tax return](https://www.gov.uk/self-assessment-tax-return-forms) with HMRC.
 - A **limited company** is a real corporate entity, which means that you'll need to [register your company](https://www.gov.uk/limited-company-formation/register-your-company) with [Companies House](https://www.gov.uk/government/organisations/companies-house) and take care of accounting throughout the year, including annual tax and required filings with HMRC & Companies House. If privacy is a consideration for you, be aware that anyone in the world can look up company information, including annual statements and company Directors, on the Companies House website.
 
 I decided to form a limited company for the reasons I outlined above. Expecting uneven income from consulting activities month to month, I wanted to have the flexibility to decide when to pay myself. As a Director in the company, you can pay yourself via dividends, which have a more favorable tax treatement than regular wages. Not only are dividends taxed at a lower rate, but neither you nor the copmany needs to pay National Insurance tax.
