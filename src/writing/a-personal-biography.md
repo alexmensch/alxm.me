@@ -1,6 +1,7 @@
 ---
 title: "A personal biography"
 date: 2025-06-17
+update_date: 2025-06-18
 tags:
   - essay
   - psychology
