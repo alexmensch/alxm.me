@@ -11,11 +11,12 @@ og_description: |
   An essay on how I see my own life that I wrote for my application to a psychotherapist training programme.
 ---
 
-_Reproduced verbatim, this is an essay I wrote for my application to a psychotherapist training programme. I share it here not only because of the importance of normalising the struggles that many of us face in life, but also because I hope that it will give others the courage to do their own deep work. In its own way, this is also a love letter to psychotherapy._
+*Reproduced verbatim, this is an essay I wrote for my application to a psychotherapist training programme. I share it here not only because of the importance of normalising the struggles that many of us face in life, but also because I hope that it will give others the courage to do their own deep work. In its own way, this is also a love letter to psychotherapy.*
 
-_The prompt was: "Please submit a personal biography. This is an important document that we will use to look for evidence of your capacity to reflect honestly, maturely and openly, on your background and life experience and its impact on you. Please write your biography in a way which shows this. This biography is particularly important because training to be a therapist is likely to lead to you reflecting again on issues from you own life and will also require you to develop very high levels of self-awareness. We therefore need to assure ourselves that you are ready to undertake such training."_
+*The prompt was: "Please submit a personal biography. This is an important document that we will use to look for evidence of your capacity to reflect honestly, maturely and openly, on your background and life experience and its impact on you. Please write your biography in a way which shows this. This biography is particularly important because training to be a therapist is likely to lead to you reflecting again on issues from you own life and will also require you to develop very high levels of self-awareness. We therefore need to assure ourselves that you are ready to undertake such training."*
 
 ---
+
 
 If you had asked me five years ago about my childhood, I would have told you that it was happy, largely uneventful, and most notable for an international upbringing. The child of Mexican and American parents, born in Mexico with a few years spent in the US, I grew up in Spain and England from age 4 to 18. I attribute this background to my openness to new experiences and an ease with making friends. At home, my parents' relationship showed some signs of strain, but it was other families that had real problems. An only child, ever precocious, I seemed to have an instinct for performing well and pleasing my parents.
 
@@ -43,7 +44,7 @@ The beauty in this transformation of my self-relationship is that it changed the
 
 My surroundings changed, too. I left the company I founded, which had become a heavy emotional burden, and I allowed myself to return to England after living in California for 20 years—a place that never felt like home. As I continued to follow what felt right for me, possibilities started to open up. What if my sensitivity wasn't a weakness to hide in cutthroat corporate culture, but was instead a superpower? What if leaning into creativity was a requirement?
 
-An interest in becoming a therapist that had been set aside a decade prior turned into active exploration of a career shift. I started by completing coaching training over the last year, and my intention was to explore whether I enjoyed holding a therapeutic-like space for clients. I found it energising, creative, and powerful but lacking the emotional depth that I believe accompanies fundamental change.
+An interest in becoming a therapist that had been set aside a decade prior turned into active exploration of a career shift. I started by completing coaching training over the last year, and my intention was to explore whether I enjoyed holding a therapeutic-like space for clients. I found it energising, creative, and powerful but lacking the emotional depth that I believe accompanies fundamental change. 
 
 Psychotherapy blossoms in that depth, and it is this type of long-term relationship with clients that feels ideally attuned to my sensitivity, curiosity, and delight in building intimacy with others. Coaching has shown me how uncommon it is to be truly listened to and accepted without someone trying to fix or minimise what we're feeling. Clients have shared how much it means to feel safe exactly where they are. I also know that my own work is never complete. Though I've worked through a major personal transformation over the last five years, I know that the next five years will not only reveal more layers but also reopen old wounds in different ways.
 
