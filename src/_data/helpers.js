@@ -18,12 +18,16 @@ export default {
     return new Date().getFullYear();
   },
   // Standardize permalink format for full path use
-  permalinkToPath: (title, date) => {
-    return `${module.exports.toDate(date, "/")}/${module.exports.toSlug(title)}/`;
+  permalinkToPath: function (title, date) {
+    return `${this.toDate(date, "/")}/${this.toSlug(title)}/`;
   },
   // Standardize permalink format for single file name use
-  permalinkToFilename: (title, date) => {
-    return `${module.exports.toDate(date, "-")}-${module.exports.toSlug(title)}`;
+  permalinkToFilename: function (title, date) {
+    return `${this.toDate(date, "-")}-${this.toSlug(title)}`;
+  },
+  // Standardize permalink format for single page use -- without a date
+  permalinkToPage: function (title) {
+    return `${this.toSlug(title)}`;
   },
   toSlug: function (string) {
     return slugify(string, {
