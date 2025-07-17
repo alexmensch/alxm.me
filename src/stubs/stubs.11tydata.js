@@ -1,8 +1,8 @@
 import helpers from "../_data/helpers.js";
 
 export default {
-  permalink: function ({ title, date }) {
-    return `/writing/${helpers.permalinkToPath(title, date)}`;
+  permalink: function ({ title }) {
+    return `/s/${helpers.permalinkToPage(title)}/`;
   },
   eleventyComputed: {
     og_description: function ({ og_description, page }) {
