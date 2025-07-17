@@ -88,6 +88,7 @@ export default async function (eleventyConfig) {
     "src/assets/files": "assets/files",
     "src/assets/images": "assets/images",
     "src/404.html": "404.html",
+    "src/_redirects": "_redirects",
   });
 
   /* Collections config */

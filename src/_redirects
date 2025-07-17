@@ -1,9 +1,3 @@
----
-eleventyAllowMissingExtension: true
-eleventyExcludeFromCollections: true
-permalink: /_redirects
----
-
 ## blog.moveolabs.com redirects
 #  Cloudflare redirect rule adds "/writing" to the incoming URI path
 ##
