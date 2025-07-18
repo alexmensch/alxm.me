@@ -13,7 +13,7 @@ I was very fortunate to start working with a therapist during this period, and s
 
 I have deep curiosity and compassion for people in all of their beautiful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it in a caring relationship with someone else.
 
-If you’re both motivated and a little nervous about the prospect of meeting yourself more fully, I’d love the opportunity to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
+If you’re both motivated and a little nervous about the prospect of meeting yourself more fully, I’d be honored to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
 
 ## Cultural background & influences
 
