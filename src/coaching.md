@@ -28,7 +28,7 @@ We are all in constant negotiation between authentic self-expression and the sec
 
 Moving towards a more authentic version of yourself starts with bringing awareness to the many layers of beliefs and emotional patterns that inform how you build your subjective reality. By getting to know the unconscious scripts you follow and the lenses that shape your experiences, you can start to make different choices. It is through new choices that fundamental change can take place.
 
-Honestly examining your life through compassionate curiosity is one of the greatest gifts that you can give yourself. The reward for this act of self-love and courage may not only be greater self-actualization, but also more harmonious relationships with others as you come to accept yourself more fully.
+Honestly examining your life through compassionate curiosity is one of the greatest gifts that you can give yourself. The reward for this act of self-love and courage may not only be greater self-actualization, but also more harmonious relationships with others.
 
 ## Are we a fit?
 
