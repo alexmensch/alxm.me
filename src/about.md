@@ -9,11 +9,11 @@ hero:
 
 Amidst the chaos and challenges of running a [Silicon Valley startup](https://www.forbes.com/sites/kenrickcai/2022/04/14/twingate-series-b-400-million-taking-down-vpn/), at what many in our society would consider the pinnacle of my career, I felt like I was living someone else’s life. I had achieved everything I had set my mind to, but the result felt empty.
 
-I was very fortunate to start working with a therapist during this period, and she helped me begin to understand how to [reclaim my life](/writing/2025/06/17/a-personal-biography/) as my own. She taught me the beautiful power held in her capacity for unconditional care and acceptance of others. This permission to feel safe and accepting with myself exactly as I was gave me the confidence and freedom to grow. As my relationship with myself changed, I began to relate to others differently, too, and ultimately to how I chose to live my life.
+I was very fortunate to start working with a therapist during this period, and she helped me begin to understand how to [reclaim my life](/writing/2025/06/17/a-personal-biography/) as my own. She taught me the beautiful power in her capacity for unconditional acceptance and curiosity for others. This permission to accept myself exactly as I was gave me the confidence and freedom to grow. As my relationship with myself changed, I began to relate to others differently, too, and ultimately to how I chose to live my life.
 
-I have deep curiosity and compassion for people in all of their beautiful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it in the caring relationship with someone else.
+I have deep curiosity and compassion for people in all of their beautiful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it in a caring relationship with someone else.
 
-If you’re both motivated and a little nervous about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
+If you’re both motivated and a little nervous about the prospect of meeting yourself more fully, I’d love the opportunity to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
 
 ## Cultural background & influences
 
