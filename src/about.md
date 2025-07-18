@@ -21,7 +21,7 @@ I grew up in four countries (Mexico, the US, Spain, and England) before the age 
 
 The majority of my childhood was spent in Spain and England, and I was born in Mexico to a Mexican mother and American father. “Home” is a difficult concept to identify for me, but England and Northwestern Europe come closest. I grew up speaking both English and Spanish, and I have varying degrees of proficiency in Swedish, German, French, and Mandarin Chinese.
 
-Spiritually, I am not religious, but I've nurtured a meditation practice for many years, and recognize the deep and timeless wisdom in Buddhism’s ancient teachings. They are as relevant today as they were several millennia ago. To deeply accept oneself and see the inherent beauty of the world without judgement is the work of a lifetime.
+Spiritually, I am not religious, but I've nurtured a meditation practice for many years, and I recognize the deep and timeless wisdom in Buddhism’s ancient teachings. They are as relevant today as they were several millennia ago. To deeply accept oneself and see the inherent beauty of the world without judgement is the work of a lifetime.
 
 ## Building thoughtful products
 
