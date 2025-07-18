@@ -9,19 +9,19 @@ hero:
 
 Amidst the chaos and challenges of running a [Silicon Valley startup](https://www.forbes.com/sites/kenrickcai/2022/04/14/twingate-series-b-400-million-taking-down-vpn/), at what many in our society would consider the pinnacle of my career, I felt like I was living someone else’s life. I had achieved everything I had set my mind to, but the result felt empty.
 
-I was very fortunate to start working with a therapist during this period who helped me to begin to understand how to reclaim my life as my own. She taught me the beautiful power held in her capacity for unconditional care and acceptance of others. This permission to feel safe and accepting with myself exactly as I was gave me the confidence and freedom to grow. I fundamentally changed my relationship with myself, and in turn to those around me, and how I chose to live my life.
+I was very fortunate to start working with a therapist during this period, and she helped me begin to understand how to [reclaim my life](/writing/2025/06/17/a-personal-biography/) as my own. She taught me the beautiful power held in her capacity for unconditional care and acceptance of others. This permission to feel safe and accepting with myself exactly as I was gave me the confidence and freedom to grow. As my relationship with myself changed, I began to relate to others differently, too, and ultimately to how I chose to live my life.
 
-I have deep curiosity and compassion for people in all of their wonderful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it within a caring relationship with someone else.
+I have deep curiosity and compassion for people in all of their beautiful complexity, and I find joy in building intimate relationships with others. This safety within a container of close trust is where our vitality and growth can actualize itself. It brings me great pleasure to witness and [support this process of unfolding in others](/coaching), just as I experienced it in the caring relationship with someone else.
 
-If you’re both motivated and nervous about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
+If you’re both motivated and a little nervous about the prospect of meeting yourself more fully, I’d love to [work with you](/coaching). You can [contact me](/contact) for an initial consultation.
 
 ## Cultural background & influences
 
-I grew up in four countries (Mexico, the US, Spain, and England) before the age of 18, and this unusual upbringing opened up my acceptance to the wide variety and nuance of people’s experiences. I’ve seen how arbitrary cultural customs, rules, and thought patterns are, allowing me to more clearly see the individual personal experiences behind them. There are no objective rights and wrongs. We live in a world of human-created subjectivity within which we seek to understand our own life’s meaning.
+I grew up in four countries (Mexico, the US, Spain, and England) before the age of 18, and this unusual upbringing opened up my acceptance to the wide variety and nuance of people’s experiences. I’ve seen how arbitrary cultural customs, rules, and thought patterns are, allowing me to more clearly see the individual personal experiences behind them. There are no objective rights and wrongs. We live in a world of our own subjectivity within which we seek to understand life’s meaning.
 
 The majority of my childhood was spent in Spain and England, and I was born in Mexico to a Mexican mother and American father. “Home” is a difficult concept to identify for me, but England and Northwestern Europe come closest. I grew up speaking both English and Spanish, and I have varying degrees of proficiency in Swedish, German, French, and Mandarin Chinese.
 
-Spiritually, I am not religious, but I meditate regularly, and recognize the deep and timeless wisdom in Buddhism’s ancient teachings, which are as relevant today as they were several millennia ago. To deeply know oneself and see the inherent beauty of the world without judgement is the work of a lifetime.
+Spiritually, I am not religious, but I've nurtured a meditation practice for many years, and recognize the deep and timeless wisdom in Buddhism’s ancient teachings. They are as relevant today as they were several millennia ago. To deeply accept oneself and see the inherent beauty of the world without judgement is the work of a lifetime.
 
 ## Building thoughtful products
 
