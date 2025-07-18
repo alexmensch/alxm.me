@@ -5,7 +5,7 @@ import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
 
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { eleventyImageTransformPlugin, Image as eleventyImg } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
@@ -16,6 +16,7 @@ import purgeCssPlugin from "eleventy-plugin-purgecss";
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
 import fonts from "./src/_data/fonts.js";
+import openGraph from "./src/_data/opengraph.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -256,6 +257,11 @@ export default async function (eleventyConfig) {
     markdownLib.renderInline(markdownString),
   );
 
+  // Filters used for OpenGraph SVG generation
+  eleventyConfig.addFilter("ogPostDate", openGraph.ogPostDate);
+  eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
+  eleventyConfig.addFilter("ogSplitLines", openGraph.ogSplitLines);
+
   /* Shortcodes */
   /**************/
 
@@ -296,8 +302,8 @@ export default async function (eleventyConfig) {
   /* Build event handlers */
   /************************/
 
-  // Write configured Google Fonts to build output
   eleventyConfig.on("eleventy.after", async () => {
+    // Write configured Google Fonts to build output
     const fontBuffers = await fonts.files();
 
     for (const { fontBuffer, fileName } of fontBuffers) {
@@ -307,7 +313,44 @@ export default async function (eleventyConfig) {
       await fs.mkdir(outputDir, { recursive: true });
       await fs.writeFile(outputPath, fontBuffer);
     }
+
+
+    // Convert OpenGraph SVGs to WebP format
+    const socialPreviewImagesDir = openGraph.imageDir;
+
+    try {
+      const files = await fs.readdir(socialPreviewImagesDir);
+
+      if (files.length === 0) {
+        console.log("No files found in ", socialPreviewImagesDir);
+      }
+
+      for (const filename of files) {
+        if (filename.endsWith(".svg")) {
+          const imagePath = path.join(socialPreviewImagesDir, filename);
+
+          const newImage = await new eleventyImg(imagePath, {
+            formats: ["webp"],
+            widths: ["auto"],
+            outputDir: socialPreviewImagesDir,
+            filenameFormat: (id, src, width, format, options) => {
+              const baseName = filename.replace(/\.svg$/, "");
+              return `${baseName}.${format}`;
+            },
+            useCache: false,
+          });
+
+          console.log(`Converted: ${filename}`);
+        }
+      }
+    } catch (err) {
+      console.error("Error processing OpenGraph images:", err);
+    }
   });
+
+  /* Supported template formats */
+  /********************/
+  eleventyConfig.setTemplateFormats("liquid,md,njk");
 
   return {
     // Set directories to watch
@@ -317,8 +360,5 @@ export default async function (eleventyConfig) {
       data: "_data",
       output: "_site",
     },
-    // Define other options like pathPrefix
-    templateFormats: ["liquid", "md"],
-    htmlTemplateEngine: "liquid",
   };
 }
