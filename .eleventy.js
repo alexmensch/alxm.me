@@ -5,7 +5,7 @@ import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
 
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { eleventyImageTransformPlugin, Image as eleventyImg } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
@@ -15,6 +15,7 @@ import purgeCssPlugin from "eleventy-plugin-purgecss";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
+import openGraph from "./src/_data/opengraph.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -255,6 +256,11 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("markdownify", (markdownString) =>
     markdownLib.renderInline(markdownString),
   );
+
+  // Filters used for OpenGraph SVG generation
+  eleventyConfig.addFilter("ogPostDate", openGraph.ogPostDate);
+  eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
+  eleventyConfig.addFilter("ogSplitLines", openGraph.ogSplitLines);
 
   /* Shortcodes */
   /**************/
