@@ -5,13 +5,14 @@ import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
 
-import { eleventyImageTransformPlugin, Image as eleventyImg } from "@11ty/eleventy-img";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
+import EleventyPluginOgImage from 'eleventy-plugin-og-image';
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
@@ -73,6 +74,19 @@ export default async function (eleventyConfig) {
         name: siteConfig.authorName,
         email: siteConfig.authorEmail, // Optional
       },
+    },
+  });
+
+  eleventyConfig.addPlugin(EleventyPluginOgImage, {
+    satoriOptions: {
+      fonts: [
+        {
+          name: 'Inter',
+          data: await fs.readFile('./src/assets/fonts/InterVariable.ttf'),
+          weight: 700,
+          style: 'normal',
+        },
+      ],
     },
   });
 
@@ -260,7 +274,6 @@ export default async function (eleventyConfig) {
   // Filters used for OpenGraph SVG generation
   eleventyConfig.addFilter("ogPostDate", openGraph.ogPostDate);
   eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
-  eleventyConfig.addFilter("ogSplitLines", openGraph.ogSplitLines);
 
   /* Shortcodes */
   /**************/
