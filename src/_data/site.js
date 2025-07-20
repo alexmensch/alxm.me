@@ -25,7 +25,6 @@ site.links = [
   {
     rel: "preconnect",
     href: "https://rsms.me",
-    crossorigin: "",
   },
   {
     rel: "preconnect",
