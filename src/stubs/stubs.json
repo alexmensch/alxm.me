@@ -1,3 +1,6 @@
 {
-  "layout": "layouts/posts"
+  "layout": "layouts/landing",
+  "meta": {
+    "noindex": "true"
+  }
 }

@@ -7,6 +7,9 @@
         {% if meta.description %}
         <meta name="description" content="{{ meta.description }}" />
         {% endif %}
+        {% if meta.noindex %}
+        <meta name="robots" content="noindex, follow" />
+        {% endif %}
         {% render "partials/site-includes" site: site %}
         <title>{{ title }} • {{ site.siteName }}</title>
     </head>
