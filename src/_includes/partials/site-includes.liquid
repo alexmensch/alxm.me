@@ -1,7 +1,3 @@
-{% for link in site.includes %}
-  {% if link.as %}
-    <link rel="{{ link.rel }}" href="{{ link.href }}" as="{{ link.as }}" />
-  {% else %}
-    <link rel="{{ link.rel }}" href="{{ link.href }}" />
-  {% endif %}
+{% for link in site.links %}
+  <link{% for attr in link %} {{ attr[0] }}="{{ attr[1] }}"{% endfor %} />
 {% endfor %}
