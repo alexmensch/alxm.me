@@ -29,7 +29,6 @@ export default async function (eleventyConfig) {
     formats: ["webp", "auto"],
     widths: ["auto"],
     urlPath: "/assets/images/",
-
     // optional, attributes assigned on <img> override these values.
     defaultAttributes: {
       decoding: "async",
@@ -78,11 +77,13 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
+    outputFileExtension: 'webp',
+    outputDir: 'assets/images/og',
     satoriOptions: {
       fonts: [
         {
           name: 'Inter',
-          data: await fs.readFile('./src/assets/fonts/InterVariable.ttf'),
+          data: await fs.readFile('./src/_build/fonts/Inter-Bold.ttf'),
           weight: 700,
           style: 'normal',
         },
@@ -100,8 +101,8 @@ export default async function (eleventyConfig) {
   /**********************/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
-    "src/assets/files": "assets/files",
     "src/assets/images": "assets/images",
+    "src/assets/files": "assets/files",
     "src/404.html": "404.html",
     "src/_redirects": "_redirects",
   });

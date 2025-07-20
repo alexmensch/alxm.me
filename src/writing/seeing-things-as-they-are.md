@@ -10,9 +10,10 @@ summary: |
   An essay on how to access your potential via greater self-awareness, which allows you to foster empathy,
   understand deeper motivations, and make informed choices. Embracing curiosity and challenging your
   self-beliefs can enable you to transform your personal and professional life with enduring change.
-og_description: |
-  “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality;
-   it prevents you from seeing what is actually going on […]”
+ogData:
+  title: Seeing things as they are
+  description: |
+    “Any preconception about the way things ‘ought to be’ always interferes with your sense of reality; it prevents you from seeing what is actually going on […]”
 permalink: "/writing/2024/07/02/seeing-things-clearly/"
 ---
 

@@ -10,6 +10,9 @@
         {% if meta.noindex %}
         <meta name="robots" content="noindex, follow" />
         {% endif %}
+        {% if ogData %}
+        {% ogImage "./_includes/open-graph/og-posts.og.liquid", ogData %}
+        {% endif %}
         {% render "partials/site-includes" site: site %}
         <title>{{ title }} • {{ site.siteName }}</title>
     </head>
