@@ -3,12 +3,10 @@ layout: layouts/base
 ---
 
 {% capture byline %}
-{% if date %}
-    {% if update_date %}
+{% if update_date %}
 Last updated {{ update_date | date: "%e %B, %Y"}}, originally posted {{ date | date: "%e %B, %Y"}}
-    {% else %}
+{% else %}
 Posted {{ date | date: "%e %B, %Y"}}
-    {% endif %}
 {% endif %}
 {% endcapture %}
 

@@ -24,7 +24,8 @@ site.rss.outputPath = `/${site.rss.collection}.atom`;
 site.links = [
   {
     rel: "preconnect",
-    href: "https://rsms.me/",
+    href: "https://rsms.me",
+    crossorigin: "",
   },
   {
     rel: "preconnect",
