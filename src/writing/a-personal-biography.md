@@ -11,7 +11,7 @@ og_description: |
   An essay on how I see my own life that I wrote for my application to a psychotherapist training programme.
 meta:
   description: |
-  An essay I wrote for my application to a psychotherapist training programme that shares my personal journey with therapy in a very vulnerable way. I share it here to normalise the struggles that many of us face, and also because I hope that it will inspire others to do their own deep work.
+    An essay I wrote for my application to a psychotherapist training programme that shares my personal journey with therapy in a very vulnerable way. I share it here to normalise the struggles that many of us face, and also because I hope that it will inspire others to do their own deep work.
 ---
 
 _Reproduced verbatim, this is an essay I wrote for my application to a psychotherapist training programme. I share it here not only because of the importance of normalising the struggles that many of us face in life, but also because I hope that it will give others the courage to do their own deep work. In its own way, this is also a love letter to psychotherapy._
