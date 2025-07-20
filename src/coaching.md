@@ -1,6 +1,8 @@
 ---
 layout: layouts/landing
 title: Coaching
+meta:
+  description: I support clients as they explore fundamental life change and growth. Contact me for an initial consultation to learn more.
 hero:
   header: You have the power to change your reality
 cta:

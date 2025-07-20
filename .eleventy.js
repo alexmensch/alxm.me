@@ -15,7 +15,6 @@ import purgeCssPlugin from "eleventy-plugin-purgecss";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
-import fonts from "./src/_data/fonts.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -56,9 +55,10 @@ export default async function (eleventyConfig) {
   });
 
   // RSS / Atom feed
+  // ** Implicitly builds from a Nunjucks template, so templateFormats must include "njk" **
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
-    outputPath: `/${siteConfig.rss.collection}.atom`,
+    outputPath: siteConfig.rss.outputPath,
     collection: {
       name: siteConfig.rss.collection, // iterate over `collections.posts`
       limit: 0, // 0 means no limit
@@ -293,22 +293,6 @@ export default async function (eleventyConfig) {
     },
   );
 
-  /* Build event handlers */
-  /************************/
-
-  // Write configured Google Fonts to build output
-  eleventyConfig.on("eleventy.after", async () => {
-    const fontBuffers = await fonts.files();
-
-    for (const { fontBuffer, fileName } of fontBuffers) {
-      const outputPath = path.join("_site", fonts.buildFontPath, fileName);
-      const outputDir = path.dirname(outputPath);
-
-      await fs.mkdir(outputDir, { recursive: true });
-      await fs.writeFile(outputPath, fontBuffer);
-    }
-  });
-
   return {
     // Set directories to watch
     dir: {
@@ -318,7 +302,7 @@ export default async function (eleventyConfig) {
       output: "_site",
     },
     // Define other options like pathPrefix
-    templateFormats: ["liquid", "md"],
+    templateFormats: ["liquid", "md", "njk"],
     htmlTemplateEngine: "liquid",
   };
 }

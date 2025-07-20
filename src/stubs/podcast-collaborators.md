@@ -1,5 +1,7 @@
 ---
-title: "Work with me to launch a new podcast?"
+title: "Collaborate on a new podcast"
+hero:
+  header: "Work with me to launch a new podcast?"
 permalink: "/s/podcast-collab/"
 ---
 
