@@ -88,6 +88,12 @@ export default async function (eleventyConfig) {
           weight: 700,
           style: 'normal',
         },
+        {
+          name: 'Source Serif 4',
+          data: await fs.readFile('./src/_build/fonts/SourceSerif4-BoldItalic.ttf'),
+          weight: 700,
+          style: 'italic',
+        },
       ],
     },
   });
