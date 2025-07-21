@@ -12,9 +12,11 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
+import EleventyPluginOgImage from "eleventy-plugin-og-image";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
+import openGraph from "./src/_data/opengraph.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -27,7 +29,6 @@ export default async function (eleventyConfig) {
     formats: ["webp", "auto"],
     widths: ["auto"],
     urlPath: "/assets/images/",
-
     // optional, attributes assigned on <img> override these values.
     defaultAttributes: {
       decoding: "async",
@@ -75,6 +76,30 @@ export default async function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addPlugin(EleventyPluginOgImage, {
+    outputFileExtension: "webp",
+    outputDir: "assets/images/og",
+    previewMode: false,
+    satoriOptions: {
+      fonts: [
+        {
+          name: "Inter",
+          data: await fs.readFile("./src/_build/fonts/Inter-Bold.ttf"),
+          weight: 700,
+          style: "normal",
+        },
+        {
+          name: "Source Serif 4",
+          data: await fs.readFile(
+            "./src/_build/fonts/SourceSerif4-BoldItalic.ttf",
+          ),
+          weight: 700,
+          style: "italic",
+        },
+      ],
+    },
+  });
+
   // Directory output on build
   eleventyConfig.setQuietMode(true);
   eleventyConfig.addPlugin(directoryOutputPlugin, {
@@ -85,8 +110,8 @@ export default async function (eleventyConfig) {
   /**********************/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
-    "src/assets/files": "assets/files",
     "src/assets/images": "assets/images",
+    "src/assets/files": "assets/files",
     "src/404.html": "404.html",
     "src/_redirects": "_redirects",
   });
@@ -255,6 +280,9 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("markdownify", (markdownString) =>
     markdownLib.renderInline(markdownString),
   );
+
+  // Filters used for OpenGraph SVG generation
+  eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
   /* Shortcodes */
   /**************/

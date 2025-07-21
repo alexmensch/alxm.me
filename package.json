@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "build:cloudflare": "_build/cf-build.sh",
     "clean": "rm -rf _site",
     "pretty": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
@@ -30,6 +29,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "deepmerge": "^4.3.1",
+    "eleventy-plugin-og-image": "^4.1.0",
     "eleventy-plugin-purgecss": "^0.5.0",
     "hookable": "^5.5.3",
     "lorem-ipsum": "^2.0.8",
@@ -45,5 +45,16 @@
   },
   "devDependencies": {
     "prettier": "^3.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "sharp": "0.33.5",
+      "@img/sharp-darwin-arm64": "0.33.5",
+      "@img/sharp-libvips-darwin-arm64": "1.0.4"
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "sharp"
+    ]
   }
 }

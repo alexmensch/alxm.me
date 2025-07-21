@@ -1,0 +1,11 @@
+{% if ogData %}
+    {% ogImage "./_includes/open-graph/og-posts.og.liquid", ogData %}
+    {% if summary %}
+    <meta name="description" property="og:description" content="{{ summary }}" />
+    {% endif %}
+    <meta name="type" property="og:type" content="article" />
+{% endif %}
+    <meta name="title" property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:url" content="{{ page.url }}" />
+    <meta name="locale" property="og:locale" content="en_GB" />
+    <meta name="type" property="og:type" content="website" />

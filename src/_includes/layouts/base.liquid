@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="{{ eleventy.generator }}" />
-        {% if meta.description %}
-        <meta name="description" content="{{ meta.description }}" />
-        {% endif %}
-        {% if meta.noindex %}
-        <meta name="robots" content="noindex, follow" />
-        {% endif %}
+        {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
+        <title>{{ pageTitle }}</title>
+        {% render "partials/site-meta" meta: meta, site: site, eleventy: eleventy %}
+        {% render "partials/site-opengraph" ogData: ogData, page: page, pageTitle: pageTitle, summary: summary %}
         {% render "partials/site-includes" site: site %}
-        <title>{{ title }} • {{ site.siteName }}</title>
     </head>
     <body>
         <div class="[ site-wrap ] [ flow flow-space-xl ]">
