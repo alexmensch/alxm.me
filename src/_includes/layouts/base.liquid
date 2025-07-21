@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="{{ eleventy.generator }}" />
-        {% if meta.description %}
-        <meta name="description" content="{{ meta.description }}" />
-        {% endif %}
-        {% if meta.noindex %}
-        <meta name="robots" content="noindex, follow" />
-        {% endif %}
-        {% if ogData %}
-        {% ogImage "./_includes/open-graph/og-posts.og.liquid", ogData %}
-        {% endif %}
+        {% render "partials/site-meta" meta: meta %}
+        {% render "partials/site-opengraph" ogData: ogData, page: page %}
         {% render "partials/site-includes" site: site %}
         <title>{{ title }} • {{ site.siteName }}</title>
     </head>
