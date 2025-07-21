@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% render "partials/site-meta" meta: meta %}
-        {% render "partials/site-opengraph" ogData: ogData, page: page %}
+        {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
+        <title>{{ pageTitle }}</title>
+        {% render "partials/site-meta" meta: meta, site: site, eleventy: eleventy %}
+        {% render "partials/site-opengraph" ogData: ogData, page: page, pageTitle: pageTitle, summary: summary %}
         {% render "partials/site-includes" site: site %}
-        <title>{{ title }} • {{ site.siteName }}</title>
     </head>
     <body>
         <div class="[ site-wrap ] [ flow flow-space-xl ]">

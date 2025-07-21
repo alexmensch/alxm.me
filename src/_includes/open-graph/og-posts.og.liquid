@@ -13,9 +13,13 @@
     font-size: 80px;
     margin: auto 0;
   }
+
+  .date {
+
+  }
 </style>
 
 <div class="root">
   <h1 class="title">{{ title }}</h1>
-  <p>{{ description }}</p>
+  <h3 class="date">{{ date | readablePostDate }}</h3>
 </div>

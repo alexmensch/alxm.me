@@ -79,6 +79,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
     outputFileExtension: 'webp',
     outputDir: 'assets/images/og',
+    previewMode: false,
     satoriOptions: {
       fonts: [
         {
@@ -273,7 +274,6 @@ export default async function (eleventyConfig) {
   );
 
   // Filters used for OpenGraph SVG generation
-  eleventyConfig.addFilter("ogPostDate", openGraph.ogPostDate);
   eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
   /* Shortcodes */
