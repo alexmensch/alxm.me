@@ -7,8 +7,8 @@ export default {
     return DateTime.fromJSDate(dateObj, {
       zone: "Europe/London",
     })
-    .setLocale("en")
-    .toLocaleString(DateTime.DATE_FULL);
+      .setLocale("en")
+      .toLocaleString(DateTime.DATE_FULL);
   },
   imageDir: imageDir,
- };
+};

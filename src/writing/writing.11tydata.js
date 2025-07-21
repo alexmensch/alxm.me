@@ -5,10 +5,10 @@ export default {
     return `/writing/${helpers.permalinkToPath(title, date)}`;
   },
   eleventyComputed: {
-    ogData: function ({title, date}) {
+    ogData: function ({ title, date }) {
       return {
-        'title': title,
-        'date': date
+        title: title,
+        date: date,
       };
     },
   },

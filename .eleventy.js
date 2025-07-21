@@ -12,7 +12,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
-import EleventyPluginOgImage from 'eleventy-plugin-og-image';
+import EleventyPluginOgImage from "eleventy-plugin-og-image";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
@@ -77,22 +77,24 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
-    outputFileExtension: 'webp',
-    outputDir: 'assets/images/og',
+    outputFileExtension: "webp",
+    outputDir: "assets/images/og",
     previewMode: false,
     satoriOptions: {
       fonts: [
         {
-          name: 'Inter',
-          data: await fs.readFile('./src/_build/fonts/Inter-Bold.ttf'),
+          name: "Inter",
+          data: await fs.readFile("./src/_build/fonts/Inter-Bold.ttf"),
           weight: 700,
-          style: 'normal',
+          style: "normal",
         },
         {
-          name: 'Source Serif 4',
-          data: await fs.readFile('./src/_build/fonts/SourceSerif4-BoldItalic.ttf'),
+          name: "Source Serif 4",
+          data: await fs.readFile(
+            "./src/_build/fonts/SourceSerif4-BoldItalic.ttf",
+          ),
           weight: 700,
-          style: 'italic',
+          style: "italic",
         },
       ],
     },
