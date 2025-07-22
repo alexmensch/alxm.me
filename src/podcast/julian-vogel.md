@@ -1,6 +1,6 @@
 ---
-title: 'Peter: "Stay true to yourself"'
-date: 2025-06-17
+title: 'Julian'
+date: 2025-06-20
 summary: |
   Reproduced verbatim, this is an essay I wrote for my application to a psychotherapist training programme. I share it here not only because of the importance of normalising the struggles that many of us face in life, but also because I hope that it will give others the courage to do their own deep work.
 ---
