@@ -1,6 +1,7 @@
 import md from "markdown-it";
 import mdFN from "markdown-it-footnote";
 import mdIterator from "markdown-it-for-inline";
+import mdSmartArrows from "markdown-it-smartarrows";
 import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
@@ -216,6 +217,8 @@ export default async function (eleventyConfig) {
     tokens[idx].attrPush(["role", "list"]);
     return self.renderToken(tokens, idx, options);
   };
+
+  markdownLib.use(mdSmartArrows);
 
   // Set the Markdown library to use
   eleventyConfig.setLibrary("md", markdownLib);

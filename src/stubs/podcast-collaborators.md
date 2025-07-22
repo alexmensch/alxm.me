@@ -15,7 +15,7 @@ I'd love help with any of the following:
 
 - **Audio engineering**: Consistent sound quality between episodes; compensating for environmental differences on the guest side; pacing and speech cleanup.
 - **Music**: Theme and transition music composition.
-- **Artwork**: Podcast cover artwork; other marketing visuals.
+- ~~**Artwork**: Podcast cover artwork; other marketing visuals.~~<br/>--> _Found someone to help, thank you [Dan Hollick](https://alcohollick.com)!_
 - **Marketing**: Spreading news of the launch; episode show notes; uploading to various podcast platforms.
 - **Miscellaneous**: Helping to name the podcast, finding additional guests if needed, validating edited episodes with guests, and anything else that comes up!
 
