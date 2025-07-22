@@ -21,4 +21,10 @@
   {% if type == "contact" %}
     {% render "partials/contact-options", options: options %}
   {% endif %}
+
+  {% if type == "podcast" %}
+    {% for episode in episodes %}
+      {% render "partials/podcast-collection", episode: episode %}
+    {% endfor %}
+  {% endif %}
 </article>
