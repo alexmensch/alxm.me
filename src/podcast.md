@@ -2,10 +2,7 @@
 layout: layouts/podcast
 title: "Podcast: What I Knew"
 hero:
-  header: What I Knew
-  byline: Stories of personal change
+  header: "What I Knew: Inspiring stories of courage in personal change"
 ---
 
-This is a collection of my writing on various topics that I’m interested in, from my adventures while traveling to aviation to psychology. I most enjoy writing from a personal perspective, sharing my experiences and observations of the world.
-
-I deeply appreciate writing as a mechanism for organizing thinking on a subject. Part of this comes from many years as a product manager in the software industry, where writing is the role’s primary form of influence. It’s also a great litmus test for clarity of thinking on a subject. Paul Graham’s advice on [writing simply](https://www.paulgraham.com/simply.html) resonates strongly with me, and I aim to edit for both clarity and a natural cadence in the language.
+_What I Knew_ celebrates the courage that it takes to make big personal changes. My guests tell their stories with candor and vulnerability, giving light to the inner conflict, complexity, and mystery faced in navigating what it means to live a life with purpose. From career changes, to mental health challenges, to spiritual journeys, each of them share insights and moments that any of us can both relate to and learn from.
