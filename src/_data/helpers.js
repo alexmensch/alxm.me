@@ -40,6 +40,10 @@ export default {
     const formatString = ["yyyy", "LL", "dd"].join(delim);
     return DateTime.fromJSDate(date).toFormat(formatString);
   },
+  dateToRFC2822: function (date) {
+    // Convert to RFC 2822 format
+    return date.toUTCString();
+  },
   getLinkActiveState(itemPath, pagePath) {
     let response = "";
 
