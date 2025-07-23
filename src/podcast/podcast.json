@@ -1,3 +1,4 @@
 {
-  "layout": "layouts/podcast-episodes"
+  "layout": "layouts/podcast-episodes",
+  "artwork": "/assets/podcast/images/cover-artwork-default.png"
 }

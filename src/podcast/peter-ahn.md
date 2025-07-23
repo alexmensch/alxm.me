@@ -2,8 +2,7 @@
 date: 2025-06-17
 summary: |
   Reproduced verbatim, this is an essay I wrote for my application to a psychotherapist training programme. I share it here not only because of the importance of normalising the struggles that many of us face in life, but also because I hope that it will give others the courage to do their own deep work.
-recording: /assets/podcast/media/something.mp3
-artwork: /assets/podcast/images/something.png (use default podcast artwork unless overriden here, put default in directory json file)
+recording: /assets/podcast/media/felix-alcala.mp3
 
 title: 'Peter: "Stay true to yourself"'
 enclosure:

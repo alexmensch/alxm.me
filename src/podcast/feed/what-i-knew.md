@@ -2,7 +2,7 @@
 layout: podcast/apple-podcasts
 eleventyExcludeFromCollections: true
 permalink: /podcast/feed/what-i-knew.rss
-artwork: /assets/podcast/images/what-i-knew.png
+artwork: /assets/podcast/images/cover-artwork-default.png
 
 channel:
   title: What I Knew
