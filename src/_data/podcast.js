@@ -1,4 +1,6 @@
 import MarkdownIt from "markdown-it";
+import { getAudioDurationInSeconds } from "get-audio-duration";
+import { stat } from "fs/promises";
 
 const md = new MarkdownIt({
   html: true,        // Enable HTML tags in source
@@ -13,13 +15,18 @@ export default {
       return '<![CDATA[]]>';
     }
 
-    // Convert Markdown to HTML
-    const htmlContent = md.render(markdownContent);
-    
+    const htmlContent = md.render(markdownContent);    
     // Handle potential CDATA conflicts by escaping any existing ]]> sequences
     const escapedContent = htmlContent.replace(/\]\]>/g, ']]]]><![CDATA[>');
     
-    // Wrap in CDATA
     return `<![CDATA[${escapedContent}]]>`;
   },
+  getDurationInSec: async function (filename) {
+    const duration = await getAudioDurationInSeconds(filename);
+    return duration;
+  },
+  getFilesize: async function (filename) {
+    const stats = await stat(filename);
+    return stats.size;
+  }
 };

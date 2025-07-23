@@ -31,6 +31,7 @@
     "deepmerge": "^4.3.1",
     "eleventy-plugin-og-image": "^4.1.0",
     "eleventy-plugin-purgecss": "^0.5.0",
+    "get-audio-duration": "^4.0.1",
     "hookable": "^5.5.3",
     "lorem-ipsum": "^2.0.8",
     "luxon": "^3.5.0",
@@ -54,6 +55,7 @@
       "@img/sharp-libvips-darwin-arm64": "1.0.4"
     },
     "onlyBuiltDependencies": [
+      "@ffprobe-installer/darwin-arm64",
       "@parcel/watcher",
       "sharp"
     ]
