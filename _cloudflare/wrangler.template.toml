@@ -1,6 +1,6 @@
 name = "{{WORKER_NAME}}"
 compatibility_date = "2024-01-01"
-account-id = "ecd2a3d65ecc1018f93da07542223581"
+account_id = "ecd2a3d65ecc1018f93da07542223581"
 
 [[r2_buckets]]
 binding = "PODCAST_ASSETS"
