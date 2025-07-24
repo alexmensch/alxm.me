@@ -13,7 +13,7 @@ const { BUCKET_NAME, AUDIO_DIR, WORKER_NAME, DOMAIN } = config;
 async function checkFileInR2(key) {
   try {
     const result = execSync(
-      `cd _cloudflare && wrangler r2 object get ${BUCKET_NAME}/${key} --file /dev/null --json 2>/dev/null`, 
+      `cd _cloudflare && npx wrangler r2 object get ${BUCKET_NAME}/${key} --file /dev/null --json 2>/dev/null`, 
       { encoding: 'utf8' }
     );
     const objectInfo = JSON.parse(result);
@@ -50,7 +50,7 @@ async function fileExistsInR2(filePath, key) {
 async function uploadFileToR2(filePath, key) {
   try {
     execSync(
-      `cd _cloudflare && wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --content-type "audio/mpeg"`, 
+      `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --content-type "audio/mpeg"`, 
       { stdio: 'inherit' }
     );
     console.log(`✅ Uploaded: ${key}`);
@@ -90,7 +90,7 @@ async function generateConfigFiles() {
 async function deployWorker() {
   try {
     console.log('🚀 Deploying worker...');
-    execSync('cd _cloudflare && wrangler deploy', { stdio: 'inherit' });
+    execSync('cd _cloudflare && npx wrangler deploy', { stdio: 'inherit' });
     console.log('✅ Worker deployed successfully');
   } catch (error) {
     console.error('❌ Worker deployment failed:', error);
@@ -105,7 +105,7 @@ async function setupWorkerRoute() {
     const audioWebPath = '/' + AUDIO_DIR.replace('src/', '') + '/*';
     const routePattern = `${DOMAIN}${audioWebPath}`;
     
-    execSync(`cd _cloudflare && wrangler route add "${routePattern}" --name ${WORKER_NAME}`, 
+    execSync(`cd _cloudflare && npx wrangler route add "${routePattern}" --name ${WORKER_NAME}`, 
       { stdio: 'inherit' });
     
     console.log(`✅ Route configured: ${routePattern}`);
