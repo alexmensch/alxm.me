@@ -2,6 +2,7 @@ node_modules/
 _site/
 .cache
 .DS_Store
+.wrangler
 
 # Generated files
 _cloudflare/worker.js

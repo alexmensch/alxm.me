@@ -9,7 +9,7 @@ export default {
         const object = await env.PODCAST_ASSETS.get(filename);
         
         if (object === null) {
-          return new Response('Audio file not found', { status: 404 });
+          return new Response('File not found', { status: 404 });
         }
         
         const headers = new Headers();
