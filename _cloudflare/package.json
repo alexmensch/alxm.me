@@ -1,0 +1,7 @@
+{
+  "name": "alxm-cloudflare-scripts",
+  "type": "module",
+  "dependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

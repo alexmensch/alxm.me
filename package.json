@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "build:cf": "cd _cloudflare && pnpm install && cd .. && node _cloudflare/sync-r2.js && npx @11ty/eleventy && node _cloudflare/cleanup-files.js",
     "clean": "rm -rf _site",
     "pretty": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
