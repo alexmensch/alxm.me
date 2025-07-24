@@ -90,7 +90,7 @@ async function generateConfigFiles() {
 async function deployWorker() {
   try {
     console.log('🚀 Deploying worker...');
-    execSync('cd _cloudflare && npx wrangler deploy', { stdio: 'inherit' });
+    execSync('cd _cloudflare && npx wrangler deploy ./worker.js', { stdio: 'inherit' });
     console.log('✅ Worker deployed successfully');
   } catch (error) {
     console.error('❌ Worker deployment failed:', error);
