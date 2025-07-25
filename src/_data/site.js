@@ -13,7 +13,7 @@ const site = {
     { title: "Coaching", url: "/coaching/" },
     { title: "Advisory", url: "/advisory/" },
     { title: "Writing", url: "/writing/", collection: true },
-    { title: "Podcast", url: "/podcast/", collection: true },
+    { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Contact", url: "/contact/", footer: true },
     { title: "About", url: "/about/", footer: true },
     { title: "Styles", url: "/styles/", hidden: true },
