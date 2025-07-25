@@ -7,8 +7,13 @@ artwork: /assets/podcast/images/cover-artwork-default.png
 channel:
   title: What I Knew
   itunes:
-    category: Self-improvement
-    subcategory: Mental Health
+    categories:
+      - category: Health &amp; Fitness
+        subcategory: Mental Health
+      - category: Society &amp; Culture
+        subcategory: Personal Journals
+      - category: Education
+        subcategory: Self-Improvement
     explicit: true
     type: episodic
   language: en

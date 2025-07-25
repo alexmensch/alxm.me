@@ -10,9 +10,11 @@ Reference: https://help.apple.com/itc/podcasts_connect/#/itcb54353390
     <copyright>{{ channel.copyright }}</copyright>
     <description>{{ channel.description }}</description>
     <itunes:image href="{{ channel.itunes.image }}" />
-    <itunes:category text="{{ channel.itunes.category }}">
-      <itunes:category text="{{ channel.itunes.subcategory }}"/>
+{%- for category in channel.itunes.categories -%}
+    <itunes:category text="{{ category.category }}">
+      <itunes:category text="{{ category.subcategory }}"/>
     </itunes:category>
+{%- endfor -%}
     <itunes:explicit>{{ channel.itunes.explicit }}</itunes:explicit>
     <itunes:author>{{ channel.itunes.author }}</itunes:author>
     <itunes:title>{{ channel.itunes.title }}</itunes:title>
