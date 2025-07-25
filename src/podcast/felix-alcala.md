@@ -3,7 +3,7 @@ title: 'Felix: "Felix findet Frieden"'
 date: 2025-06-22
 summary: |
   This is an episode summary used only for the list view on my website.
-recording:
+recording: /assets/podcast/audio/felix-alcala.mp3
 guid: D03EEC9B-B1B4-475B-92C8-54F853FA2A22
 itunes:
   explicit: false
