@@ -1,6 +1,6 @@
 ### Licensing & Usage
 
-This respository contains a mix of creative media and software, each of which are licensed under separate terms. Please see the appropriate [LICENSE](blob/master/LICENSE) and [COPYRIGHT](blob/master/COPYRIGHT) files for full details.
+This respository contains a mix of creative media and software, each of which are licensed under separate terms. Please see the appropriate [LICENSE](LICENSE) and [COPYRIGHT](COPYRIGHT) files for full details.
 
 For additional inquiries around licensing, reproduction, or distribution, you may contact me via my website: [https://alxm.me](https://alxm.me/contact)
 
