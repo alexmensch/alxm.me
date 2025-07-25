@@ -5,12 +5,11 @@ export default {
     return `/s/${helpers.permalinkToPage(title)}/`;
   },
   eleventyComputed: {
-    og_description: function ({ og_description, page }) {
-      if (og_description) {
-        return og_description;
-      }
-
-      return `${page.rawInput.substring(0, 150)}...`;
+    ogData: function ({ title, date }) {
+      return {
+        title: title,
+        date: date,
+      };
     },
   },
 };

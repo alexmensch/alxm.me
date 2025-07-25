@@ -43,5 +43,7 @@ See: https://github.com/vercel/satori
 
 <div class="root">
   <p class="title">{{ title }}</p>
+{% if date %}
   <p class="date">{{ date | readablePostDate }}</p>
+{% endif %}
 </div>

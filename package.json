@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "build:cf": "cd _cloudflare && pnpm install && cd .. && node _cloudflare/sync-r2.js && npx @11ty/eleventy && node _cloudflare/cleanup-files.js",
     "clean": "rm -rf _site",
     "pretty": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
@@ -31,6 +32,7 @@
     "deepmerge": "^4.3.1",
     "eleventy-plugin-og-image": "^4.1.0",
     "eleventy-plugin-purgecss": "^0.5.0",
+    "get-audio-duration": "^4.0.1",
     "hookable": "^5.5.3",
     "lorem-ipsum": "^2.0.8",
     "luxon": "^3.5.0",
@@ -54,6 +56,8 @@
       "@img/sharp-libvips-darwin-arm64": "1.0.4"
     },
     "onlyBuiltDependencies": [
+      "@ffprobe-installer/darwin-arm64",
+      "@ffprobe-installer/linux-x64",
       "@parcel/watcher",
       "sharp"
     ]

@@ -1,5 +1,6 @@
 ---
 title: "Collaborate on a new podcast"
+date: 2025-07-17
 hero:
   header: "Work with me to launch a new podcast?"
 permalink: "/s/podcast-collab/"
