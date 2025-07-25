@@ -4,7 +4,7 @@ date: 2025-06-18
 summary: |
   This is an episode summary used only for the list view on my website.
 recording:
-guid: D03EEC9B-B1B4-475B-92C8-54F853FA2A22
+guid: 7CA651EE-7856-494E-813E-2FCD43F72DF0
 itunes:
   explicit: false
   episode: 2
