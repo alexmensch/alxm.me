@@ -4,7 +4,7 @@ export default {
 
     // Handle RSS feed requests
     if (url.pathname === env.RSS_PATH) {
-      return handleRSSFeed(request);
+      return handleRSSFeed(request, env);
     }
 
     // Handle audio file requests
@@ -72,7 +72,7 @@ export default {
   },
 };
 
-async function handleRSSFeed(request) {
+async function handleRSSFeed(request, env) {
   try {
     // Parse the last modified date
     const lastModified = new Date(env.RSS_LAST_MODIFIED + "T00:00:00Z");
