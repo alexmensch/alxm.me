@@ -14,8 +14,11 @@ channel:
         subcategory: Personal Journals
       - category: Education
         subcategory: Self-Improvement
-    explicit: true
+    explicit: false
     type: episodic
+  podcast:
+    guid: 75F7697F-7B5E-4B3B-BC73-FB3E0E2EA8CD
+    locked: no
   language: en
   link: https://alxm.me/podcast
 
