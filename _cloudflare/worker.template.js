@@ -3,13 +3,13 @@ export default {
     const url = new URL(request.url);
 
     // Handle RSS feed requests
-    if (url.pathname === '{{RSS_PATH}}') {
+    if (url.pathname === env.RSS_PATH) {
       return handleRSSFeed(request);
     }
     
     // Handle audio file requests
-    if (url.pathname.startsWith("{{AUDIO_PATH}}")) {
-      const filename = url.pathname.replace("{{AUDIO_PATH}}", "");
+    if (url.pathname.startsWith(env.AUDIO_PATH)) {
+      const filename = url.pathname.replace(env.AUDIO_PATH, "");
 
       try {
         const object = await env.PODCAST_ASSETS.get(filename);
@@ -67,7 +67,7 @@ export default {
 async function handleRSSFeed(request) {
   try {
     // Parse the last modified date
-    const lastModified = new Date('{{RSS_LAST_MODIFIED}}T00:00:00Z');
+    const lastModified = new Date(env.RSS_LAST_MODIFIED + 'T00:00:00Z');
     const lastModifiedString = lastModified.toUTCString();
     
     // Check if client has cached version

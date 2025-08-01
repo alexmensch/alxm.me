@@ -16,3 +16,5 @@ bucket_name = "{{BUCKET_NAME}}"
 
 [vars]
 AUDIO_PATH = "{{AUDIO_PATH}}"
+RSS_PATH = "{{RSS_PATH}}"
+RSS_LAST_MODIFIED = "{{RSS_LAST_MODIFIED}}"

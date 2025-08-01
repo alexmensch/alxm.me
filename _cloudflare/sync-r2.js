@@ -35,10 +35,6 @@ async function generateConfigFiles() {
       join(__dirname, "worker.template.js"),
       "utf8",
     );
-    const workerScript = workerTemplate
-      .replace(/{{AUDIO_PATH}}/g,audioWebPath)
-      .replace(/{{RSS_PATH}}/g, RSS_PATH)
-      .replace(/{{RSS_LAST_MODIFIED}}/g, RSS_LAST_MODIFIED);
     writeFileSync(join(__dirname, "worker.js"), workerScript);
 
     // Generate wrangler.toml from template
@@ -51,6 +47,7 @@ async function generateConfigFiles() {
       .replace(/{{BUCKET_NAME}}/g, BUCKET_NAME)
       .replace(/{{AUDIO_PATH}}/g, audioWebPath)
       .replace(/{{RSS_PATH}}/g, RSS_PATH)
+      .replace(/{{RSS_LAST_MODIFIED}}/g, RSS_LAST_MODIFIED)
       .replace(/{{DOMAIN}}/g, DOMAIN);
     writeFileSync(join(__dirname, "wrangler.toml"), wranglerConfig);
 
