@@ -101,7 +101,7 @@ async function handleRSSFeed(request, env) {
     }
 
     // Get the response body
-    const rssContent = await rssResponse.text();
+    const rssContent = await rssResponse.text().trim();
 
     // Create new response with proper headers
     const headers = new Headers(rssResponse.headers);
