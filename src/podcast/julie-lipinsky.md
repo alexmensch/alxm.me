@@ -3,8 +3,8 @@ title: 'Julie: ""'
 date: 2025-06-19
 summary: |
   This is an episode summary used only for the list view on my website.
-recording: 
-guid: D03EEC9B-B1B4-475B-92C8-54F853FA2A22
+recording:
+guid: 259FCF24-F65B-442E-A4C1-4200D61FE145
 itunes:
   explicit: false
   episode: 3

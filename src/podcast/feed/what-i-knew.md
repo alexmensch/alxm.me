@@ -7,10 +7,18 @@ artwork: /assets/podcast/images/cover-artwork-default.png
 channel:
   title: What I Knew
   itunes:
-    category: Self-improvement
-    subcategory: Mental Health
-    explicit: true
+    categories:
+      - category: Health &amp; Fitness
+        subcategory: Mental Health
+      - category: Society &amp; Culture
+        subcategory: Personal Journals
+      - category: Education
+        subcategory: Self-Improvement
+    explicit: false
     type: episodic
+  podcast:
+    guid: 75F7697F-7B5E-4B3B-BC73-FB3E0E2EA8CD
+    locked: no
   language: en
   link: https://alxm.me/podcast
 

@@ -3,8 +3,8 @@ title: 'Cleo: ""'
 date: 2025-06-23
 summary: |
   This is an episode summary used only for the list view on my website.
-recording: 
-guid: D03EEC9B-B1B4-475B-92C8-54F853FA2A22
+recording:
+guid: C63178F4-6D57-4475-B39A-F010B59CA0CA
 itunes:
   explicit: false
   episode: 6

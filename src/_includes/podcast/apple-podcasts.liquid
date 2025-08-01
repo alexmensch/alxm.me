@@ -1,23 +1,29 @@
-{% comment %}
+{%- comment -%}
 Reference: https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-{% endcomment %}
+And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specification
+{%- endcomment -%}
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <atom:link href="{{ "https://" | append: site.domain | append: page.url }}" rel="self" type="application/rss+xml" />
     <title>{{ channel.title }}</title>
     <link>{{ channel.link }}</link>
     <language>{{ channel.language }}</language>
     <copyright>{{ channel.copyright }}</copyright>
     <description>{{ channel.description }}</description>
+    <podcast:locked>{{ channel.podcast.locked }}</podcast:locked>
+    <podcast:guid>{{ channel.podcast.guid }}</podcast:guid>
     <itunes:image href="{{ channel.itunes.image }}" />
-    <itunes:category text="{{ channel.itunes.category }}">
-      <itunes:category text="{{ channel.itunes.subcategory }}"/>
+{%- for category in channel.itunes.categories -%}
+    <itunes:category text="{{ category.category }}">
+      <itunes:category text="{{ category.subcategory }}"/>
     </itunes:category>
+{%- endfor -%}
     <itunes:explicit>{{ channel.itunes.explicit }}</itunes:explicit>
     <itunes:author>{{ channel.itunes.author }}</itunes:author>
     <itunes:title>{{ channel.itunes.title }}</itunes:title>
     <itunes:type>{{ channel.itunes.type }}</itunes:type>
-{% for episode in collections.podcast %}
+{%- for episode in collections.podcast -%}
     <item>
       <title>{{ episode.data.title }}</title>
       <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
@@ -39,6 +45,6 @@ Reference: https://help.apple.com/itc/podcasts_connect/#/itcb54353390
       <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
       <itunes:image>{{ episode.data.itunes.image }}</itunes:image>
     </item>
-{% endfor %}
+{%- endfor -%}
   </channel>
 </rss>
