@@ -2,7 +2,10 @@ name = "{{WORKER_NAME}}"
 main = "./worker.js"
 compatibility_date = "2024-01-01"
 
-route = { pattern = "{{DOMAIN}}{{AUDIO_PATH}}*", zone_name = "{{DOMAIN}}" }
+routes = [
+  { pattern = "{{DOMAIN}}{{AUDIO_PATH}}*", zone_name = "{{DOMAIN}}" },
+  { pattern = "{{DOMAIN}}{{RSS_PATH}}", zone_name = "{{DOMAIN}}" }
+]
 
 [observability.logs]
 enabled = true

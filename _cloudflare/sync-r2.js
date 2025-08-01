@@ -28,16 +28,17 @@ async function generateConfigFiles() {
     console.log("📝 Generating config files from templates...");
 
     const audioWebPath = "/" + AUDIO_DIR.replace("src/", "") + "/";
+    const { RSS_PATH, RSS_LAST_MODIFIED } = config;
 
     // Generate worker.js from template
     const workerTemplate = readFileSync(
       join(__dirname, "worker.template.js"),
       "utf8",
     );
-    const workerScript = workerTemplate.replace(
-      /{{AUDIO_PATH}}/g,
-      audioWebPath,
-    );
+    const workerScript = workerTemplate
+      .replace(/{{AUDIO_PATH}}/g,audioWebPath)
+      .replace(/{{RSS_PATH}}/g, RSS_PATH)
+      .replace(/{{RSS_LAST_MODIFIED}}/g, RSS_LAST_MODIFIED);
     writeFileSync(join(__dirname, "worker.js"), workerScript);
 
     // Generate wrangler.toml from template
@@ -49,6 +50,7 @@ async function generateConfigFiles() {
       .replace(/{{WORKER_NAME}}/g, WORKER_NAME)
       .replace(/{{BUCKET_NAME}}/g, BUCKET_NAME)
       .replace(/{{AUDIO_PATH}}/g, audioWebPath)
+      .replace(/{{RSS_PATH}}/g, RSS_PATH)
       .replace(/{{DOMAIN}}/g, DOMAIN);
     writeFileSync(join(__dirname, "wrangler.toml"), wranglerConfig);
 
