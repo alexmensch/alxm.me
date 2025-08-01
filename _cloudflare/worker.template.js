@@ -101,7 +101,7 @@ async function handleRSSFeed(request, env) {
     }
 
     // Get the response body
-    const rssContent = await rssResponse.text().trim();
+    const rssContent = await rssResponse.text();
 
     // Create new response with proper headers
     const headers = new Headers(rssResponse.headers);
@@ -113,7 +113,7 @@ async function handleRSSFeed(request, env) {
     headers.set("Cache-Control", "public, max-age=3600"); // 1 hour cache
     headers.set("Content-Type", "application/rss+xml; charset=utf-8");
 
-    return new Response(rssContent, {
+    return new Response(rssContent.trim(), {
       status: rssResponse.status,
       headers: headers,
     });
