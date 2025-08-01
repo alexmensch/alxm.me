@@ -35,7 +35,7 @@ async function generateConfigFiles() {
       join(__dirname, "worker.template.js"),
       "utf8",
     );
-    writeFileSync(join(__dirname, "worker.js"), workerScript);
+    writeFileSync(join(__dirname, "worker.js"), workerTemplate);
 
     // Generate wrangler.toml from template
     const wranglerTemplate = readFileSync(
