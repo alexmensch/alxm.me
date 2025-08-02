@@ -1,5 +1,6 @@
 ---
 title: 'Lauren: "Everything you need is within you"'
+publishToRSSFeed: false
 date: 2025-06-18
 summary: |
   This is an episode summary used only for the list view on my website.

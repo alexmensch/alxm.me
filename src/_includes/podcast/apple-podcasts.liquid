@@ -24,6 +24,7 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
     <itunes:title>{{ channel.itunes.title }}</itunes:title>
     <itunes:type>{{ channel.itunes.type }}</itunes:type>
 {%- for episode in collections.podcast -%}
+{%- if episode.data.publishToRSSFeed -%}
     <item>
       <title>{{ episode.data.title }}</title>
       <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
@@ -45,6 +46,7 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
       <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
       <itunes:image>{{ episode.data.itunes.image }}</itunes:image>
     </item>
+{%- endif -%}
 {%- endfor -%}
   </channel>
 </rss>
