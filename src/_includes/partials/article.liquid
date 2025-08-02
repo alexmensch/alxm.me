@@ -5,6 +5,11 @@
             byline: byline %}
 
   <div class="[ article__content ] [ flow ]">
+    {% if type == "episode" %}
+      <audio controls>
+        <source src="{{ recording }}" type="audio/mpeg" />
+      </audio>
+    {% endif %}
     {{ content }}
   </div>
 
@@ -24,7 +29,9 @@
 
   {% if type == "podcast" %}
     {% for episode in episodes %}
-      {% render "partials/podcast-collection", episode: episode %}
+      {% if episode.data.publishToRSSFeed %}
+        {% render "partials/podcast-collection", episode: episode %}
+      {% endif %}
     {% endfor %}
   {% endif %}
 </article>

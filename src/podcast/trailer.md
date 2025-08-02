@@ -8,8 +8,6 @@ recording:
 guid: E3BD5858-A4F6-4B40-906D-555234DA6BB8
 itunes:
   explicit: false
-  episode: 1
-  season: 1
   episodeType: trailer
 link: page.url
 
