@@ -24,7 +24,9 @@
 
   {% if type == "podcast" %}
     {% for episode in episodes %}
-      {% render "partials/podcast-collection", episode: episode %}
+      {% if episode.data.publishToRSSFeed %}
+        {% render "partials/podcast-collection", episode: episode %}
+      {% endif %}
     {% endfor %}
   {% endif %}
 </article>
