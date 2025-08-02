@@ -21,22 +21,18 @@ eleventyComputed:
     title: "{{ title }}"
 ---
 
-This entire section is the episode description that will also be posted to Apple Podcasts.
+In this conversation, Felix shares his transformative journey from a predetermined career path in IT to a quest for deeper meaning and fulfillment. He reflects on the pivotal moments that led him to question societal expectations and pursue a life aligned with his values. Through a spiritual journey and ongoing inner work, he emphasizes the importance of self-love, intuition, and the freedom that comes from making choices that resonate with one's true self. The discussion highlights the challenges of navigating relationships during personal transformation and the profound insights gained along the way.
 
-### Credits
+**Episode credits:**
 
-**Artwork**: Daniel Hollick<br/>
-**Sound**: Someone Dedicated<br/>
-**Music**: Sophia Wilhelmi
+Artwork by [Daniel Hollick](https://alcohollick.com)
 
-### Additional Resources
+Sound engineering by Adam Scrivener and ??
 
-- Peter's book
-- Peter's coaching practice
-- Peter's LinkedIn profile
+Music composition by Sophia Wilhelmi
 
-### Transcript
+Production support by [Katarina Podlesnaya](https://www.katarinapodlesnaya.com)
 
-_This transcript is machine-generated and may contain errors._
+**Additional resources:**
 
-**Guest**: When I were but a lad ...
+- Does Felix want to include anything about himself here?
