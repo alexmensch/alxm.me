@@ -11,6 +11,8 @@ Posted {{ date | date: "%e %B, %Y"}}
 {% endcapture %}
 
 {% render "partials/article"
+          type: "episode",
           header: title,
           byline: byline,
-          content: content %}
+          content: content,
+          recording: recording %}

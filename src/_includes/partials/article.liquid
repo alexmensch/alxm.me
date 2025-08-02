@@ -5,6 +5,11 @@
             byline: byline %}
 
   <div class="[ article__content ] [ flow ]">
+    {% if type == "episode" %}
+      <audio controls>
+        <source src="{{ recording }}" type="audio/mpeg" />
+      </audio>
+    {% endif %}
     {{ content }}
   </div>
 
