@@ -1,5 +1,6 @@
 ---
 title: 'Julie: ""'
+publishToRSSFeed: false
 date: 2025-06-19
 summary: |
   This is an episode summary used only for the list view on my website.

@@ -1,5 +1,6 @@
 ---
 title: 'Felix: "Felix findet Frieden"'
+publishToRSSFeed: false
 date: 2025-06-22
 summary: |
   This is an episode summary used only for the list view on my website.
