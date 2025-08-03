@@ -64,6 +64,10 @@ p {
   max-width: var(--measure);
 }
 
+sup {
+  line-height: 0;
+}
+
 code {
   // Compensate for visual difference between mono & serif fonts
   @include dt.use("text", -1);
