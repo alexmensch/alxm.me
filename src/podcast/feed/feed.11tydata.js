@@ -1,10 +1,20 @@
 import podcast from "../../_data/podcast.js";
+import { Liquid } from "liquidjs";
+
+const liquid = new Liquid({
+  root: ["src/_includes"],
+  extname: '.liquid'
+});
 
 export default {
   eleventyComputed: {
     channel: {
-      description: function (data) {
-        return podcast.markdownToCDATA(data.page.rawInput);
+      description: async function (data) {
+        const renderedContent = await liquid.parseAndRender(
+          data.page.rawInput,
+          data
+        );
+        return podcast.markdownToCDATA(renderedContent);
       },
     },
     /*
