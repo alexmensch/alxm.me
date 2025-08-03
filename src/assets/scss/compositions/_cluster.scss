@@ -10,4 +10,8 @@
   &[data-state="repel"] {
     justify-content: space-between;
   }
+
+  &[data-state="center"] {
+    align-items: center;
+  }
 }

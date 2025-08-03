@@ -1,14 +1,21 @@
 <article class="[ article ] [ flow flow-space-m ]">
   {% render "partials/hero"
             hero: hero,
+            type: "episode",
             header: header,
-            byline: byline %}
+            byline: byline,
+            site: site      %}
 
   <div class="[ article__content ] [ flow ]">
     {% if type == "episode" %}
-      <audio controls>
-        <source src="{{ recording }}" type="audio/mpeg" />
-      </audio>
+      <div class="box bg-light-shade padding-s border-thin border-style-dotted radius" data-fit-content>
+        <div class="cluster" data-state="center">
+          <p class="font-sans text-3 weight-bold">Listen</p>
+          <audio controls>
+            <source src="{{ recording }}" type="audio/mpeg" />
+          </audio>
+        </div>
+      </div>
     {% endif %}
     {{ content }}
   </div>
