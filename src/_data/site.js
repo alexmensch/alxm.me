@@ -8,6 +8,11 @@ const site = {
     title: "Alex Marshall | Writing",
     subtitle: "A collection of my writing on various topics.",
   },
+  podcastURL: {
+    remotes: [
+      { name: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924" },
+    ],
+  },
   links: [],
   nav: [
     { title: "Coaching", url: "/coaching/" },
@@ -21,6 +26,8 @@ const site = {
 };
 
 site.rss.outputPath = `/${site.rss.collection}.atom`;
+
+site.podcastURL.local = `https://${site.domain}/podcast/feed/what-i-knew.rss`;
 
 site.links = [
   {
