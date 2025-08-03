@@ -3,8 +3,22 @@
     {% assign header = hero.header %}
     {% assign byline = hero.byline %}
   {% endif %}
+  
   <h1 class="hero__header"><mark>{{ header }}</mark></h1>
   {% if byline %}
-  <p><em>{{ byline | markdownify }}</em></p>
+    {% capture byline_html %}<p><em>{{ byline | markdownify }}</em></p>{% endcapture %}
+    {% if type == "episode" %}
+      <div class="stack flow-space-2xs">
+        {{ byline_html }}
+        <div class="cluster flow-space-s">
+          <p><em>Subscribe:</em></p>
+          {% for link in site.podcastURL.remotes %}
+            <a href="{{ link.url }}">{{ link.name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      {{ byline_html }}
+    {% endif %}
   {%endif%}
 </div>

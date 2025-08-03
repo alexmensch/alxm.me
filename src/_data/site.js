@@ -10,7 +10,10 @@ const site = {
   },
   podcastURL: {
     remotes: [
-      { name: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924" },
+      {
+        name: "Apple Podcasts",
+        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924",
+      },
     ],
   },
   links: [],
