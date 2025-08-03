@@ -1,5 +1,11 @@
 import helpers from "../_data/helpers.js";
 import podcast from "../_data/podcast.js";
+import { Liquid } from "liquidjs";
+
+const liquid = new Liquid({
+  root: ["src/_includes"],
+  extname: '.liquid'
+});
 
 export default {
   permalink: function ({ title }) {
@@ -15,8 +21,12 @@ export default {
     pubDate: function ({ date }) {
       return helpers.dateToRFC2822(date);
     },
-    description: function (data) {
-      return podcast.markdownToCDATA(data.page.rawInput);
+    description: async function (data) {
+      const renderedContent = await liquid.parseAndRender(
+        data.page.rawInput,
+        data
+      );
+      return podcast.markdownToCDATA(renderedContent);
     },
     itunes: {
       duration: async function ({ recording }) {
