@@ -70,18 +70,18 @@ $type-scale-mega: scales.generate-type-scale(
 );
 
 $colors: (
-  "dark": #2e3a50,
-  "dark-shade": #212a3d,
-  "dark-glare": #465270,
-  "light": #fdf8f3,
-  "light-shade": #f6ebdb,
-  "light-glare": #fffdf9,
-  "primary": #fa576e,
-  "primary-shade": #f8415c,
-  "primary-glare": #f87788,
-  "secondary": #26c4a8,
-  "secondary-shade": #006b4f,
-  "secondary-glare": #4cd9c9,
+  "dark": var(--color-dark),
+  "dark-shade": var(--color-dark-shade),
+  "dark-glare": var(--color-dark-glare),
+  "light": var(--color-light),
+  "light-shade": var(--color-light-shade),
+  "light-glare": var(--color-light-glare),
+  "primary": var(--color-primary),
+  "primary-shade": var(--color-primary-shade),
+  "primary-glare": var(--color-primary-glare),
+  "secondary": var(--color-secondary),
+  "secondary-shade": var(--color-secondary-shade),
+  "secondary-glare": var(--color-secondary-glare),
 );
 
 $fonts: (

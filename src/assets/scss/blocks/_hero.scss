@@ -1,7 +1,7 @@
 @use "../config/design-tokens" as dt;
 
 .hero {
-  @include dt.use("bg", "secondary");
+  background: var(--hero-bg);
 
   padding-block: var(--gutter);
   padding-inline: var(--gutter);
@@ -9,15 +9,17 @@
   &__header {
     @include dt.use("text-mega", -2);
     padding-block-end: var(--gutter);
+    color: var(--hero-header-text);
 
     mark {
+      color: inherit;
       $bottom: 20%;
       $top: 84%;
       background: linear-gradient(
         to top,
         transparent $bottom,
-        #{dt.get-color("light")} $bottom,
-        #{dt.get-color("light")} $top,
+        var(--hero-header-text-mark) $bottom,
+        var(--hero-header-text-mark) $top,
         transparent $top
       );
     }

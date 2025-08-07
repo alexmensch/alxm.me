@@ -10,13 +10,13 @@ body {
 
 a {
   color: currentColor;
-  text-decoration-color: dt.get-color("primary");
+  text-decoration-color: var(--accent-color);
   text-decoration-thickness: 0.2ex;
   text-underline-offset: 0.35ex;
 }
 
 :focus {
-  outline: 2px dashed dt.get-color("primary");
+  outline: 2px dashed var(--accent-color);
   outline-offset: 0.25rem;
 }
 
@@ -73,20 +73,15 @@ code {
   @include dt.use("text", -1);
 }
 
-// Override PrismJS syntax highlight styling
 pre {
   margin-block-start: var(--flow-space) !important;
   font-size: smaller !important;
-
-  &[class*="language-"] {
-    background: dt.get-color("light-glare");
-  }
 }
 
 blockquote {
   @include dt.use("measure", "short");
 
-  border-inline-start: #{dt.get-size("2xs")} solid dt.get-color("primary");
+  border-inline-start: #{dt.get-size("2xs")} solid var(--accent-color);
   padding-inline-start: #{dt.get-size("m")};
   padding-block: #{dt.get-size("2xs")};
 
@@ -102,6 +97,10 @@ blockquote {
   padding-inline-start: #{dt.get-size("m")};
   max-width: var(--measure);
 
+  ::marker {
+    color: var(--accent-color);
+  }
+
   li + li,
   li > :is(ul, ol) {
     margin-block-start: #{dt.get-size("2xs")};
@@ -115,7 +114,7 @@ table {
   font-variant-numeric: tabular-nums;
 
   thead {
-    border-block-end: 0.35ex solid dt.get-color("primary");
+    border-block-end: 0.35ex solid var(--accent-color);
 
     th {
       vertical-align: bottom;
@@ -134,7 +133,7 @@ table {
 }
 
 hr {
-  border: 2px solid dt.get-color("dark-shade");
+  border: 4px solid var(--accent-color);
   width: #{dt.get-size("xl-2xl")};
 }
 
