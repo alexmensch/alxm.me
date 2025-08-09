@@ -5,6 +5,7 @@ import mdSmartArrows from "markdown-it-smartarrows";
 import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
+import 'dotenv/config';
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";

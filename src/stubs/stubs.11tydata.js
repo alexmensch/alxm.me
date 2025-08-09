@@ -1,15 +1,13 @@
 import helpers from "../_data/helpers.js";
 
 export default {
-  permalink: function ({ title }) {
-    return `/s/${helpers.permalinkToPage(title)}/`;
+  permalink: function (data) {
+    return data.stub.permalink || `/s/${helpers.permalinkToPage(data.stub.title)}/`;
   },
   eleventyComputed: {
-    ogData: function ({ title, date }) {
-      return {
-        title: title,
-        date: date,
-      };
-    },
+    // Flatten metadata so that templates work with pagination
+    title: function (data) { return data.stub.title; },
+    date: function (data) { return data.stub.date; },
+    hero: function (data) { return data.stub.hero; },
   },
 };
