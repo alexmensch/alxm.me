@@ -34,6 +34,9 @@ importers:
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
+      dotenv:
+        specifier: ^17.2.1
+        version: 17.2.1
       eleventy-plugin-og-image:
         specifier: ^4.1.0
         version: 4.1.0(@11ty/eleventy@3.1.2)
@@ -43,6 +46,9 @@ importers:
       get-audio-duration:
         specifier: ^4.0.1
         version: 4.0.1
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
       hookable:
         specifier: ^5.5.3
         version: 5.5.3
@@ -687,6 +693,10 @@ packages:
 
   domutils@2.8.0:
     resolution: {integrity: sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==}
+
+  dotenv@17.2.1:
+    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
+    engines: {node: '>=12'}
 
   duplexer@0.1.1:
     resolution: {integrity: sha512-sxNZ+ljy+RA1maXoUReeqBBpBC6RLKmg5ewzV+x+mSETmWNoKdZN6vcQjpFROemza23hGFskJtFNoUWUaQ+R4Q==}
@@ -2000,6 +2010,8 @@ snapshots:
       dom-serializer: 1.4.1
       domelementtype: 2.3.0
       domhandler: 4.3.1
+
+  dotenv@17.2.1: {}
 
   duplexer@0.1.1: {}
 

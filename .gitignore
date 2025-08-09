@@ -3,6 +3,7 @@ _site/
 .cache
 .DS_Store
 .wrangler
+.env
 
 # Generated files
 _cloudflare/worker.js
