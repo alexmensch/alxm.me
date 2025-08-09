@@ -15,7 +15,7 @@ async function fetchFromKV(endpoint) {
   });
 
   if (!response.ok) {
-    throw new Error(`Cloudflare KV API error: ${response.status} ${response.statusText}`);
+    throw new Error(`❌ Cloudflare KV API error: ${response.status} ${response.statusText}`);
   }
 
   return response.json();
@@ -29,7 +29,7 @@ async function fetchKVValue(key) {
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch KV value for key: ${key}`);
+    throw new Error(`❌ Failed to fetch KV value for key: ${key}`);
   }
 
   return response.text();
@@ -38,7 +38,7 @@ async function fetchKVValue(key) {
 export default async function() {
   // Skip KV fetch in development if no credentials
   if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
-    throw new Error('Cloudflare credential environment variables not found.');
+    throw new Error('❌ Cloudflare credential environment variables not found.');
   }
 
   try {
@@ -46,11 +46,11 @@ export default async function() {
     const keys = keysResponse.result;
 
     if (!keys || keys.length === 0) {
-      console.log('No keys found in KV namespace');
+      console.log('❌ No keys found in KV namespace');
       return [];
     }
 
-    console.log(`Found ${keys.length} keys in KV namespace`);
+    console.log(`✅ Found ${keys.length} keys in KV namespace`);
 
     const stubs = await Promise.all(
       keys.map(async (keyObj) => {
@@ -66,7 +66,7 @@ export default async function() {
             kvKey: key
           };
         } catch (error) {
-          console.error(`Error processing KV key ${keyObj.name}:`, error);
+          console.error(`❌ Error processing KV key ${keyObj.name}:`, error);
           return null;
         }
       })
@@ -74,10 +74,10 @@ export default async function() {
 
     const validStubs = stubs.filter(stub => stub !== null);
     
-    console.log(`Successfully processed ${validStubs.length} stubs from KV namespace`);
+    console.log(`🚀 Successfully processed ${validStubs.length} stubs from KV namespace`);
     return validStubs;
 
   } catch (error) {
-    console.error('Error fetching stubs from Cloudflare KV:', error);
+    console.error('❌ Error fetching stubs from Cloudflare KV:', error);
   }
 }
