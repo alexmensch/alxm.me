@@ -68,7 +68,7 @@ export default async function (eleventyConfig) {
     },
     metadata: {
       language: "en",
-      title: `${siteConfig.siteName} | ${siteConfig.rss.title}`,
+      title: `${siteConfig.rss.title}`,
       subtitle: siteConfig.rss.subtitle,
       base: `https://${siteConfig.domain}`,
       author: {
