@@ -63,7 +63,7 @@ export default async function (eleventyConfig) {
 
   // RSS / Atom feed
   // ** Implicitly builds from a Nunjucks template, so templateFormats must include "njk" **
-  eleventyConfig.addPlugin(feedPlugin, {
+  /*eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
     outputPath: siteConfig.rss.outputPath,
     collection: {
@@ -80,7 +80,7 @@ export default async function (eleventyConfig) {
         email: siteConfig.authorEmail, // Optional
       },
     },
-  });
+  });*/
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
     outputFileExtension: "webp",
