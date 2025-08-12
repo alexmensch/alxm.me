@@ -15,6 +15,7 @@ import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
+import kvCollectionsPlugin from "./eleventy-plugins/kv-collections.js";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
@@ -23,6 +24,9 @@ import openGraph from "./src/_data/opengraph.js";
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
+  // Custom Cloudflare KV -> Collections fetch
+  eleventyConfig.addPlugin(kvCollectionsPlugin);
+
   // Image transforms
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 

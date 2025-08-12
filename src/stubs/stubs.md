@@ -3,7 +3,7 @@ layout: layouts/landing
 meta:
   noindex: true
 pagination:
-  data: stubs
+  data: collections.stubs
   size: 1
   alias: stub
 ---
