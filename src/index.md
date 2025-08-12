@@ -6,6 +6,6 @@ title: Home
 main:
   title: Hello, I'm Alex
   text:
-    - I support people exploring [fundamental personal growth and change](/coaching), and I advise startups on building [world-class B2B products](/advisory). I also [write occasionally](/writing) on a variety of topics.
+    - I am a humanist and an artist, and I support people exploring [fundamental personal growth and change](/coaching). I also advise startups on building [world-class B2B products](/advisory) and [write occasionally](/writing) on a variety of topics.
     - I live in London, and here’s [how to get in touch](/contact).
 ---
