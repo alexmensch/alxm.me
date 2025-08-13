@@ -47,6 +47,8 @@
           {% assign year_items = year_items | push: item %}
         {% endif %}
       {% endfor %}
+
+      {% assign year_items = year_items | sort: "date" %}
       {% render "partials/writing-collection", collection: year_items, year: year %}
     {% endfor %}
   {% endif %}
