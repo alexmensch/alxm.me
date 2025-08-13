@@ -3,7 +3,7 @@ import { Liquid } from "liquidjs";
 
 const liquid = new Liquid({
   root: ["src/_includes"],
-  extname: '.liquid'
+  extname: ".liquid",
 });
 
 export default {
@@ -12,7 +12,7 @@ export default {
       description: async function (data) {
         const renderedContent = await liquid.parseAndRender(
           data.page.rawInput,
-          data
+          data,
         );
         return podcast.markdownToCDATA(renderedContent);
       },
