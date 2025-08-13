@@ -1,4 +1,6 @@
 import matter from 'gray-matter';
+import helpers from "../src/_data/helpers.js";
+
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const NAMESPACE_ID = process.env.CLOUDFLARE_KV_STUBS_NS_ID;
@@ -122,9 +124,18 @@ export default function kvCollectionsPlugin(eleventyConfig) {
         eleventyConfig.addCollection(collectionName, (collectionApi) => {
           const collection = kvCollections[collectionName];
 
-          return Object.entries(collection).map(([itemKey, itemData]) => ({
-            ...itemData
-          }));
+          return Object.entries(collection).map(([itemKey, itemData]) => {
+            if (!itemData.permalink) {
+              if (!itemData.title || !itemData.date) {
+                throw new Error(`Unable to generate permalink for item with key: ${itemKey}`);
+              }
+              itemData.permalink = `/${collectionName}/${helpers.permalinkToPath(itemData.title, itemData.date)}`;
+            }
+
+            return {
+              ...itemData
+            };
+          });
         });
       });
     }

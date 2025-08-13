@@ -137,30 +137,6 @@ export default async function (eleventyConfig) {
     eleventyConfig.addCollection(`${collectionName}`, function (collectionApi) {
       return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
     });
-
-    eleventyConfig.addCollection(
-      `${collectionName}-years`,
-      function (collectionApi) {
-        let yearMap = new Map();
-
-        collectionApi
-          .getFilteredByGlob(`src/${collectionName}/*.md`)
-          .forEach((item) => {
-            if ("date" in item.data) {
-              let year = new Date(item.data.date).getFullYear();
-              if (!yearMap.has(year)) {
-                yearMap.set(year, new Set());
-              }
-              yearMap.get(year).add(item);
-            }
-          });
-
-        return Array.from(yearMap, ([year, items]) => ({
-          year,
-          items: [...items],
-        }));
-      },
-    );
   });
 
   /* Markdown Configuration */

@@ -2,7 +2,7 @@ import helpers from "../_data/helpers.js";
 
 export default {
   permalink: function (data) {
-    return `/writing/${helpers.permalinkToPath(data.post.title, data.post.date)}`;
+    return data.post.permalink;
   },
   eleventyComputed: {
     ogData: function ({ title, date }) {
