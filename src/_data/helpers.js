@@ -41,8 +41,10 @@ export default {
     return DateTime.fromJSDate(date).toFormat(formatString);
   },
   dateToRFC2822: function (date) {
-    // Convert to RFC 2822 format
     return date.toUTCString();
+  },
+  dateToRFC339: function (date) {
+    return date.toISOString();
   },
   getLinkActiveState(itemPath, pagePath) {
     let response = "";
@@ -71,5 +73,15 @@ export default {
       default:
         return "Invalid input. Parameters were: ${count} and ${type}";
     }
+  },
+  getNewestCollectionItemDate: function (collection) {
+    if (!collection || collection.length === 0) {
+      throw new Error(`No items in collection "${collection}"`);
+    }
+    
+    return collection.reduce((newest, item) => {
+      const itemDate = item.date || item.data?.date;
+      return itemDate > newest ? itemDate : newest;
+    }, collection[0].date || collection[0].data?.date || new Date());
   },
 };

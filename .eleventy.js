@@ -61,27 +61,6 @@ export default async function (eleventyConfig) {
     quiet: true,
   });
 
-  // RSS / Atom feed
-  // ** Implicitly builds from a Nunjucks template, so templateFormats must include "njk" **
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom", // or "rss", "json"
-    outputPath: siteConfig.rss.outputPath,
-    collection: {
-      name: siteConfig.rss.collection, // iterate over `collections.posts`
-      limit: 0, // 0 means no limit
-    },
-    metadata: {
-      language: "en",
-      title: `${siteConfig.rss.title}`,
-      subtitle: siteConfig.rss.subtitle,
-      base: `https://${siteConfig.domain}`,
-      author: {
-        name: siteConfig.authorName,
-        email: siteConfig.authorEmail, // Optional
-      },
-    },
-  });
-
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
     outputFileExtension: "webp",
     outputDir: "assets/images/og",
@@ -269,6 +248,14 @@ export default async function (eleventyConfig) {
   // Filters used for OpenGraph SVG generation
   eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
+  // Custom filter to convert date to RFC3339 format
+  // Called like this: {{ date | dateToRfc3339 }}
+  eleventyConfig.addFilter("dateToRfc3339", helpers.dateToRFC339);
+
+  // Custom filter to get the latest date on the items within a collection
+  // Called like this: {{ collections.name | getNewestCollectionItemDate }}
+  eleventyConfig.addFilter("getNewestCollectionItemDate", helpers.getNewestCollectionItemDate);
+
   /* Shortcodes */
   /**************/
 
@@ -315,7 +302,7 @@ export default async function (eleventyConfig) {
       output: "_site",
     },
     // Define other options like pathPrefix
-    templateFormats: ["liquid", "md", "njk"],
+    templateFormats: ["liquid", "md"],
     htmlTemplateEngine: "liquid",
   };
 }
