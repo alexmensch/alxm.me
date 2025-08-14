@@ -2,6 +2,7 @@ import slugify from "slugify";
 import { DateTime } from "luxon";
 import { LoremIpsum } from "lorem-ipsum";
 import MarkdownIt from "markdown-it";
+import { Liquid } from "liquidjs";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -14,17 +15,24 @@ const lorem = new LoremIpsum({
   },
 });
 
-const md = new MarkdownIt({
+const markdown = new MarkdownIt({
   html: true, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />)
   breaks: false, // Convert '\n' in paragraphs into <br>
   linkify: true, // Autoconvert URL-like text to links
 });
 
-export const markdown = md;
+const liquid = new Liquid({
+  root: ["src/_includes"],
+  extname: ".liquid",
+});
+
+export const md = markdown;
+export const lq = liquid;
 
 export default {
-  markdown,
+  lq,
+  md,
   currentYear: function () {
     return new String(new Date().getFullYear());
   },

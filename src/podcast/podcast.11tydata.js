@@ -1,11 +1,5 @@
 import helpers from "../_data/helpers.js";
 import podcast from "../_data/podcast.js";
-import { Liquid } from "liquidjs";
-
-const liquid = new Liquid({
-  root: ["src/_includes"],
-  extname: ".liquid",
-});
 
 export default {
   permalink: function ({ title }) {
@@ -22,7 +16,7 @@ export default {
       return helpers.dateToRFC2822(date);
     },
     description: async function (data) {
-      const renderedContent = await liquid.parseAndRender(
+      const renderedContent = await helpers.lq.parseAndRender(
         data.page.rawInput,
         data,
       );

@@ -8,7 +8,7 @@ import { promises as fs } from "node:fs";
 import "dotenv/config";
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import { InputPathToUrlTransformPlugin, RenderPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
@@ -25,6 +25,8 @@ export default async function (eleventyConfig) {
   /****************/
   // Custom Cloudflare KV -> Collections fetch
   eleventyConfig.addPlugin(kvCollectionsPlugin);
+
+  eleventyConfig.addPlugin(RenderPlugin);
 
   // Image transforms
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
