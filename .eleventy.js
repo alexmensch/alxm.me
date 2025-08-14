@@ -15,6 +15,7 @@ import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "./eleventy-plugins/kv-collections.js";
+import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
@@ -27,7 +28,11 @@ export default async function (eleventyConfig) {
   // Custom Cloudflare KV -> Collections fetch
   eleventyConfig.addPlugin(kvCollectionsPlugin);
 
+  // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);
+
+  // Add the permalink tracker plugin
+  eleventyConfig.addPlugin(permalinkTracker);
 
   // Image transforms
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);

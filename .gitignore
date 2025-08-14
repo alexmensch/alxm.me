@@ -8,3 +8,4 @@ _site/
 # Generated files
 _cloudflare/worker.js
 _cloudflare/wrangler.toml
+permalinks.txt

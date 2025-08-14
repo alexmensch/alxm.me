@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import helpers from "../src/_data/helpers.js";
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const NAMESPACE_ID = process.env.CLOUDFLARE_KV_STUBS_NS_ID;
+const NAMESPACE_ID = process.env.CLOUDFLARE_KV_NS_ID;
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 
 const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
@@ -31,6 +31,10 @@ async function fetchKVValue(key) {
       Authorization: `Bearer ${API_TOKEN}`,
     },
   });
+
+  if (response.status === 404) {
+    return null; // Key doesn't exist
+  }
 
   if (!response.ok) {
     throw new Error(`❌ Failed to fetch KV value for key: ${key}`);
