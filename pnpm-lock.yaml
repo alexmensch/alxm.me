@@ -25,9 +25,6 @@ importers:
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.1
         version: 1.0.1
-      '@11ty/eleventy-plugin-rss':
-        specifier: ^2.0.4
-        version: 2.0.4
       '@11ty/eleventy-plugin-syntaxhighlight':
         specifier: ^5.0.2
         version: 5.0.2
@@ -120,9 +117,6 @@ packages:
 
   '@11ty/eleventy-plugin-directory-output@1.0.1':
     resolution: {integrity: sha512-CPBiAOOu5pCIuQW10mURGMK/zBA6gwhzqZmzBBbUeqRsmb3gDk0jcQh/H+2D538Az6NVRSOfjXOzZWorjpG6nw==}
-
-  '@11ty/eleventy-plugin-rss@2.0.4':
-    resolution: {integrity: sha512-LF60sGVlxGTryQe3hTifuzrwF8R7XbrNsM2xfcDcNMSliLN4kmB+7zvoLRySRx0AQDjqhPTAeeeT0ra6/9zHUQ==}
 
   '@11ty/eleventy-plugin-syntaxhighlight@5.0.2':
     resolution: {integrity: sha512-T6xVVRDJuHlrFMHbUiZkHjj5o1IlLzZW+1IL9eUsyXFU7rY2ztcYhZew/64vmceFFpQwzuSfxQOXxTJYmKkQ+A==}
@@ -1454,15 +1448,6 @@ snapshots:
     dependencies:
       kleur: 4.1.5
       strip-color: 0.1.0
-
-  '@11ty/eleventy-plugin-rss@2.0.4':
-    dependencies:
-      '@11ty/eleventy-utils': 2.0.7
-      '@11ty/posthtml-urls': 1.0.1
-      debug: 4.4.1
-      posthtml: 0.16.6
-    transitivePeerDependencies:
-      - supports-color
 
   '@11ty/eleventy-plugin-syntaxhighlight@5.0.2':
     dependencies:
