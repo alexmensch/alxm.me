@@ -10,7 +10,6 @@ import "dotenv/config";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
