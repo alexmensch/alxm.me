@@ -1,15 +1,11 @@
-import helpers from "../_data/helpers.js";
-
 export default {
-  permalink: function ({ title, date }) {
-    return `/writing/${helpers.permalinkToPath(title, date)}`;
-  },
+  // For metadata that needs to be preserved as objects
   eleventyComputed: {
-    ogData: function ({ title, date }) {
-      return {
-        title: title,
-        date: date,
-      };
-    },
+    date: (data) => data.post.date,
+    version_date: (data) => data.post.version_date,
+    ogData: (data) => ({
+      date: data.post.date,
+      title: data.post.title,
+    }),
   },
 };

@@ -6,7 +6,7 @@
   --measure: #{dt.get-value("measure", "long")};
   --padding: #{dt.get-size("xs")};
   --shadow-size: #{dt.get-size("2xs-xs")};
- 
+
   --color-dark: #2e3a50;
   --color-dark-shade: #212a3d;
   --color-dark-glare: #465270;
@@ -49,7 +49,7 @@
     --color-primary: #ff6b7a;
     --color-primary-shade: #ff8a96;
     --color-primary-glare: #ff4d60;
-    
+
     --color-secondary: #2563eb;
     --color-secondary-shade: #1d4ed8;
     --color-secondary-glare: #3b82f6;
@@ -57,7 +57,7 @@
     // Exceptions to dark mode colour swap
     --footer-bg: var(--color-light-shade);
     --footer-text: var(--color-dark-shade);
-    
+
     --hero-bg: var(--color-secondary);
     --hero-header-text: var(--color-light);
     --hero-header-text-mark: var(--color-dark-shade);

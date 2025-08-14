@@ -21,8 +21,35 @@
   </div>
 
   {% if type == "writing" %}
-    {% for year in years reversed %}
-      {% render "partials/writing-collection", collection: year.items, year: year.year %}
+    {% comment %}
+    Groups items by year, then partials/writing-collection renders a year and its items
+    {% endcomment %}
+
+    {% assign items_with_dates = writing_collection | where: "date" %}
+    {% assign years_map = "" | split: "" %}
+    {% assign unique_years = "" | split: "" %}
+
+    {% for item in items_with_dates %}
+      {% assign item_year = item.date | date: "%Y" | plus: 0 %}
+      {% unless unique_years contains item_year %}
+        {% assign unique_years = unique_years | push: item_year %}
+      {% endunless %}
+    {% endfor %}
+
+    {% assign sorted_years = unique_years | sort | reverse %}
+
+    {% for year in sorted_years %}
+      {% assign year_items = "" | split: "" %}
+      
+      {% for item in items_with_dates %}
+        {% assign item_year = item.date | date: "%Y" | plus: 0 %}
+        {% if item_year == year %}
+          {% assign year_items = year_items | push: item %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign year_items = year_items | sort: "date" %}
+      {% render "partials/writing-collection", collection: year_items, year: year %}
     {% endfor %}
   {% endif %}
 

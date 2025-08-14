@@ -1,9 +1,11 @@
 import podcast from "../../_data/podcast.js";
+import helpers from "../../_data/helpers.js";
+import site from "../../_data/site.js";
 import { Liquid } from "liquidjs";
 
 const liquid = new Liquid({
   root: ["src/_includes"],
-  extname: '.liquid'
+  extname: ".liquid",
 });
 
 export default {
@@ -12,9 +14,12 @@ export default {
       description: async function (data) {
         const renderedContent = await liquid.parseAndRender(
           data.page.rawInput,
-          data
+          data,
         );
         return podcast.markdownToCDATA(renderedContent);
+      },
+      copyright: function (data) {
+        return `Copyright &#169; ${helpers.currentYear()} ${site.authorName}`;
       },
     },
     /*

@@ -5,12 +5,11 @@ import mdSmartArrows from "markdown-it-smartarrows";
 import * as sass from "sass";
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import 'dotenv/config';
+import "dotenv/config";
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
@@ -59,27 +58,6 @@ export default async function (eleventyConfig) {
       rejected: false,
     },
     quiet: true,
-  });
-
-  // RSS / Atom feed
-  // ** Implicitly builds from a Nunjucks template, so templateFormats must include "njk" **
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom", // or "rss", "json"
-    outputPath: siteConfig.rss.outputPath,
-    collection: {
-      name: siteConfig.rss.collection, // iterate over `collections.posts`
-      limit: 0, // 0 means no limit
-    },
-    metadata: {
-      language: "en",
-      title: `${siteConfig.rss.title}`,
-      subtitle: siteConfig.rss.subtitle,
-      base: `https://${siteConfig.domain}`,
-      author: {
-        name: siteConfig.authorName,
-        email: siteConfig.authorEmail, // Optional
-      },
-    },
   });
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
@@ -137,30 +115,6 @@ export default async function (eleventyConfig) {
     eleventyConfig.addCollection(`${collectionName}`, function (collectionApi) {
       return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
     });
-
-    eleventyConfig.addCollection(
-      `${collectionName}-years`,
-      function (collectionApi) {
-        let yearMap = new Map();
-
-        collectionApi
-          .getFilteredByGlob(`src/${collectionName}/*.md`)
-          .forEach((item) => {
-            if ("date" in item.data) {
-              let year = new Date(item.data.date).getFullYear();
-              if (!yearMap.has(year)) {
-                yearMap.set(year, new Set());
-              }
-              yearMap.get(year).add(item);
-            }
-          });
-
-        return Array.from(yearMap, ([year, items]) => ({
-          year,
-          items: [...items],
-        }));
-      },
-    );
   });
 
   /* Markdown Configuration */
@@ -293,6 +247,25 @@ export default async function (eleventyConfig) {
   // Filters used for OpenGraph SVG generation
   eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
+  // Custom filter to convert date to RFC3339 format
+  // Called like this: {{ date | dateToRfc3339 }}
+  eleventyConfig.addFilter("dateToRfc3339", helpers.dateToRFC339);
+
+  // Custom filter to get the latest date on the items within a collection
+  // Called like this: {{ collections.name | getNewestCollectionItemDate }}
+  eleventyConfig.addFilter(
+    "getNewestCollectionItemDate",
+    helpers.getNewestCollectionItemDate,
+  );
+
+  // Renders Markdown input to HTML
+  // Example: {{ markdown_content | markdownToHTML }}
+  eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
+
+  // Escapes HTML content
+  // Example: {{ html_content | escapeHTML }}
+  eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
+
   /* Shortcodes */
   /**************/
 
@@ -339,7 +312,7 @@ export default async function (eleventyConfig) {
       output: "_site",
     },
     // Define other options like pathPrefix
-    templateFormats: ["liquid", "md", "njk"],
+    templateFormats: ["liquid", "md"],
     htmlTemplateEngine: "liquid",
   };
 }

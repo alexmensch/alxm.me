@@ -1,13 +1,11 @@
-import helpers from "../_data/helpers.js";
-
 export default {
-  permalink: function (data) {
-    return data.stub.permalink || `/s/${helpers.permalinkToPage(data.stub.title)}/`;
-  },
+  // For metadata that needs to be preserved as objects
   eleventyComputed: {
-    // Flatten metadata so that templates work with pagination
-    title: function (data) { return data.stub.title; },
-    date: function (data) { return data.stub.date; },
-    hero: function (data) { return data.stub.hero; },
+    date: (data) => data.stub.date,
+    hero: (data) => data.stub.hero,
+    ogData: (data) => ({
+      date: data.stub.date,
+      title: data.stub.title,
+    }),
   },
 };
