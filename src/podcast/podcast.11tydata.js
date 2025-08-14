@@ -15,13 +15,6 @@ export default {
     pubDate: function ({ date }) {
       return helpers.dateToRFC2822(date);
     },
-    description: async function (data) {
-      const renderedContent = await helpers.lq.parseAndRender(
-        data.page.rawInput,
-        data,
-      );
-      return podcast.markdownToCDATA(renderedContent);
-    },
     itunes: {
       duration: async function ({ recording }) {
         if (!recording) {

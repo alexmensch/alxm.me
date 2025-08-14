@@ -19,6 +19,7 @@ import kvCollectionsPlugin from "./eleventy-plugins/kv-collections.js";
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
 import openGraph from "./src/_data/opengraph.js";
+import podcast from "./src/_data/podcast.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -263,6 +264,10 @@ export default async function (eleventyConfig) {
   // Renders Markdown input to HTML
   // Example: {{ markdown_content | markdownToHTML }}
   eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
+
+  // Renders Markdown input to CDATA-enclosed HTML
+  // Example: {{ markdown_content | markdownToCDATA }}
+  eleventyConfig.addFilter("markdownToCDATA", podcast.markdownToCDATA);
 
   // Escapes HTML content
   // Example: {{ html_content | escapeHTML }}

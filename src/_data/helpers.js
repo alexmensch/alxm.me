@@ -2,7 +2,6 @@ import slugify from "slugify";
 import { DateTime } from "luxon";
 import { LoremIpsum } from "lorem-ipsum";
 import MarkdownIt from "markdown-it";
-import { Liquid } from "liquidjs";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -22,16 +21,9 @@ const markdown = new MarkdownIt({
   linkify: true, // Autoconvert URL-like text to links
 });
 
-const liquid = new Liquid({
-  root: ["src/_includes"],
-  extname: ".liquid",
-});
-
 export const md = markdown;
-export const lq = liquid;
 
 export default {
-  lq,
   md,
   currentYear: function () {
     return new String(new Date().getFullYear());

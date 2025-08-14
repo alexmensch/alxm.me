@@ -35,7 +35,6 @@
     "get-audio-duration": "^4.0.1",
     "gray-matter": "^4.0.3",
     "hookable": "^5.5.3",
-    "liquidjs": "^10.21.1",
     "lorem-ipsum": "^2.0.8",
     "luxon": "^3.7.1",
     "markdown-it": "^14.1.0",
