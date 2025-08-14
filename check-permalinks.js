@@ -1,11 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { config } from 'dotenv';
+
+// Load environment variables from .env file
+config({ quiet: true });
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const NAMESPACE_ID = process.env.CLOUDFLARE_KV_STUBS_NS_ID;
+const NAMESPACE_ID = process.env.CLOUDFLARE_KV_PERMALINK_NS_ID;
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
-const BASELINE_KV_KEY = '_system/permalink-baseline';
+const BASELINE_KV_KEY = 'permalink-baseline';
 
 async function fetchKVValue(key) {
   if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
@@ -84,6 +88,19 @@ async function main() {
     console.error('❌ No current permalinks file found. Run 11ty build first.');
     process.exit(1);
   }
+
+  if (process.argv.includes('--update-baseline')) {
+    const currentContent = fs.readFileSync(currentFile, 'utf8');
+    const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
+    
+    if (kvStored) {
+      console.log('\n✅ Updated baseline in Cloudflare KV');
+    } else {
+      console.log('\n❌ Failed to update KV baseline');
+      process.exit(1);
+    }
+    return;
+  }
   
   const baselinePermalinks = await getBaselinePermalinks();
   
@@ -94,8 +111,7 @@ async function main() {
     const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
     
     if (kvStored) {
-      console.log('🆕 Created initial permalink baseline in Cloudflare KV');
-      console.log('✅ Baseline is now stored privately in KV');
+      console.log('✅ Created initial permalink baseline in Cloudflare KV');
     } else {
       console.error('❌ Failed to store baseline in KV');
       process.exit(1);
@@ -128,6 +144,11 @@ async function main() {
     missingPermalinks.forEach(permalink => {
       console.log(`   ${permalink}`);
     });
+    console.log('\n💡 If permalink changes are intentional:');
+    console.log('   1. Add redirects for the missing URLs');
+    console.log('   2. Update KV baseline: node check-permalinks.js --update-baseline');
+    
+    process.exit(1); // Fail build if permalinks are missing
   }
   
   if (newPermalinks.length > 0) {
@@ -141,27 +162,6 @@ async function main() {
   
   if (missingPermalinks.length === 0 && newPermalinks.length === 0) {
     console.log('\n✅ All permalinks match baseline - no broken links detected');
-  }
-  
-  if (missingPermalinks.length > 0) {
-    console.log('\n💡 If permalink changes are intentional:');
-    console.log('   1. Add redirects for the missing URLs');
-    console.log('   2. Update KV baseline: node check-permalinks.js --update-baseline');
-    
-    process.exit(1); // Fail build if permalinks are missing
-  }
-  
-  // Handle --update-baseline flag for KV updates
-  if (process.argv.includes('--update-baseline') && newPermalinks.length > 0) {
-    const currentContent = fs.readFileSync(currentFile, 'utf8');
-    const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
-    
-    if (kvStored) {
-      console.log('\n✅ Updated baseline in Cloudflare KV');
-    } else {
-      console.log('\n❌ Failed to update KV baseline');
-      process.exit(1);
-    }
   }
 }
 
