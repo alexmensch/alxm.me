@@ -1,4 +1,6 @@
 import podcast from "../../_data/podcast.js";
+import helpers from "../../_data/helpers.js";
+import site from "../../_data/site.js";
 import { Liquid } from "liquidjs";
 
 const liquid = new Liquid({
@@ -16,6 +18,9 @@ export default {
         );
         return podcast.markdownToCDATA(renderedContent);
       },
+      copyright: function (data) {
+        return `Copyright &#169; ${helpers.currentYear()} ${site.authorName}`;
+      },
     },
     /*
      * podcast.11tydata.js from the parent directory propagates data into all
@@ -28,3 +33,5 @@ export default {
     enclosure: undefined,
   },
 };
+
+ 

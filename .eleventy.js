@@ -255,6 +255,14 @@ export default async function (eleventyConfig) {
   // Called like this: {{ collections.name | getNewestCollectionItemDate }}
   eleventyConfig.addFilter("getNewestCollectionItemDate", helpers.getNewestCollectionItemDate);
 
+  // Renders Markdown input to HTML
+  // Example: {{ markdown_content | markdownToHTML }}
+  eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
+
+  // Escapes HTML content
+  // Example: {{ html_content | escapeHTML }}
+  eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
+
   /* Shortcodes */
   /**************/
 

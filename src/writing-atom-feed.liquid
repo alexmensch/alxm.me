@@ -20,14 +20,14 @@ eleventyComputed:
   <link href="{{ baseUrl | append: permalink }}" rel="self" />
   <link href="{{ baseUrl  | append: '/' }}" />
   <updated>{{ collection | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ baseUrl }}</id>
+  <id>{{ baseUrl | append: "/" }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     {%- if metadata.author.email %}
     <email>{{ metadata.author.email }}</email>
     {%- endif %}
   </author>
-  {% assign sorted_collection = collection | sort: "date" | reverse %}
+  {%- assign sorted_collection = collection | sort: "date" | reverse %}
   {%- for post in sorted_collection %}
   {%- capture absolutePostUrl -%}{{ baseUrl | append: post.permalink }}{%- endcapture %}
   <entry>
@@ -35,7 +35,7 @@ eleventyComputed:
     <link href="{{ absolutePostUrl }}" />
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.content | renderTransforms: post.data.page, metadata.base }}</content>
+    <content type="html">{{ post.content | markdownToHTML | escapeHTML }}</content>
   </entry>
   {%- endfor %}
 </feed>

@@ -1,13 +1,6 @@
-import MarkdownIt from "markdown-it";
 import { getAudioDurationInSeconds } from "get-audio-duration";
 import { stat } from "fs/promises";
-
-const md = new MarkdownIt({
-  html: true, // Enable HTML tags in source
-  xhtmlOut: true, // Use '/' to close single tags (<br />)
-  breaks: false, // Convert '\n' in paragraphs into <br>
-  linkify: true, // Autoconvert URL-like text to links
-});
+import { markdown as md } from "./helpers.js"
 
 export default {
   markdownToCDATA: function (markdownContent) {
