@@ -1,39 +1,113 @@
 import fs from 'fs';
 import path from 'path';
 
-function readPermalinks(filePath) {
-  if (!fs.existsSync(filePath)) {
-    return new Set();
+const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
+const NAMESPACE_ID = process.env.CLOUDFLARE_KV_STUBS_NS_ID;
+const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
+const BASELINE_KV_KEY = '_system/permalink-baseline';
+
+async function fetchKVValue(key) {
+  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
+    return null; // Fall back to file-based approach
   }
   
-  const content = fs.readFileSync(filePath, 'utf8');
-  return new Set(
-    content
+  try {
+    const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+    });
+
+    if (response.status === 404) {
+      return null; // Key doesn't exist
+    }
+
+    if (!response.ok) {
+      console.warn(`⚠️ Failed to fetch from KV: ${response.status}`);
+      return null;
+    }
+
+    return response.text();
+  } catch (error) {
+    console.warn('⚠️ KV fetch error, falling back to file:', error.message);
+    return null;
+  }
+}
+
+async function storeKVValue(key, value) {
+  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
+    return false;
+  }
+  
+  try {
+    const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+        'Content-Type': 'text/plain',
+      },
+      body: value,
+    });
+
+    return response.ok;
+  } catch (error) {
+    console.warn('⚠️ KV store error:', error.message);
+    return false;
+  }
+}
+
+async function getBaselinePermalinks() {
+  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
+    console.error('❌ Cloudflare KV credentials not configured. Cannot proceed without KV.');
+    process.exit(1);
+  }
+  
+  const kvContent = await fetchKVValue(BASELINE_KV_KEY);
+  if (kvContent) {
+    console.log('📁 Using baseline from Cloudflare KV');
+    return new Set(
+      kvContent
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+    );
+  }
+  
+  return new Set();
+}
+
+async function main() {
+  const currentFile = path.join(process.cwd(), 'permalinks.txt');
+  
+  if (!fs.existsSync(currentFile)) {
+    console.error('❌ No current permalinks file found. Run 11ty build first.');
+    process.exit(1);
+  }
+  
+  const baselinePermalinks = await getBaselinePermalinks();
+  
+  // Check if this is the first run (no baseline exists in KV)
+  if (baselinePermalinks.size === 0) {
+    const currentContent = fs.readFileSync(currentFile, 'utf8');
+    
+    const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
+    
+    if (kvStored) {
+      console.log('🆕 Created initial permalink baseline in Cloudflare KV');
+      console.log('✅ Baseline is now stored privately in KV');
+    } else {
+      console.error('❌ Failed to store baseline in KV');
+      process.exit(1);
+    }
+    return;
+  }
+  const currentPermalinks = new Set(
+    fs.readFileSync(currentFile, 'utf8')
       .split('\n')
       .map(line => line.trim())
       .filter(line => line.length > 0)
   );
-}
-
-function main() {
-  const baselineFile = path.join(process.cwd(), 'permalinks-baseline.txt');
-  const currentFile = path.join(process.cwd(), 'permalinks.txt');
-  
-  // Check if this is the first run
-  if (!fs.existsSync(baselineFile)) {
-    if (fs.existsSync(currentFile)) {
-      fs.copyFileSync(currentFile, baselineFile);
-      console.log('🆕 Created initial permalink baseline from current build');
-      console.log('📝 Please commit permalinks-baseline.txt to your repository');
-      return;
-    } else {
-      console.error('❌ No current permalinks file found. Run 11ty build first.');
-      process.exit(1);
-    }
-  }
-  
-  const baselinePermalinks = readPermalinks(baselineFile);
-  const currentPermalinks = readPermalinks(currentFile);
   
   // Find missing permalinks (existed in baseline but not in current)
   const missingPermalinks = [...baselinePermalinks].filter(
@@ -62,9 +136,7 @@ function main() {
       console.log(`   ${permalink}`);
     });
     console.log('\n📝 To accept these new permalinks, update your baseline:');
-    console.log('   cp permalinks.txt permalinks-baseline.txt');
-    console.log('   git add permalinks-baseline.txt');
-    console.log('   git commit -m "Update permalink baseline"');
+    console.log('   node check-permalinks.js --update-baseline');
   }
   
   if (missingPermalinks.length === 0 && newPermalinks.length === 0) {
@@ -74,13 +146,26 @@ function main() {
   if (missingPermalinks.length > 0) {
     console.log('\n💡 If permalink changes are intentional:');
     console.log('   1. Add redirects for the missing URLs');
-    console.log('   2. Update baseline: cp permalinks.txt permalinks-baseline.txt');
-    console.log('   3. Commit the updated baseline');
+    console.log('   2. Update KV baseline: node check-permalinks.js --update-baseline');
     
-    process.exit(1);
+    process.exit(1); // Fail build if permalinks are missing
+  }
+  
+  // Handle --update-baseline flag for KV updates
+  if (process.argv.includes('--update-baseline') && newPermalinks.length > 0) {
+    const currentContent = fs.readFileSync(currentFile, 'utf8');
+    const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
+    
+    if (kvStored) {
+      console.log('\n✅ Updated baseline in Cloudflare KV');
+    } else {
+      console.log('\n❌ Failed to update KV baseline');
+      process.exit(1);
+    }
   }
 }
 
+// Run if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }

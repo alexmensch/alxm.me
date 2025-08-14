@@ -32,6 +32,10 @@ async function fetchKVValue(key) {
     },
   });
 
+  if (response.status === 404) {
+    return null; // Key doesn't exist
+  }
+
   if (!response.ok) {
     throw new Error(`❌ Failed to fetch KV value for key: ${key}`);
   }
