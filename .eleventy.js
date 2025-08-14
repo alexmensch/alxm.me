@@ -253,7 +253,10 @@ export default async function (eleventyConfig) {
 
   // Custom filter to get the latest date on the items within a collection
   // Called like this: {{ collections.name | getNewestCollectionItemDate }}
-  eleventyConfig.addFilter("getNewestCollectionItemDate", helpers.getNewestCollectionItemDate);
+  eleventyConfig.addFilter(
+    "getNewestCollectionItemDate",
+    helpers.getNewestCollectionItemDate,
+  );
 
   // Renders Markdown input to HTML
   // Example: {{ markdown_content | markdownToHTML }}

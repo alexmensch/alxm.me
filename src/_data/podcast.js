@@ -1,6 +1,6 @@
 import { getAudioDurationInSeconds } from "get-audio-duration";
 import { stat } from "fs/promises";
-import { markdown as md } from "./helpers.js"
+import { markdown as md } from "./helpers.js";
 
 export default {
   markdownToCDATA: function (markdownContent) {

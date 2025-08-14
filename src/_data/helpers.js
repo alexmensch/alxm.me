@@ -89,11 +89,14 @@ export default {
     if (!collection || collection.length === 0) {
       throw new Error(`No items in collection "${collection}"`);
     }
-    
-    return collection.reduce((newest, item) => {
-      const itemDate = item.date || item.data?.date;
-      return itemDate > newest ? itemDate : newest;
-    }, collection[0].date || collection[0].data?.date || new Date());
+
+    return collection.reduce(
+      (newest, item) => {
+        const itemDate = item.date || item.data?.date;
+        return itemDate > newest ? itemDate : newest;
+      },
+      collection[0].date || collection[0].data?.date || new Date(),
+    );
   },
   markdownToHTML: function (content) {
     return String(md.render(content));
@@ -101,14 +104,14 @@ export default {
   escapeHTML: function (string) {
     return String(string).replace(
       /[&<>'"]/g,
-      tag =>
+      (tag) =>
         ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          "'": '&#39;',
-          '"': '&quot;'
-        }[tag] || tag)
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "'": "&#39;",
+          '"': "&quot;",
+        })[tag] || tag,
     );
   },
 };
