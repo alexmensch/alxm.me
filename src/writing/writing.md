@@ -9,4 +9,4 @@ eleventyComputed:
   permalink: "{{ post.permalink }}"
 ---
 
-{{ post.content }}
+{{ post.content | renderContent: "liquid" }}

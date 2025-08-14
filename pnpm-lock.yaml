@@ -49,9 +49,6 @@ importers:
       hookable:
         specifier: ^5.5.3
         version: 5.5.3
-      liquidjs:
-        specifier: ^10.21.1
-        version: 10.21.1
       lorem-ipsum:
         specifier: ^2.0.8
         version: 2.0.8

@@ -14,17 +14,17 @@ const lorem = new LoremIpsum({
   },
 });
 
-const md = new MarkdownIt({
+const markdown = new MarkdownIt({
   html: true, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />)
   breaks: false, // Convert '\n' in paragraphs into <br>
   linkify: true, // Autoconvert URL-like text to links
 });
 
-export const markdown = md;
+export const md = markdown;
 
 export default {
-  markdown,
+  md,
   currentYear: function () {
     return new String(new Date().getFullYear());
   },
