@@ -11,4 +11,4 @@ eleventyComputed:
   permalink: "{{ stub.permalink }}"
 ---
 
-{{ stub.content }}
+{{ stub.content | renderContent: "liquid" }}
