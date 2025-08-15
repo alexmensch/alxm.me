@@ -23,7 +23,7 @@ const markdown = new MarkdownIt({
 
 const helpers = {
   md: markdown,
-  currentYear: function() {
+  currentYear: function () {
     return new Date().getFullYear().toString();
   },
   permalinkToPath: function (title, date) {
