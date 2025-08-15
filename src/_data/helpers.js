@@ -21,22 +21,17 @@ const markdown = new MarkdownIt({
   linkify: true, // Autoconvert URL-like text to links
 });
 
-export const md = markdown;
-
-export default {
-  md,
-  currentYear: function () {
-    return new String(new Date().getFullYear());
+const helpers = {
+  md: markdown,
+  currentYear: function() {
+    return new Date().getFullYear().toString();
   },
-  // Standardize permalink format for full path use
   permalinkToPath: function (title, date) {
     return `${this.toDate(date, "/")}/${this.toSlug(title)}/`;
   },
-  // Standardize permalink format for single file name use
   permalinkToFilename: function (title, date) {
     return `${this.toDate(date, "-")}-${this.toSlug(title)}`;
   },
-  // Standardize permalink format for single page use -- without a date
   permalinkToPage: function (title) {
     return `${this.toSlug(title)}`;
   },
@@ -99,7 +94,7 @@ export default {
     );
   },
   markdownToHTML: function (content) {
-    return String(md.render(content));
+    return String(markdown.render(content));
   },
   escapeHTML: function (string) {
     return String(string).replace(
@@ -115,3 +110,5 @@ export default {
     );
   },
 };
+
+export default helpers;
