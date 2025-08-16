@@ -1,17 +1,17 @@
 import matter from "gray-matter";
-import helpers from "../src/_data/helpers.js";
 
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const NAMESPACE_ID = process.env.CLOUDFLARE_KV_NS_ID;
-const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
-
-const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
+// Default environment variable names
+const DEFAULT_ENV_VARS = {
+  accountId: "CLOUDFLARE_ACCOUNT_ID",
+  namespaceId: "CLOUDFLARE_KV_NS_ID",
+  cloudflareAPIToken: "CLOUDFLARE_API_TOKEN"
+};
 
 // KV API Helper Functions
-async function fetchFromKV(endpoint) {
-  const response = await fetch(`${KV_BASE_URL}${endpoint}`, {
+async function fetchFromKV(kvBaseUrl, apiToken) {
+  const response = await fetch(`${kvBaseUrl}/keys`, {
     headers: {
-      Authorization: `Bearer ${API_TOKEN}`,
+      Authorization: `Bearer ${apiToken}`,
       "Content-Type": "application/json",
     },
   });
@@ -25,10 +25,10 @@ async function fetchFromKV(endpoint) {
   return response.json();
 }
 
-async function fetchKVValue(key) {
-  const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
+async function fetchKVValue(kvBaseUrl, apiToken, key) {
+  const response = await fetch(`${kvBaseUrl}/values/${key}`, {
     headers: {
-      Authorization: `Bearer ${API_TOKEN}`,
+      Authorization: `Bearer ${apiToken}`,
     },
   });
 
@@ -44,23 +44,35 @@ async function fetchKVValue(key) {
 }
 
 // Main KV Collections Fetcher
-async function fetchKVCollections() {
+async function fetchKVCollections(config, quiet) {
+  const {
+    accountId: accountIdVar,
+    namespaceId: namespaceIdVar,
+    cloudflareAPIToken: apiTokenVar
+  } = config.envVars;
+
+  const ACCOUNT_ID = process.env[accountIdVar];
+  const NAMESPACE_ID = process.env[namespaceIdVar];
+  const API_TOKEN = process.env[apiTokenVar];
+
   if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
     throw new Error(
-      "❌ Cloudflare credential environment variables not found.",
+      `❌ Cloudflare credential environment variables not found. Expected: ${accountIdVar}, ${apiTokenVar}, ${namespaceIdVar}`,
     );
   }
 
+  const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
+
   try {
-    const keysResponse = await fetchFromKV("/keys");
+    const keysResponse = await fetchFromKV(KV_BASE_URL, API_TOKEN);
     const keys = keysResponse.result;
 
     if (!keys || keys.length === 0) {
-      console.log("❌ No keys found in KV namespace");
+      if (!quiet) console.log("❌ No keys found in KV namespace");
       return {};
     }
 
-    console.log(`✅ Found ${keys.length} keys in KV namespace`);
+    if (!quiet) console.log(`✅ Found ${keys.length} keys in KV namespace`);
 
     const collections = {};
 
@@ -68,7 +80,7 @@ async function fetchKVCollections() {
       keys.map(async (keyObj) => {
         try {
           const kvKey = keyObj.name;
-          const content = await fetchKVValue(kvKey);
+          const content = await fetchKVValue(KV_BASE_URL, API_TOKEN, kvKey);
 
           const parsed = matter(content);
 
@@ -105,9 +117,12 @@ async function fetchKVCollections() {
       (sum, collection) => sum + Object.keys(collection).length,
       0,
     );
-    console.log(
-      `✅ Successfully processed ${totalItems} items across ${Object.keys(collections).length} collection(s)`,
-    );
+    
+    if (!quiet) {
+      console.log(
+        `✅ Successfully processed ${totalItems} items across ${Object.keys(collections).length} collection(s)`,
+      );
+    }
 
     return collections;
   } catch (error) {
@@ -116,37 +131,51 @@ async function fetchKVCollections() {
   }
 }
 
-export default function kvCollectionsPlugin(eleventyConfig) {
+export default function kvCollectionsPlugin(eleventyConfig, userConfig = {}) {
+  const config = {
+    envVars: {
+      accountId: userConfig.accountId || DEFAULT_ENV_VARS.accountId,
+      namespaceId: userConfig.namespaceId || DEFAULT_ENV_VARS.namespaceId,
+      cloudflareAPIToken: userConfig.cloudflareAPIToken || DEFAULT_ENV_VARS.cloudflareAPIToken
+    },
+    metadata: userConfig.metadata || {},
+    quiet: userConfig.quiet || false
+  };
+
   let kvCollections = {};
   let kvDataFetched = false;
 
   eleventyConfig.on("eleventy.before", async () => {
     if (!kvDataFetched) {
-      console.log("🔄 Fetching KV collections...");
-      kvCollections = await fetchKVCollections();
+      if (!config.quiet) console.log("🔄 Fetching KV collections...");
+      kvCollections = await fetchKVCollections(config, config.quiet);
       kvDataFetched = true;
 
-      Object.keys(kvCollections).forEach((collectionName) => {
-        const itemCount = Object.keys(kvCollections[collectionName]).length;
-        console.log(`📁 Collection "${collectionName}": ${itemCount} items`);
-      });
+      if (!config.quiet) {
+        Object.keys(kvCollections).forEach((collectionName) => {
+          const itemCount = Object.keys(kvCollections[collectionName]).length;
+          console.log(`📁 Collection "${collectionName}": ${itemCount} items`);
+        });
+      }
 
       Object.keys(kvCollections).forEach((collectionName) => {
         eleventyConfig.addCollection(collectionName, (collectionApi) => {
           const collection = kvCollections[collectionName];
 
           return Object.entries(collection).map(([itemKey, itemData]) => {
-            if (!itemData.permalink) {
-              if (!itemData.title || !itemData.date) {
-                throw new Error(
-                  `Unable to generate permalink for item with key: ${itemKey}`,
-                );
+            // Add any additional metadata specified by user
+            const additionalMetadata = {};
+            Object.entries(config.metadata).forEach(([key, value]) => {
+              if (typeof value === 'function') {
+                additionalMetadata[key] = value(itemData, itemKey, collectionName);
+              } else {
+                additionalMetadata[key] = value;
               }
-              itemData.permalink = `/${collectionName}/${helpers.permalinkToPath(itemData.title, itemData.date)}`;
-            }
+            });
 
             return {
               ...itemData,
+              ...additionalMetadata,
             };
           });
         });
