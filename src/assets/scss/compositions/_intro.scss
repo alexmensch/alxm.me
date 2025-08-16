@@ -19,7 +19,8 @@
   &[data-state="reversed"] {
     flex-direction: row-reverse;
 
-    & .intro__header { /* stylelint-disable-line selector-class-pattern */
+    /* stylelint-disable-next-line selector-class-pattern */
+    & .intro__header {
       text-align: end;
     }
 
@@ -29,7 +30,8 @@
     // were chosen. It would be nice to fix this in the future to have a precise
     // switchover container width
     @container intro (width < calc(#{$header-width} + #{$content-width} + #{dt.get-size("2xs")})) {
-      .intro__header { /* stylelint-disable-line selector-class-pattern */
+      /* stylelint-disable-next-line selector-class-pattern */
+      .intro__header {
         text-align: start;
       }
     }

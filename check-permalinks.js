@@ -63,7 +63,9 @@ async function storeKVValue(key, value) {
 
 async function getBaselinePermalinks() {
   if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
-    throw new Error("❌ Cloudflare KV credentials not configured. Cannot proceed without KV.");
+    throw new Error(
+      "❌ Cloudflare KV credentials not configured. Cannot proceed without KV."
+    );
   }
 
   const kvContent = await fetchKVValue(BASELINE_KV_KEY);
@@ -85,7 +87,9 @@ async function main() {
 
   try {
     if (!fs.existsSync(currentFile)) {
-      throw new Error("No current permalinks file found. Run 11ty build first.");
+      throw new Error(
+        "No current permalinks file found. Run 11ty build first."
+      );
     }
 
     if (process.argv.includes("--update-baseline")) {

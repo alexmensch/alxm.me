@@ -5,9 +5,10 @@
   flex-wrap: wrap;
   gap: var(--flow-space);
 
-  --min-width: calc(
-    (#{$max-items} * #{$min-item-width}) + (var(--flow-space) * #{$max-items - 1})
-  );
+  $items-total-width: #{$max-items} * #{$min-item-width};
+  $gaps-total-width: var(--flow-space) * #{$max-items - 1};
+
+  --min-width: calc(#{$items-total-width} + #{$gaps-total-width});
 
   & > * {
     flex: 1 1 calc((var(--min-width) - 100%) * 999);
