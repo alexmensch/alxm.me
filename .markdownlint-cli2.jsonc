@@ -4,8 +4,5 @@
     "MD033": false,
     "MD041": false
   },
-  "ignores": [
-    "**/node_modules/**",
-    "_site/**"
-  ]
+  "ignores": ["**/node_modules/**", "_site/**"]
 }

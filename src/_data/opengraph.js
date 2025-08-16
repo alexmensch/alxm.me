@@ -3,7 +3,7 @@ import { DateTime } from "luxon";
 const imageDir = "_site/assets/images/open-graph/";
 
 export default {
-  ogReadablePostDate: function (dateInput) {
+  ogReadablePostDate(dateInput) {
     const dt =
       typeof dateInput === "string"
         ? DateTime.fromISO(dateInput, { zone: "Europe/London" })
@@ -11,5 +11,5 @@ export default {
 
     return dt.setLocale("en").toLocaleString(DateTime.DATE_FULL);
   },
-  imageDir: imageDir,
+  imageDir
 };

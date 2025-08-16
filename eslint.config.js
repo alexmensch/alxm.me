@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
+import prettierConfig from "eslint-config-prettier";
 
 export default [
   js.configs.recommended,
@@ -35,16 +36,8 @@ export default [
       "no-var": "error",
       "object-shorthand": "error",
       "prefer-arrow-callback": "error",
-      "prefer-template": "error",
-
-      // Stylistic Issues
-      indent: ["error", 2],
-      quotes: ["error", "double"],
-      semi: ["error", "always"],
-      "comma-dangle": ["error", "never"],
-      "no-trailing-spaces": "error",
-      "eol-last": "error",
-      "brace-style": ["error", "1tbs"]
+      "prefer-template": "error"
     }
-  }
+  },
+  prettierConfig
 ];

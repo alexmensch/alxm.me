@@ -6,15 +6,15 @@ const site = {
   rss: {
     collection: "writing",
     title: "Alex Marshall | Writing",
-    subtitle: "A collection of my writing on various topics.",
+    subtitle: "A collection of my writing on various topics."
   },
   podcastURL: {
     remotes: [
       {
         name: "Apple Podcasts",
-        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924",
-      },
-    ],
+        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924"
+      }
+    ]
   },
   links: [],
   nav: [
@@ -24,8 +24,8 @@ const site = {
     { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Contact", url: "/contact/", footer: true },
     { title: "About", url: "/about/", footer: true },
-    { title: "Styles", url: "/styles/", hidden: true },
-  ],
+    { title: "Styles", url: "/styles/", hidden: true }
+  ]
 };
 
 site.rss.outputPath = `/${site.rss.collection}.atom`;
@@ -35,39 +35,39 @@ site.podcastURL.local = `https://${site.domain}/podcast/feed/what-i-knew.rss`;
 site.links = [
   {
     rel: "preconnect",
-    href: "https://rsms.me",
+    href: "https://rsms.me"
   },
   {
     rel: "preconnect",
-    href: "https://fonts.googleapis.com",
+    href: "https://fonts.googleapis.com"
   },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
-    crossorigin: "",
+    crossorigin: ""
   },
   {
     rel: "stylesheet",
-    href: "/assets/css/root.css",
+    href: "/assets/css/root.css"
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
   },
   {
     rel: "stylesheet",
-    href: "https://rsms.me/inter/inter.css",
+    href: "https://rsms.me/inter/inter.css"
   },
   {
     rel: "stylesheet",
-    href: "/assets/css/syntax.css",
+    href: "/assets/css/syntax.css"
   },
   {
     rel: "alternate",
     title: site.rss.title,
     type: "application/atom+xml",
-    href: site.rss.outputPath,
-  },
+    href: site.rss.outputPath
+  }
 ];
 
 export default site;

@@ -5,6 +5,6 @@ export default {
   eleventyComputed: {
     collection: (data) => {
       return data.collections[site.rss.collection];
-    },
-  },
+    }
+  }
 };

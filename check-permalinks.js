@@ -19,8 +19,8 @@ async function fetchKVValue(key) {
   try {
     const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
       headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      },
+        Authorization: `Bearer ${API_TOKEN}`
+      }
     });
 
     if (response.status === 404) {
@@ -49,9 +49,9 @@ async function storeKVValue(key, value) {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
-        "Content-Type": "text/plain",
+        "Content-Type": "text/plain"
       },
-      body: value,
+      body: value
     });
 
     return response.ok;
@@ -64,7 +64,7 @@ async function storeKVValue(key, value) {
 async function getBaselinePermalinks() {
   if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
     console.error(
-      "❌ Cloudflare KV credentials not configured. Cannot proceed without KV.",
+      "❌ Cloudflare KV credentials not configured. Cannot proceed without KV."
     );
     process.exit(1);
   }
@@ -76,7 +76,7 @@ async function getBaselinePermalinks() {
       kvContent
         .split("\n")
         .map((line) => line.trim())
-        .filter((line) => line.length > 0),
+        .filter((line) => line.length > 0)
     );
   }
 
@@ -125,20 +125,20 @@ async function main() {
       .readFileSync(currentFile, "utf8")
       .split("\n")
       .map((line) => line.trim())
-      .filter((line) => line.length > 0),
+      .filter((line) => line.length > 0)
   );
 
   // Find missing permalinks (existed in baseline but not in current)
   const missingPermalinks = [...baselinePermalinks].filter(
-    (permalink) => !currentPermalinks.has(permalink),
+    (permalink) => !currentPermalinks.has(permalink)
   );
 
   // Find new permalinks (exist in current but not in baseline)
   const newPermalinks = [...currentPermalinks].filter(
-    (permalink) => !baselinePermalinks.has(permalink),
+    (permalink) => !baselinePermalinks.has(permalink)
   );
 
-  console.log(`📊 Permalink Analysis:`);
+  console.log("📊 Permalink Analysis:");
   console.log(`   Baseline: ${baselinePermalinks.size} permalinks`);
   console.log(`   Current:  ${currentPermalinks.size} permalinks`);
 
@@ -150,7 +150,7 @@ async function main() {
     console.log("\n💡 If permalink changes are intentional:");
     console.log("   1. Add redirects for the missing URLs");
     console.log(
-      "   2. Update KV baseline: node check-permalinks.js --update-baseline",
+      "   2. Update KV baseline: node check-permalinks.js --update-baseline"
     );
 
     process.exit(1); // Fail build if permalinks are missing
@@ -167,7 +167,7 @@ async function main() {
 
   if (missingPermalinks.length === 0 && newPermalinks.length === 0) {
     console.log(
-      "\n✅ All permalinks match baseline - no broken links detected",
+      "\n✅ All permalinks match baseline - no broken links detected"
     );
   }
 }

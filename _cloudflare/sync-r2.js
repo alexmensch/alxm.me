@@ -14,7 +14,7 @@ async function uploadFileToR2(filePath, key) {
   try {
     execSync(
       `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --remote --content-type "audio/mpeg"`,
-      { stdio: "inherit" },
+      { stdio: "inherit" }
     );
     console.log(`✅ Uploaded: ${key}`);
   } catch (error) {
@@ -27,20 +27,20 @@ async function generateConfigFiles() {
   try {
     console.log("📝 Generating config files from templates...");
 
-    const audioWebPath = "/" + AUDIO_DIR.replace("src/", "") + "/";
+    const audioWebPath = `/${AUDIO_DIR.replace("src/", "")}/`;
     const { RSS_PATH, RSS_LAST_MODIFIED } = config;
 
     // Generate worker.js from template
     const workerTemplate = readFileSync(
       join(__dirname, "worker.template.js"),
-      "utf8",
+      "utf8"
     );
     writeFileSync(join(__dirname, "worker.js"), workerTemplate);
 
     // Generate wrangler.toml from template
     const wranglerTemplate = readFileSync(
       join(__dirname, "wrangler.template.toml"),
-      "utf8",
+      "utf8"
     );
     const wranglerConfig = wranglerTemplate
       .replace(/{{WORKER_NAME}}/g, WORKER_NAME)

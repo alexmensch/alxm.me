@@ -6,50 +6,50 @@ import MarkdownIt from "markdown-it";
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
     max: 8,
-    min: 4,
+    min: 4
   },
   wordsPerSentence: {
     max: 16,
-    min: 4,
-  },
+    min: 4
+  }
 });
 
 const markdown = new MarkdownIt({
   html: true, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />)
   breaks: false, // Convert '\n' in paragraphs into <br>
-  linkify: true, // Autoconvert URL-like text to links
+  linkify: true // Autoconvert URL-like text to links
 });
 
 const helpers = {
   md: markdown,
-  currentYear: function () {
+  currentYear() {
     return new Date().getFullYear().toString();
   },
-  permalinkToPath: function (title, date) {
+  permalinkToPath(title, date) {
     return `${this.toDate(date, "/")}/${this.toSlug(title)}/`;
   },
-  permalinkToFilename: function (title, date) {
+  permalinkToFilename(title, date) {
     return `${this.toDate(date, "-")}-${this.toSlug(title)}`;
   },
-  permalinkToPage: function (title) {
+  permalinkToPage(title) {
     return `${this.toSlug(title)}`;
   },
-  toSlug: function (string) {
+  toSlug(string) {
     return slugify(string, {
       lower: true,
       replacement: "-",
-      remove: /[*+~.()'"!:@]/g,
+      remove: /[*+~.()'"!:@]/g
     });
   },
-  toDate: function (date, delim) {
+  toDate(date, delim) {
     const formatString = ["yyyy", "LL", "dd"].join(delim);
     return DateTime.fromJSDate(date).toFormat(formatString);
   },
-  dateToRFC2822: function (date) {
+  dateToRFC2822(date) {
     return date.toUTCString();
   },
-  dateToRFC339: function (date) {
+  dateToRFC339(date) {
     return date.toISOString();
   },
   getLinkActiveState(itemPath, pagePath) {
@@ -65,7 +65,7 @@ const helpers = {
 
     return response;
   },
-  loremIpsum: function (count, type) {
+  loremIpsum(count, type) {
     switch (type) {
       case "words":
       case "word":
@@ -80,7 +80,7 @@ const helpers = {
         return "Invalid input. Parameters were: ${count} and ${type}";
     }
   },
-  getNewestCollectionItemDate: function (collection) {
+  getNewestCollectionItemDate(collection) {
     if (!collection || collection.length === 0) {
       throw new Error(`No items in collection "${collection}"`);
     }
@@ -90,13 +90,13 @@ const helpers = {
         const itemDate = item.date || item.data?.date;
         return itemDate > newest ? itemDate : newest;
       },
-      collection[0].date || collection[0].data?.date || new Date(),
+      collection[0].date || collection[0].data?.date || new Date()
     );
   },
-  markdownToHTML: function (content) {
+  markdownToHTML(content) {
     return String(markdown.render(content));
   },
-  escapeHTML: function (string) {
+  escapeHTML(string) {
     return String(string).replace(
       /[&<>'"]/g,
       (tag) =>
@@ -105,10 +105,10 @@ const helpers = {
           "<": "&lt;",
           ">": "&gt;",
           "'": "&#39;",
-          '"': "&quot;",
-        })[tag] || tag,
+          '"': "&quot;"
+        })[tag] || tag
     );
-  },
+  }
 };
 
 export default helpers;

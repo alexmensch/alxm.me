@@ -16,21 +16,21 @@ $size-scale: scales.generate-size-scale(
       2,
       3,
       4,
-      6,
+      6
     ),
     "negativeSteps": (
       0.75,
-      0.5,
+      0.5
     ),
     "customSizes": (),
-    "relativeTo": "viewport-width",
+    "relativeTo": "viewport-width"
   )
 );
 // Add a "none" size
 $size-scale: map.merge(
   $size-scale,
   (
-    "none": "0rem",
+    "none": "0rem"
   )
 );
 
@@ -47,7 +47,7 @@ $type-scale: scales.generate-type-scale(
     "maxTypeScale": 1.125,
     "positiveSteps": 5,
     "negativeSteps": 2,
-    "relativeTo": "viewport-width",
+    "relativeTo": "viewport-width"
   )
 );
 
@@ -65,7 +65,7 @@ $type-scale-mega: scales.generate-type-scale(
     "positiveSteps": 0,
     "negativeSteps": 4,
     "prefix": "step-",
-    "relativeTo": "viewport-width",
+    "relativeTo": "viewport-width"
   )
 );
 
@@ -81,63 +81,63 @@ $colors: (
   "primary-glare": var(--color-primary-glare),
   "secondary": var(--color-secondary),
   "secondary-shade": var(--color-secondary-shade),
-  "secondary-glare": var(--color-secondary-glare),
+  "secondary-glare": var(--color-secondary-glare)
 );
 
 $fonts: (
   "base": '"Source Serif 4", Georgia, serif',
-  "sans": '"Inter", Helvetica, sans-serif',
+  "sans": '"Inter", Helvetica, sans-serif'
 );
 
 $tokens: (
   "bg": (
     "variants": $colors,
-    "property": "background",
+    "property": "background"
   ),
   "border": (
     "variants": (
       "thin": "1px",
       "normal": "2px",
-      "thick": "4px",
+      "thick": "4px"
     ),
-    "property": "border-width",
+    "property": "border-width"
   ),
   "border-style": (
     "variants": (
       "solid": "solid",
       "dotted": "dotted",
       "dashed": "dashed",
-      "double": "double",
+      "double": "double"
     ),
-    "property": "border-style",
+    "property": "border-style"
   ),
   "border-color": (
     "variants": $colors,
-    "property": "border-color",
+    "property": "border-color"
   ),
   "color": (
     "variants": $colors,
-    "property": "color",
+    "property": "color"
   ),
   "flow-space": (
     "variants": $size-scale,
-    "property": "--flow-space",
+    "property": "--flow-space"
   ),
   "font": (
     "variants": $fonts,
-    "property": "font-family",
+    "property": "font-family"
   ),
   "gutter": (
     "variants": $size-scale,
-    "property": "--gutter",
+    "property": "--gutter"
   ),
   "leading": (
     "variants": (
       "loose": 1.7,
       "tight": 1.3,
-      "flat": 1.1,
+      "flat": 1.1
     ),
-    "property": "line-height",
+    "property": "line-height"
   ),
   "measure": (
     "variants": (
@@ -147,25 +147,25 @@ $tokens: (
       "short": 45ch,
       "medium": 55ch,
       "long": 65ch,
-      "reset": none,
+      "reset": none
     ),
-    "property": "max-width",
+    "property": "max-width"
   ),
   "padding": (
     "variants": $size-scale,
-    "property": "--padding",
+    "property": "--padding"
   ),
   "shadow": (
     "variants": $size-scale,
-    "property": "--shadow-size",
+    "property": "--shadow-size"
   ),
   "text": (
     "variants": $type-scale,
-    "property": "font-size",
+    "property": "font-size"
   ),
   "text-mega": (
     "variants": $type-scale-mega,
-    "property": "font-size",
+    "property": "font-size"
   ),
   "weight": (
     "variants": (
@@ -177,8 +177,8 @@ $tokens: (
       "semi-bold": 500,
       "bold": 700,
       "extra-bold": 800,
-      "black": 900,
+      "black": 900
     ),
-    "property": "font-weight",
-  ),
+    "property": "font-weight"
+  )
 );
