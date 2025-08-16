@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run format && pnpm run lint && npx @11ty/eleventy && node check-permalinks.js",
-    "build:cf": "cd _cloudflare && pnpm install && cd .. && node _cloudflare/sync-r2.js && npx @11ty/eleventy && node check-permalinks.js && node _cloudflare/cleanup-files.js",
+    "build:cf": "pnpm run build && cd _cloudflare && pnpm install && node sync-r2.js && node cleanup-files.js",
     "clean": "rm -rf _site",
     "format": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
