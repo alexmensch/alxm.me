@@ -5,8 +5,8 @@
   flex-wrap: wrap;
   gap: var(--flow-space);
 
-  $items-total-width: #{$max-items} * #{$min-item-width};
-  $gaps-total-width: var(--flow-space) * #{$max-items - 1};
+  $items-total-width: calc(#{$max-items} * #{$min-item-width});
+  $gaps-total-width: calc(var(--flow-space) * #{$max-items - 1});
 
   --min-width: calc(#{$items-total-width} + #{$gaps-total-width});
 
