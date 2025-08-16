@@ -6,8 +6,7 @@
   gap: var(--flow-space);
 
   --min-width: calc(
-    (#{$max-items} * #{$min-item-width}) +
-      (var(--flow-space) * #{$max-items - 1})
+    (#{$max-items} * #{$min-item-width}) + (var(--flow-space) * #{$max-items - 1})
   );
 
   & > * {

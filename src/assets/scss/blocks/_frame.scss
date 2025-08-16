@@ -30,8 +30,8 @@ $ratios: (
   justify-content: center;
   align-items: center;
 
-  & > picture img,
   & > img,
+  & > picture img,
   & > video {
     inline-size: 100%;
     block-size: 100%;

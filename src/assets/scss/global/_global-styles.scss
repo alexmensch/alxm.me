@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: currentColor;
+  color: currentcolor;
   text-decoration-color: var(--accent-color);
   text-decoration-thickness: 0.2ex;
   text-underline-offset: 0.35ex;
@@ -84,8 +84,8 @@ blockquote {
   border-inline-start: #{dt.get-size("2xs")} solid var(--accent-color);
   padding-inline-start: #{dt.get-size("m")};
   padding-block: #{dt.get-size("2xs")};
-
   font-style: italic;
+
   @include dt.use("text", 1);
 
   & > blockquote {
@@ -113,6 +113,14 @@ table {
   caption-side: bottom;
   font-variant-numeric: tabular-nums;
 
+  th,
+  td {
+    border: 1px solid dt.get-color("dark-glare");
+    padding: #{dt.get-size("2xs")} #{dt.get-size("2xs")};
+    vertical-align: baseline;
+    text-align: end;
+  }
+
   thead {
     border-block-end: 0.35ex solid var(--accent-color);
 
@@ -120,15 +128,6 @@ table {
       vertical-align: bottom;
       background: dt.get-color("light-glare");
     }
-  }
-
-  th,
-  td {
-    border: 1px solid dt.get-color("dark-glare");
-    padding: #{dt.get-size("2xs")} #{dt.get-size("2xs")};
-
-    vertical-align: baseline;
-    text-align: end;
   }
 }
 
@@ -141,7 +140,6 @@ hr {
 // folks read the text easier
 ::selection {
   color: dt.get-color("light");
-
   background: dt.get-color("dark-shade");
 }
 

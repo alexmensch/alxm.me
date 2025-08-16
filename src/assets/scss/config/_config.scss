@@ -1,5 +1,4 @@
 @use "sass:map";
-
 @use "helpers/scales";
 
 // @link https://utopia.fyi/space/calculator?c=320,16,1.067,1240,22,1.125,5,2,&s=0.75|0.5,1.5|2|3|4|6,&g=s,l,xl,12
@@ -26,6 +25,7 @@ $size-scale: scales.generate-size-scale(
     "relativeTo": "viewport-width"
   )
 );
+
 // Add a "none" size
 $size-scale: map.merge(
   $size-scale,
@@ -68,7 +68,6 @@ $type-scale-mega: scales.generate-type-scale(
     "relativeTo": "viewport-width"
   )
 );
-
 $colors: (
   "dark": var(--color-dark),
   "dark-shade": var(--color-dark-shade),
@@ -83,12 +82,10 @@ $colors: (
   "secondary-shade": var(--color-secondary-shade),
   "secondary-glare": var(--color-secondary-glare)
 );
-
 $fonts: (
   "base": '"Source Serif 4", Georgia, serif',
   "sans": '"Inter", Helvetica, sans-serif'
 );
-
 $tokens: (
   "bg": (
     "variants": $colors,
