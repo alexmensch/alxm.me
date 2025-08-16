@@ -1,6 +1,5 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
-import { createHash } from "crypto";
 import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 import { config } from "./config.js";
@@ -18,7 +17,7 @@ async function uploadFileToR2(filePath, key) {
     );
     console.log(`✅ Uploaded: ${key}`);
   } catch (error) {
-    console.error(`❌ Failed to upload ${key}:`, error);
+    console.error(`❌ Failed to upload ${key}`);
     throw error;
   }
 }
@@ -53,8 +52,8 @@ async function generateConfigFiles() {
 
     console.log("✅ Config files generated");
   } catch (error) {
-    console.error("❌ Config generation failed:", error);
-    process.exit(1);
+    console.error("❌ Config generation failed");
+    throw error;
   }
 }
 
@@ -64,8 +63,8 @@ async function deployWorker() {
     execSync("cd _cloudflare && npx wrangler deploy", { stdio: "inherit" });
     console.log("✅ Worker deployed successfully");
   } catch (error) {
-    console.error("❌ Worker deployment failed:", error);
-    process.exit(1);
+    console.error("❌ Worker deployment failed");
+    throw error;
   }
 }
 
@@ -88,7 +87,7 @@ async function syncAudioFiles() {
     await deployWorker();
   } catch (error) {
     console.error("❌ Sync failed:", error);
-    process.exit(1);
+    process.exit(1); // eslint-disable-line no-process-exit
   }
 }
 
