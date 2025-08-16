@@ -3,24 +3,24 @@
 $ratios: (
   "16-9": (
     16,
-    9,
+    9
   ),
   "4-3": (
     4,
-    3,
+    3
   ),
   "1-1": (
     1,
-    1,
+    1
   ),
   "4-5": (
     4,
-    5,
+    5
   ),
   "5-7": (
     5,
-    7,
-  ),
+    7
+  )
 );
 
 .frame {
@@ -30,8 +30,8 @@ $ratios: (
   justify-content: center;
   align-items: center;
 
-  & > picture img,
   & > img,
+  & > picture img,
   & > video {
     inline-size: 100%;
     block-size: 100%;

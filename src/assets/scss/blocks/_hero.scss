@@ -2,19 +2,21 @@
 
 .hero {
   background: var(--hero-bg);
-
   padding-block: var(--gutter);
   padding-inline: var(--gutter);
 
   &__header {
     @include dt.use("text-mega", -2);
+
     padding-block-end: var(--gutter);
     color: var(--hero-header-text);
 
     mark {
       color: inherit;
+
       $bottom: 20%;
       $top: 84%;
+
       background: linear-gradient(
         to top,
         transparent $bottom,

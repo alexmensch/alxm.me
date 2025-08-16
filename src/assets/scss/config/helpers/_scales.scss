@@ -11,7 +11,7 @@
       $output: map.merge(
         $output,
         (
-          $label: $clamp,
+          $label: $clamp
         )
       );
     }
@@ -29,7 +29,7 @@
     $output: map.merge(
       $output,
       (
-        $label: $clamp,
+        $label: $clamp
       )
     );
   }

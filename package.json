@@ -5,12 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npx @11ty/eleventy && node check-permalinks.js",
-    "build:cf": "cd _cloudflare && pnpm install && cd .. && node _cloudflare/sync-r2.js && npx @11ty/eleventy && node check-permalinks.js && node _cloudflare/cleanup-files.js",
+    "build": "pnpm run format && pnpm run lint && npx @11ty/eleventy && node check-permalinks.js",
+    "build:cf": "pnpm run build && cd _cloudflare && pnpm install && cd .. && node _cloudflare/sync-r2.js && node _cloudflare/cleanup-files.js",
     "clean": "rm -rf _site",
-    "pretty": "npx prettier . -wl",
+    "format": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",
-    "11ty:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve"
+    "11ty:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
+    "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run lint:md",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:md": "markdownlint-cli2 \"src/**/*.md\"",
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix"
   },
   "repository": {
     "type": "git",
@@ -49,7 +54,14 @@
     "utopia-core-scss": "^1.3.0"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.3.0",
+    "markdownlint-cli2": "^0.18.1",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard-scss": "^15.0.1"
   },
   "pnpm": {
     "overrides": {

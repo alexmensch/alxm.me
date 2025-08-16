@@ -19,14 +19,14 @@
   $variants: map.get($node, "variants");
   $variant-value: map.get($variants, $variant);
 
-  @if ($css-property and $variant-value) {
+  @if $css-property and $variant-value {
     @return ("property": #{$css-property}, "variant": #{$variant-value});
   } @else {
-    @if ($css-property) {
+    @if $css-property {
       @warn #{'Value: ‘' + $variant-value + '’ doesn’t exist in ‘' + $token + '’' };
     }
 
-    @if ($variant-value) {
+    @if $variant-value {
       @warn #{'Design token ‘' + $token + '’ doesn’t exist'};
     }
 
@@ -37,7 +37,7 @@
 @function safe-map-get($key, $map) {
   $resp: map.get($map, $key);
 
-  @if ($resp) {
+  @if $resp {
     @return $resp;
   } @else {
     @warn #{'Key "' + $key + '" not found in map lookup'};

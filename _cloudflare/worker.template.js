@@ -35,23 +35,23 @@ export default {
             const length = end - start + 1;
 
             const rangeOptions = {
-              range: { offset: start, length: length },
+              range: { offset: start, length }
             };
             const rangeObject = await env.PODCAST_ASSETS.get(
               filename,
-              rangeOptions,
+              rangeOptions
             );
 
             if (rangeObject) {
               headers.set(
                 "Content-Range",
-                `bytes ${start}-${end}/${object.size}`,
+                `bytes ${start}-${end}/${object.size}`
               );
               headers.set("Content-Length", length.toString());
 
               return new Response(rangeObject.body, {
                 status: 206,
-                headers: headers,
+                headers
               });
             }
           }
@@ -69,13 +69,13 @@ export default {
     }
 
     return fetch(request);
-  },
+  }
 };
 
 async function handleRSSFeed(request, env) {
   try {
     // Parse the last modified date
-    const lastModified = new Date(env.RSS_LAST_MODIFIED + "T00:00:00Z");
+    const lastModified = new Date(`${env.RSS_LAST_MODIFIED}T00:00:00Z`);
     const lastModifiedString = lastModified.toUTCString();
 
     // Check if client has cached version
@@ -87,8 +87,8 @@ async function handleRSSFeed(request, env) {
           status: 304,
           headers: {
             "Last-Modified": lastModifiedString,
-            "Cache-Control": "public, max-age=3600",
-          },
+            "Cache-Control": "public, max-age=3600"
+          }
         });
       }
     }
@@ -107,7 +107,7 @@ async function handleRSSFeed(request, env) {
     const headers = new Headers(rssResponse.headers);
     headers.set(
       "Content-Length",
-      new TextEncoder().encode(rssContent).length.toString(),
+      new TextEncoder().encode(rssContent).length.toString()
     );
     headers.set("Last-Modified", lastModifiedString);
     headers.set("Cache-Control", "public, max-age=3600"); // 1 hour cache
@@ -115,7 +115,7 @@ async function handleRSSFeed(request, env) {
 
     return new Response(rssContent.trim(), {
       status: rssResponse.status,
-      headers: headers,
+      headers
     });
   } catch (error) {
     console.error("RSS feed error:", error);

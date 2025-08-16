@@ -3,7 +3,7 @@ import { stat } from "fs/promises";
 import helpers from "./helpers.js";
 
 export default {
-  markdownToCDATA: function (markdownContent) {
+  markdownToCDATA(markdownContent) {
     if (!markdownContent || typeof markdownContent !== "string") {
       return "<![CDATA[]]>";
     }
@@ -14,12 +14,12 @@ export default {
 
     return `<![CDATA[${escapedContent}]]>`;
   },
-  getDurationInSec: async function (filename) {
+  async getDurationInSec(filename) {
     const duration = await getAudioDurationInSeconds(filename);
     return duration;
   },
-  getFilesize: async function (filename) {
+  async getFilesize(filename) {
     const stats = await stat(filename);
     return stats.size;
-  },
+  }
 };

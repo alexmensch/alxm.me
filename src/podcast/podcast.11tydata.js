@@ -2,36 +2,36 @@ import helpers from "../_data/helpers.js";
 import podcast from "../_data/podcast.js";
 
 export default {
-  permalink: function ({ title }) {
+  permalink({ title }) {
     return `/podcast/${helpers.permalinkToPage(title)}/`;
   },
   eleventyComputed: {
-    ogData: function ({ title, date }) {
+    ogData({ title, date }) {
       return {
-        title: title,
-        date: date,
+        title,
+        date
       };
     },
-    pubDate: function ({ date }) {
+    pubDate({ date }) {
       return helpers.dateToRFC2822(date);
     },
     itunes: {
-      duration: async function ({ recording }) {
+      async duration({ recording }) {
         if (!recording) {
           return 0;
         }
-        const duration = await podcast.getDurationInSec("./src" + recording);
+        const duration = await podcast.getDurationInSec(`./src${recording}`);
         return Math.ceil(duration);
-      },
+      }
     },
     enclosure: {
-      length: async function ({ recording }) {
+      async length({ recording }) {
         if (!recording) {
           return 0;
         }
-        const bytes = await podcast.getFilesize("./src" + recording);
+        const bytes = await podcast.getFilesize(`./src${recording}`);
         return bytes;
-      },
-    },
-  },
+      }
+    }
+  }
 };

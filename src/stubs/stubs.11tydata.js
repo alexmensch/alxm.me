@@ -5,7 +5,7 @@ export default {
     hero: (data) => data.stub.hero,
     ogData: (data) => ({
       date: data.stub.date,
-      title: data.stub.title,
-    }),
-  },
+      title: data.stub.title
+    })
+  }
 };

@@ -1,6 +1,5 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
-import { createHash } from "crypto";
 import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 import { config } from "./config.js";
@@ -14,11 +13,11 @@ async function uploadFileToR2(filePath, key) {
   try {
     execSync(
       `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --remote --content-type "audio/mpeg"`,
-      { stdio: "inherit" },
+      { stdio: "inherit" }
     );
     console.log(`✅ Uploaded: ${key}`);
   } catch (error) {
-    console.error(`❌ Failed to upload ${key}:`, error);
+    console.error(`❌ Failed to upload ${key}`);
     throw error;
   }
 }
@@ -27,20 +26,20 @@ async function generateConfigFiles() {
   try {
     console.log("📝 Generating config files from templates...");
 
-    const audioWebPath = "/" + AUDIO_DIR.replace("src/", "") + "/";
+    const audioWebPath = `/${AUDIO_DIR.replace("src/", "")}/`;
     const { RSS_PATH, RSS_LAST_MODIFIED } = config;
 
     // Generate worker.js from template
     const workerTemplate = readFileSync(
       join(__dirname, "worker.template.js"),
-      "utf8",
+      "utf8"
     );
     writeFileSync(join(__dirname, "worker.js"), workerTemplate);
 
     // Generate wrangler.toml from template
     const wranglerTemplate = readFileSync(
       join(__dirname, "wrangler.template.toml"),
-      "utf8",
+      "utf8"
     );
     const wranglerConfig = wranglerTemplate
       .replace(/{{WORKER_NAME}}/g, WORKER_NAME)
@@ -53,8 +52,8 @@ async function generateConfigFiles() {
 
     console.log("✅ Config files generated");
   } catch (error) {
-    console.error("❌ Config generation failed:", error);
-    process.exit(1);
+    console.error("❌ Config generation failed");
+    throw error;
   }
 }
 
@@ -64,8 +63,8 @@ async function deployWorker() {
     execSync("cd _cloudflare && npx wrangler deploy", { stdio: "inherit" });
     console.log("✅ Worker deployed successfully");
   } catch (error) {
-    console.error("❌ Worker deployment failed:", error);
-    process.exit(1);
+    console.error("❌ Worker deployment failed");
+    throw error;
   }
 }
 
@@ -87,8 +86,8 @@ async function syncAudioFiles() {
     await generateConfigFiles();
     await deployWorker();
   } catch (error) {
-    console.error("❌ Sync failed:", error);
-    process.exit(1);
+    console.error("❌ Sync failed: ", error);
+    process.exit(1); // eslint-disable-line no-process-exit
   }
 }
 

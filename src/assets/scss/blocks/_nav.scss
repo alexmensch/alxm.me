@@ -13,7 +13,7 @@
     &[data-state="active"],
     &[aria-current="page"],
     &:hover {
-      &:before {
+      &::before {
         content: "";
         display: block;
         width: 100%;

@@ -1,13 +1,12 @@
-import podcast from "../../_data/podcast.js";
 import helpers from "../../_data/helpers.js";
 import site from "../../_data/site.js";
 
 export default {
   eleventyComputed: {
     channel: {
-      copyright: function (data) {
+      copyright(_data) {
         return `Copyright &#169; ${helpers.currentYear()} ${site.authorName}`;
-      },
+      }
     },
     /*
      * podcast.11tydata.js from the parent directory propagates data into all
@@ -17,6 +16,6 @@ export default {
     description: undefined,
     ogData: undefined,
     itunes: undefined,
-    enclosure: undefined,
-  },
+    enclosure: undefined
+  }
 };

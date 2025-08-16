@@ -31,11 +31,11 @@ export default async function (eleventyConfig) {
     namespaceId: "CLOUDFLARE_KV_NS_ID",
     cloudflareAPIToken: "CLOUDFLARE_API_TOKEN",
     metadata: {
-      permalink: function (metadata, key, collection) {
+      permalink(metadata, key, collection) {
         if (!metadata.permalink) {
           if (!metadata.title || !metadata.date) {
             throw new Error(
-              `Unable to generate permalink for item with key: ${key}`,
+              `Unable to generate permalink for item with key: ${key}`
             );
           }
           return `/${collection}/${helpers.permalinkToPath(metadata.title, metadata.date)}`;
@@ -63,8 +63,8 @@ export default async function (eleventyConfig) {
     // optional, attributes assigned on <img> override these values.
     defaultAttributes: {
       decoding: "async",
-      fetchpriority: "high",
-    },
+      fetchpriority: "high"
+    }
   });
 
   // Syntax highlighting
@@ -73,7 +73,7 @@ export default async function (eleventyConfig) {
   // Add anchors to headings
   eleventyConfig.addPlugin(IdAttributePlugin, {
     // Use standard slugify filter
-    slugify: helpers.toSlug,
+    slugify: helpers.toSlug
   });
 
   eleventyConfig.addPlugin(purgeCssPlugin, {
@@ -81,9 +81,9 @@ export default async function (eleventyConfig) {
       content: ["./_site/**/*.html"],
       css: ["./_site/assets/css/*.css"],
       fontFace: true,
-      rejected: false,
+      rejected: false
     },
-    quiet: true,
+    quiet: true
   });
 
   eleventyConfig.addPlugin(EleventyPluginOgImage, {
@@ -96,24 +96,24 @@ export default async function (eleventyConfig) {
           name: "Inter",
           data: await fs.readFile("./src/_build/fonts/Inter-Bold.ttf"),
           weight: 700,
-          style: "normal",
+          style: "normal"
         },
         {
           name: "Source Serif 4",
           data: await fs.readFile(
-            "./src/_build/fonts/SourceSerif4-BoldItalic.ttf",
+            "./src/_build/fonts/SourceSerif4-BoldItalic.ttf"
           ),
           weight: 700,
-          style: "italic",
-        },
-      ],
-    },
+          style: "italic"
+        }
+      ]
+    }
   });
 
   // Directory output on build
   eleventyConfig.setQuietMode(true);
   eleventyConfig.addPlugin(directoryOutputPlugin, {
-    warningFileSize: 250 * 1000,
+    warningFileSize: 250 * 1000
   });
 
   /* Passthrough assets */
@@ -124,13 +124,13 @@ export default async function (eleventyConfig) {
     "src/assets/files": "assets/files",
     "src/assets/podcast": "assets/podcast",
     "src/404.html": "404.html",
-    "src/_redirects": "_redirects",
+    "src/_redirects": "_redirects"
   });
 
   /* Collections config */
   /**********************/
   // Collections are defined in src/_data/site.js in the "nav" object
-  let postCollections = new Set();
+  const postCollections = new Set();
   siteConfig.nav.forEach((item) => {
     if (item.collection) {
       postCollections.add(item.url.replace(/\//g, ""));
@@ -138,22 +138,23 @@ export default async function (eleventyConfig) {
   });
 
   postCollections.forEach((collectionName) => {
-    eleventyConfig.addCollection(`${collectionName}`, function (collectionApi) {
+    eleventyConfig.addCollection(`${collectionName}`, (collectionApi) => {
       return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
     });
   });
 
   /* Markdown Configuration */
   /**************************/
-  let markdownLib = md({
+  const markdownLib = md({
     typographer: true,
-    html: true,
+    html: true
   })
     // Footnotes
     .use(mdFN)
     .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
+      // eslint-disable-next-line no-unused-vars
       const [attrName, href] = tokens[idx].attrs.find(
-        (attr) => attr[0] === "href",
+        (attr) => attr[0] === "href"
       );
 
       if (
@@ -176,7 +177,9 @@ export default async function (eleventyConfig) {
   // Override footnote indicator render to output a number without square brackets
   markdownLib.renderer.rules.footnote_caption = (tokens, idx) => {
     let n = Number(tokens[idx].meta.id + 1).toString();
-    if (tokens[idx].meta.subId > 0) n += `:${tokens[idx].meta.subId}`;
+    if (tokens[idx].meta.subId > 0) {
+      n += `:${tokens[idx].meta.subId}`;
+    }
     return `${n}`;
   };
 
@@ -186,7 +189,7 @@ export default async function (eleventyConfig) {
     idx,
     options,
     env,
-    self,
+    self
   ) => {
     tokens[idx].attrPush(["role", "list"]);
     return self.renderToken(tokens, idx, options);
@@ -198,7 +201,7 @@ export default async function (eleventyConfig) {
     idx,
     options,
     env,
-    self,
+    self
   ) => {
     tokens[idx].attrPush(["role", "list"]);
     return self.renderToken(tokens, idx, options);
@@ -220,34 +223,34 @@ export default async function (eleventyConfig) {
 
     // Customizing the permalink for the output file
     compileOptions: {
-      permalink: function (inputContent, inputPath) {
-        let parsed = path.parse(inputPath);
+      permalink(inputContent, inputPath) {
+        const parsed = path.parse(inputPath);
 
         const outputDir = "/assets/css";
         const outputFilePath = path.join(outputDir, `${parsed.name}.css`);
 
         // Return the new permalink
         return outputFilePath;
-      },
+      }
     },
 
     // `compile` is called once per .scss file in the input directory
-    compile: async function (inputContent, inputPath) {
-      let parsed = path.parse(inputPath);
+    async compile(inputContent, inputPath) {
+      const parsed = path.parse(inputPath);
       // Adhere to convention of not outputting Sass underscore files
       if (parsed.name.startsWith("_")) {
-        return;
+        return () => "";
       }
 
-      let result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || "."],
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || "."]
       });
 
       // This is the render function, `data` is the full data cascade
-      return async (data) => {
+      return async (_data) => {
         return result.css;
       };
-    },
+    }
   });
 
   // Prevent _index.scss files from being rendered by Eleventy
@@ -267,7 +270,7 @@ export default async function (eleventyConfig) {
 
   // Process input as Markdown, useful for Markdown included in frontmatter
   eleventyConfig.addFilter("markdownify", (markdownString) =>
-    markdownLib.renderInline(markdownString),
+    markdownLib.renderInline(markdownString)
   );
 
   // Filters used for OpenGraph SVG generation
@@ -281,7 +284,7 @@ export default async function (eleventyConfig) {
   // Called like this: {{ collections.name | getNewestCollectionItemDate }}
   eleventyConfig.addFilter(
     "getNewestCollectionItemDate",
-    helpers.getNewestCollectionItemDate,
+    helpers.getNewestCollectionItemDate
   );
 
   // Renders Markdown input to HTML
@@ -304,9 +307,9 @@ export default async function (eleventyConfig) {
   // Valid ratios are set in assets/scss/blocks/_frame.scss
   eleventyConfig.addLiquidShortcode(
     "articleImage",
-    function (src, alt, ratio, portrait = true) {
-      let html = `
-      <div class="[ article__photo ]" ${portrait ? `data-portrait` : ""}>
+    (src, alt, ratio, portrait = true) => {
+      const html = `
+      <div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
         <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
           <div class="frame" data-ratio="${ratio}">
             <img src="assets/images/${src}" alt="${alt}" />
@@ -315,22 +318,22 @@ export default async function (eleventyConfig) {
       </div>
     `;
       return html;
-    },
+    }
   );
 
   eleventyConfig.addPairedShortcode(
     "blockQuote",
-    function (content, name, source, url = false) {
-      let html = `
+    (content, name, source, url = false) => {
+      const html = `
       <div class="[ quote ] [ flow ]">
         <blockquote>
           <p>${content}</p>
         </blockquote>
-        <p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? `</a>` : ""}</p>
+        <p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? "</a>" : ""}</p>
       </div>
     `;
       return html;
-    },
+    }
   );
 
   return {
@@ -339,10 +342,10 @@ export default async function (eleventyConfig) {
       input: "src",
       includes: "_includes",
       data: "_data",
-      output: "_site",
+      output: "_site"
     },
     // Define other options like pathPrefix
     templateFormats: ["liquid", "md"],
-    htmlTemplateEngine: "liquid",
+    htmlTemplateEngine: "liquid"
   };
 }

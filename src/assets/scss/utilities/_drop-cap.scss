@@ -4,8 +4,9 @@
   float: inline-start;
   padding-inline-end: 0.075em;
   margin-block-start: -0.1em;
-
   font-size: 3.2lh;
+
   @include dt.use("weight", "black");
+
   line-height: 1;
 }
