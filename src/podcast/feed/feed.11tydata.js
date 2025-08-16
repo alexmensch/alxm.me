@@ -1,11 +1,10 @@
-import podcast from "../../_data/podcast.js";
 import helpers from "../../_data/helpers.js";
 import site from "../../_data/site.js";
 
 export default {
   eleventyComputed: {
     channel: {
-      copyright(data) {
+      copyright(_data) {
         return `Copyright &#169; ${helpers.currentYear()} ${site.authorName}`;
       }
     },

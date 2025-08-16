@@ -152,6 +152,7 @@ export default async function (eleventyConfig) {
     // Footnotes
     .use(mdFN)
     .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
+      // eslint-disable-next-line no-unused-vars
       const [attrName, href] = tokens[idx].attrs.find(
         (attr) => attr[0] === "href"
       );
@@ -238,7 +239,7 @@ export default async function (eleventyConfig) {
       const parsed = path.parse(inputPath);
       // Adhere to convention of not outputting Sass underscore files
       if (parsed.name.startsWith("_")) {
-        return;
+        return () => "";
       }
 
       const result = sass.compileString(inputContent, {
@@ -246,7 +247,7 @@ export default async function (eleventyConfig) {
       });
 
       // This is the render function, `data` is the full data cascade
-      return async (data) => {
+      return async (_data) => {
         return result.css;
       };
     }

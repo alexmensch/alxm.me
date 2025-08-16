@@ -77,7 +77,7 @@ const helpers = {
       case "paragraph":
         return lorem.generateParagraphs(count);
       default:
-        return "Invalid input. Parameters were: ${count} and ${type}";
+        return `Invalid input. Parameters were: ${count} and ${type}`;
     }
   },
   getNewestCollectionItemDate(collection) {

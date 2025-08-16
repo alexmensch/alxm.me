@@ -86,7 +86,7 @@ async function syncAudioFiles() {
     await generateConfigFiles();
     await deployWorker();
   } catch (error) {
-    console.error("❌ Sync failed:", error);
+    console.error("❌ Sync failed: ", error);
     process.exit(1); // eslint-disable-line no-process-exit
   }
 }
