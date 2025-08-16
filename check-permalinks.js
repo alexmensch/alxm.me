@@ -148,7 +148,7 @@ async function main() {
         "   2. Update KV baseline: node check-permalinks.js --update-baseline"
       );
 
-      throw new Error("Must verify permalink changes by updatig baseline.");
+      throw new Error("Must verify permalink changes by updating baseline.");
     }
 
     if (newPermalinks.length > 0) {
@@ -166,7 +166,7 @@ async function main() {
       );
     }
   } catch (error) {
-    console.error("❌ Permalink check failed: ", error);
+    console.error("❌ Permalink check failed:\n", error);
     process.exit(1); // eslint-disable-line no-process-exit
   }
 }
