@@ -14,7 +14,7 @@ import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
-import kvCollectionsPlugin from "./eleventy-plugins/kv-collections.js";
+import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 
 import helpers from "./src/_data/helpers.js";
@@ -26,7 +26,25 @@ export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
   // Custom Cloudflare KV -> Collections fetch
-  eleventyConfig.addPlugin(kvCollectionsPlugin);
+  eleventyConfig.addPlugin(kvCollectionsPlugin, {
+    accountId: "CLOUDFLARE_ACCOUNT_ID",
+    namespaceId: "CLOUDFLARE_KV_NS_ID",
+    cloudflareAPIToken: "CLOUDFLARE_API_TOKEN",
+    metadata: {
+      permalink: function (metadata, key, collection) {
+        if (!metadata.permalink) {
+          if (!metadata.title || !metadata.date) {
+            throw new Error(
+              `Unable to generate permalink for item with key: ${key}`,
+            );
+          }
+          return `/${collection}/${helpers.permalinkToPath(metadata.title, metadata.date)}`;
+        }
+        return metadata.permalink;
+      }
+    },
+    quiet: false
+  });
 
   // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);
