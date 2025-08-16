@@ -30,7 +30,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "deepmerge": "^4.3.1",
     "dotenv": "^17.2.1",
-    "eleventy-plugin-cloudflare-kv": "^1.0.0",
+    "eleventy-plugin-cloudflare-kv": "^1.0.1",
     "eleventy-plugin-og-image": "^4.2.0",
     "eleventy-plugin-purgecss": "^0.5.0",
     "get-audio-duration": "^4.0.1",
