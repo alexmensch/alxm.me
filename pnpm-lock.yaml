@@ -35,8 +35,8 @@ importers:
         specifier: ^17.2.1
         version: 17.2.1
       eleventy-plugin-cloudflare-kv:
-        specifier: ^1.0.0
-        version: 1.0.0(@11ty/eleventy@3.1.2)
+        specifier: ^1.0.1
+        version: 1.0.1(@11ty/eleventy@3.1.2)
       eleventy-plugin-og-image:
         specifier: ^4.2.0
         version: 4.2.0(@11ty/eleventy@3.1.2)
@@ -705,9 +705,9 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  eleventy-plugin-cloudflare-kv@1.0.0:
-    resolution: {integrity: sha512-/j6HByUwYVHKX5NhoPgS8W5jdG5kXV98okbOhhg8iUZ161Ha/FjTbl1hSTf3XM+q1aOyqqVXVcoT0dyh+sBTlw==}
-    engines: {node: '>=14.0.0'}
+  eleventy-plugin-cloudflare-kv@1.0.1:
+    resolution: {integrity: sha512-jaAWlYDK5UN2uF/q+MCcuQxvK1DwCFpDTssnEGm+yWUOssF3dKxYC+PuUbSyOe6T/SILydGv4TIKGHf8fH/gXA==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
       '@11ty/eleventy': '>=3.0.0'
 
@@ -1962,7 +1962,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  eleventy-plugin-cloudflare-kv@1.0.0(@11ty/eleventy@3.1.2):
+  eleventy-plugin-cloudflare-kv@1.0.1(@11ty/eleventy@3.1.2):
     dependencies:
       '@11ty/eleventy': 3.1.2
       gray-matter: 4.0.3
