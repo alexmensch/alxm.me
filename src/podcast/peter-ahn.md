@@ -1,7 +1,7 @@
 ---
 title: 'Peter: "Stay true to yourself"'
 publishToRSSFeed: true
-date: 2025-06-17
+date: 2025-10-07
 summary: |
   This is an episode summary used only for the list view on my website.
 recording: /assets/podcast/audio/s01e01-peter.mp3

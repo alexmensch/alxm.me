@@ -1,7 +1,7 @@
 ---
 title: 'Felix: "Felix findet Frieden"'
 publishToRSSFeed: true
-date: 2025-06-22
+date: 2025-11-18
 summary: |
   This is an episode summary used only for the list view on my website.
 recording: /assets/podcast/audio/s01e05-felix.mp3
