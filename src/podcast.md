@@ -2,7 +2,7 @@
 layout: layouts/podcast
 title: "Podcast: What I Knew"
 hero:
-  header: "What I Knew: Inspiring stories of courage in personal change"
+  header: "What I Knew: Stories of courage in personal change"
 ---
 
 {%- assign space = " " -%}
