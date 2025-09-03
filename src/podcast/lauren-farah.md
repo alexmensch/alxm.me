@@ -4,10 +4,10 @@ publishToRSSFeed: false
 date: 2025-06-18
 summary: |
   This is an episode summary used only for the list view on my website.
-recording:
+recording: /assets/podcast/audio/s01e02-lauren.mp3
 guid: 7CA651EE-7856-494E-813E-2FCD43F72DF0
 itunes:
-  explicit: false
+  explicit: true
   episode: 2
   season: 1
   episodeType: full

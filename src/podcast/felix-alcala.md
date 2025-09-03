@@ -4,7 +4,7 @@ publishToRSSFeed: false
 date: 2025-06-22
 summary: |
   This is an episode summary used only for the list view on my website.
-recording: /assets/podcast/audio/s01-felix.mp3
+recording: /assets/podcast/audio/s01e05-felix.mp3
 guid: DFCB3581-52F1-4A9E-81AB-2D05436030C9
 itunes:
   explicit: false
