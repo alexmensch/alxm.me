@@ -1,6 +1,6 @@
 ---
 title: 'Peter: "Stay true to yourself"'
-publishToRSSFeed: false
+publishToRSSFeed: true
 date: 2025-06-17
 summary: |
   This is an episode summary used only for the list view on my website.
