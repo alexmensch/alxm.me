@@ -3,7 +3,7 @@ title: 'Peter: "Stay true to yourself"'
 publishToRSSFeed: true
 date: 2025-10-07
 summary: |
-  This is an episode summary used only for the list view on my website.
+  Peter’s story traces how repeated corporate setbacks, personal loss, and deep self-reflection led him to leave high-pressure sales roles, bet on himself, and build a career aligned with his true values.
 recording: /assets/podcast/audio/s01e01-peter.mp3
 guid: CF33F4BF-3E9E-4071-822F-DB7A3EFB49FD
 itunes:
