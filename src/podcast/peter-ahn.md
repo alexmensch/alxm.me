@@ -1,5 +1,5 @@
 ---
-title: 'Peter: "Stay true to yourself"'
+title: 'Peter: "Show up as your full self every day"'
 publishToRSSFeed: true
 date: 2025-10-07
 summary: |
