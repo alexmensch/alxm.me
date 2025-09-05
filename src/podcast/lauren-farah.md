@@ -1,5 +1,5 @@
 ---
-title: 'Lauren: "Everything you need is within you"'
+title: 'Lauren: "Give yourself the gift of seeing what you''re able to create"'
 publishToRSSFeed: true
 date: 2025-10-21
 summary: |
