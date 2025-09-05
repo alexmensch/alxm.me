@@ -13,10 +13,15 @@ itunes:
   episodeType: full
 ---
 
-In this conversation, Felix shares his transformative journey from a predetermined career path in IT to a quest for deeper meaning and fulfillment. He reflects on the pivotal moments that led him to question societal expectations and pursue a life aligned with his values. Through a spiritual journey and ongoing inner work, he emphasizes the importance of self-love, intuition, and the freedom that comes from making choices that resonate with one's true self. The discussion highlights the challenges of navigating relationships during personal transformation and the profound insights gained along the way.
+Peter’s journey is one of grit, self-discovery, and courage. After years of overdelivering in high-pressure sales roles at tech companies like Dropbox, Slack, and various startups, he found himself trapped in the same painful pattern: hard work and results were met with doubt, misunderstanding, and missed recognition.
+
+In this conversation, Peter shares how repeated setbacks - from being told he didn’t have “enough white hairs” to being offered roles that didn’t align with his passion — ultimately pushed him to bet on himself. He opens up about the toll that his sacrifices took on his health and personal life, how he processed grief after his sister’s death, and why he now leads with authenticity and vulnerability as his greatest assets.
+
+Peter’s story is a testament to the power of listening to yourself, taking courageous risks, and pursuing work that's aligned with your core values.
 
 **Additional resources:**
 
-- Does Felix want to include anything about himself here?
+- Peter's [personal website](https://www.peterahn.com) and [LinkedIn profile](https://www.linkedin.com/in/peter-ahn-47538511/)
+- Peter's book, [Unlocking Authentic Sales](https://www.amazon.com/dp/B0FK4LQWLM)
 
 {% render "partials/episode-credits" site: site %}
