@@ -13,10 +13,12 @@ itunes:
   episodeType: full
 ---
 
-In this conversation, Felix shares his transformative journey from a predetermined career path in IT to a quest for deeper meaning and fulfillment. He reflects on the pivotal moments that led him to question societal expectations and pursue a life aligned with his values. Through a spiritual journey and ongoing inner work, he emphasizes the importance of self-love, intuition, and the freedom that comes from making choices that resonate with one's true self. The discussion highlights the challenges of navigating relationships during personal transformation and the profound insights gained along the way.
+Lauren’s journey is one of curiosity, courage, and radical self-discovery. After nearly eleven years in a relationship that no longer aligned with her growth, she faced a pivotal moment of reckoning — a moment that began in the bathtub with an intense, almost mystical sense that something had to change. Overwhelmed by fear yet guided by intuition, Lauren navigated a period of profound transition that involved ending her long-term relationship, moving into her first solo apartment in years, and diving into a spiritual awakening with guidance from a shaman and her support network.
 
-**Additional resources:**
+In this episode, Lauren reflects on what it felt like to leave behind the familiar — the friendship, comfort, and shared history that had kept her tethered — and how she learned to trust herself and her own voice. She shares the emotional complexity of that breakup, the mourning of what was lost, and the relief and freedom that came from finally honoring her needs. She also explores the influence of family culture, early lessons about curiosity and self-knowledge, and how those foundations shaped her ability to embrace uncertainty and step fully into her potential.
 
-- Does Felix want to include anything about himself here?
+We dive into the period of intense transformation following her “bathtub moment,” when Lauren experienced life at hyper-speed: finding a new apartment, landing a new job, and discovering the strength and resilience she had been cultivating all along. She describes how curiosity, inner guidance, and leaning on a supportive community helped her navigate a period that felt simultaneously like a spiritual detox, a test of endurance, and a gateway into a more vibrant, authentic life.
 
-{% render "partials/episode-credits" site: site %}
+Whether you’re facing a major life transition, questioning long-held commitments, or simply seeking inspiration to trust your intuition, Lauren’s story is a testament to leaning into resistance, honoring your inner voice, and embracing the unknown with curiosity and courage.
+
+{% render "partials/episode-credits" %}
