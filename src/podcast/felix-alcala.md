@@ -19,4 +19,4 @@ In this conversation, Felix shares his transformative journey from a predetermin
 
 - Does Felix want to include anything about himself here?
 
-{% render "partials/episode-credits" site: site %}
+{% render "partials/episode-credits" %}
