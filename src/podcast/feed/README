@@ -6,9 +6,7 @@ To update any artwork, you must change the filename of the artwork file in the f
 
 **Changing publish dates or re-publishing episodes**
 
-The GUID assigned to the episode is what Apple uses to detect the "first appearance" of the episode. If you wish to re-launch it as a new episode, or update any of the metadata, you must change the GUID to force the change.
-
-In order to republish an episode, change the GUID before Apple first picks it up in the public feed.
+Once a GUID is assigned to an episode, it must never change. Podcast apps should check feeds regularly and update any metadata or changes associated with the same episode GUID.
 
 **Publishing a new episode to the feed**
 
