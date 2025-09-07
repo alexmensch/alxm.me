@@ -1,0 +1,9 @@
+## Making updates to the podcast feed
+
+**Artwork**
+
+To update any artwork, you must change the filename of the artwork file in the feed in order for Apple Podcasts to pick up the change and update it in Podcasts for users.
+
+**Changing publish dates for episodes**
+
+The GUID assigned to the episode is what Apple uses to detect the "first appearance" of the episode. If you wish to re-launch it as a new episode, or update any of the metadata, you must change the GUID to force the change.
