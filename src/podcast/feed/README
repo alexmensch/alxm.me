@@ -13,6 +13,7 @@ In order to republish an episode, change the GUID before Apple first picks it up
 **Publishing a new episode to the feed**
 
 Checklist:
+
 - Update RSS_LAST_MODIFIED in \_cloudflare/config.js with the date you make a change to the feed
 - Set publishToRSSFeed to true in the episode(s)
 - Build locally and check RSS feed
