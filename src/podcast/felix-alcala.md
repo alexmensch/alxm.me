@@ -5,7 +5,7 @@ date: 2025-12-02
 summary: |
   Felix shares how questioning a safe IT career path led him on a spiritual journey of self-love, intuition, and courageous choices to build a life aligned with his true values.
 recording: /assets/podcast/audio/s01e05-felix.mp3
-guid: 8755F2E-8183-4A68-9B59-455852E83CCE
+guid: DFCB3581-52F1-4A9E-81AB-2D05436030C9
 itunes:
   explicit: false
   episode: 5
