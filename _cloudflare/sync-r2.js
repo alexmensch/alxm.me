@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
-import { execSync } from "child_process";
+import { execSync, execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 import { config } from "./config.js";
 import dotenv from "dotenv";
@@ -23,26 +23,50 @@ const s3Client = new S3Client({
   }
 });
 
-async function uploadFileToR2(filePath, key) {
-  const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
-  const response = await s3Client.send(command);
-
-  const localFileStats = await stat(filePath);
-
-  if (localFileStats.size === response.ContentLength) {
-    return;
-  } else {
-    try {
-      execSync(
-        `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --remote --content-type "audio/mpeg"`,
-        { stdio: "inherit" }
-      );
-      console.log(`✅ Uploaded: ${key}`);
-    } catch (error) {
-      console.error(`❌ Failed to upload ${key}`);
-      throw error;
-    }
+function uploadFileToR2(filePath, key) {
+  try {
+    execFileSync(
+      "npx",
+      [
+        "wrangler",
+        "r2",
+        "object",
+        "put",
+        `${BUCKET_NAME}/${key}`,
+        "--file",
+        `../${filePath}`,
+        "--remote",
+        "--content-type",
+        "audio/mpeg"
+      ],
+      { stdio: "inherit", cwd: "_cloudflare" }
+    );
+    console.log(`✅ Uploaded: ${key}`);
+  } catch (error) {
+    console.error(`❌ Failed to upload ${key}`);
+    throw error;
   }
+}
+
+async function isFileInR2(filePath, key) {
+  try {
+    const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
+    const response = await s3Client.send(command);
+
+    const localFileStats = await stat(filePath);
+
+    if (localFileStats.size === response.ContentLength) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch(error) {
+    if(error['$metadata'].httpStatusCode === 404) {
+      return false;
+    } else {
+      throw(error);
+    }
+  }  
 }
 
 async function generateConfigFiles() {
@@ -103,7 +127,8 @@ async function syncAudioFiles() {
       const filePath = join(AUDIO_DIR, file);
       const key = file;
 
-      await uploadFileToR2(filePath, key);
+      const uploaded = await isFileInR2(filePath, key);
+      if (uploaded === false) uploadFileToR2(filePath, key);
     }
 
     console.log("🚀 R2 sync complete!");
