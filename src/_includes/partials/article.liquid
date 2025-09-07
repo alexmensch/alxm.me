@@ -8,14 +8,7 @@
 
   <div class="[ article__content ] [ flow ]">
     {% if type == "episode" %}
-      <div class="box bg-light-shade padding-s border-thin border-style-dotted radius" data-fit-content>
-        <div class="cluster" data-state="center">
-          <p class="font-sans text-3 weight-bold">Listen</p>
-          <audio controls>
-            <source src="{{ recording }}" type="audio/mpeg" />
-          </audio>
-        </div>
-      </div>
+      {% render "partials/media-player", label: "Listen", src: recording %}
     {% endif %}
     {{ content }}
   </div>
