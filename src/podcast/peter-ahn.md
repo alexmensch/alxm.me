@@ -21,7 +21,8 @@ Peter’s story is a testament to the power of listening to yourself, taking cou
 
 **Additional resources:**
 
-- Peter's [personal website](https://www.peterahn.com) and [LinkedIn profile](https://www.linkedin.com/in/peter-ahn-47538511/)
-- Peter's book, [Unlocking Authentic Sales](https://www.amazon.com/dp/B0FK4LQWLM)
+Peter's [personal website](https://www.peterahn.com) and [LinkedIn profile](https://www.linkedin.com/in/peter-ahn-47538511/)
+
+Peter's book, [Unlocking Authentic Sales](https://www.amazon.com/dp/B0FK4LQWLM)
 
 {% render "partials/episode-credits" %}
