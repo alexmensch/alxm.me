@@ -60,13 +60,13 @@ async function isFileInR2(filePath, key) {
     } else {
       return false;
     }
-  } catch(error) {
-    if(error['$metadata'].httpStatusCode === 404) {
+  } catch (error) {
+    if (error["$metadata"].httpStatusCode === 404) {
       return false;
     } else {
-      throw(error);
+      throw error;
     }
-  }  
+  }
 }
 
 async function generateConfigFiles() {
