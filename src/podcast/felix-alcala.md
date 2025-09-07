@@ -1,9 +1,9 @@
 ---
 title: 'Felix: "Felix findet Frieden"'
 publishToRSSFeed: true
-date: 2025-09-03
+date: 2025-12-02
 summary: |
-  This is an episode summary used only for the list view on my website.
+  Felix shares how questioning a safe IT career path led him on a spiritual journey of self-love, intuition, and courageous choices to build a life aligned with his true values.
 recording: /assets/podcast/audio/s01e05-felix.mp3
 guid: 8755F2E-8183-4A68-9B59-455852E83CCE
 itunes:
