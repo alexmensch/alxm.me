@@ -3,22 +3,45 @@ import { join, dirname } from "path";
 import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 import { config } from "./config.js";
+import dotenv from "dotenv";
+import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
+import { stat } from "fs/promises";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+dotenv.config({ quiet: true });
+
 const { BUCKET_NAME, AUDIO_DIR, WORKER_NAME, DOMAIN } = config;
 
+const s3Client = new S3Client({
+  region: "auto",
+  endpoint: `https://${process.env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  credentials: {
+    accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
+    secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY
+  }
+});
+
 async function uploadFileToR2(filePath, key) {
-  try {
-    execSync(
-      `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --remote --content-type "audio/mpeg"`,
-      { stdio: "inherit" }
-    );
-    console.log(`✅ Uploaded: ${key}`);
-  } catch (error) {
-    console.error(`❌ Failed to upload ${key}`);
-    throw error;
+  const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
+  const response = await s3Client.send(command);
+
+  const localFileStats = await stat(filePath);
+
+  if (localFileStats.size === response.ContentLength) {
+    return;
+  } else {
+    try {
+      execSync(
+        `cd _cloudflare && npx wrangler r2 object put ${BUCKET_NAME}/${key} --file "../${filePath}" --remote --content-type "audio/mpeg"`,
+        { stdio: "inherit" }
+      );
+      console.log(`✅ Uploaded: ${key}`);
+    } catch (error) {
+      console.error(`❌ Failed to upload ${key}`);
+      throw error;
+    }
   }
 }
 
@@ -70,7 +93,9 @@ async function deployWorker() {
 
 async function syncAudioFiles() {
   try {
-    const files = readdirSync(AUDIO_DIR);
+    const files = readdirSync(AUDIO_DIR).filter((file) =>
+      file.endsWith(".mp3")
+    );
 
     console.log(`🎵 Found ${files.length} files to sync...`);
 
