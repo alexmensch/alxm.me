@@ -1,6 +1,6 @@
 ---
 title: 'Lauren: "Give yourself the gift of seeing what you''re able to create"'
-publishToRSSFeed: true
+publishToRSSFeed: false
 date: 2025-10-21
 summary: |
   Lauren’s story follows her courageous decision to leave a long-term relationship, trust her intuition, and transform nearly every part of her life in pursuit of authenticity, freedom, and self-discovery.

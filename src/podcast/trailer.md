@@ -1,7 +1,7 @@
 ---
 title: Introducing What I Knew
 publishToRSSFeed: false
-date: 2025-06-01
+date: 2025-09-16
 summary: |
   Introducing a new interview podcast where my guests share intimate stories of personal change.
 recording:
