@@ -1,6 +1,6 @@
 ---
 title: 'Felix: "Felix findet Frieden"'
-publishToRSSFeed: false
+publishToRSSFeed: true
 date: 2025-12-02
 summary: |
   Felix shares how questioning a safe IT career path led him on a spiritual journey of self-love, intuition, and courageous choices to build a life aligned with his true values.
