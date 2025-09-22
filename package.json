@@ -43,7 +43,7 @@
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-for-inline": "^2.0.1",
     "markdown-it-smartarrows": "^1.0.1",
-    "sass": "^1.92.1",
+    "sass": "^1.93.0",
     "slugify": "^1.6.6",
     "utopia-core-scss": "^1.3.0"
   },
