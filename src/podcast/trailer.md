@@ -1,10 +1,10 @@
 ---
 title: Introducing What I Knew
-publishToRSSFeed: false
-date: 2025-09-16
+publishToRSSFeed: true
+date: 2025-10-10
 summary: |
   Introducing a new interview podcast where my guests share intimate stories of personal change.
-recording:
+recording: /assets/podcast/audio/s01-trailer.mp3
 guid: E3BD5858-A4F6-4B40-906D-555234DA6BB8
 itunes:
   explicit: false
