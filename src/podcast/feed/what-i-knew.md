@@ -2,7 +2,7 @@
 layout: podcast/apple-podcasts
 eleventyExcludeFromCollections: true
 permalink: /podcast/feed/what-i-knew.rss
-artwork: /assets/podcast/images/cover-artwork-default-blue.png
+artwork: /assets/podcast/images/default-artwork-v1.jpeg
 
 channel:
   title: What I Knew
@@ -15,7 +15,7 @@ channel:
       - category: Education
         subcategory: Self-Improvement
     explicit: false
-    type: episodic
+    type: serial
   podcast:
     guid: 75F7697F-7B5E-4B3B-BC73-FB3E0E2EA8CD
     locked: no

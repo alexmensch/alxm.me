@@ -1,13 +1,11 @@
 {
   "layout": "layouts/podcast-episodes",
-  "artwork": "/assets/podcast/images/cover-artwork-default.png",
   "link": "page.url",
   "eleventyComputed": {
     "enclosure": {
       "url": "{{ \"https://\" | append: site.domain | append: recording }}"
     },
     "itunes": {
-      "image": "{{ \"https://\" | append: site.domain | append: artwork }}",
       "title": "{{ title }}"
     },
     "description": "{{ page.rawInput | renderContent: 'liquid' | markdownToCDATA }}"
