@@ -36,7 +36,7 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
         type="audio/mpeg" 
         url="{{ episode.data.enclosure.url }}"
       />
-      <guid>{{ episode.data.guid }}</guid>
+      <guid isPermalink="false">{{ episode.data.guid }}</guid>
       <pubDate>{{ episode.data.pubDate }}</pubDate>
       <link>{{ "https://" | append: site.domain | append: episode.data.page.url }}</link>
       <itunes:duration>{{ episode.data.itunes.duration }}</itunes:duration>
