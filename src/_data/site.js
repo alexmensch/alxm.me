@@ -8,6 +8,7 @@ const site = {
     title: "Alex Marshall | Writing",
     subtitle: "A collection of my writing on various topics."
   },
+  podcastEmail: "podcast@alexmarshall.me",
   podcastURL: {
     remotes: [
       {

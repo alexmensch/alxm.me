@@ -26,6 +26,7 @@ eleventyComputed:
   channel:
     itunes:
       author: "{{ site.authorName }}"
+      email: "{{ site.podcastEmail }}"
       title: "{{ channel.title }}"
       image: '{{ "https://" | append: site.domain | append: artwork }}'
     description: "{{ page.rawInput | renderContent: 'liquid' | markdownToCDATA }}"
