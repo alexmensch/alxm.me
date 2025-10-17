@@ -13,7 +13,7 @@ const site = {
     remotes: [
       {
         name: "Apple Podcasts",
-        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924"
+        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1846839520"
       },
       {
         name: "Spotify",
