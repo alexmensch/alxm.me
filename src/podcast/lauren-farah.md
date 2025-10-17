@@ -1,7 +1,7 @@
 ---
 title: 'Lauren: "Give yourself the gift of seeing what you''re able to create"'
 publishToRSSFeed: false
-date: 2025-10-21
+date: 2025-11-04
 summary: |
   Lauren’s story follows her courageous decision to leave a long-term relationship, trust her intuition, and transform nearly every part of her life in pursuit of authenticity, freedom, and self-discovery.
 recording: /assets/podcast/audio/s01e02-lauren.mp3

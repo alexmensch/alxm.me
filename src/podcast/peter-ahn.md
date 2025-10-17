@@ -1,7 +1,7 @@
 ---
 title: 'Peter: "Show up as your full self every day"'
 publishToRSSFeed: false
-date: 2025-10-07
+date: 2025-10-21
 summary: |
   Peter’s story traces how repeated corporate setbacks, personal loss, and deep self-reflection led him to leave high-pressure sales roles, bet on himself, and build a career aligned with his true values.
 recording: /assets/podcast/audio/s01e01-peter.mp3
@@ -11,6 +11,7 @@ itunes:
   episode: 1
   season: 1
   episodeType: full
+  image: /assets/podcast/images/artwork-peter-s01e01.jpg
 ---
 
 Peter’s journey is one of grit, self-discovery, and courage. After years of overdelivering in high-pressure sales roles at tech companies like Dropbox, Slack, and various startups, he found himself trapped in the same painful pattern: hard work and results were met with doubt, misunderstanding, and missed recognition.
