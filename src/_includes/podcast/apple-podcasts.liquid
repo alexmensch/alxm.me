@@ -21,7 +21,9 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
 {%- endfor %}
     <itunes:explicit>{{ channel.itunes.explicit }}</itunes:explicit>
     <itunes:author>{{ channel.itunes.author }}</itunes:author>
-    <itunes:email>{{  channel.itunes.email }}</itunes:email>
+    <itunes:owner>
+      <itunes:email>{{ channel.itunes.email }}</itunes:email>
+    </itunes:owner>
     <itunes:title>{{ channel.itunes.title }}</itunes:title>
     <itunes:type>{{ channel.itunes.type }}</itunes:type>
 {%- for episode in collections.podcast %}
