@@ -2,7 +2,7 @@
 layout: podcast/apple-podcasts
 eleventyExcludeFromCollections: true
 permalink: /podcast/feed/what-i-knew.rss
-artwork: /assets/podcast/images/default-artwork-v1.jpeg
+artwork: /assets/podcast/images/artwork-default-v2.jpg
 
 channel:
   title: What I Knew
@@ -26,6 +26,7 @@ eleventyComputed:
   channel:
     itunes:
       author: "{{ site.authorName }}"
+      email: "{{ site.podcastEmail }}"
       title: "{{ channel.title }}"
       image: '{{ "https://" | append: site.domain | append: artwork }}'
     description: "{{ page.rawInput | renderContent: 'liquid' | markdownToCDATA }}"

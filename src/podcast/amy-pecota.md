@@ -11,6 +11,7 @@ itunes:
   episode: 4
   season: 1
   episodeType: full
+  image: /assets/podcast/images/artwork-s01e04-amy.jpg
 ---
 
 In this conversation, Felix shares his transformative journey from a predetermined career path in IT to a quest for deeper meaning and fulfillment. He reflects on the pivotal moments that led him to question societal expectations and pursue a life aligned with his values. Through a spiritual journey and ongoing inner work, he emphasizes the importance of self-love, intuition, and the freedom that comes from making choices that resonate with one's true self. The discussion highlights the challenges of navigating relationships during personal transformation and the profound insights gained along the way.

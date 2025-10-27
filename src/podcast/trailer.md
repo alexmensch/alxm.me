@@ -1,5 +1,5 @@
 ---
-title: Introducing What I Knew
+title: "Introducing: What I Knew"
 publishToRSSFeed: true
 date: 2025-10-10
 summary: |

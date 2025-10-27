@@ -8,18 +8,35 @@ const site = {
     title: "Alex Marshall | Writing",
     subtitle: "A collection of my writing on various topics."
   },
+  podcastEmail: "podcast@alexmarshall.me",
   podcastURL: {
     remotes: [
       {
-        name: "Apple Podcasts",
-        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1830730924"
+        name: "Apple",
+        url: "https://podcasts.apple.com/us/podcast/what-i-knew/id1846839520"
+      },
+      {
+        name: "Spotify",
+        url: "https://open.spotify.com/show/54h0C6BuIMJnYiXcsnt67H"
+      },
+      {
+        name: "Overcast",
+        url: "https://overcast.fm/itunes1846839520"
+      },
+      {
+        name: "YouTube",
+        url: "https://www.youtube.com/playlist?list=PL5BiFkWofLTWIxHPdfu2MRhHMubCxi-N_"
+      },
+      {
+        name: "Amazon",
+        url: "https://music.amazon.co.uk/podcasts/973c75f5-1dc0-4e8a-92ad-1bb7579a4b28"
       }
     ]
   },
   links: [],
   nav: [
     { title: "Coaching", url: "/coaching/" },
-    { title: "Advisory", url: "/advisory/" },
+    { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Writing", url: "/writing/" },
     { title: "Podcast", url: "/podcast/", collection: true },
     { title: "Contact", url: "/contact/", footer: true },
