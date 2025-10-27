@@ -11,11 +11,7 @@ itunes:
   episode: 2
   season: 1
   episodeType: full
-<<<<<<< HEAD
-  image: /assets/podcast/images/artwork-peter-s01e01.jpeg
-=======
   image: /assets/podcast/images/artwork-s01e02-peter.jpg
->>>>>>> podcast/s01e01
 ---
 
 Peter’s journey is one of grit, self-discovery, and courage. After years of overdelivering in high-pressure sales roles at tech companies like Dropbox, Slack, and various startups, he found himself trapped in the same painful pattern: hard work and results were met with doubt, misunderstanding, and missed recognition.
