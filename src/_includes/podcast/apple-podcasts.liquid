@@ -30,7 +30,6 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
 {%- if episode.data.publishToRSSFeed %}
     <item>
       <title>{{ episode.data.title }}</title>
-      <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
       <itunes:title>{{ episode.data.itunes.title }}</itunes:title>
       <description>{{ episode.data.description }}</description>
       <enclosure 
@@ -47,11 +46,11 @@ And:       https://github.com/Podcast-Standards-Project/PSP-1-Podcast-RSS-Specif
       <itunes:episode>{{ episode.data.itunes.episode }}</itunes:episode>
       <itunes:season>{{ episode.data.itunes.season }}</itunes:season>
       <itunes:episodeType>{{ episode.data.itunes.episodeType }}</itunes:episodeType>
-      <itunes:image>{%- if episode.data.itunes.image  -%}
+      <itunes:image href="{%- if episode.data.itunes.image  -%}
       {{ "https://" | append: site.domain | append: episode.data.itunes.image }}
       {%- else -%}
       {{ channel.itunes.image }}
-      {%- endif -%}</itunes:image>
+      {%- endif -%}" />
     </item>
 {%- endif %}
 {%- endfor %}
