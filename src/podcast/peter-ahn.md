@@ -1,7 +1,7 @@
 ---
 title: 'Peter: "Show up as your full self every day"'
-publishToRSSFeed: false
-date: 2025-10-21
+publishToRSSFeed: true
+date: 2025-11-10
 summary: |
   Peter’s story traces how repeated corporate setbacks, personal loss, and deep self-reflection led him to leave high-pressure sales roles, bet on himself, and build a career aligned with his true values.
 recording: /assets/podcast/audio/s01e02-peter.mp3
