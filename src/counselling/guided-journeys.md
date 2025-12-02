@@ -1,7 +1,7 @@
 ---
 layout: layouts/landing
 eleventyExcludeFromCollections: true
-permalink: /coaching/exercise/guided-journeys/
+permalink: /counselling/ex/guided-journeys/
 hero:
   header: Guided Inner Journeys
   byline: Visualisations to help you connect to and discover your inner purpose

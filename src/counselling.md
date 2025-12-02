@@ -1,8 +1,8 @@
 ---
 layout: layouts/landing
-title: Coaching
+title: Therapeutic Work
 meta:
-  description: I support clients as they explore fundamental life change and growth. Contact me for an initial consultation to learn more.
+  description: I support clients in depth-oriented personal exploration and meaningful life change. Contact me for an initial consultation to learn more.
 hero:
   header: You have the power to change your reality
 cta:
@@ -12,15 +12,15 @@ cta:
 company_info: true
 ---
 
-Hi, I’m [Alex](/about), and I support clients as they explore fundamental life change and growth.
+Hi, I’m [Alex](/about), and I support clients in depth-oriented personal exploration and meaningful life change.
 
-My calling to become a coach comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing care of a therapist, I gradually rediscovered myself and developed the courage to begin to reshape my life to be in tune with who I am.
+My calling to this work comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing relational care of a therapist, I gradually rediscovered myself and found the courage to reshape my life to be in tune with who I am.
 
 {% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5" %}
 
-My belief is that everyone is intrinsically motivated to fulfill their life purpose, and it is through the power of an unconditional and supportive relationship that this self-exploration can be actualized. I find it incredibly rewarding to help others unfold their own journeys.
+My belief and experience are that everyone has an innate impulse towards wholeness, and that an unconditional and supportive relationship creates a powerful space for this impulse to unfold. I find it profoundly humbling and meaningful to walk alongside my clients as they follow what emerges from this type of deep inquiry.
 
-I am a trained [Co-Active](https://coactive.com) coach, and my approach is also heavily influenced by [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) and [existential](https://en.wikipedia.org/wiki/Existential_therapy) schools of psychotherapy.
+I offer depth-oriented therapeutic work informed by [existential](https://en.wikipedia.org/wiki/Existential_therapy) and [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) psychotherapy, and my work is supported by regular supervision with a qualified psychotherapist. I am a trained [Co-Active](https://coactive.com) coach, and I am currently completing a Master's degree in Humanistic Psychotherapy at the [Metanoia Institute](https://www.metanoia.ac.uk) in London.
 
 ## Authenticity and self-inquiry
 
@@ -36,13 +36,17 @@ Honestly examining your life through compassionate curiosity is one of the great
 
 I work with anyone who is dedicated to pursuing what it means to live a life true to themselves. This often comes up during times of significant personal change that can be disorienting to navigate without unconditional support. The following are common starting points for my clients:
 
-- Working through a major career change
-- Questioning whether the way you spend your time aligns with your life purpose
-- Feeling disconnected from your day to day, as if you’re just going through the motions
-- Navigating a major relationship, lifestyle, or geography shift
+- Support during a major career, relationship, geographic, or cultural change
+- Disconnection from your day to day, as if you’re just going through the motions
+- Dissatisfaction with important or significant relationships, whether personal or professional
+- Seeking greater meaning from life or wanting to change a feeling of being stuck
 - A feeling that something just doesn’t feel right; that change could lead to greater fulfillment
 
+Note that my work is not clinical psychotherapy or mental health treatment. It is not intended to diagnose, treat, or cure any medical or psychological condition. If you are experiencing severe or persistent symptoms, I encourage you to consult with an accredited [mental health professional](https://www.psychotherapy.org.uk).
+
 ## How I work with my clients
+
+
 
 I believe that through the power of a supportive and unconditional relationship, everyone has the capacity to make contact with an inner wisdom that they can learn to trust and guide them.
 

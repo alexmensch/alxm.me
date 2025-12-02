@@ -35,7 +35,7 @@ const site = {
   },
   links: [],
   nav: [
-    { title: "Coaching", url: "/coaching/" },
+    { title: "Counselling", url: "/counselling/" },
     { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Writing", url: "/writing/" },
     { title: "Podcast", url: "/podcast/", collection: true },
