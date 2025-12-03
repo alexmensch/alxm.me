@@ -8,7 +8,7 @@ hero:
 cta:
   header: Free, no-commitment initial session
   body: |
-    The most important factor in the outcome of our work together is our relationship. More important than any particular therapeutic approach is the degree to which you can fully be yourself in the relational space. Honouring this, I offer a free, no-commitment initial session to allow you to both see how I work and decide whether I am the right fit for you. [Contact me](/contact) for a free initial consultation, and we can discuss your reasons for seeking support and your hopes for the future. I can also answer any questions you may have about myself and my approach.
+    The most important factor in the outcome of our work together is our relationship. More important than any particular therapeutic approach is the degree to which you can fully be yourself in the relational space. Honouring this, I offer a free, no-commitment initial session to allow you to both see how I work and decide whether I am the right fit for you.<br/><br/>[Contact me](/contact) for a free initial consultation, and we can discuss your reasons for seeking support and your hopes for the future. I can also answer any questions you may have about myself and my approach.
 company_info: true
 ---
 
