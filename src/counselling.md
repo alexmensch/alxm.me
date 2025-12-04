@@ -26,9 +26,9 @@ I offer depth-oriented therapeutic work informed by [existential](https://en.wik
 
 {% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}[…] we cannot change, we cannot move away from what we are, until we thoroughly _accept_ what we are. Then change seems to come about almost unnoticed.{% endblockQuote %}
 
-I believe that through the power of a caring and unconditional relationship, everyone has the capacity to make contact with an inner wisdom that they can learn to trust and guide them. Living an authentic life starts with bringing awareness to the layers of beliefs and emotional patterns that shape your sense of self. By bringing awareness to the unconscious scripts that you follow and the lenses that shape your experiences, you can start to make different choices. It is through new choices that fundamental change can take place.
+I believe that through the power of a caring and unconditional relationship, everyone has the capacity to make contact with an inner wisdom that they can learn to trust as their guide. Living an authentic life starts with bringing awareness to the layers of beliefs and emotional patterns that shape your sense of self. By becoming aware of the unconscious scripts that you follow and the lenses that shape your experiences, you can start to make different choices. It is through new choices that fundamental change can take place.
 
-My role in our therapeutic relationship is to hold the unconditional space for your encounters with these layers of self. I will support you in this self-exploration by encouraging you to bring awareness to the present moment to build familiarity with what it means to be you, both the familiar and uncomfortable. The practice of giving voice to your body (soma), heart (emotions), mind, and spirit within a safe relational space is what allows you to develop greater compassion for both yourself and others.
+My role in our therapeutic relationship is to hold the unconditional space for your encounters with these layers of self. I will support you in this self-exploration by encouraging you to bring awareness to the present moment of what it is like to be _you_, whether familiar or uncomfortable. As you integrate what your body (soma), heart (emotions), mind, and spirit are telling you within a safe relational space, you have the opportunity to develop greater compassion for both yourself and others.
 
 I generally work with people over a longer-term relationship, which honours the space and time that this potentially life-changing work can require. Sessions are weekly over Zoom with no advance commitment.
 
@@ -41,7 +41,7 @@ I often begin work with people during times of significant personal change that 
 The following are examples of common starting points:
 
 - Anxiety and stress during a major career, relationship, geographic, or cultural change
-- Disconnection from your day to day, as if you’re just going through the motions
+- Loneliness or disconnection from your day to day, as if you’re just going through the motions
 - Dissatisfaction with important or significant relationships, whether personal or professional
 - Seeking greater meaning from life or wanting to change a feeling of being stuck
 - A feeling that something just doesn’t feel right; that change could lead to greater fulfillment
