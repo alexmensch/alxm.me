@@ -51,7 +51,7 @@
   {% endif %}
 
   {% if type == "artwork" %}
-    <div class="[ gutter grid ]">
+    <div class="[ gutter artwork__preview-grid ]">
       {% for artwork in artworks %}
         {% render "partials/artwork-collection", artwork: artwork %}
       {% endfor %}

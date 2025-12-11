@@ -9,6 +9,6 @@ size:
   width: 10"
   height: 8"
 medium: oil on linen
-price: £250
+price: £650
 available: true
 ---

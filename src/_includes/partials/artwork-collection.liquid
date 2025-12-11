@@ -1,13 +1,11 @@
 <div class="box">
   <div class="flow flow-space-s">
-    <div class="[ artwork__preview ]">
-      <div class="[ box ] [ padding-none ]">
-        <div class="frame" data-ratio="{{ artwork.data.ratio }}" {%- if artwork.data.landscape %}data-landscape{%- endif %}>
-          <img src="{{ artwork.data.image }}" alt="Artwork preview image" />
-        </div>
+    <div class="[ box ] [ padding-none ]">
+      <div class="frame" data-ratio="{{ artwork.data.ratio }}" {%- if artwork.data.landscape %}data-landscape{%- endif %}>
+        <img src="{{ artwork.data.image }}" alt="Artwork preview image" />
       </div>
     </div>
-    <div class="flow flow-space-2xs">
+    <!-- <div class="flow flow-space-2xs">
       <p><em>{{ artwork.data.title }}</em></p>
       {%- if artwork.data.description %}
       <p>{{ artwork.data.description }}</p>
@@ -22,6 +20,6 @@
       {%- else %}
       <p>Not for sale</p>
       {%- endif %}
-    </div>
+    </div> -->
   </div>
 </div>

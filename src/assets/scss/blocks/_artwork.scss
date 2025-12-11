@@ -1,0 +1,13 @@
+@use "../compositions";
+
+.artwork {
+  &__preview-grid {
+    --min-item-width: 320px;
+
+    // This is not yet widely supported as of Dec/2025
+    // Leaving this in for eventual browser support
+    grid-template-rows: masonry;
+
+    @include compositions.grid;
+  }
+}

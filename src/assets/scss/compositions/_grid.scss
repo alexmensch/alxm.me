@@ -1,12 +1,13 @@
-.grid {
+@mixin grid {
   display: grid;
   gap: var(--flow-space);
 
-  // Set a sensible default which can be overridden in blocks
-  --min-item-width: 12rem;
-
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(var(--min-item-width), 100%), 1fr)
+    minmax(min(var(--min-item-width, 12rem), 100%), 1fr)
   );
+}
+
+.grid {
+  @include grid;
 }

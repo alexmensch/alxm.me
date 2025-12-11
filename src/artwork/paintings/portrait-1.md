@@ -8,6 +8,6 @@ size:
   width: 21cm
   height: 30cm
 medium: charcoal on toned paper
-price: £250
+price: £200
 available: true
 ---
