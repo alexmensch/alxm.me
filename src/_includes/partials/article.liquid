@@ -51,8 +51,10 @@
   {% endif %}
 
   {% if type == "artwork" %}
+    {% assign sorted_artworks = artworks | sort: "data.date" | reverse %}
+
     <div class="[ gutter artwork__preview-grid ]">
-      {% for artwork in artworks %}
+      {% for artwork in sorted_artworks %}
         {% render "partials/artwork-collection", artwork: artwork %}
       {% endfor %}
     </div>

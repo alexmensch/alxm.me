@@ -1,7 +1,7 @@
 ---
 title: Egg study
 description:
-date: 2025-12-11
+date: 2025-04-06
 image: /assets/artwork/paintings/study-1.jpeg
 ratio: 7-9
 size: 

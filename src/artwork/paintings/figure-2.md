@@ -1,7 +1,7 @@
 ---
 title: Tau
 description:
-date: 2025-12-11
+date: 2025-03-28
 image: /assets/artwork/paintings/figure-2.jpeg
 ratio: 2-3
 size: 

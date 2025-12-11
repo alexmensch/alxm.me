@@ -1,7 +1,7 @@
 ---
 title: Tatiana
 description:
-date: 2025-12-11
+date: 2025-07-02
 image: /assets/artwork/paintings/figure-4.jpeg
 ratio: 4-5
 size: 

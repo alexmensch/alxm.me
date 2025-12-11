@@ -1,7 +1,7 @@
 ---
 title: Portrait study
 description: This is master copy of John Singer Sargent's 1912 charcoal portrait of Kenneth Grahame, author of Wind in the Willows.
-date: 2025-12-11
+date: 2025-07-13
 image: /assets/artwork/paintings/portrait-1.jpeg
 ratio: 4-3
 size: 

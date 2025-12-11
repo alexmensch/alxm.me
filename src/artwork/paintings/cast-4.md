@@ -1,7 +1,7 @@
 ---
 title: Cast study I
 description:
-date: 2025-12-11
+date: 2025-04-05
 image: /assets/artwork/paintings/cast-4.jpeg
 ratio: 4-3
 size: 

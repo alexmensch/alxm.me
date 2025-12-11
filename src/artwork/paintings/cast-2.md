@@ -1,7 +1,7 @@
 ---
 title: Female torso study II
 description:
-date: 2025-12-11
+date: 2024-11-19
 image: /assets/artwork/paintings/cast-2.jpeg
 ratio: 5-6
 size: 
