@@ -20,7 +20,7 @@ My calling to this work comes from my own experience of how transformative a the
 
 My experience is that we all have a powerful and resourceful drive to fully become who we are. When our inner spirit is denied, this can manifest as anxiety, stress, dysphoria, and anger amongst a range of emotions that can point us to what needs attention in our lives. It is through an unconditional and supportive relationship that this aliveness within us can unfold. I find it profoundly humbling and meaningful to walk alongside my clients as they follow what emerges from this type of deep inquiry.
 
-I offer depth-oriented therapeutic work informed by [existential](https://en.wikipedia.org/wiki/Existential_therapy) and [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) psychotherapy, and my work is supported by regular supervision with an experienced psychotherapist. I am a trained [Co-Active](https://coactive.com) coach, and I am currently completing a Master's degree in Humanistic Psychotherapy at the [Metanoia Institute](https://www.metanoia.ac.uk) in London.
+I offer depth-oriented therapeutic work informed by [existential](https://en.wikipedia.org/wiki/Existential_therapy) and [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) psychotherapy, and my work is supported by regular supervision with an experienced psychotherapist.
 
 ## How I work with my clients
 
