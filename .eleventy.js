@@ -139,7 +139,7 @@ export default async function (eleventyConfig) {
 
   postCollections.forEach((collectionName) => {
     eleventyConfig.addCollection(`${collectionName}`, (collectionApi) => {
-      return collectionApi.getFilteredByGlob(`src/${collectionName}/*.md`);
+      return collectionApi.getFilteredByGlob(`src/${collectionName}/**/*.md`);
     });
   });
 

@@ -38,7 +38,7 @@ const site = {
     { title: "Counselling", url: "/counselling/" },
     { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Writing", url: "/writing/" },
-    { title: "Artwork", url: "/artwork/" },
+    { title: "Artwork", url: "/artwork/", collection: true },
     { title: "Podcast", url: "/podcast/", collection: true },
     { title: "Contact", url: "/contact/", footer: true },
     { title: "About", url: "/about/", footer: true },
