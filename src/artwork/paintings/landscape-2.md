@@ -3,9 +3,10 @@ title: Tree study I
 description:
 date: 2025-12-11
 image: /assets/artwork/paintings/landscape-2.jpeg
+ratio: 4-5
 size: 
-  width: 10"
-  height: 8"
+  width: 8"
+  height: 10"
 medium: oil on cotton canvas board
 price: £250
 available: true

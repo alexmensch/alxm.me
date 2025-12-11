@@ -3,6 +3,8 @@ title: Clapham Common
 description:
 date: 2025-12-11
 image: /assets/artwork/paintings/landscape-1.jpeg
+ratio: 4-5
+landscape: true
 size: 
   width: 10"
   height: 8"

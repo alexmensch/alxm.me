@@ -3,10 +3,11 @@ title: Tau
 description:
 date: 2025-12-11
 image: /assets/artwork/paintings/figure-2.jpeg
+ratio: 2-3
 size: 
-  width: 10"
-  height: 8"
+  width: 20"
+  height: 30"
 medium: oil on cotton canvas board
-price: £250
+price: £800
 available: true
 ---

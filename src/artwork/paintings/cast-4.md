@@ -3,10 +3,11 @@ title: Cast study I
 description:
 date: 2025-12-11
 image: /assets/artwork/paintings/cast-4.jpeg
+ratio: 4-3
 size: 
-  width: 10"
-  height: 8"
+  width: 21cm
+  height: 30cm
 medium: graphite and pastel pencil on toned paper
-price: £250
+price: £200
 available: true
 ---

@@ -3,10 +3,11 @@ title: Arnold
 description:
 date: 2025-12-11
 image: /assets/artwork/paintings/figure-1.jpeg
+ratio: 5-7
 size: 
-  width: 10"
-  height: 8"
-medium: charcoal on paper
-price: £250
+  width: 50cm
+  height: 70cm
+medium: charcoal on toned paper
+price: £400
 available: true
 ---
