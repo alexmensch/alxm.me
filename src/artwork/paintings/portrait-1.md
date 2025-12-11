@@ -4,7 +4,7 @@ description: This is master copy of John Singer Sargent's 1912 charcoal portrait
 date: 2025-07-13
 image: /assets/artwork/paintings/portrait-1.jpeg
 ratio: 4-3
-size: 
+size:
   width: 21cm
   height: 30cm
 medium: charcoal on toned paper

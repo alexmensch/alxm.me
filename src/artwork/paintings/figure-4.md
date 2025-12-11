@@ -4,7 +4,7 @@ description:
 date: 2025-07-02
 image: /assets/artwork/paintings/figure-4.jpeg
 ratio: 4-5
-size: 
+size:
   width: 16"
   height: 20"
 medium: oil on cotton canvas board

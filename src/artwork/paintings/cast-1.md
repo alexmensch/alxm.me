@@ -4,7 +4,7 @@ description:
 date: 2024-10-21
 image: /assets/artwork/paintings/cast-1.jpeg
 ratio: 5-6
-size: 
+size:
   width: 10"
   height: 12"
 medium: oil on cotton canvas board

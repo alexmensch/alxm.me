@@ -1,7 +1,6 @@
 @mixin grid {
   display: grid;
   gap: var(--flow-space);
-
   grid-template-columns: repeat(
     auto-fit,
     minmax(min(var(--min-item-width, 12rem), 100%), 1fr)
