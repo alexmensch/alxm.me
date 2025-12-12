@@ -299,6 +299,10 @@ export default async function (eleventyConfig) {
   // Example: {{ html_content | escapeHTML }}
   eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
 
+  // Custom filter to determine if current page is within parent link path
+  // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
+  eleventyConfig.addFilter("getPageTheme", helpers.getPageTheme);
+
   /* Shortcodes */
   /**************/
 

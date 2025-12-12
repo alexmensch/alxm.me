@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="{{ page.url | getPageTheme: site.nav }}">
     <head>
         {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
         <title>{{ pageTitle }}</title>
