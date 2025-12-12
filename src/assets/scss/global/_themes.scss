@@ -1,0 +1,18 @@
+html[data-theme="artwork"] {
+  --bg-color: #000;
+  --color-dark-shade: #212a3d;
+  --color-light: #fdf8f3;
+  --text-color: var(--color-light);
+  --footer-bg: var(--color-dark-shade);
+  --footer-text: var(--text-color);
+  --hero-bg: var(--color-dark-shade);
+  --hero-header-text: var(--bg-color);
+  --hero-header-text-mark: var(--color-light);
+  --hero-byline-text: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme="artwork"] {
+    --color-light: #f5f4f2;
+  }
+}

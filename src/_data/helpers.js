@@ -65,6 +65,14 @@ const helpers = {
 
     return response;
   },
+  getPageTheme(pagePath, siteNav) {
+    for (const item of siteNav) {
+      if (pagePath.includes(item.url)) {
+        return item.theme ?? null;
+      }
+    }
+    return null;
+  },
   loremIpsum(count, type) {
     switch (type) {
       case "words":
