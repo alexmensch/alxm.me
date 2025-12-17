@@ -5,14 +5,23 @@
   &__preview-grid {
     --min-item-width: 320px;
 
+    @include compositions.grid;
+
     // This is not yet widely supported as of Dec/2025
     // Leaving this in for eventual browser support
     grid-template-rows: masonry;
-
-    @include compositions.grid;
   }
 
   &__preview > :is([data-target]) {
     max-block-size: calc(100vh - 2 * #{dt.get-size("2xl")});
+  }
+
+  &__preview-layout {
+    @include compositions.grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    place-items: center start;
+    margin-inline: auto;
   }
 }

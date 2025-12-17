@@ -1,9 +1,10 @@
 ---
 layout: layouts/base
 ---
-<section class="[ cover artwork__preview ]">
-  <div class="[ stack ] [ center flow-space-m padding-none ]" data-target>
-    <div class="[ frame ] [ center ]" data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
+
+<section class="[ cover artwork__preview flow-space-m ]">
+  <div class="artwork__preview-layout" data-target>
+    <div class="frame" data-fit-content data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
       <img src="{{ image }}" alt="Artwork preview image" />
     </div>
     <div>
