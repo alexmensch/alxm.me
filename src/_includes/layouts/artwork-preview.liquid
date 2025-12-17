@@ -11,9 +11,14 @@ layout: layouts/base
       <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
         <p><em>{{ title }}</em></p>
         {%- if description %}
-        <p>{{ description }}</p>
+        <p>{{ description | markdownify }}</p>
         {%- endif %}
         <p>{{ size.width }} x {{ size.height }}, {{ medium }}</p>
+        {%- if available  %}
+        <p>{{ price }}, <a href="/contact">contact</a> to purchase</p>
+        {%- else %}
+        <p>Sold</p>
+        {%- endif  %}
       </div>
     </div>
   </div>
