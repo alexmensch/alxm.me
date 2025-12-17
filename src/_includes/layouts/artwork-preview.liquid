@@ -1,0 +1,19 @@
+---
+layout: layouts/base
+---
+<section class="[ cover artwork__preview ]">
+  <div class="[ stack ] [ center flow-space-m padding-none ]" data-target>
+    <div class="[ frame ] [ center ]" data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
+      <img src="{{ image }}" alt="Artwork preview image" />
+    </div>
+    <div>
+      <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
+        <p><em>{{ title }}</em></p>
+        {%- if description %}
+        <p>{{ description }}</p>
+        {%- endif %}
+        <p>{{ size.width }} x {{ size.height }}, {{ medium }}</p>
+      </div>
+    </div>
+  </div>
+</section>

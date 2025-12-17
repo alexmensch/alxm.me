@@ -1,4 +1,5 @@
 @use "../compositions";
+@use "../config/design-tokens" as dt;
 
 .artwork {
   &__preview-grid {
@@ -9,5 +10,9 @@
     grid-template-rows: masonry;
 
     @include compositions.grid;
+  }
+
+  &__preview > :is([data-target]) {
+    max-block-size: calc(100vh - 2 * #{dt.get-size("2xl")});
   }
 }

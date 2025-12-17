@@ -1,3 +1,6 @@
 {
-  "tags": "paintings"
+  "tags": "paintings",
+  "hide_header": "true",
+  "hide_footer": "true",
+  "layout": "layouts/artwork-preview"
 }
