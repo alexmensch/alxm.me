@@ -1,5 +1,5 @@
 ---
-title: 'Felix: “Felix findet Frieden”'
+title: "Felix: “Felix findet Frieden”"
 publishToRSSFeed: false
 date: 2025-12-16
 summary: |
