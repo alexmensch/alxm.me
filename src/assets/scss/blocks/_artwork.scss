@@ -2,7 +2,7 @@
 @use "../config/design-tokens" as dt;
 
 .artwork {
-  &__preview-grid {
+  &__gallery {
     --min-item-width: 320px;
 
     @include compositions.grid;
@@ -13,15 +13,23 @@
   }
 
   &__preview > :is([data-target]) {
-    max-block-size: calc(100vh - 2 * #{dt.get-size("2xl")});
+    block-size: calc(100vh - 2 * var(--padding));
   }
 
-  &__preview-layout {
+  &__preview-container {
+    margin-inline: auto;
+  }
+
+  &__preview-grid {
     @include compositions.grid;
 
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    place-items: center start;
-    margin-inline: auto;
+    block-size: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    place-items: start;
+
+    & > :nth-child(1) {
+      align-self: end;
+    }
   }
 }

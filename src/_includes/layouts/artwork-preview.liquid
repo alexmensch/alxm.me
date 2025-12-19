@@ -2,23 +2,25 @@
 layout: layouts/base
 ---
 
-<section class="[ cover artwork__preview flow-space-m ]">
-  <div class="artwork__preview-layout" data-target>
-    <div class="frame" data-fit-content data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
-      <img src="{{ image }}" alt="Artwork preview image" />
-    </div>
-    <div>
-      <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
-        <p><em>{{ title }}</em></p>
-        {%- if description %}
-        <p>{{ description | markdownify }}</p>
-        {%- endif %}
-        <p>{{ size.width }} x {{ size.height }}, {{ medium }}</p>
-        {%- if available  %}
-        <p>{{ price }}, <a href="/contact">contact</a> to purchase</p>
-        {%- else %}
-        <p>Sold</p>
-        {%- endif  %}
+<section class="[ cover artwork__preview flow-space-m padding-m ]">
+  <div class="artwork__preview-container" data-target>
+    <div class="artwork__preview-grid">
+      <div class="frame" data-fit-content data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
+        <img src="{{ image }}" alt="Artwork preview image" />
+      </div>
+      <div>
+        <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
+          <p><em>{{ title }}</em></p>
+          {%- if description %}
+          <p>{{ description | markdownify }}</p>
+          {%- endif %}
+          <p>{{ size.width }} x {{ size.height }}, {{ medium }}</p>
+          {%- if available  %}
+          <p>{{ price }}, <a href="/contact">contact</a> to purchase</p>
+          {%- else %}
+          <p>Sold</p>
+          {%- endif  %}
+        </div>
       </div>
     </div>
   </div>
