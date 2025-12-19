@@ -2,7 +2,7 @@
   <div class="flow flow-space-s">
     <div class="[ box ] [ padding-none ]">
       <a href="{{ artwork.page.url }}">
-        <div class="frame" data-ratio="{{ artwork.data.ratio }}" {%- if artwork.data.landscape %}data-landscape{%- endif %}>
+        <div class="frame" data-fit-content data-ratio="{{ artwork.data.ratio }}" {%- if artwork.data.landscape %}data-landscape{%- endif %}>
           <img src="{{ artwork.data.image }}" alt="Artwork preview image" />
         </div>
       </a>

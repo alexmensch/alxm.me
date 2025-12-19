@@ -315,7 +315,7 @@ export default async function (eleventyConfig) {
       const html = `
       <div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
         <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
-          <div class="frame" data-ratio="${ratio}">
+          <div class="frame" data-fit-content data-ratio="${ratio}">
             <img src="assets/images/${src}" alt="${alt}" />
           </div>
         </div>
