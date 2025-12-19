@@ -82,15 +82,6 @@ $colors: (
   "secondary-shade": var(--color-secondary-shade),
   "secondary-glare": var(--color-secondary-glare)
 );
-$fonts: (
-  "base": '"Source Serif 4", Georgia, serif',
-  "sans": '"Inter", Helvetica, sans-serif'
-);
-
-$font-features: (
-  "sans": "'frac' 1, 'case' 1, 'ss03' 1, 'cv01' 1, 'cv02' 1, 'cv09' 1, 'cv10' 1, 'cv08' 1, 'cv05' 1",
-);
-
 $tokens: (
   "bg": (
     "variants": $colors,
@@ -124,14 +115,6 @@ $tokens: (
   "flow-space": (
     "variants": $size-scale,
     "property": "--flow-space"
-  ),
-  "font": (
-    "variants": $fonts,
-    "property": "font-family"
-  ),
-  "font-features": (
-    "variants": $font-features,
-    "property": "font-feature-settings",
   ),
   "gutter": (
     "variants": $size-scale,

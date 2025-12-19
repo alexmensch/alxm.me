@@ -1,0 +1,21 @@
+@mixin base {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+@mixin sans {
+  font-family: Inter, Helvetica, sans-serif;
+  font-feature-settings:
+    "frac" 1,
+    "ss01" 1,
+    "ss03" 1,
+    "cv01" 1,
+    "cv05" 1;
+}
+
+.font-base {
+  @include base;
+}
+
+.font-sans {
+  @include sans;
+}

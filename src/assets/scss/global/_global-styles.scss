@@ -1,11 +1,12 @@
 @use "../config/design-tokens" as dt;
+@use "../config/fonts";
 
 body {
   background: var(--bg-color);
   color: var(--text-color);
 
   @include dt.use("text", 0);
-  @include dt.use("font", "base");
+  @include fonts.base;
 }
 
 a {
@@ -55,8 +56,7 @@ h4,
 h5,
 h6 {
   @include dt.use("weight", "bold");
-  @include dt.use("font", "sans");
-  @include dt.use("font-features", "sans");
+  @include fonts.sans;
   @include dt.use("leading", "flat");
   @include dt.use("measure", "compact");
 }
