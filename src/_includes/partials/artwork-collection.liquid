@@ -3,7 +3,7 @@
     <div class="[ box ] [ padding-none ]">
       <a href="{{ artwork.page.url }}">
         <div class="frame" data-fit-content data-ratio="{{ artwork.data.ratio }}" {%- if artwork.data.landscape %}data-landscape{%- endif %}>
-          <img src="{{ artwork.data.image }}" alt="Artwork preview image" />
+          <img src="{{ artwork.data.image }}" alt="{%- if description %}{{ description }}{% else %}Artwork preview image{%- endif %}" />
         </div>
       </a>
     </div>

@@ -43,18 +43,16 @@ $ratios: (
   max-block-size: 100%;
   max-inline-size: 100%;
 
-  & > img,
-  & > picture img,
-  & > video {
+  & img,
+  & video {
     object-fit: cover;
   }
 
   &[data-fit-content] {
     place-items: start;
 
-    > img,
-    > picture img,
-    > video {
+    img,
+    video {
       inline-size: inherit;
       block-size: inherit;
       object-fit: contain;

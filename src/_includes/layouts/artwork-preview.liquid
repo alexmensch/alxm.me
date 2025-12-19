@@ -6,7 +6,9 @@ layout: layouts/base
   <div class="artwork__preview-container" data-target>
     <div class="artwork__preview-grid">
       <div class="frame" data-fit-content data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
-        <img src="{{ image }}" alt="Artwork preview image" />
+        <a href="/artwork/#{{ page_slug }}">
+          <img src="{{ image }}" alt="Artwork preview image" />
+        </a>
       </div>
       <div>
         <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
