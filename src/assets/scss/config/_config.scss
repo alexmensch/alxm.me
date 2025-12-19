@@ -82,10 +82,6 @@ $colors: (
   "secondary-shade": var(--color-secondary-shade),
   "secondary-glare": var(--color-secondary-glare)
 );
-$fonts: (
-  "base": '"Source Serif 4", Georgia, serif',
-  "sans": '"Inter", Helvetica, sans-serif'
-);
 $tokens: (
   "bg": (
     "variants": $colors,
@@ -119,10 +115,6 @@ $tokens: (
   "flow-space": (
     "variants": $size-scale,
     "property": "--flow-space"
-  ),
-  "font": (
-    "variants": $fonts,
-    "property": "font-family"
   ),
   "gutter": (
     "variants": $size-scale,

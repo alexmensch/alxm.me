@@ -1,5 +1,5 @@
 ---
-title: 'Julie: ""'
+title: 'Julie: “”'
 publishToRSSFeed: false
 date: 2025-11-04
 summary: |

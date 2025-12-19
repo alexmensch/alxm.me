@@ -65,8 +65,8 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
       utopia-core-scss:
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.3.1
+        version: 1.3.1
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.2
@@ -2276,8 +2276,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  utopia-core-scss@1.3.0:
-    resolution: {integrity: sha512-I0E9rOXthQHog3WY3Z8jjIj/owKyDIhmim1LS+ZnQPYEOZC+hzqJoiSLyW8i5OPzI/yoS4W7p1YmMBIZU9snAA==}
+  utopia-core-scss@1.3.1:
+    resolution: {integrity: sha512-tRmqfbEeKP4NWhKFPiFg+GP4bXom4nUXqotkAANy+cE7GVH6vGyOYrhyUS5SHsYDh3X8Bgz+aSMFzgATT1Cpew==}
 
   which@1.3.1:
     resolution: {integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==}
@@ -4616,7 +4616,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  utopia-core-scss@1.3.0: {}
+  utopia-core-scss@1.3.1: {}
 
   which@1.3.1:
     dependencies:

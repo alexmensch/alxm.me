@@ -1,5 +1,5 @@
 ---
-title: 'Lauren: "Give yourself the gift of seeing what you''re able to create"'
+title: 'Lauren: “Give yourself the gift of seeing what you’re able to create”'
 publishToRSSFeed: true
 date: 2025-10-27
 summary: |

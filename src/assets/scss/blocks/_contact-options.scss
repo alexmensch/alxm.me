@@ -1,4 +1,5 @@
 @use "../config/design-tokens" as dt;
+@use "../config/fonts";
 
 .contact-options {
   outline-color: #{dt.get-color("secondary")};
@@ -9,7 +10,7 @@
     background: #{dt.get-color("secondary")};
     padding-block: #{dt.get-size("2xs")};
 
-    @include dt.use("font", "sans");
+    @include fonts.sans;
     @include dt.use("weight", "bold");
 
     text-decoration: none;
