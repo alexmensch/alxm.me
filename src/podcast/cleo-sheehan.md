@@ -1,5 +1,5 @@
 ---
-title: 'Cleo: “”'
+title: "Cleo: “”"
 publishToRSSFeed: false
 date: 2025-12-16
 summary: |
