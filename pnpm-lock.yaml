@@ -59,8 +59,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       sass:
-        specifier: ^1.97.0
-        version: 1.97.0
+        specifier: ^1.97.1
+        version: 1.97.1
       slugify:
         specifier: ^1.6.6
         version: 1.6.6
@@ -2043,8 +2043,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  sass@1.97.0:
-    resolution: {integrity: sha512-KR0igP1z4avUJetEuIeOdDlwaUDvkH8wSx7FdSjyYBS3dpyX3TzHfAMO0G1Q4/3cdjcmi3r7idh+KCmKqS+KeQ==}
+  sass@1.97.1:
+    resolution: {integrity: sha512-uf6HoO8fy6ClsrShvMgaKUn14f2EHQLQRtpsZZLeU/Mv0Q1K5P0+x2uvH6Cub39TVVbWNSrraUhDAoFph6vh0A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -4321,7 +4321,7 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  sass@1.97.0:
+  sass@1.97.1:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.1.4
