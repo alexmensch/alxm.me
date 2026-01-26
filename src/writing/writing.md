@@ -7,6 +7,7 @@ pagination:
 eleventyComputed:
   title: "{{ post.title }}"
   permalink: "{{ post.permalink }}"
+  summary: "{{ post.summary }}"
 ---
 
 {{ post.content | renderContent: "liquid" }}
