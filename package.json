@@ -35,7 +35,7 @@
     "dotenv": "^17.2.3",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
     "eleventy-plugin-og-image": "^4.2.1",
-    "eleventy-plugin-purgecss": "^0.5.0",
+    "eleventy-plugin-purgecss": "^0.6.0",
     "get-audio-duration": "^4.0.1",
     "lorem-ipsum": "^2.0.8",
     "luxon": "^3.7.2",
