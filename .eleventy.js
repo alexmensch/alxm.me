@@ -311,13 +311,15 @@ export default async function (eleventyConfig) {
   // Valid ratios are set in assets/scss/blocks/_frame.scss
   eleventyConfig.addLiquidShortcode(
     "articleImage",
-    (src, alt, ratio, portrait = true) => {
+    (src, alt, ratio, portrait, href) => {
+      const tag = href ? "a" : "div";
+      const attrs = href ? `href="${href}"` : "";
       const html = `
       <div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
         <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
-          <div class="frame" data-fit-content data-ratio="${ratio}">
-            <img src="assets/images/${src}" alt="${alt}" />
-          </div>
+          <${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
+            <img src="/assets/images/${src}" alt="${alt}" />
+          </${tag}>
         </div>
       </div>
     `;
