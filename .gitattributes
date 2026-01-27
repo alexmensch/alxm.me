@@ -1,1 +1,2 @@
 *.mp3 filter=lfs diff=lfs merge=lfs -text
+src/assets/files/cloud-anatomy-for-artists_v1_2026-01.pdf filter=lfs diff=lfs merge=lfs -text
