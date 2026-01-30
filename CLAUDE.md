@@ -26,6 +26,7 @@ pnpm run format          # Prettier formatting
 ### Permalinks
 
 The build includes permalink tracking to prevent broken URLs:
+
 ```bash
 node check-permalinks.js --update-baseline  # Accept new/changed permalinks
 ```
@@ -47,12 +48,14 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `src/_includes/partials/` - Reusable components
 - `src/_data/` - Global data files
 - `src/assets/scss/` - Styles organized by CUBE CSS methodology
-- `_cloudflare/` - R2 sync scripts and Cloudflare Worker config
+- `_cloudflare/r2/` - R2 sync scripts and proxy worker
+- `_cloudflare/rss/` - RSS feed caching worker
 - `eleventy-plugins/` - Custom Eleventy plugins
 
 ### SCSS Structure (CUBE CSS)
 
 Styles use CUBE CSS methodology with Utopia fluid typography:
+
 - `global/` - Reset, variables, themes, base styles
 - `config/` - Design tokens, fonts, Sass helpers
 - `compositions/` - Layout primitives (flow, stack, grid, sidebar, etc.)
@@ -65,8 +68,20 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 
 ### Cloudflare Integration
 
-- Large audio files sync to R2 via `_cloudflare/sync-r2.js`
-- Worker transparently proxies R2 requests
+Two separate workers handle different concerns:
+
+**R2 Proxy Worker** (`_cloudflare/r2/`):
+
+- Syncs large files from configured directories to R2 (see `config.js` for `R2_DIRS`)
+- Transparently proxies R2 requests with proper MIME types
+- Supports range requests for streaming media
+
+**RSS Worker** (`_cloudflare/rss/`):
+
+- Adds caching headers (Last-Modified, If-Modified-Since) to podcast RSS feed
+
+**Other**:
+
 - KV stores writing collection items and permalink baseline
 - Environment variables required in `.env` for Cloudflare API access
 

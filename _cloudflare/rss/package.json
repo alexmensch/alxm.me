@@ -1,0 +1,7 @@
+{
+  "name": "alxm-rss-worker",
+  "type": "module",
+  "dependencies": {
+    "wrangler": "^4.59.1"
+  }
+}
