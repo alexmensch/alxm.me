@@ -84,6 +84,7 @@ async function isFileUnchanged(filePath, key) {
   try {
     const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
     const response = await s3Client.send(command);
+    console.log(response);
 
     // R2 ETag is MD5 hash in quotes for non-multipart uploads
     const remoteETag = response.ETag?.replace(/"/g, "");
@@ -94,7 +95,6 @@ async function isFileUnchanged(filePath, key) {
     if (error["$metadata"]?.httpStatusCode === 404) {
       return false;
     } else {
-      console.log("error in isFileUnchanged");
       throw error;
     }
   }
