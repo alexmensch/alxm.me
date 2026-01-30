@@ -28,3 +28,8 @@
 /coaching                           /counselling                                       301
 /coaching/                          /counselling                                       301
 /coaching/*                         /counselling/:splat                                301
+
+## Canonical links
+#  Long-term canonical permalinks for specific content
+##
+/cloud-anatomy-for-artists          /writing/2026/01/27/cloud-anatomy-for-artists/     302

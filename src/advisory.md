@@ -12,7 +12,7 @@ company_info: true
 
 As a [former Silicon Valley startup founder](https://www.forbes.com/sites/kenrickcai/2022/04/14/twingate-series-b-400-million-taking-down-vpn/), I advise a select set of pre-Series C, B2B startups on how to build products that deliver world-class user experiences. I typically work with the Chief Product Officer and/or CEO of the company.
 
-{% articleImage "portrait-advisory.jpg", "Portrait photo of Alex holding a photography gray card and making a silly face", "4-5" %}
+{% articleImage "portrait-advisory.jpg", "Portrait photo of Alex holding a photography gray card and making a silly face", "4-5", true %}
 
 My product experience spans [nearly 20 years](https://www.linkedin.com/in/awmars) of founding and working for some of the most recognizable brands and technology companies in the world, including [Twingate](https://www.twingate.com), [Dropbox](https://www.dropbox.com), and [Bloomberg](https://www.bloomberg.net). I believe that a product is at its best when the customer is least aware of it, and my specialty is building intuitive, thoughtfully-designed products that “just work” for users.
 

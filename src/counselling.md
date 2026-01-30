@@ -16,7 +16,7 @@ Hi, I'm [Alex](/about), and I work with anyone seeking to make meaningful change
 
 My calling to this work comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing relational care of a therapist, I gradually rediscovered myself and found the courage to reshape my life to be in tune with who I am.
 
-{% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5" %}
+{% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5", true %}
 
 My experience is that we all have a powerful and resourceful drive to fully become who we are. When our inner spirit is denied, this can manifest as anxiety, stress, dysphoria, and anger amongst a range of emotions that can point us to what needs attention in our lives. It is through an unconditional and supportive relationship that this aliveness within us can unfold. I find it profoundly humbling and meaningful to walk alongside my clients as they follow what emerges from this type of deep inquiry.
 
