@@ -1,5 +1,5 @@
 pnpm-lock.yaml
-src/assets/artwork/*
-src/assets/files/*
-src/assets/images/*
-src/assets/podcast/*
+src/assets/artwork
+src/assets/files
+src/assets/images
+src/assets/podcast
