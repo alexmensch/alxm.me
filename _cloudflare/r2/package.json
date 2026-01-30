@@ -1,0 +1,16 @@
+{
+  "name": "alxm-r2-sync",
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.883.0",
+    "dotenv": "^17.2.3",
+    "wrangler": "^4.59.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
+  }
+}

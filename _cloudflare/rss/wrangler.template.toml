@@ -1,0 +1,13 @@
+name = "{{WORKER_NAME}}"
+main = "./worker.js"
+compatibility_date = "2025-07-01"
+
+[[routes]]
+pattern = "{{DOMAIN}}{{RSS_PATH}}"
+zone_name = "{{DOMAIN}}"
+
+[observability.logs]
+enabled = true
+
+[vars]
+RSS_LAST_MODIFIED = "{{RSS_LAST_MODIFIED}}"
