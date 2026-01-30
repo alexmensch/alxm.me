@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm run build           # Format, lint, build site, check permalinks
-pnpm run build:cf        # Full build + Cloudflare R2 sync + worker deploy
+pnpm run build:cf        # Full build + R2 sync (for Workers Builds)
+pnpm run deploy          # build:cf + wrangler deploy (manual deployment)
 pnpm run 11ty:watch      # Dev server with hot reload
 pnpm run 11ty:debug      # Dev server with Eleventy debug output
 pnpm run clean           # Remove _site directory
@@ -33,7 +34,7 @@ node check-permalinks.js --update-baseline  # Accept new/changed permalinks
 
 ## Architecture
 
-This is an Eleventy static site using Liquid and Nunjucks templates, deployed to Cloudflare Pages with R2 for large assets.
+This is an Eleventy static site using Liquid and Nunjucks templates, deployed to Cloudflare Workers with static assets and R2 for large files.
 
 ### Key Files
 
@@ -48,8 +49,8 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `src/_includes/partials/` - Reusable components
 - `src/_data/` - Global data files
 - `src/assets/scss/` - Styles organized by CUBE CSS methodology
-- `_cloudflare/r2/` - R2 sync scripts and proxy worker
-- `_cloudflare/rss/` - RSS feed caching worker
+- `worker/` - Unified Cloudflare Worker (serves static assets, R2 files, RSS)
+- `_cloudflare/r2/` - R2 sync scripts (uploads large files to R2)
 - `eleventy-plugins/` - Custom Eleventy plugins
 
 ### SCSS Structure (CUBE CSS)
@@ -68,22 +69,23 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 
 ### Cloudflare Integration
 
-Two separate workers handle different concerns:
+**Unified Worker** (`worker/index.js`):
 
-**R2 Proxy Worker** (`_cloudflare/r2/`):
+- Serves static assets from `_site/` via Workers static assets
+- Proxies large files from R2 (podcast audio, large PDFs) with MIME detection and range request support
+- Adds caching headers to RSS feed (Last-Modified, If-Modified-Since)
+- Configuration in `wrangler.toml` at project root
 
-- Syncs large files from configured directories to R2 (see `config.js` for `R2_DIRS`)
-- Transparently proxies R2 requests with proper MIME types
-- Supports range requests for streaming media
+**R2 Sync** (`_cloudflare/r2/`):
 
-**RSS Worker** (`_cloudflare/rss/`):
-
-- Adds caching headers (Last-Modified, If-Modified-Since) to podcast RSS feed
+- Syncs large files to R2 bucket (see `config.js` for `R2_DIRS`)
+- Runs as part of `build:cf` command
 
 **Other**:
 
 - KV stores writing collection items and permalink baseline
 - Environment variables required in `.env` for Cloudflare API access
+- Auto-deploy via Workers Builds (production: `master`, staging: `stg`)
 
 ### Custom Shortcodes
 

@@ -9,6 +9,6 @@ size:
   width: 10"
   height: 8"
 medium: pastel on paper
-price: 
+price:
 available: false
 ---
