@@ -6,6 +6,6 @@ _site/
 .env
 
 # Generated files
-_cloudflare/worker.js
-_cloudflare/wrangler.toml
+_cloudflare/*/worker.js
+_cloudflare/*/wrangler.toml
 permalinks.txt

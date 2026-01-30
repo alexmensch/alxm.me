@@ -3,5 +3,11 @@
   "type": "module",
   "dependencies": {
     "wrangler": "^4.59.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
   }
 }
