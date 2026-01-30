@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run format && pnpm run lint && npx @11ty/eleventy && node check-permalinks.js",
-    "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run build && cd _cloudflare/r2 && pnpm install && node sync.js && node cleanup.js",
+    "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run build && cd _cloudflare/r2 && pnpm install && node sync.js",
     "deploy": "pnpm run build:cf && npx wrangler deploy",
     "clean": "rm -rf _site",
     "format": "npx prettier . -wl",
