@@ -83,7 +83,6 @@ function uploadFileToR2(filePath, key, contentType) {
 async function isFileUnchanged(filePath, key) {
   try {
     const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
-    console.log(command);
     const response = await s3Client.send(command);
 
     // R2 ETag is MD5 hash in quotes for non-multipart uploads
