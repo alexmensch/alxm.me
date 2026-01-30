@@ -94,6 +94,7 @@ async function isFileUnchanged(filePath, key) {
     if (error["$metadata"]?.httpStatusCode === 404) {
       return false;
     } else {
+      console.log("error in isFileUnchanged");
       throw error;
     }
   }
