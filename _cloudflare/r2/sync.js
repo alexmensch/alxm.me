@@ -1,11 +1,11 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "fs";
+import { createHash } from "crypto";
 import { join, dirname, extname } from "path";
 import { execSync, execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 import { config } from "./config.js";
 import dotenv from "dotenv";
 import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
-import { stat } from "fs/promises";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,6 +39,11 @@ const MIME_TYPES = {
 function getContentType(filename) {
   const ext = extname(filename).toLowerCase();
   return MIME_TYPES[ext] || "application/octet-stream";
+}
+
+function computeMD5(filePath) {
+  const fileBuffer = readFileSync(filePath);
+  return createHash("md5").update(fileBuffer).digest("hex");
 }
 
 const s3Client = new S3Client({
@@ -75,18 +80,16 @@ function uploadFileToR2(filePath, key, contentType) {
   }
 }
 
-async function isFileInR2(filePath, key) {
+async function isFileUnchanged(filePath, key) {
   try {
     const command = new HeadObjectCommand({ Bucket: BUCKET_NAME, Key: key });
     const response = await s3Client.send(command);
 
-    const localFileStats = await stat(filePath);
+    // R2 ETag is MD5 hash in quotes for non-multipart uploads
+    const remoteETag = response.ETag?.replace(/"/g, "");
+    const localMD5 = computeMD5(filePath);
 
-    if (localFileStats.size === response.ContentLength) {
-      return true;
-    } else {
-      return false;
-    }
+    return remoteETag === localMD5;
   } catch (error) {
     if (error["$metadata"]?.httpStatusCode === 404) {
       return false;
@@ -169,8 +172,8 @@ async function syncFiles() {
         const contentType = getContentType(file);
 
         totalFiles++;
-        const uploaded = await isFileInR2(filePath, key);
-        if (!uploaded) {
+        const unchanged = await isFileUnchanged(filePath, key);
+        if (!unchanged) {
           uploadFileToR2(filePath, key, contentType);
           uploadedFiles++;
         }
