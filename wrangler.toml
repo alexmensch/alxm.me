@@ -12,6 +12,10 @@ not_found_handling = "404-page"
 binding = "R2_BUCKET"
 bucket_name = "alxm-assets"
 
+[[routes]]
+pattern = "alxm.me"
+custom_domain = true
+
 [vars]
 R2_PATHS = '["/assets/podcast/audio/", "/assets/files/"]'
 RSS_PATH = "/podcast/feed/what-i-knew.rss"
