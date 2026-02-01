@@ -7,6 +7,9 @@
     "wrangler": "^4.59.1"
   },
   "pnpm": {
+    "overrides": {
+      "fast-xml-parser": ">=5.3.4"
+    },
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
