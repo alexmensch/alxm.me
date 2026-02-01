@@ -65,9 +65,7 @@
   },
   "pnpm": {
     "overrides": {
-      "sharp": "0.33.5",
-      "@img/sharp-darwin-arm64": "0.33.5",
-      "@img/sharp-libvips-darwin-arm64": "1.0.4"
+      "sharp": "0.34.5"
     },
     "onlyBuiltDependencies": [
       "@ffprobe-installer/darwin-arm64",
