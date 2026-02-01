@@ -32,6 +32,20 @@ The build includes permalink tracking to prevent broken URLs:
 node check-permalinks.js --update-baseline  # Accept new/changed permalinks
 ```
 
+### Podcast Audio Metadata
+
+Audio metadata (duration, file size, MD5 hash) is pre-computed and cached in `src/_data/audioMetadata.json`. This avoids slow audio processing during every build.
+
+```bash
+pnpm run audio:update    # Update metadata after adding/changing audio files
+pnpm run audio:validate  # Check metadata matches audio files
+```
+
+- Build fails if metadata is missing or hash doesn't match audio file
+- Husky pre-commit hook prevents commits with stale metadata
+- Script location: `scripts/audio-metadata.js`
+- Validation plugin: `eleventy-plugins/audio-validation.js`
+
 ## Architecture
 
 This is an Eleventy static site using Liquid and Nunjucks templates, deployed to Cloudflare Workers with static assets and R2 for large files.
@@ -80,12 +94,24 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 
 - Syncs large files to R2 bucket (see `config.js` for `R2_DIRS`)
 - Runs as part of `build:cf` command
+- Large files excluded from Eleventy passthrough for faster builds (~344MB):
+  - `src/assets/files/` - PDFs, misc audio
+  - `src/assets/podcast/audio/` - Podcast episodes
+- To test these files locally: `cp -r src/assets/files src/assets/podcast/audio _site/assets/`
 
 **Other**:
 
 - KV stores writing collection items and permalink baseline
 - Environment variables required in `.env` for Cloudflare API access
 - Auto-deploy via Workers Builds (production: `master`, staging: `stg`)
+
+### Open Graph Images
+
+Uses `eleventy-plugin-og-image` with a custom `outputFileSlug` function that hashes input data instead of rendered HTML. This avoids expensive template rendering on every build (~6s saved).
+
+- Trade-off: OG template changes won't trigger image regeneration, only data changes (title, date)
+- To force regeneration after template changes: `rm -rf _site/assets/images/og/`
+- Template: `src/_includes/open-graph/og-posts.og.liquid`
 
 ### Custom Shortcodes
 
