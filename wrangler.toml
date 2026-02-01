@@ -1,6 +1,7 @@
 name = "alxm-site"
 main = "./worker/index.js"
 compatibility_date = "2025-07-01"
+preview_urls = true
 
 [assets]
 directory = "./_site"
