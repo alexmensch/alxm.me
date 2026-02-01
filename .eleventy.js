@@ -4,6 +4,7 @@ import mdIterator from "markdown-it-for-inline";
 import mdSmartArrows from "markdown-it-smartarrows";
 import * as sass from "sass";
 import path from "node:path";
+import crypto from "node:crypto";
 import { promises as fs } from "node:fs";
 import "dotenv/config";
 
@@ -94,6 +95,13 @@ export default async function (eleventyConfig) {
     outputFileExtension: "webp",
     outputDir: "assets/images/og",
     previewMode: false,
+    // Custom slug: hash input data instead of rendered HTML (faster builds)
+    // Trade-off: template changes won't trigger regeneration, only data changes
+    outputFileSlug: (ogImage) => {
+      const hash = crypto.createHash("sha256");
+      hash.update(JSON.stringify(ogImage.data));
+      return hash.digest("hex").substring(0, 8);
+    },
     satoriOptions: {
       fonts: [
         {
@@ -122,11 +130,12 @@ export default async function (eleventyConfig) {
 
   /* Passthrough assets */
   /**********************/
+  // Large files excluded - served from R2 in production
+  // To test locally: cp -r src/assets/files src/assets/podcast/audio _site/assets/
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
     "src/assets/images": "assets/images",
-    "src/assets/files": "assets/files",
-    "src/assets/podcast": "assets/podcast",
+    "src/assets/podcast/images": "assets/podcast/images",
     "src/404.html": "404.html",
     "src/_redirects": "_redirects",
     ".assetsignore": ".assetsignore"
