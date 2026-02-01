@@ -1,0 +1,26 @@
+name = "alxm-site"
+main = "./worker/index.js"
+compatibility_date = "2025-07-01"
+preview_urls = true
+
+[assets]
+directory = "./_site"
+binding = "ASSETS"
+run_worker_first = true
+not_found_handling = "404-page"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "alxm-assets"
+
+[[routes]]
+pattern = "alxm.me"
+custom_domain = true
+
+[vars]
+R2_PATHS = '["/assets/podcast/audio/", "/assets/files/"]'
+RSS_PATH = "/podcast/feed/what-i-knew.rss"
+RSS_LAST_MODIFIED = "2025-12-19"
+
+[observability.logs]
+enabled = true

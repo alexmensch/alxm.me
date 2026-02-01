@@ -16,6 +16,7 @@ import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
+import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
 
 import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
@@ -45,6 +46,9 @@ export default async function (eleventyConfig) {
     },
     quiet: false
   });
+
+  // Audio metadata validation
+  eleventyConfig.addPlugin(audioValidationPlugin);
 
   // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);
@@ -124,7 +128,8 @@ export default async function (eleventyConfig) {
     "src/assets/files": "assets/files",
     "src/assets/podcast": "assets/podcast",
     "src/404.html": "404.html",
-    "src/_redirects": "_redirects"
+    "src/_redirects": "_redirects",
+    ".assetsignore": ".assetsignore"
   });
 
   /* Collections config */

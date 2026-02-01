@@ -1,5 +1,9 @@
+import { readFileSync } from "fs";
 import helpers from "../_data/helpers.js";
-import podcast from "../_data/podcast.js";
+
+const audioMetadata = JSON.parse(
+  readFileSync("src/_data/audioMetadata.json", "utf8")
+);
 
 export default {
   permalink({ title }) {
@@ -16,21 +20,19 @@ export default {
       return helpers.dateToRFC2822(date);
     },
     itunes: {
-      async duration({ recording }) {
+      duration({ recording }) {
         if (!recording) {
           return 0;
         }
-        const duration = await podcast.getDurationInSec(`./src${recording}`);
-        return Math.ceil(duration);
+        return audioMetadata[recording]?.duration ?? 0;
       }
     },
     enclosure: {
-      async length({ recording }) {
+      length({ recording }) {
         if (!recording) {
           return 0;
         }
-        const bytes = await podcast.getFilesize(`./src${recording}`);
-        return bytes;
+        return audioMetadata[recording]?.size ?? 0;
       }
     }
   }
