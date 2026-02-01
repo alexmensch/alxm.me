@@ -5,6 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "audio:update": "node scripts/audio-metadata.js",
+    "audio:validate": "node scripts/audio-metadata.js --validate",
     "build": "pnpm run format && pnpm run lint && npx @11ty/eleventy && node check-permalinks.js",
     "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run build && cd _cloudflare/r2 && pnpm install && node sync.js",
     "deploy": "pnpm run build:cf && npx wrangler deploy",
@@ -16,7 +18,8 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:md": "markdownlint-cli2 \"src/**/*.md\"",
-    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix"
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -50,6 +53,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "husky": "^9.1.0",
     "depcheck": "^1.4.7",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",

@@ -1,5 +1,3 @@
-import { getAudioDurationInSeconds } from "get-audio-duration";
-import { stat } from "fs/promises";
 import helpers from "./helpers.js";
 
 export default {
@@ -13,13 +11,5 @@ export default {
     const escapedContent = htmlContent.replace(/\]\]>/g, "]]]]><![CDATA[>");
 
     return `<![CDATA[${escapedContent}]]>`;
-  },
-  async getDurationInSec(filename) {
-    const duration = await getAudioDurationInSeconds(filename);
-    return duration;
-  },
-  async getFilesize(filename) {
-    const stats = await stat(filename);
-    return stats.size;
   }
 };
