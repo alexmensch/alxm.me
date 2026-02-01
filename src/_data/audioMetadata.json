@@ -1,0 +1,22 @@
+{
+  "/assets/podcast/audio/s01-trailer.mp3": {
+    "hash": "ae6b0926c9c86b5fd9e11af56ee57d0e",
+    "duration": 101,
+    "size": 2422522
+  },
+  "/assets/podcast/audio/s01e01-lauren.mp3": {
+    "hash": "38e9050ed32f19caad734af1ac07b29a",
+    "duration": 3454,
+    "size": 82875694
+  },
+  "/assets/podcast/audio/s01e02-peter.mp3": {
+    "hash": "f3cc8ed3f32dbc5e189b9bac1a8ab99a",
+    "duration": 2805,
+    "size": 67305670
+  },
+  "/assets/podcast/audio/s01e05-felix.mp3": {
+    "hash": "a9b958d92a9c5a084ffa3c3d166785eb",
+    "duration": 3799,
+    "size": 91188222
+  }
+}

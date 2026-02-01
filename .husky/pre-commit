@@ -1,0 +1,5 @@
+# Check if any audio files are being committed
+if git diff --cached --name-only | grep -q "^src/assets/podcast/audio/.*\.mp3$"; then
+  echo "Audio files detected in commit - validating metadata..."
+  pnpm run audio:validate
+fi
