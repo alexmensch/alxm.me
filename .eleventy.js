@@ -18,8 +18,15 @@ import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
+import photoValidationPlugin from "./eleventy-plugins/photo-validation.js";
+
+import { readFileSync, existsSync } from "node:fs";
 
 import helpers from "./src/_data/helpers.js";
+
+const photoMetadata = JSON.parse(
+  readFileSync("./src/_data/photoMetadata.json", "utf8")
+);
 import siteConfig from "./src/_data/site.js";
 import openGraph from "./src/_data/opengraph.js";
 import podcast from "./src/_data/podcast.js";
@@ -50,6 +57,9 @@ export default async function (eleventyConfig) {
 
   // Audio metadata validation
   eleventyConfig.addPlugin(audioValidationPlugin);
+
+  // Photo metadata validation
+  eleventyConfig.addPlugin(photoValidationPlugin);
 
   // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);
@@ -155,6 +165,80 @@ export default async function (eleventyConfig) {
     eleventyConfig.addCollection(`${collectionName}`, (collectionApi) => {
       return collectionApi.getFilteredByGlob(`src/${collectionName}/**/*.md`);
     });
+  });
+
+  // Paintings collection - explicit from markdown files
+  eleventyConfig.addCollection("paintings", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/artwork/paintings/**/*.md");
+  });
+
+  // Photographs collection - built from image metadata, not markdown files
+  eleventyConfig.addCollection("photographs", () => {
+    return Object.entries(photoMetadata)
+      .map(([imagePath, meta]) => {
+        const filename = imagePath
+          .split("/")
+          .pop()
+          .replace(/\.[^.]+$/, "");
+        const date = new Date(meta.date);
+        const slug = helpers.toSlug(filename);
+
+        // Calculate aspect ratio string (e.g., "4-3", "3-2")
+        let ratio = "1-1";
+        if (meta.width && meta.height) {
+          const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+          const divisor = gcd(meta.width, meta.height);
+          const w = meta.width / divisor;
+          const h = meta.height / divisor;
+          // Simplify to common ratios
+          if (w / h >= 1.7) ratio = "16-9";
+          else if (w / h >= 1.4) ratio = "3-2";
+          else if (w / h >= 1.2) ratio = "4-3";
+          else if (w / h >= 0.9) ratio = "1-1";
+          else if (w / h >= 0.7) ratio = "3-4";
+          else if (w / h >= 0.6) ratio = "2-3";
+          else ratio = "9-16";
+        }
+
+        // Title: use location if available, otherwise formatted date
+        const formattedDate = date.toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+        const title = meta.location || formattedDate;
+
+        // Check for optional description in matching .txt file
+        let description = null;
+        const txtPath = `./src/artwork/photographs/${filename}.txt`;
+        if (existsSync(txtPath)) {
+          try {
+            description = readFileSync(txtPath, "utf8").trim();
+          } catch {
+            // Ignore errors reading description file
+          }
+        }
+
+        return {
+          data: {
+            title,
+            date,
+            image: imagePath,
+            ratio,
+            landscape: meta.width > meta.height,
+            page_slug: slug,
+            description,
+            location: meta.location,
+            latitude: meta.latitude,
+            longitude: meta.longitude
+          },
+          page: {
+            url: `/artwork/photographs/${helpers.toDate(date, "/")}/${slug}/`
+          },
+          date
+        };
+      })
+      .sort((a, b) => b.date - a.date); // Newest first
   });
 
   /* Markdown Configuration */

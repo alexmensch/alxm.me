@@ -1,3 +1,5 @@
 {
-  "tags": "photographs"
+  "hide_header": "true",
+  "hide_footer": "true",
+  "layout": "layouts/photograph-preview"
 }

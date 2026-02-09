@@ -1,0 +1,432 @@
+{
+  "/assets/artwork/photographs/IMG_0078.jpeg": {
+    "hash": "e4ff5d12f1e401a72f3676684829b4f4",
+    "date": "2021-10-02",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Xiaoshi, CN",
+    "latitude": 41.367375,
+    "longitude": 124.013275
+  },
+  "/assets/artwork/photographs/IMG_0241.jpeg": {
+    "hash": "9f73aae77a43e510d3d1e0c9bdfdf84b",
+    "date": "2023-10-26",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Becontree, GB",
+    "latitude": 51.53208611111111,
+    "longitude": 0.12577222222222223
+  },
+  "/assets/artwork/photographs/IMG_0456.jpeg": {
+    "hash": "94719b60e337b6fb38a01e99ade07612",
+    "date": "2023-11-23",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Middelstum, NL",
+    "latitude": 53.36953333333334,
+    "longitude": 6.621144444444445
+  },
+  "/assets/artwork/photographs/IMG_0584.jpeg": {
+    "hash": "7be21e933b1fed6a1c1f005a0b4d7d0b",
+    "date": "2023-03-03",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Weihai, CN",
+    "latitude": 37.763775,
+    "longitude": 122.46398055555557
+  },
+  "/assets/artwork/photographs/IMG_1002.jpeg": {
+    "hash": "b88df802fb78c6800c0c16ce49cd73bc",
+    "date": "2023-12-29",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Weihai, CN",
+    "latitude": 37.763752777777775,
+    "longitude": 122.46399722222222
+  },
+  "/assets/artwork/photographs/IMG_1198.jpeg": {
+    "hash": "4d707edabd0c33f03e09da89763adcbf",
+    "date": "2018-12-03",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Kotō, JP",
+    "latitude": 32.791244444444445,
+    "longitude": 130.73396388888887
+  },
+  "/assets/artwork/photographs/IMG_1880.jpeg": {
+    "hash": "778119dae83824674cde7beed9299c95",
+    "date": "2022-09-02",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Thamesmead, GB",
+    "latitude": 51.518877777777774,
+    "longitude": 0.1270361111111111
+  },
+  "/assets/artwork/photographs/IMG_1947.jpeg": {
+    "hash": "584339933b2985bfeba96aaa19a76eda",
+    "date": "2022-09-06",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Thamesmead, GB",
+    "latitude": 51.51734444444445,
+    "longitude": 0.12921666666666667
+  },
+  "/assets/artwork/photographs/IMG_2339.jpeg": {
+    "hash": "0b488a6bbac3f33c6e66c114e65098f3",
+    "date": "2024-04-29",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Barking, GB",
+    "latitude": 51.53292222222222,
+    "longitude": 0.09721944444444444
+  },
+  "/assets/artwork/photographs/IMG_2553.jpeg": {
+    "hash": "6aa3facabbe7aaeefe77cef08bb34e11",
+    "date": "2024-05-30",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Barking, GB",
+    "latitude": 51.53375277777778,
+    "longitude": 0.09381944444444444
+  },
+  "/assets/artwork/photographs/IMG_2873.jpeg": {
+    "hash": "005e6b9d8338c5f0a0f1d073e32f77de",
+    "date": "2024-06-12",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Malcesine, IT",
+    "latitude": 45.76625555555555,
+    "longitude": 10.80801388888889
+  },
+  "/assets/artwork/photographs/IMG_2875.jpeg": {
+    "hash": "606ca42ccb02c3ea8c1db2c9c5e30dda",
+    "date": "2024-06-13",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Sant'Eufemia della Fonte, IT",
+    "latitude": 45.534369444444444,
+    "longitude": 10.253908333333333
+  },
+  "/assets/artwork/photographs/IMG_2913.jpeg": {
+    "hash": "b4341d3eb9402cc8d17f8622b985d91d",
+    "date": "2024-06-14",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Becontree, GB",
+    "latitude": 51.55216111111111,
+    "longitude": 0.14216944444444443
+  },
+  "/assets/artwork/photographs/IMG_2920.jpeg": {
+    "hash": "2f8bb46427bdccccc5551eb77414fc00",
+    "date": "2024-06-14",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Becontree, GB",
+    "latitude": 51.55216111111111,
+    "longitude": 0.142175
+  },
+  "/assets/artwork/photographs/IMG_3104.jpeg": {
+    "hash": "6e023d7ab450b786ee3ce348e47d5610",
+    "date": "2024-06-19",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Stockholm, SE",
+    "latitude": 59.32554722222223,
+    "longitude": 18.06320277777778
+  },
+  "/assets/artwork/photographs/IMG_3221.jpeg": {
+    "hash": "e99792c9ffc4a14975bca93bcc72ab67",
+    "date": "2024-06-26",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Östermalm, SE",
+    "latitude": 59.33327222222223,
+    "longitude": 18.119483333333335
+  },
+  "/assets/artwork/photographs/IMG_3225.jpeg": {
+    "hash": "1f0a98a8048059050aa1b51957a255c3",
+    "date": "2024-06-26",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Södermalm, SE",
+    "latitude": 59.291133333333335,
+    "longitude": 18.116041666666668
+  },
+  "/assets/artwork/photographs/IMG_3234.jpeg": {
+    "hash": "0ae4921bdc33dbde6c9e6c0a7996622f",
+    "date": "2024-06-27",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Gamla Uppsala, SE",
+    "latitude": 59.89643888888889,
+    "longitude": 17.627194444444445
+  },
+  "/assets/artwork/photographs/IMG_3294.jpeg": {
+    "hash": "ae33bcf7e93d00a205e9e0d93d9a2a30",
+    "date": "2024-07-06",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.53375555555555,
+    "longitude": 0.09380833333333333
+  },
+  "/assets/artwork/photographs/IMG_3604.jpeg": {
+    "hash": "ef57cab8fe2526bda27728f5177d0c20",
+    "date": "2024-08-24",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Barking, GB",
+    "latitude": 51.533775,
+    "longitude": 0.09391944444444444
+  },
+  "/assets/artwork/photographs/IMG_3620.jpeg": {
+    "hash": "fdc34b9c59a5135b25800934e5610e9f",
+    "date": "2024-08-26",
+    "dateSource": "exif",
+    "width": 720,
+    "height": 1280,
+    "location": "Woolwich, GB",
+    "latitude": 51.51031388888889,
+    "longitude": 0.08050277777777778
+  },
+  "/assets/artwork/photographs/IMG_3645.jpeg": {
+    "hash": "dfec9d924bdee43f0bf42a4677452e33",
+    "date": "2024-08-31",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Easington, GB",
+    "latitude": 53.96216944444445,
+    "longitude": 1.0821277777777778
+  },
+  "/assets/artwork/photographs/IMG_3646.jpeg": {
+    "hash": "294acad108a9ed98504236403faad5ec",
+    "date": "2024-08-31",
+    "dateSource": "exif",
+    "width": 721,
+    "height": 1280,
+    "location": "Easington, GB",
+    "latitude": 53.96223333333334,
+    "longitude": 1.082238888888889
+  },
+  "/assets/artwork/photographs/IMG_3763.jpeg": {
+    "hash": "630f4c91a571b5a6d065e709d3684358",
+    "date": "2024-09-22",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.53377222222222,
+    "longitude": 0.09376944444444443
+  },
+  "/assets/artwork/photographs/IMG_4069.jpeg": {
+    "hash": "ad37588d92fac73a512edcd7cca1d079",
+    "date": "2024-10-27",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Aveley, GB",
+    "latitude": 51.49592222222223,
+    "longitude": 0.23777222222222222
+  },
+  "/assets/artwork/photographs/IMG_4404.jpeg": {
+    "hash": "9d760df55e4111038dfa262a0e6fa5e1",
+    "date": "2025-01-11",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.53375,
+    "longitude": 0.09378055555555555
+  },
+  "/assets/artwork/photographs/IMG_4513.jpeg": {
+    "hash": "067a0e482be82adcb2a1b3e520366563",
+    "date": "2019-09-21",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Weihai, CN",
+    "latitude": 37.77911388888889,
+    "longitude": 122.39666666666668
+  },
+  "/assets/artwork/photographs/IMG_4613.jpeg": {
+    "hash": "4c8cc0842071682f9c5b77271cf4086e",
+    "date": "2019-10-06",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Weihai, CN",
+    "latitude": 37.809416666666664,
+    "longitude": 122.26133055555556
+  },
+  "/assets/artwork/photographs/IMG_4923.jpeg": {
+    "hash": "2775187b8df961acc28c968049b6e9e1",
+    "date": "2019-10-24",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 1280,
+    "location": "Amsterdam, NL",
+    "latitude": 52.36051944444445,
+    "longitude": 4.885052777777777
+  },
+  "/assets/artwork/photographs/IMG_4952.jpeg": {
+    "hash": "bc93740a2594346abb333dfb41a41b6c",
+    "date": "2025-02-19",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Xiaoshi, CN",
+    "latitude": 41.38752777777778,
+    "longitude": 124.01724166666666
+  },
+  "/assets/artwork/photographs/IMG_4956.jpeg": {
+    "hash": "dcf1d68119600f946958b45c8d220f20",
+    "date": "2025-02-19",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Xiaoshi, CN",
+    "latitude": 41.357933333333335,
+    "longitude": 124.02526944444445
+  },
+  "/assets/artwork/photographs/IMG_5063.jpeg": {
+    "hash": "5b603e2acdf82c6a0138b186fd5a00b0",
+    "date": "2019-10-24",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Amsterdam, NL",
+    "latitude": 52.37581388888889,
+    "longitude": 4.880602777777778
+  },
+  "/assets/artwork/photographs/IMG_5435.jpeg": {
+    "hash": "13c4ecad51bb0b26de444a89054cac93",
+    "date": "2020-01-04",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Lüshun, CN",
+    "latitude": 38.83700277777778,
+    "longitude": 120.048225
+  },
+  "/assets/artwork/photographs/IMG_5436.jpeg": {
+    "hash": "a40fae7514724a7f485817a863f56521",
+    "date": "2020-01-04",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Lüshun, CN",
+    "latitude": 38.83694166666667,
+    "longitude": 120.04805833333333
+  },
+  "/assets/artwork/photographs/IMG_5553.jpeg": {
+    "hash": "8dbd94f1cd205a6280a8429e6c2adc95",
+    "date": "2025-05-17",
+    "dateSource": "exif",
+    "width": 720,
+    "height": 1280,
+    "location": null,
+    "latitude": null,
+    "longitude": null
+  },
+  "/assets/artwork/photographs/IMG_5554.jpeg": {
+    "hash": "746d30dfc7bffe2fa8eb3dd9016060c6",
+    "date": "2025-05-17",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Zell, CH",
+    "latitude": 47.16939444444444,
+    "longitude": 7.922361111111111
+  },
+  "/assets/artwork/photographs/IMG_5638.jpeg": {
+    "hash": "75214b4f751f9cf60e483eea23a4eed7",
+    "date": "2025-05-18",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Milan, IT",
+    "latitude": 45.462944444444446,
+    "longitude": 9.191522222222222
+  },
+  "/assets/artwork/photographs/IMG_5901.jpeg": {
+    "hash": "192002fc09df7619c69511899f1ac89e",
+    "date": "2025-06-30",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.53382222222222,
+    "longitude": 0.09371944444444444
+  },
+  "/assets/artwork/photographs/IMG_6133.jpeg": {
+    "hash": "8aad7657aa94678234639c92ce21c137",
+    "date": "2025-08-04",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.533813888888886,
+    "longitude": 0.09371666666666667
+  },
+  "/assets/artwork/photographs/IMG_6172.jpeg": {
+    "hash": "2cd30e96e17475cef36b2d29f54c9f45",
+    "date": "2025-08-23",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 721,
+    "location": "Herceg Novi, ME",
+    "latitude": 42.42706666666666,
+    "longitude": 18.556250000000002
+  },
+  "/assets/artwork/photographs/IMG_6229.jpeg": {
+    "hash": "59353ca0e1b3e8d9a749fb52c0423d20",
+    "date": "2025-09-01",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.533813888888886,
+    "longitude": 0.09371388888888889
+  },
+  "/assets/artwork/photographs/IMG_6242.jpeg": {
+    "hash": "5912ea490c871c8959b40acb3ec8a9f9",
+    "date": "2025-09-04",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Barking, GB",
+    "latitude": 51.533813888888886,
+    "longitude": 0.09371388888888889
+  },
+  "/assets/artwork/photographs/IMG_6708.jpeg": {
+    "hash": "9aa2c3f5d03f5fa3decaa61129056164",
+    "date": "2025-11-02",
+    "dateSource": "exif",
+    "width": 1280,
+    "height": 720,
+    "location": "Ilford, GB",
+    "latitude": 51.55461111111111,
+    "longitude": 0.06570555555555556
+  }
+}

@@ -6,22 +6,19 @@ layout: layouts/base
   <div class="artwork__preview-container" data-target>
     <div class="artwork__preview-grid">
       <div class="frame" data-fit-content data-ratio="{{ ratio }}" {%- if landscape %}data-landscape{%- endif %}>
-        <a href="/artwork/paintings/#{{ page_slug }}">
-          <img src="{{ image }}" alt="Artwork preview image" />
+        <a href="/artwork/photographs/#{{ page_slug }}">
+          <img src="{{ image }}" alt="{{ title }}" />
         </a>
       </div>
       <div>
         <div class="[ box ] [ flow flow-space-m padding-s measure-mini leading-tight ] [ border-thin border-style-solid radius ]" data-fit-content>
-          <p><em>{{ title }}</em></p>
-          {%- if description %}
+          <p><em>{%- if latitude != "" and longitude != "" %}<a href="https://www.google.com/maps?q={{ latitude }},{{ longitude }}" target="_blank" rel="noopener">{{ title }}</a>{% else %}{{ title }}{%- endif %}</em></p>
+          {%- if description and description != "" %}
           <p>{{ description | markdownify }}</p>
           {%- endif %}
-          <p>{{ size.width }} x {{ size.height }}, {{ medium }}</p>
-          {%- if available  %}
-          <p>{{ price }}, <a href="/contact">contact</a> to purchase</p>
-          {%- else %}
-          <p>Sold</p>
-          {%- endif  %}
+          {%- if location and location != "" %}
+          <p>{{ date | date: "%e %B %Y" }}</p>
+          {%- endif %}
         </div>
       </div>
     </div>

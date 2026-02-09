@@ -3,3 +3,9 @@ if git diff --cached --name-only | grep -q "^src/assets/podcast/audio/.*\.mp3$";
   echo "Audio files detected in commit - validating metadata..."
   pnpm run audio:validate
 fi
+
+# Check if any photograph files are being committed
+if git diff --cached --name-only | grep -q "^src/assets/artwork/photographs/"; then
+  echo "Photograph files detected in commit - validating metadata..."
+  pnpm run photo:validate
+fi
