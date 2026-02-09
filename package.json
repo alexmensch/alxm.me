@@ -36,7 +36,7 @@
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-directory-output": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.2.4",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
     "eleventy-plugin-og-image": "^4.2.1",
     "eleventy-plugin-purgecss": "^0.6.0",
