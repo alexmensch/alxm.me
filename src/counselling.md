@@ -20,7 +20,7 @@ My work with clients is relational, empathetic, and depth-oriented and is ground
 
 {% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5", true %}
 
-My calling to this work comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing relational care of a therapist, I gradually rediscovered myself and found the courage to reshape my life and more authentically express who I am. I find it profoundly humbling and meaningful to walk alongside others as they follow what emerges from this type of deep inquiry. 
+My calling to this work comes from my own experience of how transformative a therapeutic relationship was for me. Within the healing relational care of a therapist, I gradually rediscovered myself and found the courage to reshape my life and more authentically express who I am. I find it profoundly humbling and meaningful to walk alongside others as they follow what emerges from this type of deep inquiry.
 
 ## How we will work together
 
