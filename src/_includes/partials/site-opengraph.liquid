@@ -3,9 +3,10 @@
     {% if summary %}
     <meta name="description" property="og:description" content="{{ summary }}" />
     {% endif %}
-    <meta name="type" property="og:type" content="article" />
+    <meta property="og:type" content="article" />
+{% else %}
+    <meta property="og:type" content="website" />
 {% endif %}
     <meta name="title" property="og:title" content="{{ pageTitle }}" />
-    <meta property="og:url" content="{{ page.url }}" />
+    <meta property="og:url" content="https://{{ site.domain }}{{ page.url }}" />
     <meta name="locale" property="og:locale" content="en_GB" />
-    <meta name="type" property="og:type" content="website" />
