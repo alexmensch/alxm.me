@@ -1,6 +1,8 @@
 ---
 layout: layouts/artwork
 title: Artwork
+meta:
+  description: "Original oil paintings and drawings by Alex Marshall, trained at London Fine Art Studios. Available for commission and purchase."
 hero:
   header: Artwork
 ---

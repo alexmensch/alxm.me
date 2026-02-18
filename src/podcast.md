@@ -1,6 +1,8 @@
 ---
 layout: layouts/podcast
 title: "Podcast: What I Knew"
+meta:
+  description: "What I Knew — a podcast celebrating the courage it takes to make big personal changes. Stories of transformation told with candor and vulnerability."
 hero:
   header: "What I Knew: Stories of courage in personal change"
 ---

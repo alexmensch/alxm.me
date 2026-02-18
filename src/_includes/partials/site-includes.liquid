@@ -1,3 +1,8 @@
 {% for link in site.links %}
+  {%- if link.lazy %}
+  <link rel="preload" href="{{ link.href }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{ link.href }}" /></noscript>
+  {%- else %}
   <link{% for attr in link %} {{ attr[0] }}="{{ attr[1] }}"{% endfor %} />
+  {%- endif %}
 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 layout: layouts/landing
 title: Therapeutic Counselling
+schemaType: counselling
 meta:
   description: I support clients in depth-oriented personal exploration and meaningful life change. Contact me for an initial consultation to learn more.
 hero:

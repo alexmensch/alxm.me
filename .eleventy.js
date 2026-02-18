@@ -67,8 +67,7 @@ export default async function (eleventyConfig) {
     urlPath: "/assets/images/",
     // optional, attributes assigned on <img> override these values.
     defaultAttributes: {
-      decoding: "async",
-      fetchpriority: "high"
+      decoding: "async"
     }
   });
 
@@ -312,6 +311,17 @@ export default async function (eleventyConfig) {
   // Escapes HTML content
   // Example: {{ html_content | escapeHTML }}
   eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
+
+  // Escapes a string for safe embedding inside a JSON string value
+  // Example: "description": "{{ summary | jsonEscape }}"
+  eleventyConfig.addFilter("jsonEscape", (str) =>
+    String(str ?? "")
+      .replace(/\\/g, "\\\\")
+      .replace(/"/g, '\\"')
+      .replace(/\n/g, "\\n")
+      .replace(/\r/g, "\\r")
+      .replace(/\t/g, "\\t")
+  );
 
   // Custom filter to determine if current page is within parent link path
   // Called like this: {{ pagePath | getLinkActiveState: parentPath }}

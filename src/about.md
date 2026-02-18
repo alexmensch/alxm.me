@@ -1,6 +1,8 @@
 ---
 layout: layouts/landing
 title: About me
+meta:
+  description: "Alex Marshall is a former Silicon Valley founder turned humanistic counsellor, artist, and podcast host. Based in London."
 hero:
   header: The currents that have shaped my life
 ---

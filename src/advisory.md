@@ -1,6 +1,9 @@
 ---
 layout: layouts/landing
 title: Product Advisory
+meta:
+  description: "Alex Marshall advises pre-Series C B2B startups on building world-class product experiences. Former founder at Twingate, with experience at Dropbox and Bloomberg."
+schemaType: advisory
 hero:
   header: Advisory for startups that value magical product experiences
 cta:
