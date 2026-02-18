@@ -315,12 +315,7 @@ export default async function (eleventyConfig) {
   // Escapes a string for safe embedding inside a JSON string value
   // Example: "description": "{{ summary | jsonEscape }}"
   eleventyConfig.addFilter("jsonEscape", (str) =>
-    String(str ?? "")
-      .replace(/\\/g, "\\\\")
-      .replace(/"/g, '\\"')
-      .replace(/\n/g, "\\n")
-      .replace(/\r/g, "\\r")
-      .replace(/\t/g, "\\t")
+    JSON.stringify(String(str ?? "")).slice(1, -1)
   );
 
   // Custom filter to determine if current page is within parent link path
