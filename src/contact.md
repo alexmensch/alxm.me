@@ -1,6 +1,8 @@
 ---
 layout: layouts/contact
 title: Contact
+meta:
+  description: "Get in touch with Alex Marshall to discuss counselling, artwork, the podcast, or any other enquiries."
 hero:
   header: Get in touch with me
 options:

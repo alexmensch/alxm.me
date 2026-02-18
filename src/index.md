@@ -3,6 +3,8 @@ layout: "layouts/home"
 hide_header: true
 hide_footer: true
 title: Home
+meta:
+  description: "Alex Marshall is a humanistic counsellor, artist, and podcast host based in London, supporting people through meaningful personal change."
 main:
   title: Hello, I’m Alex
   text:

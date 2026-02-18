@@ -1,0 +1,77 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://{{ site.domain }}/#person",
+      "name": "{{ site.authorName }}",
+      "url": "https://{{ site.domain }}",
+      "email": "{{ site.authorEmail }}",
+      "sameAs": ["https://www.linkedin.com/in/awmars"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://{{ site.domain }}/#website",
+      "url": "https://{{ site.domain }}",
+      "name": "{{ site.siteName }}",
+      "author": { "@id": "https://{{ site.domain }}/#person" }
+    }
+    {%- if layout contains "posts" %},
+    {
+      "@type": "BlogPosting",
+      "headline": "{{ title | jsonEscape }}",
+      "url": "https://{{ site.domain }}{{ page.url }}",
+      "datePublished": "{{ date | dateToRfc3339 }}",
+      "dateModified": "{% if version_date %}{{ version_date | dateToRfc3339 }}{% else %}{{ date | dateToRfc3339 }}{% endif %}",
+      "author": { "@id": "https://{{ site.domain }}/#person" }{% if summary %},
+      "description": "{{ summary | jsonEscape }}"{% endif %}
+    }
+    {%- elsif layout contains "podcast-episodes" %},
+    {
+      "@type": "PodcastEpisode",
+      "name": "{{ title | jsonEscape }}",
+      "url": "https://{{ site.domain }}{{ page.url }}",
+      "datePublished": "{{ date | dateToRfc3339 }}",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "What I Knew",
+        "url": "https://{{ site.domain }}/podcast/"
+      },
+      "author": { "@id": "https://{{ site.domain }}/#person" }{% if summary %},
+      "description": "{{ summary | jsonEscape }}"{% endif %}
+    }
+    {%- elsif layout contains "podcast" %},
+    {
+      "@type": "PodcastSeries",
+      "name": "What I Knew",
+      "url": "https://{{ site.domain }}/podcast/",
+      "author": { "@id": "https://{{ site.domain }}/#person" }
+    }
+    {%- elsif schemaType == "counselling" %},
+    {
+      "@type": "ProfessionalService",
+      "name": "{{ site.authorName }} — Therapeutic Counselling",
+      "url": "https://{{ site.domain }}/counselling/",
+      "description": "{{ meta.description | jsonEscape }}",
+      "provider": { "@id": "https://{{ site.domain }}/#person" },
+      "serviceType": "Therapeutic Counselling",
+      "areaServed": "United Kingdom",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceType": "Online"
+      }
+    }
+    {%- elsif schemaType == "advisory" %},
+    {
+      "@type": "Service",
+      "name": "{{ site.authorName }} — Product Advisory",
+      "url": "https://{{ site.domain }}/advisory/",
+      "description": "{{ meta.description | jsonEscape }}",
+      "provider": { "@id": "https://{{ site.domain }}/#person" },
+      "serviceType": "Product Advisory"
+    }
+    {%- endif %}
+  ]
+}
+</script>
