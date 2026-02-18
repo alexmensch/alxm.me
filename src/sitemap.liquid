@@ -1,0 +1,35 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.all %}
+{%- assign skip = false %}
+{%- if item.data.meta.noindex %}{% assign skip = true %}{% endif %}
+{%- if item.url contains "/styles" %}{% assign skip = true %}{% endif %}
+{%- if item.url contains "/assets/" %}{% assign skip = true %}{% endif %}
+{%- if item.url contains "/writing/" and item.url != "/writing/" %}{% assign skip = true %}{% endif %}
+{%- if item.data.publishToRSSFeed == false %}{% assign skip = true %}{% endif %}
+{%- unless skip %}
+  <url>
+    <loc>https://{{ site.domain }}{{ item.url }}</loc>
+    {%- if item.data.version_date %}
+    <lastmod>{{ item.data.version_date | dateToRfc3339 }}</lastmod>
+    {%- elsif item.date %}
+    <lastmod>{{ item.date | dateToRfc3339 }}</lastmod>
+    {%- endif %}
+  </url>
+{%- endunless %}
+{%- endfor %}
+{%- for post in collections.writing %}
+  <url>
+    <loc>https://{{ site.domain }}{{ post.permalink }}</loc>
+    {%- if post.version_date %}
+    <lastmod>{{ post.version_date | dateToRfc3339 }}</lastmod>
+    {%- elsif post.date %}
+    <lastmod>{{ post.date | dateToRfc3339 }}</lastmod>
+    {%- endif %}
+  </url>
+{%- endfor %}
+</urlset>

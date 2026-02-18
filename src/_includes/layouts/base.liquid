@@ -3,8 +3,8 @@
     <head>
         {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
         <title>{{ pageTitle }}</title>
-        {% render "partials/site-meta" meta: meta, site: site, eleventy: eleventy %}
-        {% render "partials/site-opengraph" ogData: ogData, page: page, pageTitle: pageTitle, summary: summary %}
+        {% render "partials/site-meta" meta: meta, site: site, eleventy: eleventy, page: page %}
+        {% render "partials/site-opengraph" ogData: ogData, page: page, pageTitle: pageTitle, summary: summary, site: site %}
         {% render "partials/site-includes" site: site %}
     </head>
     <body>
