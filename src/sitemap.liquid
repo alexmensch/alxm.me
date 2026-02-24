@@ -12,8 +12,17 @@ eleventyExcludeFromCollections: true
 {%- if item.url contains "/writing/" and item.url != "/writing/" %}{% assign skip = true %}{% endif %}
 {%- if item.data.publishToRSSFeed == false %}{% assign skip = true %}{% endif %}
 {%- unless skip %}
+{%- assign is_nav = false -%}
+{%- for nav_item in site.nav -%}
+  {%- if item.url == nav_item.url -%}{%- assign is_nav = true -%}{%- endif -%}
+{%- endfor -%}
+{%- if is_nav -%}
+  {%- assign loc = item.url | strip | remove_last: "/" -%}
+{%- else -%}
+  {%- assign loc = item.url -%}
+{%- endif %}
   <url>
-    <loc>https://{{ site.domain }}{{ item.url }}</loc>
+    <loc>https://{{ site.domain }}{{ loc }}</loc>
     {%- if item.data.version_date %}
     <lastmod>{{ item.data.version_date | dateToRfc3339 }}</lastmod>
     {%- elsif item.date %}
