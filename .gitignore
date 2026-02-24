@@ -4,6 +4,7 @@ _site/
 .DS_Store
 .wrangler
 .env
+.claude/
 
 # Generated files
 _cloudflare/*/worker.js

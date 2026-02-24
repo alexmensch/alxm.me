@@ -11,7 +11,7 @@
                         {% unless item.hidden %}
                             <li>
                                 <a
-                                    href="{{ item.url }}"
+                                    href="{{ item.url | remove_last: "/" }}"
                                     {{ item.url | getLinkActiveState: page.url }}
                                     >
                                     {{ item.title }}

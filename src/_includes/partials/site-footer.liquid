@@ -6,8 +6,7 @@
                     {% unless item.hidden or not item.footer %}
                         <li>
                             <a
-                                href="{{ item.url }}"
-                                {{ item.url }}
+                                href="{{ item.url | remove_last: "/" }}"
                                 >
                                 {{ item.title }}
                             </a>
