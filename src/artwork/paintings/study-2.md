@@ -1,6 +1,5 @@
 ---
 title: Blue and orange study
-description:
 date: 2025-11-26
 image: /assets/artwork/paintings/study-2.jpeg
 ratio: 4-3

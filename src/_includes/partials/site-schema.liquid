@@ -81,8 +81,8 @@
       "creator": { "@id": "https://{{ site.domain }}/#person" },
       "width": "{{ size.width | jsonEscape }}",
       "height": "{{ size.height | jsonEscape }}",
-      "artMedium": "{{ medium | jsonEscape }}"{% if description %},
-      "description": "{{ description | jsonEscape }}"{% endif %}{% if available %},
+      "artMedium": "{{ medium | jsonEscape }}"{% if meta.description %},
+      "description": "{{ meta.description | jsonEscape }}"{% endif %}{% if available %},
       "offers": {
         "@type": "Offer",
         "price": "{{ price | remove: '£' }}",

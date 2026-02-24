@@ -1,6 +1,5 @@
 ---
 title: Mariia
-description:
 date: 2025-03-28
 image: /assets/artwork/paintings/figure-3.jpeg
 ratio: 2-3

@@ -1,6 +1,5 @@
 ---
 title: Tulips
-description:
 date: 2025-05-22
 image: /assets/artwork/paintings/still-life-1.jpeg
 ratio: 4-3
