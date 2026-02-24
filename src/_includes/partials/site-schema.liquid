@@ -79,8 +79,8 @@
       "image": "https://{{ site.domain }}{{ image }}",
       "dateCreated": "{{ date | dateToRfc3339 }}",
       "creator": { "@id": "https://{{ site.domain }}/#person" },
-      "width": "{{ size.width }}",
-      "height": "{{ size.height }}",
+      "width": "{{ size.width | jsonEscape }}",
+      "height": "{{ size.height | jsonEscape }}",
       "artMedium": "{{ medium | jsonEscape }}"{% if description %},
       "description": "{{ description | jsonEscape }}"{% endif %}{% if available %},
       "offers": {
