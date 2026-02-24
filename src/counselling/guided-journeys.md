@@ -1,4 +1,5 @@
 ---
+title: Guided Inner Journeys
 layout: layouts/landing
 eleventyExcludeFromCollections: true
 permalink: /counselling/ex/guided-journeys/
