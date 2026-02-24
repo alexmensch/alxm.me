@@ -1,6 +1,8 @@
 @use "../config/design-tokens" as dt;
 
 .wrapper {
+  // If changing max-width, also update the sizes attribute in the
+  // eleventyImageTransformPlugin config in .eleventy.js
   max-width: 70rem;
   padding: 0 #{dt.get-size("m")};
   margin-inline: auto;
