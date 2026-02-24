@@ -63,11 +63,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     extensions: "html",
     formats: ["webp", "auto"],
-    widths: ["auto"],
+    widths: [320, 640, 960, 1280, "auto"],
     urlPath: "/assets/images/",
-    // optional, attributes assigned on <img> override these values.
     defaultAttributes: {
-      decoding: "async"
+      decoding: "async",
+      loading: "lazy",
+      sizes: "(min-width: 1280px) 70rem, calc(100vw - 3rem)"
     }
   });
 
