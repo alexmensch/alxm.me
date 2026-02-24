@@ -1,7 +1,7 @@
 {% if ogData %}
     {% ogImage "./_includes/open-graph/og-posts.og.liquid", ogData %}
     {% if summary %}
-    <meta name="description" property="og:description" content="{{ summary }}" />
+    <meta property="og:description" content="{{ summary }}" />
     {% endif %}
     <meta property="og:type" content="article" />
 {% else %}

@@ -3,9 +3,9 @@
     <head>
         {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
         <title>{{ pageTitle }}</title>
-        {% render "partials/site-meta" meta: meta, site: site, eleventy: eleventy, page: page %}
+        {% render "partials/site-meta" meta: meta, summary: summary, site: site, eleventy: eleventy, page: page %}
         {% render "partials/site-opengraph" ogData: ogData, page: page, pageTitle: pageTitle, summary: summary, site: site %}
-        {% render "partials/site-schema" site: site, page: page, layout: layout, schemaType: schemaType, title: title, date: date, version_date: version_date, summary: summary, meta: meta, image: image, medium: medium, size: size, description: description, price: price, available: available %}
+        {% render "partials/site-schema" site: site, page: page, layout: layout, schemaType: schemaType, title: title, date: date, version_date: version_date, summary: summary, meta: meta, image: image, medium: medium, size: size, price: price, available: available %}
         {% render "partials/site-includes" site: site %}
     </head>
     <body>

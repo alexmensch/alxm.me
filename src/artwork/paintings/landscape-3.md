@@ -1,6 +1,5 @@
 ---
 title: Landscape study I
-description:
 date: 2025-10-22
 image: /assets/artwork/paintings/landscape-3.jpeg
 ratio: 4-5

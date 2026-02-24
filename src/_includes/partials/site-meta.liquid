@@ -5,6 +5,8 @@
         <link rel="canonical" href="https://{{ site.domain }}{{ page.url }}" />
 {% if meta.description %}
         <meta name="description" content="{{ meta.description }}" />
+{% elsif summary %}
+        <meta name="description" content="{{ summary }}" />
 {% endif %}
 {% if meta.noindex %}
         <meta name="robots" content="noindex, follow" />

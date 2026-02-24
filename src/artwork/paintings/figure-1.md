@@ -1,6 +1,5 @@
 ---
 title: Arnold
-description:
 date: 2025-02-05
 image: /assets/artwork/paintings/figure-1.jpeg
 ratio: 5-7

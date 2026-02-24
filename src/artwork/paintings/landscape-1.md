@@ -1,6 +1,5 @@
 ---
 title: Clapham Common
-description:
 date: 2025-10-01
 image: /assets/artwork/paintings/landscape-1.jpeg
 ratio: 4-5
