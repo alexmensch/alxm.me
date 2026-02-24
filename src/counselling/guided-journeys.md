@@ -1,4 +1,5 @@
 ---
+title: Guided Inner Journeys
 layout: layouts/landing
 eleventyExcludeFromCollections: true
 permalink: /counselling/ex/guided-journeys/
@@ -11,7 +12,7 @@ recordings:
   - /assets/files/guided-inner-journey-3.mp3
 ---
 
-# Instructions
+## Instructions
 
 The following guided visualisations are intended to help you connect to what's most important to you in making an impact in your life. There are no right or wrong answers, only what's true for you.
 
