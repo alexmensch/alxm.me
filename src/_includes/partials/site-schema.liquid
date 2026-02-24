@@ -71,6 +71,25 @@
       "provider": { "@id": "https://{{ site.domain }}/#person" },
       "serviceType": "Product Advisory"
     }
+    {%- elsif layout contains "artwork-preview" %},
+    {
+      "@type": "VisualArtwork",
+      "name": "{{ title | jsonEscape }}",
+      "url": "https://{{ site.domain }}{{ page.url }}",
+      "image": "https://{{ site.domain }}{{ image }}",
+      "dateCreated": "{{ date | dateToRfc3339 }}",
+      "creator": { "@id": "https://{{ site.domain }}/#person" },
+      "width": "{{ size.width | jsonEscape }}",
+      "height": "{{ size.height | jsonEscape }}",
+      "artMedium": "{{ medium | jsonEscape }}"{% if description %},
+      "description": "{{ description | jsonEscape }}"{% endif %}{% if available %},
+      "offers": {
+        "@type": "Offer",
+        "price": "{{ price | remove: '£' }}",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock"
+      }{% endif %}
+    }
     {%- endif %}
   ]
 }
