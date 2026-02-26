@@ -8,6 +8,8 @@
       "name": "{{ site.authorName }}",
       "url": "https://{{ site.domain }}",
       "email": "{{ site.authorEmail }}",
+      "jobTitle": "Counsellor",
+      "description": "Humanistic counsellor, artist, and podcast host based in London.",
       "sameAs": ["https://www.linkedin.com/in/awmars", "https://www.instagram.com/alexmensch"]
     },
     {
@@ -17,6 +19,53 @@
       "name": "{{ site.siteName }}",
       "author": { "@id": "https://{{ site.domain }}/#person" }
     }
+    {%- unless page.url == "/" -%}
+    ,{
+      "@type": "BreadcrumbList",
+      "@id": "https://{{ site.domain }}{{ page.url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://{{ site.domain }}"
+        }
+        {%- assign url_trimmed = page.url | remove_first: "/" | remove_last: "/" -%}
+        {%- assign url_parts = url_trimmed | split: "/" -%}
+        {%- if url_parts.size > 0 -%}
+        {%- assign section_slug = url_parts[0] -%}
+        {%- assign section_title = "" -%}
+        {%- for nav_item in site.nav -%}
+          {%- assign nav_slug = nav_item.url | remove_first: "/" | remove_last: "/" -%}
+          {%- if nav_slug == section_slug -%}
+            {%- assign section_title = nav_item.title -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if section_title != "" -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ section_title }}",
+          "item": "https://{{ site.domain }}/{{ section_slug }}"
+        }
+        {%- if url_parts.size > 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ title | jsonEscape }}"
+        }
+        {%- endif -%}
+        {%- else -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ title | jsonEscape }}"
+        }
+        {%- endif -%}
+        {%- endif -%}
+      ]
+    }
+    {%- endunless %}
     {%- if layout contains "posts" %},
     {
       "@type": "BlogPosting",
@@ -24,7 +73,8 @@
       "url": "https://{{ site.domain }}{{ page.url }}",
       "datePublished": "{{ date | dateToRfc3339 }}",
       "dateModified": "{% if version_date %}{{ version_date | dateToRfc3339 }}{% else %}{{ date | dateToRfc3339 }}{% endif %}",
-      "author": { "@id": "https://{{ site.domain }}/#person" }{% if summary %},
+      "author": { "@id": "https://{{ site.domain }}/#person" },
+      "publisher": { "@id": "https://{{ site.domain }}/#person" }{% if summary %},
       "description": "{{ summary | jsonEscape }}"{% endif %}
     }
     {%- elsif layout contains "podcast-episodes" %},
@@ -46,6 +96,9 @@
       "@type": "PodcastSeries",
       "name": "What I Knew",
       "url": "https://{{ site.domain }}/podcast",
+      "description": "A podcast celebrating the courage it takes to make big personal changes.",
+      "image": "https://{{ site.domain }}/assets/podcast/images/artwork-default-v2.jpg",
+      "webFeed": "https://{{ site.domain }}/podcast/feed/what-i-knew.rss",
       "author": { "@id": "https://{{ site.domain }}/#person" }
     }
     {%- elsif schemaType == "counselling" %},
