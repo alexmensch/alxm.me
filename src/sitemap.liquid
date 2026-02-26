@@ -12,11 +12,9 @@ eleventyExcludeFromCollections: true
 {%- if item.url contains "/writing/" and item.url != "/writing/" %}{% assign skip = true %}{% endif %}
 {%- if item.data.publishToRSSFeed == false %}{% assign skip = true %}{% endif %}
 {%- unless skip %}
-{%- assign is_nav = false -%}
-{%- for nav_item in site.nav -%}
-  {%- if item.url == nav_item.url -%}{%- assign is_nav = true -%}{%- endif -%}
-{%- endfor -%}
-{%- if is_nav -%}
+{%- assign path_inner = item.url | remove_first: "/" | remove_last: "/" -%}
+{%- assign path_parts = path_inner | split: "/" -%}
+{%- if path_parts.size <= 1 -%}
   {%- assign loc = item.url | strip | remove_last: "/" -%}
 {%- else -%}
   {%- assign loc = item.url -%}
