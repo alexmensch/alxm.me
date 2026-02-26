@@ -1,6 +1,8 @@
 ---
 layout: layouts/writing
 title: Writing
+meta:
+  description: "A collection of writing by Alex Marshall on topics from aviation and travel to psychology and personal growth."
 hero:
   header: Collected writings
 ---
