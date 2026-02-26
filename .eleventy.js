@@ -95,6 +95,11 @@ export default async function (eleventyConfig) {
     outputFileExtension: "webp",
     outputDir: "assets/images/og",
     previewMode: false,
+    // Output absolute URL for og:image (social platforms require full URLs)
+    shortcodeOutput: async (ogImage) => {
+      const url = await ogImage.outputUrl();
+      return `<meta property="og:image" content="https://${siteConfig.domain}${url}" />`;
+    },
     // Custom slug: hash input data instead of rendered HTML (faster builds)
     // Trade-off: template changes won't trigger regeneration, only data changes
     outputFileSlug: (ogImage) => {
