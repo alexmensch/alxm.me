@@ -46,15 +46,15 @@ This website does not set any cookies and does not use any tracking technology. 
 
 We use the following third-party services (subprocessors) in connection with our counselling practice:
 
-| Service                                        | Purpose                              | Privacy policy                                                                                             |
-| ---------------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| [Cloudflare](https://www.cloudflare.com)       | Website hosting and content delivery | [Privacy policy](https://www.cloudflare.com/privacypolicy/)                                                |
-| [Proton Mail](https://proton.me)               | Email communication                  | [Privacy policy](https://proton.me/legal/privacy)                                                          |
-| [Google Calendar](https://calendar.google.com) | Session calendar invites             | [Privacy policy](https://policies.google.com/privacy)                                                      |
-| [Calendly](https://calendly.com)               | Appointment scheduling               | [Privacy policy](https://calendly.com/privacy)                                                             |
-| [Zoom](https://zoom.us)                        | Video counselling sessions           | [Privacy policy](https://explore.zoom.us/en/privacy/)                                                      |
-| [Stripe](https://stripe.com)                   | Payment processing                   | [Privacy policy](https://stripe.com/gb/privacy)                                                            |
-| [Xero](https://www.xero.com)                   | Accounting and invoicing             | [Privacy policy](https://www.xero.com/uk/about/terms/privacy/)                                             |
+| Service                                        | Purpose                              | Privacy policy                                                 |
+| ---------------------------------------------- | ------------------------------------ | -------------------------------------------------------------- |
+| [Cloudflare](https://www.cloudflare.com)       | Website hosting and content delivery | [Privacy policy](https://www.cloudflare.com/privacypolicy/)    |
+| [Proton Mail](https://proton.me)               | Email communication                  | [Privacy policy](https://proton.me/legal/privacy)              |
+| [Google Calendar](https://calendar.google.com) | Session calendar invites             | [Privacy policy](https://policies.google.com/privacy)          |
+| [Calendly](https://calendly.com)               | Appointment scheduling               | [Privacy policy](https://calendly.com/privacy)                 |
+| [Zoom](https://zoom.us)                        | Video counselling sessions           | [Privacy policy](https://explore.zoom.us/en/privacy/)          |
+| [Stripe](https://stripe.com)                   | Payment processing                   | [Privacy policy](https://stripe.com/gb/privacy)                |
+| [Xero](https://www.xero.com)                   | Accounting and invoicing             | [Privacy policy](https://www.xero.com/uk/about/terms/privacy/) |
 
 Each service processes data in accordance with their own privacy policy. We only share the minimum data necessary for each service to fulfil its purpose.
 
