@@ -80,7 +80,8 @@ site.links = [
   },
   {
     rel: "stylesheet",
-    href: "/assets/css/syntax.css"
+    href: "/assets/css/syntax.css",
+    lazy: true
   },
   {
     rel: "alternate",
