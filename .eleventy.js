@@ -13,7 +13,7 @@ import {
   InputPathToUrlTransformPlugin,
   RenderPlugin,
   HtmlBasePlugin,
-  IdAttributePlugin,
+  IdAttributePlugin
 } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
@@ -352,8 +352,7 @@ export default async function (eleventyConfig) {
     (src, alt, ratio, portrait, href) => {
       const tag = href ? "a" : "div";
       const attrs = href ? `href="${href}"` : "";
-      const html =
-`<div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
+      const html = `<div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
 <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
 <${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
 <img src="/assets/images/${src}" alt="${alt}" />
@@ -367,8 +366,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPairedShortcode(
     "blockQuote",
     (content, name, source, url = false) => {
-      const html =
-`<div class="[ quote ] [ flow ]">
+      const html = `<div class="[ quote ] [ flow ]">
 <blockquote>
 <p>${content}</p>
 </blockquote>
