@@ -46,6 +46,22 @@ pnpm run audio:validate  # Check metadata matches audio files
 - Script location: `scripts/audio-metadata.js`
 - Validation plugin: `eleventy-plugins/audio-validation.js`
 
+### Favicons
+
+Favicons are generated from a font glyph using `scripts/generate-favicons.js`. The script extracts the "A" glyph from Inter Bold, centers it, and produces all favicon variants.
+
+```bash
+node scripts/generate-favicons.js  # Regenerate all favicon files
+```
+
+- Font source: `src/_build/fonts/Inter-Bold.ttf`
+- Change `FONT_PATH` in the script to use a different typeface
+- Dev dependencies: `sharp`, `png-to-ico`, `opentype.js`
+- Generated files (in `src/`): `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `favicon-192.png`, `favicon-512.png`
+- `favicon.svg` adapts to light/dark mode via CSS media query
+- `site.webmanifest` references the 192 and 512 PNG variants
+- Favicon `<link>` elements are defined in `src/_data/site.js` under `site.links`
+
 ## Architecture
 
 This is an Eleventy static site using Liquid and Nunjucks templates, deployed to Cloudflare Workers with static assets and R2 for large files.

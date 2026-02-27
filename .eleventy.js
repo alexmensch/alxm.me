@@ -141,6 +141,12 @@ export default async function (eleventyConfig) {
     "src/assets/css": "assets/css",
     "src/assets/images": "assets/images",
     "src/assets/podcast/images": "assets/podcast/images",
+    "src/favicon.svg": "favicon.svg",
+    "src/favicon.ico": "favicon.ico",
+    "src/favicon-192.png": "favicon-192.png",
+    "src/favicon-512.png": "favicon-512.png",
+    "src/apple-touch-icon.png": "apple-touch-icon.png",
+    "src/site.webmanifest": "site.webmanifest",
     "src/404.html": "404.html",
     "src/_redirects": "_redirects",
     ".assetsignore": ".assetsignore"
