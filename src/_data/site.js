@@ -109,6 +109,12 @@ site.links = [
   }
 ];
 
+site.newsletter = {
+  apiUrl: "https://feedmail.cc",
+  siteId: "alxm.me",
+  turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || ""
+};
+
 site.company = {
   name: "Thoughtful Design Ltd",
   number: "15642102",

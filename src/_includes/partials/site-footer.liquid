@@ -22,6 +22,7 @@
                 <p class="flow-space-2xs"><a href="/privacy">Privacy policy</a></p>
             </div>
         {%endif %}
+        {% render "partials/subscribe-form", site: site %}
         <div class="cluster" data-state="repel">
             <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }}</p>
             <p>Powered by <a href="https://www.11ty.dev/">Eleventy</a>, source code on <a href="https://github.com/alexmensch/alxm.me">Github</a>.</p>
