@@ -1,0 +1,85 @@
+<div class="subscribe-form">
+    <p class="subscribe-form__heading font-sans weight-bold">Subscribe to new writing</p>
+    <form id="subscribe-form" class="subscribe-form__form cluster" novalidate>
+        <input
+            type="email"
+            name="email"
+            class="subscribe-form__input font-sans"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+        />
+        <div class="cf-turnstile" data-sitekey="{{ site.newsletter.turnstileSiteKey }}" data-theme="dark" data-size="compact"></div>
+        <button type="submit" class="button" data-variant="ghost">Subscribe</button>
+    </form>
+    <p id="subscribe-message" class="subscribe-form__message" aria-live="polite"></p>
+</div>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+    (function () {
+        var form = document.getElementById("subscribe-form");
+        var msg = document.getElementById("subscribe-message");
+
+        if (!form) return;
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            var email = form.email.value.trim();
+            var btn = form.querySelector("button[type=submit]");
+
+            if (!email) {
+                msg.textContent = "Please enter your email address.";
+                msg.className = "subscribe-form__message subscribe-form__message--error";
+                return;
+            }
+
+            var turnstileResponse = "";
+            try {
+                turnstileResponse = turnstile.getResponse();
+            } catch (_) {
+                // Turnstile may not be loaded yet
+            }
+
+            if (!turnstileResponse) {
+                msg.textContent = "Please complete the verification.";
+                msg.className = "subscribe-form__message subscribe-form__message--error";
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = "Subscribing\u2026";
+            msg.textContent = "";
+            msg.className = "subscribe-form__message";
+
+            try {
+                var response = await fetch("{{ site.newsletter.apiUrl }}/api/subscribe", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: email,
+                        siteId: "{{ site.newsletter.siteId }}",
+                        turnstileToken: turnstileResponse,
+                    }),
+                });
+
+                var data = await response.json();
+                msg.textContent = data.message || "Something went wrong. Please try again.";
+
+                if (data.success) {
+                    msg.className = "subscribe-form__message subscribe-form__message--success";
+                    form.email.value = "";
+                } else {
+                    msg.className = "subscribe-form__message subscribe-form__message--error";
+                }
+            } catch (_) {
+                msg.textContent = "Something went wrong. Please try again.";
+                msg.className = "subscribe-form__message subscribe-form__message--error";
+            }
+
+            btn.disabled = false;
+            btn.textContent = "Subscribe";
+            try { turnstile.reset(); } catch (_) { /* noop */ }
+        });
+    })();
+</script>
