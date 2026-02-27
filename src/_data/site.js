@@ -112,7 +112,7 @@ site.links = [
 site.newsletter = {
   apiUrl: "https://feedmail.cc",
   siteId: "alxm.me",
-  turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || ""
+  turnstileSiteKey: "0x4AAAAAACja8SltdBSgcxvS"
 };
 
 site.company = {
