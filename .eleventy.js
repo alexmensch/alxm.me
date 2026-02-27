@@ -9,10 +9,14 @@ import { promises as fs } from "node:fs";
 import "dotenv/config";
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import { InputPathToUrlTransformPlugin, RenderPlugin } from "@11ty/eleventy";
+import {
+  InputPathToUrlTransformPlugin,
+  RenderPlugin,
+  HtmlBasePlugin,
+  IdAttributePlugin
+} from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
-import { IdAttributePlugin } from "@11ty/eleventy";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
@@ -53,6 +57,9 @@ export default async function (eleventyConfig) {
 
   // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);
+
+  // HTML base URL rewriting (used in RSS feed for absolute URLs)
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Add the permalink tracker plugin
   eleventyConfig.addPlugin(permalinkTracker);
@@ -345,15 +352,13 @@ export default async function (eleventyConfig) {
     (src, alt, ratio, portrait, href) => {
       const tag = href ? "a" : "div";
       const attrs = href ? `href="${href}"` : "";
-      const html = `
-      <div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
-        <div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
-          <${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
-            <img src="/assets/images/${src}" alt="${alt}" />
-          </${tag}>
-        </div>
-      </div>
-    `;
+      const html = `<div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
+<div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
+<${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
+<img src="/assets/images/${src}" alt="${alt}" />
+</${tag}>
+</div>
+</div>`;
       return html;
     }
   );
@@ -361,14 +366,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPairedShortcode(
     "blockQuote",
     (content, name, source, url = false) => {
-      const html = `
-      <div class="[ quote ] [ flow ]">
-        <blockquote>
-          <p>${content}</p>
-        </blockquote>
-        <p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? "</a>" : ""}</p>
-      </div>
-    `;
+      const html = `<div class="[ quote ] [ flow ]">
+<blockquote>
+<p>${content}</p>
+</blockquote>
+<p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? "</a>" : ""}</p>
+</div>`;
       return html;
     }
   );

@@ -35,7 +35,7 @@ eleventyComputed:
     <link href="{{ absolutePostUrl }}" />
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.content | markdownToHTML | escapeHTML }}</content>
+    <content type="html">{{ post.content | renderContent: "liquid" | markdownToHTML | transformWithHtmlBase: baseUrl | escapeHTML }}</content>
   </entry>
   {%- endfor %}
 </feed>
