@@ -1,10 +1,10 @@
 {% assign cta = cta | default: "Never miss a new post" %}
 {% assign success_message = success_message | default: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
 
-<div id="subscribe-container" class="[ subscribe-form ] [ flow ] [ box bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}" data-fit-content>
+<div id="subscribe-container" class="[ subscribe-form ] [ flow box ] [ bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}" data-fit-content>
     <p id="subscribe-cta" class="[ font-sans weight-extra-bold ]">{{ cta }}</p>
     <form id="subscribe-form" class="[ subscribe-form__fields ] [ cluster flow ]" novalidate>
-        <div class="subscribe-form__input-group">
+        <div>
             <input
                 type="email"
                 name="email"
