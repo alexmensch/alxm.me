@@ -4,10 +4,14 @@ _site/
 .DS_Store
 .wrangler
 .env
-.claude/
+.claude/*
 
 # Generated files
 _cloudflare/*/worker.js
 _cloudflare/*/wrangler.toml
 permalinks.txt
 .assetsignore
+
+# Claude skills
+!.claude/skills/
+!.claude/skills/**
