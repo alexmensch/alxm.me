@@ -39,7 +39,7 @@ Exceptions must be concise. If a variation is so different it's unrecognisable, 
 Use square bracket delimiter to group classes by layer:
 
 ```html
-class="[ block-name ] [ composition utility ] [ token-utilities ]"
+class="[ block-name ] [ compositions ] [ utilities ]"
 ```
 
 Example: `class="[ card ] [ stack flow ] [ bg-light measure-short ]"`
@@ -255,6 +255,32 @@ Use: galleries, card grids, any responsive multi-column layout.
 Full viewport-height flex column. The element with `data-target` is vertically centred; first/last children without `data-target` pin to top/bottom.
 Use: hero sections, full-screen landing areas.
 
+### `.box`
+
+Padding + border container with colour inheritance. Establishes a visually distinct contained region.
+
+```scss
+.box {
+  padding: var(--padding);
+  outline: 0.125rem solid transparent; // high-contrast accessibility
+  outline-offset: -0.125rem;
+}
+.box * {
+  color: inherit;
+}
+.box .box {
+  padding: var(--padding);
+} // nested boxes inherit padding
+```
+
+Data-attribute exceptions:
+
+- `data-shadow` — offset hatch-pattern shadow (`::before` pseudo-element)
+- `data-outline` — visible border (`0.2rem solid`)
+- `data-fit-content` — `width: fit-content`
+
+Use: any element needing a padded, visually contained region. Often combined with utility classes for background colour, border, and radius.
+
 ### `.center`
 
 Centers content horizontally with padding.
@@ -279,7 +305,6 @@ Use: wrapping page sections for horizontal centering.
 
 These primitives from Every Layout are not yet in the project. Add as compositions if needed:
 
-- **Box** — padding + border container with colour inheritance (currently `.box` exists as a utility)
 - **Reel** — horizontal scrolling container with custom scrollbar
 - **Imposter** — overlay/modal positioning
 - **Icon** — inline SVG icon with text alignment
@@ -307,20 +332,19 @@ Header composition with baseline-aligned inner cluster and brand link.
 
 ## Utility Classes Reference
 
-| Class              | Purpose                                                                                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `.box`             | Padding container. `data-shadow` = offset hatch shadow. `data-outline` = visible border. `data-fit-content` = width:fit-content. Child `.box` inherits padding. |
-| `.wrapper`         | Max-width 70rem, centred, horizontal gutter padding (`m` size)                                                                                                  |
-| `.gutter`          | `padding-inline: var(--gutter)`                                                                                                                                 |
-| `.measure-reset`   | Removes max-width constraint (`--measure: none`)                                                                                                                |
-| `.radius`          | `border-radius: 0.25rem`                                                                                                                                        |
-| `.site-wrap`       | `overflow-x: hidden; position: relative` (outermost page wrapper)                                                                                               |
-| `.drop-cap`        | Drop cap on first `<p>` in the element (float + black weight)                                                                                                   |
-| `.visually-hidden` | Screen-reader only, not visually displayed                                                                                                                      |
-| `.font-base`       | Source Serif 4 serif font                                                                                                                                       |
-| `.font-sans`       | Inter sans-serif font                                                                                                                                           |
-| `a.arrow-shift`    | Animated `→` appended after link text on hover                                                                                                                  |
-| `a.hover-show`     | Link with no underline; underline appears on hover                                                                                                              |
+| Class              | Purpose                                                           |
+| ------------------ | ----------------------------------------------------------------- |
+| `.wrapper`         | Max-width 70rem, centred, horizontal gutter padding (`m` size)    |
+| `.gutter`          | `padding-inline: var(--gutter)`                                   |
+| `.measure-reset`   | Removes max-width constraint (`--measure: none`)                  |
+| `.radius`          | `border-radius: 0.25rem`                                          |
+| `.site-wrap`       | `overflow-x: hidden; position: relative` (outermost page wrapper) |
+| `.drop-cap`        | Drop cap on first `<p>` in the element (float + black weight)     |
+| `.visually-hidden` | Screen-reader only, not visually displayed                        |
+| `.font-base`       | Source Serif 4 serif font                                         |
+| `.font-sans`       | Inter sans-serif font                                             |
+| `a.arrow-shift`    | Animated `→` appended after link text on hover                    |
+| `a.hover-show`     | Link with no underline; underline appears on hover                |
 
 ### Token Utility Classes (auto-generated)
 
@@ -351,7 +375,7 @@ Pattern: `.{token}-{variant}` — one utility class per token×variant combinati
 | ------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `.article`         | `_article.scss`         | Article layout. `.article__content` has padding + measure constraint. `.article__photo` is centred image (70% max for portrait). Reduces flow-space after headings.                                 |
 | `.artwork`         | `_artwork.scss`         | Gallery (`.artwork__gallery`) uses grid mixin with 320px min-item-width. Preview uses cover pattern with `data-target`.                                                                             |
-| `.button`          | `_button.scss`          | CTA button. Radius, sans-serif, bold, uppercase. `data-variant="ghost"` = transparent bg.                                                                                                           |
+| `.button`          | `_button.scss`          | CTA button. Radius, sans-serif, extra-bold, no border. `data-variant="ghost"` = transparent bg.                                                                                                     |
 | `.contact-options` | `_contact-options.scss` | Contact link list with secondary colour background.                                                                                                                                                 |
 | `.footnotes`       | `_footnotes.scss`       | Strips underline from footnote links.                                                                                                                                                               |
 | `.frame`           | `_frame.scss`           | Aspect-ratio container. Default 4:3. `data-ratio` variants: `16-9`, `4-3`, `1-1`, `4-5`, `5-7`, `5-6`, `7-9`, `2-3`. Add `data-landscape` to invert. `data-fit-content` uses `object-fit: contain`. |
@@ -360,6 +384,7 @@ Pattern: `.{token}-{variant}` — one utility class per token×variant combinati
 | `.quote`           | `_quote.scss`           | Styled blockquote with primary colour left border. Auto-adds `"` quotation marks. Attribution right-aligned.                                                                                        |
 | `.site-footer`     | `_site-footer.scss`     | Footer with `--footer-bg`/`--footer-text` colours. `.site-footer__content` has block + inline padding.                                                                                              |
 | `.skip-link`       | `_skip-link.scss`       | A11y skip nav. Absolutely positioned, visually hidden unless focused.                                                                                                                               |
+| `.subscribe-form`  | `_subscribe-form.scss`  | Email subscribe form. Tightened `--flow-space`. `__fields` wraps inputs+button. `__input` has underline style. `__error` small sans-serif, hidden when empty. Scoped `.button` override.            |
 
 ---
 
@@ -384,6 +409,7 @@ All exceptions use `data-*` attributes (never extra CSS classes):
 .cover > [data-target]              vertically centres this child
 .nav a[data-state="active"]         shows underline indicator
 .artwork__preview [data-target]     full-height centred preview
+.subscribe-form__input[aria-invalid="true"]  accent-color underline on invalid input
 ```
 
 ---

@@ -149,12 +149,12 @@ The site footer includes an email subscribe form that integrates with [feedmail]
 
 **Files:**
 
-- `src/_includes/partials/subscribe-form.liquid` - Form with Turnstile widget + AJAX submission
+- `src/_includes/partials/subscribe-form.liquid` - Form with AJAX submission
 - `src/assets/scss/blocks/_subscribe-form.scss` - Form styles (CUBE CSS conventions)
-- `src/_data/site.js` - `site.newsletter` config (apiUrl, siteId, turnstileSiteKey)
+- `src/_data/site.js` - `site.newsletter` config (apiUrl, siteId)
 
 **How it works:**
 
-- Form POSTs to `https://feedmail.cc/api/subscribe` with email, siteId, and Turnstile token
+- Form POSTs to `https://feedmail.cc/api/subscribe` with email and siteId
 - The form is rendered in the footer via `{% render "partials/subscribe-form", site: site %}` in `site-footer.liquid`
 - feedmail handles verification emails, subscriber management, and feed-to-email delivery independently
