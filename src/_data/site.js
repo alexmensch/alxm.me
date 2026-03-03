@@ -109,6 +109,11 @@ site.links = [
   }
 ];
 
+site.newsletter = {
+  apiUrl: "https://feedmail.cc",
+  siteId: "alxm.me"
+};
+
 site.company = {
   name: "Thoughtful Design Ltd",
   number: "15642102",

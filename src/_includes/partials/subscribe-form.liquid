@@ -1,0 +1,100 @@
+{% assign cta = cta | default: "Never miss a new post" %}
+{% assign success_message = success_message | default: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
+
+<div id="subscribe-container" class="[ subscribe-form ] [ flow ] [ box bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}" data-fit-content>
+    <p id="subscribe-cta" class="[ font-sans weight-extra-bold ]">{{ cta }}</p>
+    <form id="subscribe-form" class="[ subscribe-form__fields ] [ cluster flow ]" novalidate>
+        <div class="subscribe-form__input-group">
+            <input
+                type="email"
+                name="email"
+                class="[ subscribe-form__input ] [ font-sans ]"
+                placeholder="Your email"
+                autocomplete="email"
+                aria-describedby="subscribe-error"
+                required
+            />
+            <p id="subscribe-error" class="[ subscribe-form__error ]" role="alert"></p>
+        </div>
+        <input type="text" name="first_name" style="display: none" tabindex="-1" autocomplete="off" />
+        <input type="text" name="last_name" style="display: none" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="[ button ]" data-variant="ghost">Subscribe</button>
+    </form>
+</div>
+
+<script>
+    (function () {
+        var form = document.getElementById('subscribe-form');
+        var container = document.getElementById('subscribe-container');
+        var ctaEl = document.getElementById('subscribe-cta');
+        var successText = container.dataset.successMessage;
+        var emailInput = form.email;
+        var btn = form.querySelector('button[type="submit"]');
+        var errorMsg = document.getElementById('subscribe-error');
+        var hasError = false;
+
+        emailInput.addEventListener('input', function () {
+            if (!hasError) return;
+            hasError = false;
+            emailInput.removeAttribute('aria-invalid');
+            errorMsg.textContent = '';
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (form.first_name.value || form.last_name.value) {
+                showSuccess(successText);
+                return;
+            }
+
+            if (!emailInput.value.trim() || !emailInput.validity.valid) {
+                hasError = true;
+                emailInput.setAttribute('aria-invalid', 'true');
+                errorMsg.textContent = 'Invalid address';
+                return;
+            }
+
+            btn.style.minWidth = btn.offsetWidth + 'px';
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+            btn.textContent = '\u2026';
+            errorMsg.textContent = '';
+
+            try {
+                var response = await fetch('{{ site.newsletter.apiUrl }}/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: emailInput.value.trim(),
+                        siteId: '{{ site.newsletter.siteId }}',
+                    }),
+                });
+
+                var data = await response.json();
+
+                if (data.success) {
+                    showSuccess(successText);
+                } else {
+                    errorMsg.textContent = data.message || 'Something went wrong. Please try again.';
+                    resetButton();
+                }
+            } catch (_) {
+                errorMsg.textContent = 'Something went wrong. Please try again.';
+                resetButton();
+            }
+        });
+
+        function resetButton() {
+            btn.disabled = false;
+            btn.removeAttribute('aria-busy');
+            btn.textContent = 'Subscribe';
+        }
+
+        function showSuccess(message) {
+            form.style.display = 'none';
+            ctaEl.setAttribute('role', 'status');
+            ctaEl.textContent = message;
+        }
+    })();
+</script>

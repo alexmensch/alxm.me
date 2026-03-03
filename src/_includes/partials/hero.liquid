@@ -3,22 +3,34 @@
     {% assign header = hero.header %}
     {% assign byline = hero.byline %}
   {% endif %}
-  
-  <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+
   {% if byline %}
     {% capture byline_html %}<p><em>{{ byline | markdownify }}</em></p>{% endcapture %}
-    {% if type == "episode" %}
-      <div class="stack flow-space-2xs">
-        {{ byline_html }}
-        <div class="cluster flow-space-s">
-          <p><em>Subscribe:</em></p>
-          {% for link in site.podcastURL.remotes %}
-            <a href="{{ link.url }}">{{ link.name }}</a>
-          {% endfor %}
-        </div>
-      </div>
-    {% else %}
+  {% endif %}
+  {% if type == "episode" %}
+    {%- capture subscribe_html -%}
+    <div class="cluster flow-space-s">
+      <p><em>Subscribe:</em></p>
+      {% for link in site.podcastURL.remotes %}
+        <a href="{{ link.url }}">{{ link.name }}</a>
+      {% endfor %}
+    </div>
+    {%- endcapture -%}
+  {% endif %}
+  
+  <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+  {% if byline and type == "episode" %}
+  <div>
+    <div class="stack flow-space-2xs">
       {{ byline_html }}
+      {{ subscribe_html }}
+    </div>
+  </div>
+  {% elsif byline or type == "episode" %}
+    {% if byline %}
+      {{ byline_html }}
+    {% else %}
+      {{ subscribe_html }}
     {% endif %}
-  {%endif%}
+  {% endif %}
 </div>

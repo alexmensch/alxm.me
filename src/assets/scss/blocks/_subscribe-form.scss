@@ -1,0 +1,52 @@
+@use "../config/design-tokens" as dt;
+@use "../config/fonts";
+
+.subscribe-form {
+  --flow-space: #{dt.get-size("2xs")};
+
+  &__fields {
+    --flow-space: #{dt.get-size("2xs")};
+
+    align-items: baseline;
+  }
+
+  &__input {
+    background: transparent;
+    border: none;
+    border-block-end: 0.2ex solid currentcolor;
+    color: inherit;
+    padding: 0;
+    width: 18ch;
+    max-width: 100%;
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.35;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: var(--color-light-shade);
+    }
+
+    &[aria-invalid="true"] {
+      border-block-end-color: var(--accent-color);
+    }
+  }
+
+  &__error {
+    @include fonts.sans;
+    @include dt.use("text", -2);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .button {
+    @include dt.use("weight", "extra-bold");
+
+    padding-block: 0.2ex;
+    margin-inline-start: auto;
+  }
+}

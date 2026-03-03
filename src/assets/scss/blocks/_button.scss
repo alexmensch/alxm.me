@@ -6,16 +6,15 @@
   @include utilities.radius;
 
   display: inline-block;
-  padding: 0.5rem 2rem;
+  padding: #{dt.get-size("2xs")};
   background: dt.get-color("secondary-glare");
   color: dt.get-color("dark-shade");
-  border: 2px solid;
-  text-transform: uppercase;
+  border: none;
   text-decoration: none;
   text-align: center;
 
   @include fonts.sans;
-  @include dt.use("weight", "bold");
+  @include dt.use("weight", "extra-bold");
 
   // Make sure hover state trumps all variants
   &:hover {

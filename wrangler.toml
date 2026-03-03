@@ -2,6 +2,7 @@ name = "alxm-site"
 main = "./worker/index.js"
 compatibility_date = "2025-07-01"
 preview_urls = true
+account_id = "ecd2a3d65ecc1018f93da07542223581"
 
 [assets]
 directory = "./_site"
