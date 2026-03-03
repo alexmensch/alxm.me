@@ -93,6 +93,8 @@ Styles use CUBE CSS methodology with Utopia fluid typography:
 - `blocks/` - Component-specific styles
 - `utilities/` - Single-purpose utility classes
 
+There is a cube-css skill that exists in this repository which you must reference when making changes to styling, including CSS and fonts, in this repository.
+
 ### Collections
 
 Collections are auto-generated from `src/_data/site.js` nav items with `collection: true`. Each collection reads from `src/{collection}/**/*.md`.
