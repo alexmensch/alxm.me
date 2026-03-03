@@ -1,35 +1,36 @@
-{% assign header = header | default: "Never miss a new post" %}
+{% assign cta = cta | default: "Never miss a new post" %}
 {% assign success_message = success_message | default: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
 
-<div id="subscribe-container" class="cluster" data-success-message="{{ success_message }}">
-    <p class="font-sans weight-extra-bold">{{ header }}</p>
-    <form id="subscribe-form" class="cluster" novalidate>
-        <input
-            type="email"
-            name="email"
-            class="subscribe-form__input font-sans"
-            placeholder="Your email"
-            autocomplete="email"
-            aria-describedby="subscribe-error"
-            required
-        />
+<div id="subscribe-container" class="[ subscribe-form ] [ flow ] [ box bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}" data-fit-content>
+    <p id="subscribe-cta" class="[ font-sans weight-extra-bold ]">{{ cta }}</p>
+    <form id="subscribe-form" class="[ subscribe-form__fields ] [ cluster flow ]" novalidate>
+        <div class="subscribe-form__input-group">
+            <input
+                type="email"
+                name="email"
+                class="[ subscribe-form__input ] [ font-sans ]"
+                placeholder="Your email"
+                autocomplete="email"
+                aria-describedby="subscribe-error"
+                required
+            />
+            <p id="subscribe-error" class="[ subscribe-form__error ]" role="alert"></p>
+        </div>
         <input type="text" name="first_name" style="display: none" tabindex="-1" autocomplete="off" />
         <input type="text" name="last_name" style="display: none" tabindex="-1" autocomplete="off" />
-        <button type="submit" class="button" data-variant="ghost">Subscribe</button>
+        <button type="submit" class="[ button ]" data-variant="ghost">Subscribe</button>
     </form>
-    <p id="subscribe-error" class="subscribe-form__message" role="alert"></p>
-    <p id="subscribe-success" class="subscribe-form__message" role="status" hidden></p>
 </div>
 
 <script>
     (function () {
         var form = document.getElementById('subscribe-form');
         var container = document.getElementById('subscribe-container');
+        var ctaEl = document.getElementById('subscribe-cta');
         var successText = container.dataset.successMessage;
         var emailInput = form.email;
         var btn = form.querySelector('button[type="submit"]');
         var errorMsg = document.getElementById('subscribe-error');
-        var successMsg = document.getElementById('subscribe-success');
         var hasError = false;
 
         emailInput.addEventListener('input', function () {
@@ -50,13 +51,14 @@
             if (!emailInput.value.trim() || !emailInput.validity.valid) {
                 hasError = true;
                 emailInput.setAttribute('aria-invalid', 'true');
-                errorMsg.textContent = 'Invalid email address';
+                errorMsg.textContent = 'Invalid address';
                 return;
             }
 
+            btn.style.minWidth = btn.offsetWidth + 'px';
             btn.disabled = true;
             btn.setAttribute('aria-busy', 'true');
-            btn.textContent = 'Subscribing\u2026';
+            btn.textContent = '\u2026';
             errorMsg.textContent = '';
 
             try {
@@ -91,9 +93,8 @@
 
         function showSuccess(message) {
             form.style.display = 'none';
-            errorMsg.style.display = 'none';
-            successMsg.hidden = false;
-            successMsg.textContent = message;
+            ctaEl.setAttribute('role', 'status');
+            ctaEl.textContent = message;
         }
     })();
 </script>
