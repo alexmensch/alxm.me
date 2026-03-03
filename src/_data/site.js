@@ -111,8 +111,7 @@ site.links = [
 
 site.newsletter = {
   apiUrl: "https://feedmail.cc",
-  siteId: "alxm.me",
-  turnstileSiteKey: "0x4AAAAAACja8SltdBSgcxvS"
+  siteId: "alxm.me"
 };
 
 site.company = {

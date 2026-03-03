@@ -7,8 +7,14 @@
             site: site      %}
 
   <div class="[ article__content ] [ flow ]">
+    {% if subscription == true %}
+    {% render "partials/subscribe-form",
+              site: site,
+              header: "Never miss a new post",
+              success_message: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
+    {% endif %}
     {% if type == "episode" %}
-      {% render "partials/media-player", label: "Listen", src: recording %}
+    {% render "partials/media-player", label: "Listen", src: recording %}
     {% endif %}
     {{ content }}
   </div>

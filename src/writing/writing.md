@@ -1,5 +1,6 @@
 ---
 layout: layouts/posts
+subscription: true
 pagination:
   data: collections.writing
   size: 1
