@@ -67,7 +67,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         email: emailInput.value.trim(),
-                        siteId: '{{ site.newsletter.siteId }}',
+                        channelId: '{{ site.newsletter.channelId }}',
                     }),
                 });
 
