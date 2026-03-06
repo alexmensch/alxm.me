@@ -110,8 +110,8 @@ site.links = [
 ];
 
 site.newsletter = {
-  apiUrl: "https://feedmail.cc",
-  siteId: "alxm.me"
+  apiUrl: "https://newsletter.alxm.me",
+  channelId: "alxm.me"
 };
 
 site.company = {
