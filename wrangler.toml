@@ -1,4 +1,4 @@
-name = "alxm-site"
+name = "alxm-website"
 main = "./worker/index.js"
 compatibility_date = "2025-07-01"
 preview_urls = true
