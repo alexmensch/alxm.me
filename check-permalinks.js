@@ -127,15 +127,8 @@ async function main() {
         .filter((line) => line.length > 0)
     );
 
-    // Find missing permalinks (existed in baseline but not in current)
-    const missingPermalinks = [...baselinePermalinks].filter(
-      (permalink) => !currentPermalinks.has(permalink)
-    );
-
-    // Find new permalinks (exist in current but not in baseline)
-    const newPermalinks = [...currentPermalinks].filter(
-      (permalink) => !baselinePermalinks.has(permalink)
-    );
+    const { added: newPermalinks, removed: missingPermalinks } =
+      diffPermalinks(baselinePermalinks, currentPermalinks);
 
     console.log("📊 Permalink Analysis:");
     console.log(`   Baseline: ${baselinePermalinks.size} permalinks`);
@@ -178,6 +171,12 @@ async function main() {
 // Run if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
+}
+
+export function diffPermalinks(baselineSet, currentSet) {
+  const added = [...currentSet].filter((p) => !baselineSet.has(p));
+  const removed = [...baselineSet].filter((p) => !currentSet.has(p));
+  return { added, removed };
 }
 
 export { main };
