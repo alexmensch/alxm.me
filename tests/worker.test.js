@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import worker from "./index.js";
+import worker from "../worker/index.js";
 
 // Helper: create a minimal Request object
 function createRequest(url, headers = {}) {
