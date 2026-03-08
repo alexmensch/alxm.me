@@ -1,11 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { handleRSSRequest } from "../worker/index.js";
-
-// Helper: create a minimal Request object
-function createRequest(url, headers = {}) {
-  return new Request(url, { headers });
-}
+import { createRequest } from "./helpers/worker-mocks.js";
 
 // Helper: create a mock env with RSS-related config
 function createEnv({

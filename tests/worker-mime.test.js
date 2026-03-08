@@ -3,84 +3,30 @@ import assert from "node:assert/strict";
 import { getContentType, MIME_TYPES } from "../worker/index.js";
 
 describe("MIME_TYPES map", () => {
-  it("contains all 19 expected entries", () => {
-    assert.equal(Object.keys(MIME_TYPES).length, 19);
-  });
+  const expected = {
+    ".mp3": "audio/mpeg",
+    ".m4a": "audio/mp4",
+    ".wav": "audio/wav",
+    ".pdf": "application/pdf",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".webp": "image/webp",
+    ".gif": "image/gif",
+    ".svg": "image/svg+xml",
+    ".mp4": "video/mp4",
+    ".webm": "video/webm",
+    ".zip": "application/zip",
+    ".json": "application/json",
+    ".xml": "application/xml",
+    ".txt": "text/plain",
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "application/javascript"
+  };
 
-  it("maps .mp3 to audio/mpeg", () => {
-    assert.equal(MIME_TYPES[".mp3"], "audio/mpeg");
-  });
-
-  it("maps .m4a to audio/mp4", () => {
-    assert.equal(MIME_TYPES[".m4a"], "audio/mp4");
-  });
-
-  it("maps .wav to audio/wav", () => {
-    assert.equal(MIME_TYPES[".wav"], "audio/wav");
-  });
-
-  it("maps .pdf to application/pdf", () => {
-    assert.equal(MIME_TYPES[".pdf"], "application/pdf");
-  });
-
-  it("maps .jpg to image/jpeg", () => {
-    assert.equal(MIME_TYPES[".jpg"], "image/jpeg");
-  });
-
-  it("maps .jpeg to image/jpeg", () => {
-    assert.equal(MIME_TYPES[".jpeg"], "image/jpeg");
-  });
-
-  it("maps .png to image/png", () => {
-    assert.equal(MIME_TYPES[".png"], "image/png");
-  });
-
-  it("maps .webp to image/webp", () => {
-    assert.equal(MIME_TYPES[".webp"], "image/webp");
-  });
-
-  it("maps .gif to image/gif", () => {
-    assert.equal(MIME_TYPES[".gif"], "image/gif");
-  });
-
-  it("maps .svg to image/svg+xml", () => {
-    assert.equal(MIME_TYPES[".svg"], "image/svg+xml");
-  });
-
-  it("maps .mp4 to video/mp4", () => {
-    assert.equal(MIME_TYPES[".mp4"], "video/mp4");
-  });
-
-  it("maps .webm to video/webm", () => {
-    assert.equal(MIME_TYPES[".webm"], "video/webm");
-  });
-
-  it("maps .zip to application/zip", () => {
-    assert.equal(MIME_TYPES[".zip"], "application/zip");
-  });
-
-  it("maps .json to application/json", () => {
-    assert.equal(MIME_TYPES[".json"], "application/json");
-  });
-
-  it("maps .xml to application/xml", () => {
-    assert.equal(MIME_TYPES[".xml"], "application/xml");
-  });
-
-  it("maps .txt to text/plain", () => {
-    assert.equal(MIME_TYPES[".txt"], "text/plain");
-  });
-
-  it("maps .html to text/html", () => {
-    assert.equal(MIME_TYPES[".html"], "text/html");
-  });
-
-  it("maps .css to text/css", () => {
-    assert.equal(MIME_TYPES[".css"], "text/css");
-  });
-
-  it("maps .js to application/javascript", () => {
-    assert.equal(MIME_TYPES[".js"], "application/javascript");
+  it("contains exactly the expected entries", () => {
+    assert.deepEqual(MIME_TYPES, expected);
   });
 });
 
