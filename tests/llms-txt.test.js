@@ -62,10 +62,7 @@ describe("llms.txt usage policy", () => {
 
   it("prohibits training in the usage policy", () => {
     const section = getUsagePolicySection(content);
-    assert.ok(
-      /training/i.test(section),
-      "Usage policy must mention training"
-    );
+    assert.ok(/training/i.test(section), "Usage policy must mention training");
     assert.ok(
       /not|prohibit|disallow|forbid|may not|must not/i.test(section),
       "Usage policy must contain prohibitive language regarding training"

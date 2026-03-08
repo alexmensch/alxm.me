@@ -110,11 +110,7 @@ describe("site-meta.liquid noimageai robots meta tag", () => {
     const noimageaiIndex = content.indexOf("noimageai");
 
     assert.notEqual(noimageaiIndex, -1, "noimageai tag must exist");
-    assert.notEqual(
-      noindexEndifIndex,
-      -1,
-      "noindex endif must exist"
-    );
+    assert.notEqual(noindexEndifIndex, -1, "noindex endif must exist");
     assert.ok(
       noimageaiIndex > noindexEndifIndex,
       "noimageai tag must appear after the noindex conditional block's endif"
