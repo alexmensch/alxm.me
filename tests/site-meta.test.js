@@ -36,17 +36,10 @@ describe("site-meta.liquid noimageai robots meta tag", () => {
     // that wraps only it.
     const lines = content.split("\n");
     let noimageaiLineIndex = -1;
-    let lastEndifIndex = -1;
 
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].includes("noimageai")) {
         noimageaiLineIndex = i;
-      }
-      if (lines[i].includes("{% endif %}")) {
-        // Track the endif that closes the noindex block
-        if (i < noimageaiLineIndex || noimageaiLineIndex === -1) {
-          lastEndifIndex = i;
-        }
       }
     }
 
