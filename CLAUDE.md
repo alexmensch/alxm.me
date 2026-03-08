@@ -11,6 +11,7 @@ pnpm run deploy          # build:cf + wrangler deploy (manual deployment)
 pnpm run 11ty:watch      # Dev server with hot reload
 pnpm run 11ty:debug      # Dev server with Eleventy debug output
 pnpm run clean           # Remove _site directory
+pnpm test                # Run tests (Node.js built-in test runner)
 ```
 
 ### Linting
@@ -106,6 +107,7 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 - Serves static assets from `_site/` via Workers static assets
 - Proxies large files from R2 (podcast audio, large PDFs) with MIME detection and range request support
 - Adds caching headers to RSS feed (Last-Modified, If-Modified-Since)
+- Adds `TDM-Reservation: 1` header to HTML responses (W3C TDM Protocol opt-out)
 - Configuration in `wrangler.toml` at project root
 
 **R2 Sync** (`_cloudflare/r2/`):
