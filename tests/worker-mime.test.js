@@ -52,7 +52,10 @@ describe("getContentType", () => {
 
   it("handles paths with multiple dots", () => {
     assert.equal(getContentType("/path/to/file.backup.mp3"), "audio/mpeg");
-    assert.equal(getContentType("/path/to/file.2025.01.pdf"), "application/pdf");
+    assert.equal(
+      getContentType("/path/to/file.2025.01.pdf"),
+      "application/pdf"
+    );
   });
 
   it("handles path with no extension", () => {

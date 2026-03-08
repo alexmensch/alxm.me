@@ -127,8 +127,10 @@ async function main() {
         .filter((line) => line.length > 0)
     );
 
-    const { added: newPermalinks, removed: missingPermalinks } =
-      diffPermalinks(baselinePermalinks, currentPermalinks);
+    const { added: newPermalinks, removed: missingPermalinks } = diffPermalinks(
+      baselinePermalinks,
+      currentPermalinks
+    );
 
     console.log("📊 Permalink Analysis:");
     console.log(`   Baseline: ${baselinePermalinks.size} permalinks`);

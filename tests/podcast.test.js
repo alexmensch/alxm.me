@@ -23,9 +23,7 @@ describe("markdownToCDATA", () => {
   it("escapes ]]> sequences within raw HTML content", () => {
     // Use raw HTML passthrough (html: true in markdown-it) to get literal ]]>
     // into the rendered output, which then triggers the CDATA escaping
-    const result = podcast.markdownToCDATA(
-      '<script>var x = "]]>";</script>'
-    );
+    const result = podcast.markdownToCDATA('<script>var x = "]]>";</script>');
     // The ]]> inside the HTML should be escaped to prevent breaking the CDATA wrapper
     assert.ok(result.includes("]]]]><![CDATA[>"));
   });

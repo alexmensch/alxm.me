@@ -9,7 +9,12 @@ function md5(buffer) {
 }
 
 // Factory: create mock dependencies with sensible defaults
-function createMocks({ metadata = {}, files = [], fileContent, readError } = {}) {
+function createMocks({
+  metadata = {},
+  files = [],
+  fileContent,
+  readError
+} = {}) {
   return {
     readFileSync: (filePath) => {
       if (readError && filePath.includes("audioMetadata.json")) {

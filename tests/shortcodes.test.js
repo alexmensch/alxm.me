@@ -50,10 +50,7 @@ describe("articleImage shortcode", () => {
 
   it("throws an error when ratio is undefined", () => {
     // After the source fix, articleImage should throw when ratio is undefined
-    assert.throws(
-      () => articleImage("photo.jpg", "A photo", undefined),
-      Error
-    );
+    assert.throws(() => articleImage("photo.jpg", "A photo", undefined), Error);
   });
 
   it("renders with empty alt when alt is missing", () => {
@@ -111,12 +108,7 @@ describe("blockQuote shortcode", () => {
   });
 
   it("wraps source in a link when URL is provided", () => {
-    const html = blockQuote(
-      "Quote",
-      "Author",
-      "Source",
-      "https://example.com"
-    );
+    const html = blockQuote("Quote", "Author", "Source", "https://example.com");
     assert.ok(html.includes('<a href="https://example.com">'));
     assert.ok(html.includes("<cite>Source</cite>"));
     assert.ok(html.includes("</a>"));
@@ -134,11 +126,7 @@ describe("blockQuote shortcode", () => {
   });
 
   it("handles content containing HTML", () => {
-    const html = blockQuote(
-      "Text with <em>emphasis</em>",
-      "Author",
-      "Source"
-    );
+    const html = blockQuote("Text with <em>emphasis</em>", "Author", "Source");
     assert.ok(html.includes("<em>emphasis</em>"));
   });
 

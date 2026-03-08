@@ -4,11 +4,7 @@ import { handleRSSRequest } from "../worker/index.js";
 import { createRequest } from "./helpers/worker-mocks.js";
 
 // Helper: create a mock env with RSS-related config
-function createEnv({
-  rssLastModified,
-  assetResponse,
-  assetFetchError
-} = {}) {
+function createEnv({ rssLastModified, assetResponse, assetFetchError } = {}) {
   return {
     RSS_LAST_MODIFIED: rssLastModified,
     ASSETS: {

@@ -397,7 +397,7 @@ describe("escapeHTML", () => {
   });
 
   it("escapes all five special characters in one string", () => {
-    const result = helpers.escapeHTML('&<>\'"');
+    const result = helpers.escapeHTML("&<>'\"");
     assert.equal(result, "&amp;&lt;&gt;&#39;&quot;");
   });
 });

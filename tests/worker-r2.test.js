@@ -93,10 +93,7 @@ describe("handleR2Request", () => {
 
       const response = await handleR2Request(request, env, url);
       assert.equal(response.status, 206);
-      assert.equal(
-        response.headers.get("Content-Range"),
-        "bytes 0-999/10000"
-      );
+      assert.equal(response.headers.get("Content-Range"), "bytes 0-999/10000");
     });
 
     it("handles range with no end byte", async () => {
@@ -135,9 +132,7 @@ describe("handleR2Request", () => {
       const env = createEnv({
         r2GetResult: { body: "video data", size: 5000 }
       });
-      const request = createRequest(
-        "https://alxm.me/assets/files/video.mp4"
-      );
+      const request = createRequest("https://alxm.me/assets/files/video.mp4");
       const url = new URL(request.url);
 
       const response = await handleR2Request(request, env, url);
@@ -193,9 +188,7 @@ describe("handleR2Request", () => {
       const env = createEnv({
         r2GetResult: { body: "data", size: 4 }
       });
-      const request = createRequest(
-        "https://alxm.me/assets/files/file.xyz"
-      );
+      const request = createRequest("https://alxm.me/assets/files/file.xyz");
       const url = new URL(request.url);
 
       const response = await handleR2Request(request, env, url);
@@ -209,9 +202,7 @@ describe("handleR2Request", () => {
       const env = createEnv({
         r2GetResult: { body: "data", size: 4 }
       });
-      const request = createRequest(
-        "https://alxm.me/assets/files/noextension"
-      );
+      const request = createRequest("https://alxm.me/assets/files/noextension");
       const url = new URL(request.url);
 
       const response = await handleR2Request(request, env, url);
