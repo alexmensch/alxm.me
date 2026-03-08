@@ -7,7 +7,7 @@
   "scripts": {
     "audio:update": "node scripts/audio-metadata.js",
     "audio:validate": "node scripts/audio-metadata.js --validate",
-    "build": "pnpm run format && pnpm run lint && npx @11ty/eleventy && node check-permalinks.js",
+    "build": "pnpm run format && pnpm run lint && pnpm test && npx @11ty/eleventy && node check-permalinks.js",
     "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run build && cd _cloudflare/r2 && pnpm install && node sync.js",
     "deploy": "pnpm run build:cf && npx wrangler deploy",
     "clean": "rm -rf _site",
