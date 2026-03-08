@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 
 ```bash
-pnpm run build           # Format, lint, build site, check permalinks
+pnpm run build           # Format, lint, test, build site, check permalinks
 pnpm run build:cf        # Full build + R2 sync (for Workers Builds)
 pnpm run deploy          # build:cf + wrangler deploy (manual deployment)
 pnpm run 11ty:watch      # Dev server with hot reload
@@ -69,7 +69,9 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 
 ### Key Files
 
-- `.eleventy.js` - Main Eleventy config: plugins, filters, shortcodes, Markdown, Sass processing
+- `.eleventy.js` - Main Eleventy config: plugins, filters, shortcodes, Sass processing
+- `src/_build/markdown.js` - Configured markdown-it instance with all plugins (footnotes, smart arrows, external links)
+- `src/_build/shortcodes.js` - Shortcode functions (articleImage, blockQuote)
 - `src/_data/site.js` - Site configuration, navigation structure (defines collections)
 - `src/_data/helpers.js` - Shared utility functions (slugify, date formatting, etc.)
 
@@ -83,6 +85,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `worker/` - Unified Cloudflare Worker (serves static assets, R2 files, RSS)
 - `_cloudflare/r2/` - R2 sync scripts (uploads large files to R2)
 - `eleventy-plugins/` - Custom Eleventy plugins
+- `tests/` - Test suite (Node.js built-in test runner, `node:test` + `assert/strict`)
 
 ### SCSS Structure (CUBE CSS)
 
@@ -133,9 +136,9 @@ Uses `eleventy-plugin-og-image` with a custom `outputFileSlug` function that has
 - To force regeneration after template changes: `rm -rf _site/assets/images/og/`
 - Template: `src/_includes/open-graph/og-posts.og.liquid`
 
-### Custom Shortcodes
+### Custom Shortcodes (`src/_build/shortcodes.js`)
 
-- `{% articleImage src, alt, ratio, portrait, href %}` - Inline article images
+- `{% articleImage src, alt, ratio, portrait, href %}` - Inline article images (ratio is required)
 - `{% blockQuote %}content{% endblockQuote name, source, url %}` - Block quotes with attribution
 
 ### Custom Filters
