@@ -9,7 +9,7 @@ export default {
         ? DateTime.fromISO(dateInput, { zone: "Europe/London" })
         : DateTime.fromJSDate(dateInput, { zone: "Europe/London" });
 
-    return dt.setLocale("en").toLocaleString(DateTime.DATE_FULL);
+    return dt.setLocale("en-GB").toLocaleString(DateTime.DATE_FULL);
   },
   imageDir
 };
