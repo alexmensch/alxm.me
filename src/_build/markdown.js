@@ -25,7 +25,7 @@ const markdownLib = md({
     if (
       href &&
       !href.includes(siteConfig.domain) &&
-      !href.startsWith("/") &&
+      (!href.startsWith("/") || href.startsWith("//")) &&
       !href.startsWith("#")
     ) {
       tokens[idx].attrPush(["target", "_blank"]);

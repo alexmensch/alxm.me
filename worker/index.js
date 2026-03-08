@@ -87,6 +87,9 @@ export async function handleR2Request(request, env, url) {
 
 export async function handleRSSRequest(request, env) {
   try {
+    if (!env.RSS_LAST_MODIFIED) {
+      throw new Error("RSS_LAST_MODIFIED environment variable is not set");
+    }
     const lastModified = new Date(`${env.RSS_LAST_MODIFIED}T00:00:00Z`);
     const lastModifiedString = lastModified.toUTCString();
 

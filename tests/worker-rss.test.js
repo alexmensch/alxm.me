@@ -14,7 +14,7 @@ function createEnv({
   assetFetchError
 } = {}) {
   return {
-    RSS_LAST_MODIFIED: rssLastModified || "2025-12-19",
+    RSS_LAST_MODIFIED: rssLastModified,
     ASSETS: {
       fetch: async () => {
         if (assetFetchError) {
@@ -35,7 +35,7 @@ function createEnv({
 describe("handleRSSRequest", () => {
   describe("successful RSS serving", () => {
     it("returns RSS content with correct Content-Type", async () => {
-      const env = createEnv();
+      const env = createEnv({ rssLastModified: "2025-12-19" });
       const request = createRequest(
         "https://alxm.me/podcast/feed/what-i-knew.rss"
       );
@@ -61,7 +61,7 @@ describe("handleRSSRequest", () => {
     });
 
     it("includes Cache-Control header", async () => {
-      const env = createEnv();
+      const env = createEnv({ rssLastModified: "2025-12-19" });
       const request = createRequest(
         "https://alxm.me/podcast/feed/what-i-knew.rss"
       );
@@ -74,7 +74,7 @@ describe("handleRSSRequest", () => {
     });
 
     it("returns status 200 for fresh request", async () => {
-      const env = createEnv();
+      const env = createEnv({ rssLastModified: "2025-12-19" });
       const request = createRequest(
         "https://alxm.me/podcast/feed/what-i-knew.rss"
       );
@@ -134,6 +134,7 @@ describe("handleRSSRequest", () => {
   describe("error handling", () => {
     it("returns 500 when ASSETS.fetch throws", async () => {
       const env = createEnv({
+        rssLastModified: "2025-12-19",
         assetFetchError: new Error("Asset fetch failed")
       });
       const request = createRequest(
@@ -171,6 +172,7 @@ describe("handleRSSRequest", () => {
 
     it("passes through non-ok asset response", async () => {
       const env = createEnv({
+        rssLastModified: "2025-12-19",
         assetResponse: new Response("Not Found", { status: 404 })
       });
       const request = createRequest(
