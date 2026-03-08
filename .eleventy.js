@@ -1,7 +1,3 @@
-import md from "markdown-it";
-import mdFN from "markdown-it-footnote";
-import mdIterator from "markdown-it-for-inline";
-import mdSmartArrows from "markdown-it-smartarrows";
 import * as sass from "sass";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -27,6 +23,8 @@ import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
 import openGraph from "./src/_data/opengraph.js";
 import podcast from "./src/_data/podcast.js";
+import markdownLib from "./src/_build/markdown.js";
+import { articleImage, blockQuote } from "./src/_build/shortcodes.js";
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
@@ -177,71 +175,6 @@ export default async function (eleventyConfig) {
 
   /* Markdown Configuration */
   /**************************/
-  const markdownLib = md({
-    typographer: true,
-    html: true
-  })
-    // Footnotes
-    .use(mdFN)
-    .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
-      // eslint-disable-next-line no-unused-vars
-      const [attrName, href] = tokens[idx].attrs.find(
-        (attr) => attr[0] === "href"
-      );
-
-      if (
-        href &&
-        !href.includes(siteConfig.domain) &&
-        !href.startsWith("/") &&
-        !href.startsWith("#")
-      ) {
-        tokens[idx].attrPush(["target", "_blank"]);
-        tokens[idx].attrPush(["rel", "noopener"]);
-      }
-    });
-
-  // Footnote HTML customization
-  markdownLib.renderer.rules.footnote_block_open = () =>
-    '<section class="[ footnotes ] [ flow ]">\n' +
-    "<h2>Notes</h2>\n" +
-    '<ol role="list">\n';
-
-  // Override footnote indicator render to output a number without square brackets
-  markdownLib.renderer.rules.footnote_caption = (tokens, idx) => {
-    let n = Number(tokens[idx].meta.id + 1).toString();
-    if (tokens[idx].meta.subId > 0) {
-      n += `:${tokens[idx].meta.subId}`;
-    }
-    return `${n}`;
-  };
-
-  // Add role="list" attribute for accessibility and correct styling
-  markdownLib.renderer.rules.bullet_list_open = (
-    tokens,
-    idx,
-    options,
-    env,
-    self
-  ) => {
-    tokens[idx].attrPush(["role", "list"]);
-    return self.renderToken(tokens, idx, options);
-  };
-
-  // Add role="list" attribute for accessibility and correct styling
-  markdownLib.renderer.rules.ordered_list_open = (
-    tokens,
-    idx,
-    options,
-    env,
-    self
-  ) => {
-    tokens[idx].attrPush(["role", "list"]);
-    return self.renderToken(tokens, idx, options);
-  };
-
-  markdownLib.use(mdSmartArrows);
-
-  // Set the Markdown library to use
   eleventyConfig.setLibrary("md", markdownLib);
 
   /* Sass support as a template format */
@@ -347,34 +280,9 @@ export default async function (eleventyConfig) {
   // Shortcode to add inline photos to articles
   // 'src' is the filename within assets/images
   // Valid ratios are set in assets/scss/blocks/_frame.scss
-  eleventyConfig.addLiquidShortcode(
-    "articleImage",
-    (src, alt, ratio, portrait, href) => {
-      const tag = href ? "a" : "div";
-      const attrs = href ? `href="${href}"` : "";
-      const html = `<div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
-<div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
-<${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
-<img src="/assets/images/${src}" alt="${alt}" />
-</${tag}>
-</div>
-</div>`;
-      return html;
-    }
-  );
+  eleventyConfig.addLiquidShortcode("articleImage", articleImage);
 
-  eleventyConfig.addPairedShortcode(
-    "blockQuote",
-    (content, name, source, url = false) => {
-      const html = `<div class="[ quote ] [ flow ]">
-<blockquote>
-<p>${content}</p>
-</blockquote>
-<p class="flow-space-xs">${name}, ${url ? `<a href="${url}">` : ""}<cite>${source}</cite>${url ? "</a>" : ""}</p>
-</div>`;
-      return html;
-    }
-  );
+  eleventyConfig.addPairedShortcode("blockQuote", blockQuote);
 
   return {
     // Set directories to watch

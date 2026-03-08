@@ -1,4 +1,4 @@
-const MIME_TYPES = {
+export const MIME_TYPES = {
   ".mp3": "audio/mpeg",
   ".m4a": "audio/mp4",
   ".wav": "audio/wav",
@@ -20,12 +20,12 @@ const MIME_TYPES = {
   ".js": "application/javascript"
 };
 
-function getContentType(pathname) {
+export function getContentType(pathname) {
   const ext = pathname.slice(pathname.lastIndexOf(".")).toLowerCase();
   return MIME_TYPES[ext] || "application/octet-stream";
 }
 
-async function handleR2Request(request, env, url) {
+export async function handleR2Request(request, env, url) {
   const key = url.pathname.slice(1);
 
   try {
@@ -85,8 +85,11 @@ async function handleR2Request(request, env, url) {
   }
 }
 
-async function handleRSSRequest(request, env) {
+export async function handleRSSRequest(request, env) {
   try {
+    if (!env.RSS_LAST_MODIFIED) {
+      throw new Error("RSS_LAST_MODIFIED environment variable is not set");
+    }
     const lastModified = new Date(`${env.RSS_LAST_MODIFIED}T00:00:00Z`);
     const lastModifiedString = lastModified.toUTCString();
 
