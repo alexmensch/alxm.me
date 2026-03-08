@@ -19,7 +19,8 @@
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:md": "markdownlint-cli2 \"src/**/*.md\"",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "node --test worker/index.test.js tests/site-meta.test.js tests/llms-txt.test.js"
   },
   "repository": {
     "type": "git",
