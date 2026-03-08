@@ -150,6 +150,19 @@ export default {
     }
 
     // Serve static assets
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+
+    // Add TDM-Reservation header to HTML responses (W3C TDM Protocol)
+    const contentType = response.headers.get("Content-Type") || "";
+    if (contentType.includes("text/html")) {
+      const headers = new Headers(response.headers);
+      headers.set("TDM-Reservation", "1");
+      return new Response(response.body, {
+        status: response.status,
+        headers
+      });
+    }
+
+    return response;
   }
 };
