@@ -23,7 +23,9 @@ export default {
   },
   eleventyComputed: {
     title(data) {
-      return data.tagData ? `Writing: ${helpers.titleCaseTag(data.tagData)}` : "Writing";
+      return data.tagData
+        ? `Writing: ${helpers.titleCaseTag(data.tagData)}`
+        : "Writing";
     },
     permalink(data) {
       if (!data.tagData) return false;

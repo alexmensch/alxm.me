@@ -7,7 +7,11 @@ describe("titleCaseTag", () => {
   before(async () => {
     const mod = await import("../src/_data/helpers.js");
     helpers = mod.default;
-    assert.equal(typeof helpers.titleCaseTag, "function", "titleCaseTag must be exported from helpers");
+    assert.equal(
+      typeof helpers.titleCaseTag,
+      "function",
+      "titleCaseTag must be exported from helpers"
+    );
   });
 
   it("capitalises a single lowercase word", () => {
@@ -36,10 +40,7 @@ describe("titleCaseTag", () => {
   });
 
   it("handles three-word hyphenated tags", () => {
-    assert.equal(
-      helpers.titleCaseTag("one-two-three"),
-      "One Two Three"
-    );
+    assert.equal(helpers.titleCaseTag("one-two-three"), "One Two Three");
   });
 });
 
@@ -49,7 +50,11 @@ describe("tagColorIndex", () => {
   before(async () => {
     const mod = await import("../src/_data/helpers.js");
     helpers = mod.default;
-    assert.equal(typeof helpers.tagColorIndex, "function", "tagColorIndex must be exported from helpers");
+    assert.equal(
+      typeof helpers.tagColorIndex,
+      "function",
+      "tagColorIndex must be exported from helpers"
+    );
   });
 
   it("returns the same index for the same tag on repeated calls", () => {
@@ -99,8 +104,8 @@ describe("tagColorIndex", () => {
 
   it("can produce different indices for different tags", () => {
     const indices = new Set(
-      ["technology", "psychology", "design", "ai", "music", "film"].map(
-        (tag) => helpers.tagColorIndex(tag)
+      ["technology", "psychology", "design", "ai", "music", "film"].map((tag) =>
+        helpers.tagColorIndex(tag)
       )
     );
     assert.ok(indices.size > 1, "expected at least two distinct indices");
@@ -113,7 +118,11 @@ describe("validateWritingTags", () => {
   before(async () => {
     const mod = await import("../eleventy-plugins/tag-validation.js");
     validateWritingTags = mod.validateWritingTags;
-    assert.equal(typeof validateWritingTags, "function", "validateWritingTags must be exported");
+    assert.equal(
+      typeof validateWritingTags,
+      "function",
+      "validateWritingTags must be exported"
+    );
   });
 
   const validTagPhrases = {
@@ -126,9 +135,7 @@ describe("validateWritingTags", () => {
       { title: "Article One", tag: "technology" },
       { title: "Article Two", tag: "psychology" }
     ];
-    assert.doesNotThrow(() =>
-      validateWritingTags(collection, validTagPhrases)
-    );
+    assert.doesNotThrow(() => validateWritingTags(collection, validTagPhrases));
   });
 
   it("does not throw for an empty collection", () => {
@@ -143,9 +150,7 @@ describe("validateWritingTags", () => {
     const collection = [
       { data: { title: "Nested Article", tag: "technology" } }
     ];
-    assert.doesNotThrow(() =>
-      validateWritingTags(collection, validTagPhrases)
-    );
+    assert.doesNotThrow(() => validateWritingTags(collection, validTagPhrases));
   });
 
   it("throws when an item has no tag field", () => {
@@ -175,9 +180,7 @@ describe("validateWritingTags", () => {
   });
 
   it("throws when tag is not present in tagPhrases", () => {
-    const collection = [
-      { title: "Unknown Tag Article", tag: "nonexistent" }
-    ];
+    const collection = [{ title: "Unknown Tag Article", tag: "nonexistent" }];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
       (err) => err.message.includes("validation failed")
@@ -185,9 +188,7 @@ describe("validateWritingTags", () => {
   });
 
   it("includes article title in the error output for an invalid tag", () => {
-    const collection = [
-      { title: "My Specific Title", tag: "nonexistent" }
-    ];
+    const collection = [{ title: "My Specific Title", tag: "nonexistent" }];
     const originalError = console.error;
     let errorOutput = "";
     console.error = (msg) => {
