@@ -10,10 +10,15 @@ Posted {{ date | date: "%e %B, %Y"}}
 {% endif %}
 {% endcapture %}
 
+{% if tag %}
+  {% assign flourish_phrase = tag | tagPhrase %}
+{% endif %}
+
 {% render "partials/article"
           header: title,
           byline: byline,
           content: content,
           subscription: subscription,
           cta: cta,
-          site: site %}
+          site: site,
+          flourish: flourish_phrase %}

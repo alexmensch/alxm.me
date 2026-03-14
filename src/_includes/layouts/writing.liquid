@@ -2,8 +2,14 @@
 layout: layouts/base
 ---
 
+{% if tag_filter %}
+  {% assign filtered_collection = collections.writing | where: "tag", tag_filter %}
+{% else %}
+  {% assign filtered_collection = collections.writing %}
+{% endif %}
+
 {% render "partials/article",
           type: "writing",
           hero: hero,
           content: content,
-          writing_collection: collections.writing %}
+          writing_collection: filtered_collection %}

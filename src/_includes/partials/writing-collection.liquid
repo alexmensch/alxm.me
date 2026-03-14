@@ -7,7 +7,12 @@
     <div>
       <div class="flow flow-space-xs">
         <h4><a href="{{ post.permalink }}">{{ post.title }}</a></h4>
-        <p><em>{{ post.date | date: "%e %b %Y" }}</em></p>
+        <p>
+          <em>{{ post.date | date: "%e %b %Y" }}</em>
+          {% if post.tag %}
+            <a href="/writing/{{ post.tag | toSlug }}/" class="category-pill" style="--pill-color: var(--tag-color-{{ post.tag | tagColorIndex }})">{{ post.tag | titleCaseTag }}</a>
+          {% endif %}
+        </p>
         <p>{{ post.summary }}</p>
       </div>
     </div>
