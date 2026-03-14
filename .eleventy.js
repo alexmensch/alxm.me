@@ -18,7 +18,6 @@ import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
-import tagValidationPlugin from "./eleventy-plugins/tag-validation.js";
 
 import helpers from "./src/_data/helpers.js";
 import tagPhrases from "./src/_data/tagPhrases.js";
@@ -54,9 +53,6 @@ export default async function (eleventyConfig) {
 
   // Audio metadata validation
   eleventyConfig.addPlugin(audioValidationPlugin);
-
-  // Writing tag validation
-  eleventyConfig.addPlugin(tagValidationPlugin, { tagPhrases });
 
   // Template rendering shortcode
   eleventyConfig.addPlugin(RenderPlugin);

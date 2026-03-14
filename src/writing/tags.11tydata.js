@@ -18,13 +18,7 @@ export default {
         validated = true;
       }
 
-      // Extract unique tags from the writing collection
-      const tags = [
-        ...new Set(
-          paginationData.filter((item) => item.tag).map((item) => item.tag)
-        )
-      ];
-      return tags.sort();
+      return helpers.getUniqueTags(paginationData);
     }
   },
   eleventyComputed: {

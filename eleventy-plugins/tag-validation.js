@@ -1,12 +1,12 @@
 /**
- * Tag Validation Plugin
+ * Tag Validation
  *
  * Validates that every article in the writing collection has exactly one tag
  * and that every tag has a corresponding entry in tagPhrases.
  *
- * Exports a testable validateWritingTags function. The plugin hooks into
- * Eleventy's collection resolution to run validation after the writing
- * collection is available.
+ * Called from the tag archive pagination `before` callback in
+ * src/writing/tags.11tydata.js, which runs after the writing collection
+ * is populated by the KV plugin.
  */
 
 export function validateWritingTags(collection, tagPhrases) {
@@ -47,11 +47,4 @@ export function validateWritingTags(collection, tagPhrases) {
   console.log(
     `[tag-validation] All ${collection.length} writing articles have valid tags`
   );
-}
-
-export default function tagValidationPlugin(eleventyConfig, { tagPhrases }) {
-  // Validation is triggered from the tag archive pagination `before` callback
-  // which receives the writing collection. We store tagPhrases in global data
-  // so it's accessible from the data file.
-  eleventyConfig.addGlobalData("tagPhrasesMap", () => tagPhrases);
 }
