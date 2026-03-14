@@ -6,19 +6,23 @@
   max-width: #{dt.get-value("measure", "compact")};
   height: 100%;
 
-  &__link {
+  &__link,
+  .button {
     background: #{dt.get-color("secondary")};
+    text-align: center;
+
+    &:hover {
+      background: #{dt.get-color("secondary-glare")};
+    }
+  }
+
+  &__link {
     padding-block: #{dt.get-size("2xs")};
 
     @include fonts.sans;
     @include dt.use("weight", "bold");
 
     text-decoration: none;
-    text-align: center;
-
-    &:hover {
-      background: #{dt.get-color("secondary-glare")};
-    }
   }
 
   .subscribe-form {
@@ -26,12 +30,6 @@
   }
 
   .button {
-    background: #{dt.get-color("secondary")};
     width: 100%;
-    text-align: center;
-
-    &:hover {
-      background: #{dt.get-color("secondary-glare")};
-    }
   }
 }
