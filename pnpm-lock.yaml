@@ -1272,11 +1272,8 @@ packages:
   flat-cache@6.1.20:
     resolution: {integrity: sha512-AhHYqwvN62NVLp4lObVXGVluiABTHapoB57EyegZVmazN+hhGhLTn3uZbOofoTw4DSDvVCadzzyChXhOAvy8uQ==}
 
-  flatted@3.3.3:
-    resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
-
-  flatted@3.4.0:
-    resolution: {integrity: sha512-kC6Bb+ooptOIvWj5B63EQWkF0FEnNjV2ZNkLMLZRDDduIiWeFF4iKnslwhiWxjAdbg4NzTNo6h0qLuvFrcx+Sw==}
+  flatted@3.4.1:
+    resolution: {integrity: sha512-IxfVbRFVlV8V/yRaGzk0UVIcsKKHMSfYw66T/u4nTwlWteQePsxe//LjudR1AMX4tZW3WFCh3Zqa/sjlqpbURQ==}
 
   fresh@2.0.0:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
@@ -1571,8 +1568,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  liquidjs@10.24.0:
-    resolution: {integrity: sha512-TAUNAdgwaAXjjcUFuYVJm9kOVH7zc0mTKxsG9t9Lu4qdWjB2BEblyVIYpjWcmJLMGgiYqnGNJjpNMHx0gp/46A==}
+  liquidjs@10.25.0:
+    resolution: {integrity: sha512-XpO7AiGULTG4xcTlwkcTI5JreFG7b6esLCLp+aUSh7YuQErJZEoUXre9u9rbdb0057pfWG4l0VursvLd5Q/eAw==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -2373,7 +2370,7 @@ snapshots:
       '@11ty/eleventy-utils': 2.0.7
       '@rgrove/parse-xml': 4.2.0
       debug: 4.4.3
-      flatted: 3.3.3
+      flatted: 3.4.1
       p-queue: 6.6.2
     transitivePeerDependencies:
       - supports-color
@@ -2432,7 +2429,7 @@ snapshots:
       iso-639-1: 3.1.5
       js-yaml: 4.1.1
       kleur: 4.1.5
-      liquidjs: 10.24.0
+      liquidjs: 10.25.0
       luxon: 3.7.2
       markdown-it: 14.1.1
       minimist: 1.2.8
@@ -3471,18 +3468,16 @@ snapshots:
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.4.0
+      flatted: 3.4.1
       keyv: 4.5.4
 
   flat-cache@6.1.20:
     dependencies:
       cacheable: 2.3.2
-      flatted: 3.3.3
+      flatted: 3.4.1
       hookified: 1.15.1
 
-  flatted@3.3.3: {}
-
-  flatted@3.4.0: {}
+  flatted@3.4.1: {}
 
   fresh@2.0.0: {}
 
@@ -3735,7 +3730,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  liquidjs@10.24.0:
+  liquidjs@10.25.0:
     dependencies:
       commander: 10.0.1
 
