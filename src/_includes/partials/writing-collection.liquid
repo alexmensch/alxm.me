@@ -10,7 +10,7 @@
         <p>
           <em>{{ post.date | date: "%e %b %Y" }}</em>
           {% if post.tag %}
-            <a href="/writing/{{ post.tag | toSlug }}/" class="category-pill" style="--pill-color: var(--tag-color-{{ post.tag | tagColorIndex }})">{{ post.tag | titleCaseTag }}</a>
+            <a href="/writing/{{ post.tag | toSlug }}/" class="[ category-pill ]" style="--pill-color: var(--tag-color-{{ post.tag | tagColorIndex }})">{{ post.tag | titleCaseTag }}</a>
           {% endif %}
         </p>
         <p>{{ post.summary }}</p>

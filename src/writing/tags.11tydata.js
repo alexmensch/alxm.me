@@ -1,12 +1,6 @@
 import { validateWritingTags } from "../../eleventy-plugins/tag-validation.js";
 import tagPhrases from "../_data/tagPhrases.js";
-
-function titleCase(tag) {
-  return String(tag)
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+import helpers from "../_data/helpers.js";
 
 let validated = false;
 
@@ -35,7 +29,7 @@ export default {
   },
   eleventyComputed: {
     title(data) {
-      return data.tagData ? `Writing: ${titleCase(data.tagData)}` : "Writing";
+      return data.tagData ? `Writing: ${helpers.titleCaseTag(data.tagData)}` : "Writing";
     },
     permalink(data) {
       if (!data.tagData) return false;
@@ -46,7 +40,7 @@ export default {
     },
     hero(data) {
       return data.tagData
-        ? { header: `Writing: ${titleCase(data.tagData)}` }
+        ? { header: `Writing: ${helpers.titleCaseTag(data.tagData)}` }
         : {};
     }
   }

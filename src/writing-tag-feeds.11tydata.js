@@ -1,11 +1,5 @@
 import site from "./_data/site.js";
-
-function titleCase(tag) {
-  return String(tag)
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+import helpers from "./_data/helpers.js";
 
 export default {
   eleventyExcludeFromCollections: true,
@@ -32,11 +26,11 @@ export default {
     },
     feedTitle(data) {
       if (!data.tagFeedData) return "";
-      return `${site.authorName} | Writing: ${titleCase(data.tagFeedData)}`;
+      return `${site.authorName} | Writing: ${helpers.titleCaseTag(data.tagFeedData)}`;
     },
     feedSubtitle(data) {
       if (!data.tagFeedData) return "";
-      return `Articles on ${titleCase(data.tagFeedData)}`;
+      return `Articles on ${helpers.titleCaseTag(data.tagFeedData)}`;
     },
     tagCollection(data) {
       const writing = data.collections?.[site.rss.collection] || [];
