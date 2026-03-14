@@ -125,9 +125,7 @@ const helpers = {
   },
   getUniqueTags(collection) {
     return [
-      ...new Set(
-        collection.filter((item) => item.tag).map((item) => item.tag)
-      )
+      ...new Set(collection.filter((item) => item.tag).map((item) => item.tag))
     ].sort();
   },
   tagColorIndex(tag) {
