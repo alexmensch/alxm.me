@@ -20,4 +20,18 @@
       background: #{dt.get-color("secondary-glare")};
     }
   }
+
+  .subscribe-form {
+    --flow-space: #{dt.get-size("2xs")};
+  }
+
+  .button {
+    background: #{dt.get-color("secondary")};
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      background: #{dt.get-color("secondary-glare")};
+    }
+  }
 }

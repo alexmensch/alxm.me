@@ -15,6 +15,8 @@ options:
   - body: Follow me on LinkedIn to keep up to date with my most recent posts and announcements.
     cta: Follow on LinkedIn
     cta_url: https://www.linkedin.com/in/awmars
+  - type: subscribe
+    body: "Get new posts delivered to your inbox — no spam, just articles."
 ---
 
 Whether you're interested in learning more about [counselling](/counselling), are interested in purchasing my [artwork](/artwork), want to discuss my [podcast](/podcast), or have any other questions, please don't hesitate to get in touch.
