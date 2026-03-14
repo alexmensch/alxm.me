@@ -1,22 +1,23 @@
 @use "../config/design-tokens" as dt;
 @use "../config/fonts";
 
+%contact-cta {
+  background: #{dt.get-color("secondary")};
+  text-align: center;
+
+  &:hover {
+    background: #{dt.get-color("secondary-glare")};
+  }
+}
+
 .contact-options {
   outline-color: #{dt.get-color("secondary")};
   max-width: #{dt.get-value("measure", "compact")};
   height: 100%;
 
-  &__link,
-  .button {
-    background: #{dt.get-color("secondary")};
-    text-align: center;
-
-    &:hover {
-      background: #{dt.get-color("secondary-glare")};
-    }
-  }
-
   &__link {
+    @extend %contact-cta;
+
     padding-block: #{dt.get-size("2xs")};
 
     @include fonts.sans;
@@ -30,6 +31,8 @@
   }
 
   .button {
+    @extend %contact-cta;
+
     width: 100%;
   }
 }
