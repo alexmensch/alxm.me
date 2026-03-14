@@ -110,7 +110,10 @@ describe("button override in _contact-options.scss", () => {
 
   it("exists as a SCSS file", () => {
     // If we got here, the file was read successfully
-    assert.ok(contactOptionsScss, "_contact-options.scss must exist and have content");
+    assert.ok(
+      contactOptionsScss,
+      "_contact-options.scss must exist and have content"
+    );
   });
 
   it("scopes styles under .contact-options", () => {

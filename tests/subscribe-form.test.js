@@ -62,7 +62,11 @@ describe("subscribe form placement in article.liquid", () => {
       'render "partials/subscribe-form"'
     );
 
-    assert.notEqual(contentIndex, -1, "{{ content }} must exist in article.liquid");
+    assert.notEqual(
+      contentIndex,
+      -1,
+      "{{ content }} must exist in article.liquid"
+    );
     assert.notEqual(
       subscribeIndex,
       -1,
@@ -163,8 +167,9 @@ describe("subscribe card on contact page", () => {
     );
 
     // Check for a conditional that checks option.type == "subscribe"
-    const hasTypeCheck =
-      /option\.type\s*==\s*["']subscribe["']/.test(contactOptionsContent);
+    const hasTypeCheck = /option\.type\s*==\s*["']subscribe["']/.test(
+      contactOptionsContent
+    );
     assert.ok(
       hasTypeCheck,
       'contact-options.liquid must check for option.type == "subscribe"'
