@@ -7,16 +7,16 @@
             site: site      %}
 
   <div class="[ article__content ] [ flow ]">
-    {% if subscription == true %}
-    {% render "partials/subscribe-form",
-              site: site,
-              cta: "Want new posts in your inbox?",
-              success_message: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
-    {% endif %}
     {% if type == "episode" %}
     {% render "partials/media-player", label: "Listen", src: recording %}
     {% endif %}
     {{ content }}
+    {% if subscription == true %}
+    {% render "partials/subscribe-form",
+              site: site,
+              cta: "Enjoyed this? Get new posts by email.",
+              success_message: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
+    {% endif %}
   </div>
 
   {% if type == "landing" and cta %}
@@ -75,6 +75,6 @@
   {% endif %}
 
   {% if type == "contact" %}
-    {% render "partials/contact-options", options: options %}
+    {% render "partials/contact-options", options: options, site: site %}
   {% endif %}
 </article>
