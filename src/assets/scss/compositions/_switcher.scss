@@ -24,3 +24,7 @@
 .switcher {
   @include switcher(3, #{dt.get-value("measure", "compact")});
 }
+
+.switcher-2 {
+  @include switcher(2, #{dt.get-value("measure", "compact")});
+}
