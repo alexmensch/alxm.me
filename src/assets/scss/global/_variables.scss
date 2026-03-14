@@ -28,6 +28,16 @@
   --hero-header-text: var(--text-color);
   --hero-header-text-mark: var(--bg-color);
   --hero-byline-text: var(--text-color);
+  --tag-color-0: #c2185b;
+  --tag-color-1: #7b1fa2;
+  --tag-color-2: #1565c0;
+  --tag-color-3: #00838f;
+  --tag-color-4: #2e7d32;
+  --tag-color-5: #9e6c1e;
+  --tag-color-6: #d84315;
+  --tag-color-7: #4527a0;
+  --tag-color-8: #ad1457;
+  --tag-color-9: #00695c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,5 +62,15 @@
     --hero-header-text: var(--color-light);
     --hero-header-text-mark: var(--color-dark-shade);
     --hero-byline-text: var(--color-dark-glare);
+    --tag-color-0: #f06292;
+    --tag-color-1: #ba68c8;
+    --tag-color-2: #64b5f6;
+    --tag-color-3: #4dd0e1;
+    --tag-color-4: #81c784;
+    --tag-color-5: #d4a24e;
+    --tag-color-6: #ff8a65;
+    --tag-color-7: #9575cd;
+    --tag-color-8: #f48fb1;
+    --tag-color-9: #4db6ac;
   }
 }

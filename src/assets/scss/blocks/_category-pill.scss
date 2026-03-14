@@ -1,0 +1,25 @@
+@use "../config/design-tokens" as dt;
+@use "../config/fonts";
+
+.category-pill {
+  @include fonts.sans;
+  @include dt.use("text", -2);
+
+  display: inline-block;
+  border: 1px solid var(--pill-color, var(--color-dark-glare));
+  border-radius: 100vw;
+  padding-block: 0.1em;
+  padding-inline: 0.6em;
+  max-width: 20ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: var(--pill-color, var(--color-dark-glare));
+  line-height: 1.4;
+
+  &:hover {
+    background: var(--pill-color, var(--color-dark-glare));
+    color: var(--bg-color);
+  }
+}
