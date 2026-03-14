@@ -31,3 +31,51 @@ Surface article categories throughout the writing section so readers can see wha
 - **Tag counts or cloud views** — no aggregate tag statistics or tag cloud visualisation is included.
 - **Animated or interactive pill effects** — pills are static styled elements with no hover animations beyond standard link behaviour.
 - **SEO metadata for tag archive pages** — custom Open Graph images or meta descriptions per tag page are not included; they will use site defaults.
+
+## Technical Specification
+
+### Summary
+
+Add category indicators to the writing collection, where each article has exactly one tag that manifests as a pill-shaped label on collection listings, an editorial flourish on individual article pages, tag-based archive pages at `/writing/{tag-slug}/`, and per-tag Atom feeds. Build-time validation enforces that every article has exactly one tag and that every tag has a corresponding phrase mapping.
+
+### Requirements Table
+
+| # | Requirement | Implementation Details |
+|---|-------------|----------------------|
+| 1 | Single tag validation | New plugin `eleventy-plugins/tag-validation.js` (following `audio-validation.js` pattern). Exports testable `validateWritingTags(collection, tagPhrases)`. Registered in `.eleventy.js`. Uses `eleventy.after` or `addCollection` callback since writing collection comes from KV plugin and isn't available at `eleventy.before`. |
+| 2 | Category pill on collection list | Modify `src/_includes/partials/writing-collection.liquid` — add pill `<a>` next to date. Pill uses inline `--pill-color` CSS var set via `tagColorIndex` filter. New SCSS block `src/assets/scss/blocks/_category-pill.scss`. |
+| 3 | Curated colour palette | 8-12 `--tag-color-N` CSS custom properties in `_variables.scss` (both `:root` and dark mode). Derived from existing colour families. New `tagColorIndex` helper/filter — simple string hash modulo palette size. |
+| 4 | Dark mode support | Separate palette values in `@media (prefers-color-scheme: dark)` block. All pills reference CSS custom properties only — mode switching is automatic. |
+| 5 | Tag archive pages | New `src/writing/tags.liquid` + `src/writing/tags.11tydata.js`. Paginates over unique tags, generates `/writing/{tag-slug}/`. Uses `layouts/writing.liquid`, hero title "Writing: {Tag Name}". |
+| 6 | Collection pill links to archive | Pill `<a href="/writing/{{ post.tag \| toSlug }}/">` — native anchor semantics, keyboard accessible. |
+| 7 | New Yorker–style flourish | Modify `src/_includes/layouts/posts.liquid` and `src/_includes/partials/article.liquid`. New `tagPhrase` filter looks up phrase, replaces `{tag}` placeholder with linked title-cased tag. New `.article__flourish` styles in `_article.scss`. |
+| 8 | Per-tag phrase mapping | New `src/_data/tagPhrases.js` — tag→phrase template mapping. Validation plugin extended to check every tag has a mapping entry. Build error if unmapped. |
+| 9 | Title case transformation | New `titleCaseTag` function in `helpers.js`, registered as filter. Splits on hyphens, capitalises each word. |
+| 10 | Per-tag Atom feeds | New `src/writing-tag-feeds.liquid` + `src/writing-tag-feeds.11tydata.js`. Same Atom entry format as existing feed. Paginates over unique tags, generates `/writing/{tag-slug}.atom`. |
+| 11 | Pass tag to article pages | Add `tag: "{{ post.tag }}"` to `eleventyComputed` in `src/writing/writing.md`. |
+| 12 | Register toSlug filter | Expose existing `helpers.toSlug` as Liquid filter in `.eleventy.js`. |
+
+### Files to Create
+- `eleventy-plugins/tag-validation.js`
+- `src/assets/scss/blocks/_category-pill.scss`
+- `src/writing/tags.liquid` + `src/writing/tags.11tydata.js`
+- `src/writing-tag-feeds.liquid` + `src/writing-tag-feeds.11tydata.js`
+- `src/_data/tagPhrases.js`
+
+### Files to Modify
+- `.eleventy.js` (register plugin, filters)
+- `src/_data/helpers.js` (add titleCaseTag, tagColorIndex)
+- `src/_includes/partials/writing-collection.liquid` (add pill)
+- `src/_includes/layouts/posts.liquid` (add flourish)
+- `src/_includes/partials/article.liquid` (render flourish)
+- `src/assets/scss/global/_variables.scss` (tag colour palette)
+- `src/assets/scss/blocks/_article.scss` (flourish styles)
+- `src/assets/scss/blocks/_index.scss` (forward category-pill)
+- `src/writing/writing.md` (pass tag through eleventyComputed)
+
+### Key Implementation Notes
+- **Colour palette**: Derived from existing `--color-primary`/`--color-secondary` families plus complementary hues. 3:1 minimum contrast ratio (WCAG AA for UI components).
+- **Pill SCSS**: `_category-pill.scss` — `border: 1px solid var(--pill-color)`, `border-radius: 100vw`, `font-sans` mixin, small font size, `max-width: 20ch` with `text-overflow: ellipsis`.
+- **Flourish styles**: `.article__flourish` — sans-serif, small, uppercase, letter-spaced, visually secondary.
+- **Validation timing**: Must run after collections are populated (KV plugin). Use `eleventy.after` or `addCollection` callback.
+- **Permalink baseline**: Will need `node check-permalinks.js --update-baseline` after first build with tag archives.
