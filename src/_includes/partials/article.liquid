@@ -6,6 +6,10 @@
             byline: byline,
             site: site      %}
 
+  {% if flourish %}
+  <p class="article__flourish">{{ flourish }}</p>
+  {% endif %}
+
   <div class="[ article__content ] [ flow ]">
     {% if subscription == true %}
     {% render "partials/subscribe-form",
