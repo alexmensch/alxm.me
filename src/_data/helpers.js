@@ -123,7 +123,15 @@ const helpers = {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   },
+  getUniqueTags(collection) {
+    return [
+      ...new Set(
+        collection.filter((item) => item.tag).map((item) => item.tag)
+      )
+    ].sort();
+  },
   tagColorIndex(tag) {
+    // Must match the number of --tag-color-N vars in _variables.scss
     const TAG_PALETTE_SIZE = 10;
     let hash = 0;
     const str = String(tag);

@@ -11,12 +11,7 @@ export default {
     size: 1,
     alias: "tagFeedData",
     before(paginationData) {
-      const tags = [
-        ...new Set(
-          paginationData.filter((item) => item.tag).map((item) => item.tag)
-        )
-      ];
-      return tags.sort();
+      return helpers.getUniqueTags(paginationData);
     }
   },
   eleventyComputed: {
