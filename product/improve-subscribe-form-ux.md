@@ -30,3 +30,54 @@ The email subscribe form on article pages is currently too visually prominent �
 - **A/B testing or analytics for subscribe form conversion**: Not in scope for this change. The goal is a better default experience, not data-driven optimisation.
 - **Changes to the subscribe form's API integration or backend**: The feedmail integration remains unchanged.
 - **Subscribe form in the site footer**: The form stays within article content and the contact page only — no global footer placement.
+
+## Technical Specification
+
+### Summary
+
+This feature repositions the email subscribe form from above article content to below it, reduces its visual weight, updates its CTA copy to acknowledge the reader has finished reading, and adds a subscribe option card to the contact page. It also introduces a `switcher-2` CSS composition class to support a 2x2 grid layout for the now-four contact option cards.
+
+### Requirements Table
+
+| # | Requirement | Description | Acceptance Criteria | Edge Cases / Error Conditions |
+|---|-------------|-------------|---------------------|-------------------------------|
+| 1 | Move subscribe form to end of article | In `src/_includes/partials/article.liquid`, the `{% render "partials/subscribe-form" ... %}` block must be moved from its current position (before `{{ content }}` inside `.article__content`) to after `{{ content }}`, still within the `.article__content` div and still gated by `{% if subscription == true %}`. | The subscribe form HTML appears after the article body content in the rendered output; no subscribe form appears before the content; the `subscription == true` guard is preserved. | Pages with very short content still render the form below content. Pages where `subscription` is falsy or absent render no form. The media player for episodes (`type == "episode"`) continues to render before content as it does now. |
+| 2 | Reduce subscribe form text size | Remove the `weight-extra-bold` utility class from the CTA `<p>` element in `src/_includes/partials/subscribe-form.liquid`. The CTA paragraph currently uses class `[ font-sans weight-extra-bold ]`; it should use `[ font-sans ]` only, which renders at the default body text size (step 0, which is 16-22px fluid) in regular weight. | The CTA `<p id="subscribe-cta">` no longer has the `weight-extra-bold` class. Text renders at the default body font size and regular weight. | Text remains at step 0 (minimum ~16px at 320px viewport), which exceeds the 14px accessibility minimum. No other elements in the subscribe form are affected. |
+| 3 | Update article subscribe CTA copy | Change the CTA text in the `{% render %}` call in `src/_includes/partials/article.liquid` from `"Want new posts in your inbox?"` to `"Enjoyed this? Get new posts by email."`. Also update the default fallback assignment in `src/_includes/partials/subscribe-form.liquid` from `"Never miss a new post"` to `"Enjoyed this? Get new posts by email."`. | The CTA text displayed on article pages reads "Enjoyed this? Get new posts by email." Both the explicit argument in `article.liquid` and the default assignment in `subscribe-form.liquid` use this new text. | If the partial is rendered without a `cta` argument (e.g., from a future caller), the fallback default also shows the updated copy. |
+| 4 | Add subscribe card to contact page | Add a fourth entry to the `options` array in `src/contact.md` front matter. This entry uses a special `type: subscribe` field to distinguish it from link-based options. Update `src/_includes/partials/contact-options.liquid` to detect `option.type == "subscribe"` and render the subscribe form partial (instead of a link CTA) inside the card. | The contact page displays 4 option cards. The fourth card contains a working inline email subscribe form with email input, submit button, honeypot fields, and AJAX submission. Success and error states behave identically to the article subscribe form. | Form validation, honeypot fields, API submission, and error handling work the same as the article form. The subscribe form's hardcoded `id` attributes do not conflict because the contact page is a separate page from article pages (no two instances on one page). |
+| 5 | Thread `site` data to contact-options partial | The contact layout (`src/_includes/layouts/contact.liquid`) must pass `site: site` to the article partial. The article partial (`src/_includes/partials/article.liquid`) must pass `site: site` to the contact-options partial render call. The contact-options partial must pass `site: site` to the subscribe-form partial render call. | The subscribe form on the contact page has access to `site.newsletter.apiUrl` and `site.newsletter.channelId` and successfully submits to the API. | If `site` is not threaded correctly, the form's `fetch` URL and `channelId` will be empty strings, causing API failures. This is a hard dependency for Requirement 4. |
+| 6 | Contact page subscribe card copy and styling | The subscribe card in `src/contact.md` has a `body` field with text such as `"Get new posts delivered to your inbox — no spam, just articles."`. Inside the card, the body text is rendered the same as other cards (via `markdownify`), and the subscribe form replaces the CTA link. The card uses the same `.contact-options .box .radius .padding-xs` classes and `.stack-split-1` layout as the other cards. | The subscribe card visually matches the other contact option cards in padding, border radius, and vertical layout. The body text appears above the inline form. The form replaces the `<a class="contact-options__link">` element that other cards use. | The card height should match other cards due to `height: 100%` on `.contact-options`. The subscribe form within the card should not break the `stack-split-1` layout -- the form should be pushed to the bottom of the card just as the CTA links are in other cards. |
+| 7 | Style subscribe form within contact card | Add a scoped style in `src/assets/scss/blocks/_contact-options.scss` for the subscribe form when it appears inside a contact-options card. Add a `compact` parameter to `subscribe-form.liquid` that omits box/background utility classes (`box`, `bg-light-shade`, `padding-s`, `border-thin`, `border-style-dotted`, `radius`, `data-fit-content`) when truthy. The contact-options template passes `compact: true`. | The subscribe form inside a contact card has no redundant box styling, background, border, or padding from its own `.subscribe-form` class. | The scoped styles must not affect the subscribe form when it appears in article pages (specificity must be limited to `.contact-options .subscribe-form`). |
+| 8 | Add `switcher-2` composition class | In `src/assets/scss/compositions/_switcher.scss`, add a new `.switcher-2` class that uses the existing `switcher` mixin with `$max-items: 2` and the same `$min-item-width` value (`dt.get-value("measure", "compact")`) as the existing `.switcher` class. | `.switcher-2` class exists and produces a 2-column layout on wide viewports, wrapping to a single column on narrow viewports. The existing `.switcher` class (3-item) is unchanged. | With 4 items, the layout produces 2 rows of 2. If reduced to 3 items, the layout degrades gracefully (2 items on first row, 1 full-width on second). |
+| 9 | Contact page uses `switcher-2` layout | In `src/_includes/partials/contact-options.liquid`, change the container div class from `[ switcher ]` to `[ switcher-2 ]`. | The 4 contact option cards display in a 2x2 grid on wide viewports and stack to a single column on narrow viewports. | If an option is later removed (back to 3), the `switcher-2` layout still functions: 2 items on the first row and 1 on the second. |
+| 10 | Override subscribe form button in contact card | The scoped CSS in `_contact-options.scss` (Requirement 7) overrides the ghost button variant styling within `.contact-options` to match the contact link style (secondary background, block-level, centered). | The subscribe button inside a contact card has a secondary background color (matching the CTA links on other cards) rather than the transparent ghost variant. | The ghost variant override must be scoped to `.contact-options` only. |
+
+### Files Modified
+
+- `src/_includes/partials/article.liquid`
+- `src/_includes/partials/subscribe-form.liquid`
+- `src/_includes/partials/contact-options.liquid`
+- `src/_includes/layouts/contact.liquid`
+- `src/contact.md`
+- `src/assets/scss/blocks/_contact-options.scss`
+- `src/assets/scss/compositions/_switcher.scss`
+
+### Naming Conventions
+
+| Name | Type | Location | Purpose |
+|------|------|----------|---------|
+| `compact` | Liquid template parameter | `subscribe-form.liquid` | Boolean parameter; when truthy, the form renders without box/background utility classes (for embedding inside other components like contact cards) |
+| `type` | Front matter field | `contact.md` options array | String discriminator on contact option entries; value `"subscribe"` triggers subscribe form rendering instead of a link CTA |
+| `.switcher-2` | CSS class | `_switcher.scss` | Composition class for 2-column switcher layout |
+
+### Out of Scope
+
+- Scroll-triggered or mid-article subscribe prompts
+- Sticky bar or floating subscribe widget
+- Removing the LinkedIn CTA from the contact page
+- A/B testing or analytics
+- Changes to the subscribe form's API integration or backend (feedmail)
+- Subscribe form in the site footer
+- Changing the subscribe form's hardcoded `id` attributes (not needed since forms only appear once per page)
+- Changes to the success message text
+- Responsive breakpoint changes to the switcher mixin itself
