@@ -15,7 +15,7 @@ Styles use three interlocking systems:
 2. **Every Layout** — algorithmic layout primitives (Stack, Cluster, Sidebar, etc.)
 3. **Utopia** — fluid typography and spacing scales using CSS `clamp()`
 
-SCSS entry point loads layers in order: `global → config → utilities → blocks → compositions`
+SCSS entry point loads layers in order: `global → config → compositions → utilities → blocks`
 
 ---
 
