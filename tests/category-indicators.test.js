@@ -112,6 +112,46 @@ describe("tagColorIndex", () => {
   });
 });
 
+describe("getUniqueTags", () => {
+  let helpers;
+
+  before(async () => {
+    const mod = await import("../src/_data/helpers.js");
+    helpers = mod.default;
+  });
+
+  it("extracts and deduplicates tags from multiple items", () => {
+    const collection = [
+      { tags: ["technology", "psychology"] },
+      { tags: ["psychology", "travel"] }
+    ];
+    assert.deepEqual(helpers.getUniqueTags(collection), [
+      "psychology",
+      "technology",
+      "travel"
+    ]);
+  });
+
+  it("returns sorted tags", () => {
+    const collection = [{ tags: ["zebra"] }, { tags: ["alpha"] }];
+    assert.deepEqual(helpers.getUniqueTags(collection), ["alpha", "zebra"]);
+  });
+
+  it("skips items without tags", () => {
+    const collection = [{ tags: ["technology"] }, { title: "No tags" }];
+    assert.deepEqual(helpers.getUniqueTags(collection), ["technology"]);
+  });
+
+  it("reads from data.tags as fallback", () => {
+    const collection = [{ data: { tags: ["nested"] } }];
+    assert.deepEqual(helpers.getUniqueTags(collection), ["nested"]);
+  });
+
+  it("returns empty array for empty collection", () => {
+    assert.deepEqual(helpers.getUniqueTags([]), []);
+  });
+});
+
 describe("validateWritingTags", () => {
   let validateWritingTags;
 
@@ -130,10 +170,17 @@ describe("validateWritingTags", () => {
     psychology: "From the notebooks on {tag}"
   };
 
-  it("does not throw for a valid collection with string tags in tagPhrases", () => {
+  it("does not throw for a valid collection with tags arrays", () => {
     const collection = [
-      { title: "Article One", tag: "technology" },
-      { title: "Article Two", tag: "psychology" }
+      { title: "Article One", tags: ["technology"] },
+      { title: "Article Two", tags: ["psychology"] }
+    ];
+    assert.doesNotThrow(() => validateWritingTags(collection, validTagPhrases));
+  });
+
+  it("does not throw for articles with multiple tags", () => {
+    const collection = [
+      { title: "Article One", tags: ["technology", "psychology"] }
     ];
     assert.doesNotThrow(() => validateWritingTags(collection, validTagPhrases));
   });
@@ -146,32 +193,40 @@ describe("validateWritingTags", () => {
     assert.doesNotThrow(() => validateWritingTags(null, validTagPhrases));
   });
 
-  it("accepts items with data.tag and data.title", () => {
+  it("accepts items with data.tags and data.title", () => {
     const collection = [
-      { data: { title: "Nested Article", tag: "technology" } }
+      { data: { title: "Nested Article", tags: ["technology"] } }
     ];
     assert.doesNotThrow(() => validateWritingTags(collection, validTagPhrases));
   });
 
-  it("throws when an item has no tag field", () => {
-    const collection = [{ title: "Missing Tag Article" }];
+  it("throws when an item has no tags field", () => {
+    const collection = [{ title: "Missing Tags Article" }];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
       (err) => err.message.includes("validation failed")
     );
   });
 
-  it("throws when tag is an empty string", () => {
-    const collection = [{ title: "Empty Tag Article", tag: "" }];
+  it("throws when tags is an empty array", () => {
+    const collection = [{ title: "Empty Tags Article", tags: [] }];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
       (err) => err.message.includes("validation failed")
     );
   });
 
-  it("throws when tag is a non-string type (array)", () => {
+  it("throws when tags is a string instead of an array", () => {
+    const collection = [{ title: "String Tag Article", tags: "technology" }];
+    assert.throws(
+      () => validateWritingTags(collection, validTagPhrases),
+      (err) => err.message.includes("validation failed")
+    );
+  });
+
+  it("throws when a tag is not present in tagPhrases", () => {
     const collection = [
-      { title: "Array Tag Article", tag: ["technology", "psychology"] }
+      { title: "Unknown Tag Article", tags: ["nonexistent"] }
     ];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
@@ -179,8 +234,10 @@ describe("validateWritingTags", () => {
     );
   });
 
-  it("throws when tag is not present in tagPhrases", () => {
-    const collection = [{ title: "Unknown Tag Article", tag: "nonexistent" }];
+  it("throws when one tag in the array is invalid", () => {
+    const collection = [
+      { title: "Mixed Tags Article", tags: ["technology", "nonexistent"] }
+    ];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
       (err) => err.message.includes("validation failed")
@@ -188,7 +245,7 @@ describe("validateWritingTags", () => {
   });
 
   it("includes article title in the error output for an invalid tag", () => {
-    const collection = [{ title: "My Specific Title", tag: "nonexistent" }];
+    const collection = [{ title: "My Specific Title", tags: ["nonexistent"] }];
     const originalError = console.error;
     let errorOutput = "";
     console.error = (msg) => {
@@ -207,8 +264,8 @@ describe("validateWritingTags", () => {
     );
   });
 
-  it("throws when tag is a number", () => {
-    const collection = [{ title: "Number Tag Article", tag: 42 }];
+  it("throws when tags contains a non-string value", () => {
+    const collection = [{ title: "Bad Tag Article", tags: [42] }];
     assert.throws(
       () => validateWritingTags(collection, validTagPhrases),
       (err) => err.message.includes("validation failed")

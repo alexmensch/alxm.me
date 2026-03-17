@@ -9,7 +9,6 @@ eleventyComputed:
   title: "{{ post.title }}"
   permalink: "{{ post.permalink }}"
   summary: "{{ post.summary }}"
-  tag: "{{ post.tag }}"
 ---
 
 {{ post.content | renderContent: "liquid" }}

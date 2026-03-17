@@ -1,8 +1,8 @@
 /**
  * Tag Validation
  *
- * Validates that every article in the writing collection has exactly one tag
- * and that every tag has a corresponding entry in tagPhrases.
+ * Validates that every article in the writing collection has a non-empty
+ * tags array and that every tag has a corresponding entry in tagPhrases.
  *
  * Called from the tag archive pagination `before` callback in
  * src/writing/tags.11tydata.js, which runs after the writing collection
@@ -18,20 +18,22 @@ export function validateWritingTags(collection, tagPhrases) {
 
   for (const item of collection) {
     const title = item.title || item.data?.title || "unknown";
-    const tag = item.tag || item.data?.tag;
+    const tags = item.tags || item.data?.tags;
 
-    if (!tag) {
-      errors.push(`"${title}": missing tag`);
+    if (!tags || !Array.isArray(tags) || tags.length === 0) {
+      errors.push(`"${title}": missing or empty tags array`);
       continue;
     }
 
-    if (typeof tag !== "string") {
-      errors.push(`"${title}": tag must be a string, got ${typeof tag}`);
-      continue;
-    }
+    for (const tag of tags) {
+      if (typeof tag !== "string" || !tag) {
+        errors.push(`"${title}": invalid tag value: ${JSON.stringify(tag)}`);
+        continue;
+      }
 
-    if (!tagPhrases[tag]) {
-      errors.push(`"${title}": tag "${tag}" has no entry in tagPhrases.js`);
+      if (!tagPhrases[tag]) {
+        errors.push(`"${title}": tag "${tag}" has no entry in tagPhrases.js`);
+      }
     }
   }
 
@@ -39,7 +41,7 @@ export function validateWritingTags(collection, tagPhrases) {
     console.error("\nWriting tag validation failed:");
     errors.forEach((e) => console.error(`  ${e}`));
     console.error(
-      "\nEnsure every writing article has exactly one tag and that tagPhrases.js has an entry for it.\n"
+      "\nEnsure every writing article has a tags array and that tagPhrases.js has an entry for each tag.\n"
     );
     throw new Error("Writing tag validation failed");
   }

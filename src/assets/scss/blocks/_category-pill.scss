@@ -5,8 +5,11 @@
   @include fonts.sans;
   @include dt.use("text", -2);
 
+  --pill-color: var(--color-dark-glare);
+
   display: inline-block;
-  border: 1px solid var(--pill-color, var(--color-dark-glare));
+  vertical-align: baseline;
+  border: 1px solid var(--pill-color);
   border-radius: 100vw;
   padding-block: 0.1em;
   padding-inline: 0.6em;
@@ -15,11 +18,16 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  color: var(--pill-color, var(--color-dark-glare));
-  line-height: 1.4;
+  color: var(--pill-color);
 
   &:hover {
-    background: var(--pill-color, var(--color-dark-glare));
+    background: var(--pill-color);
     color: var(--bg-color);
+  }
+
+  @for $i from 0 through 9 {
+    &[data-color="#{$i}"] {
+      --pill-color: var(--tag-color-#{$i});
+    }
   }
 }

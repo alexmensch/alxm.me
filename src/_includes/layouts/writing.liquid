@@ -3,7 +3,12 @@ layout: layouts/base
 ---
 
 {% if tag_filter %}
-  {% assign filtered_collection = collections.writing | where: "tag", tag_filter %}
+  {% assign filtered_collection = "" | split: "" %}
+  {% for item in collections.writing %}
+    {% if item.tags contains tag_filter %}
+      {% assign filtered_collection = filtered_collection | push: item %}
+    {% endif %}
+  {% endfor %}
 {% else %}
   {% assign filtered_collection = collections.writing %}
 {% endif %}
