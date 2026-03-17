@@ -20,6 +20,7 @@ import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
 
 import helpers from "./src/_data/helpers.js";
+import tagPhrases from "./src/_data/tagPhrases.js";
 import siteConfig from "./src/_data/site.js";
 import openGraph from "./src/_data/opengraph.js";
 import podcast from "./src/_data/podcast.js";
@@ -173,6 +174,11 @@ export default async function (eleventyConfig) {
     });
   });
 
+  // Unique writing tags for tag archive pages and per-tag feeds.
+  // Tags are extracted from the writing collection via pagination `before`
+  // callbacks in the tag archive and feed templates. No separate collection
+  // is needed.
+
   /* Markdown Configuration */
   /**************************/
   eleventyConfig.setLibrary("md", markdownLib);
@@ -273,6 +279,30 @@ export default async function (eleventyConfig) {
   // Custom filter to determine if current page is within parent link path
   // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
   eleventyConfig.addFilter("getPageTheme", helpers.getPageTheme);
+
+  // Slugify a string (exposes helpers.toSlug for templates)
+  // Example: {{ "My Tag" | toSlug }}
+  eleventyConfig.addFilter("toSlug", helpers.toSlug);
+
+  // Title-case a hyphenated tag slug
+  // Example: {{ "my-tag" | titleCaseTag }} → "My Tag"
+  eleventyConfig.addFilter("titleCaseTag", helpers.titleCaseTag);
+
+  // Return a colour palette index for a tag string
+  // Example: style="--pill-color: var(--tag-color-{{ tag | tagColorIndex }})"
+  eleventyConfig.addFilter("tagColorIndex", helpers.tagColorIndex);
+
+  // Look up a tag's editorial phrase and replace {tag} with a linked,
+  // title-cased tag name. Returns raw HTML.
+  // Example: {{ "technology" | tagPhrase }}
+  eleventyConfig.addFilter("tagPhrase", (tag) => {
+    const phrase = tagPhrases[tag];
+    if (!phrase) return "";
+    const titleCased = helpers.titleCaseTag(tag);
+    const slug = helpers.toSlug(tag);
+    const link = `<a href="/writing/${slug}/">${titleCased}</a>`;
+    return phrase.replace("{tag}", link);
+  });
 
   /* Shortcodes */
   /**************/
