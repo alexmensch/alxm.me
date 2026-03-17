@@ -1,5 +1,4 @@
 @use "../config/design-tokens" as dt;
-@use "../config/fonts";
 
 .article {
   --gutter: #{dt.get-size("m")};
@@ -10,22 +9,6 @@
 
     :is(h1, h2, h3, h4, h5, h6) + * {
       --flow-space: #{dt.get-size("2xs")};
-    }
-  }
-
-  &__flourish {
-    @include fonts.sans;
-    @include dt.use("text", -2);
-
-    padding-inline: var(--gutter);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-dark-glare);
-
-    a {
-      color: inherit;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.15em;
     }
   }
 

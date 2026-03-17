@@ -124,9 +124,16 @@ const helpers = {
       .join(" ");
   },
   getUniqueTags(collection) {
-    return [
-      ...new Set(collection.filter((item) => item.tag).map((item) => item.tag))
-    ].sort();
+    const tags = new Set();
+    for (const item of collection) {
+      const itemTags = item.tags || item.data?.tags;
+      if (Array.isArray(itemTags)) {
+        for (const t of itemTags) {
+          if (t) tags.add(t);
+        }
+      }
+    }
+    return [...tags].sort();
   },
   tagColorIndex(tag) {
     // Must match the number of --tag-color-N vars in _variables.scss

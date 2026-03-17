@@ -10,11 +10,11 @@ Posted {{ date | date: "%e %B, %Y"}}
 {% endif %}
 {% endcapture %}
 
-{% if tag %}
-  {% assign flourish_phrase = tag | tagPhrase %}
+{% if tags.size > 0 %}
+  {% assign flourish_phrase = tags[0] | tagPhrase %}
 {% endif %}
 
-{% render "partials/article"
+{% render "partials/article",
           header: title,
           byline: byline,
           content: content,

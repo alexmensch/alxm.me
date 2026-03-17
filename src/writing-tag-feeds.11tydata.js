@@ -29,7 +29,10 @@ export default {
     },
     tagCollection(data) {
       const writing = data.collections?.[site.rss.collection] || [];
-      return writing.filter((item) => item.tag === data.tagFeedData);
+      return writing.filter(
+        (item) =>
+          Array.isArray(item.tags) && item.tags.includes(data.tagFeedData)
+      );
     }
   }
 };
