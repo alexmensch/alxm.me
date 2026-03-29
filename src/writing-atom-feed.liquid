@@ -29,13 +29,6 @@ eleventyComputed:
   </author>
   {%- assign sorted_collection = collection | sort: "date" | reverse %}
   {%- for post in sorted_collection %}
-  {%- capture absolutePostUrl -%}{{ baseUrl | append: post.permalink }}{%- endcapture %}
-  <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ absolutePostUrl }}" />
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.content | renderContent: "liquid" | markdownToHTML | transformWithHtmlBase: baseUrl | escapeHTML }}</content>
-  </entry>
+  {% render "partials/atom-entry", post: post, baseUrl: baseUrl %}
   {%- endfor %}
 </feed>
