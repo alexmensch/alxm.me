@@ -116,6 +116,34 @@ const helpers = {
           '"': "&quot;"
         })[tag] || tag
     );
+  },
+  titleCaseTag(tag) {
+    return String(tag)
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  },
+  getUniqueTags(collection) {
+    const tags = new Set();
+    for (const item of collection) {
+      const itemTags = item.tags || item.data?.tags;
+      if (Array.isArray(itemTags)) {
+        for (const t of itemTags) {
+          if (t) tags.add(t);
+        }
+      }
+    }
+    return [...tags].sort();
+  },
+  tagColorIndex(tag) {
+    // Must match the number of --tag-color-N vars in _variables.scss
+    const TAG_PALETTE_SIZE = 10;
+    let hash = 0;
+    const str = String(tag);
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash * 31 + str.charCodeAt(i)) | 0;
+    }
+    return Math.abs(hash) % TAG_PALETTE_SIZE;
   }
 };
 

@@ -19,6 +19,9 @@
   {% endif %}
   
   <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+  {% if flourish %}
+    <p class="hero__flourish">{{ flourish }}</p>
+  {% endif %}
   {% if byline and type == "episode" %}
   <div>
     <div class="stack flow-space-2xs">
