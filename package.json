@@ -42,7 +42,7 @@
     "eleventy-plugin-og-image": "^4.2.1",
     "eleventy-plugin-purgecss": "^0.6.0",
     "get-audio-duration": "^4.0.1",
-    "lorem-ipsum": "^2.0.8",
+    "lorem-ipsum": "^3.0.0",
     "luxon": "^3.7.2",
     "markdown-it": "^14.1.1",
     "markdown-it-footnote": "^4.0.0",
