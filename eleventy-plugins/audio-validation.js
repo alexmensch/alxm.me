@@ -12,6 +12,15 @@ const SRC_DIR = "src";
 const AUDIO_PATH = "/assets/podcast/audio";
 const AUDIO_DIR = `${SRC_DIR}${AUDIO_PATH}`;
 const METADATA_FILE = `${SRC_DIR}/_data/audioMetadata.json`;
+const LFS_POINTER_PREFIX = "version https://git-lfs.github.com/spec/v1";
+
+function isLfsPointer(buffer) {
+  return (
+    buffer.length < 1024 &&
+    buffer.subarray(0, LFS_POINTER_PREFIX.length).toString("utf8") ===
+      LFS_POINTER_PREFIX
+  );
+}
 
 export function validateAudioMetadata(deps = {}) {
   const _readFileSync = deps.readFileSync || readFileSync;
@@ -33,6 +42,7 @@ export function validateAudioMetadata(deps = {}) {
   );
 
   const errors = [];
+  let pointerCount = 0;
 
   for (const file of files) {
     const key = `${AUDIO_PATH}/${file}`;
@@ -44,6 +54,12 @@ export function validateAudioMetadata(deps = {}) {
     }
 
     const fileBuffer = _readFileSync(filePath);
+
+    if (isLfsPointer(fileBuffer)) {
+      pointerCount++;
+      continue;
+    }
+
     const hash = _createHash("md5").update(fileBuffer).digest("hex");
 
     if (hash !== metadata[key].hash) {
@@ -56,6 +72,16 @@ export function validateAudioMetadata(deps = {}) {
     errors.forEach((e) => console.error(`  ${e}`));
     console.error("\nRun 'pnpm run audio:update' to fix\n");
     throw new Error("Audio metadata validation failed");
+  }
+
+  if (pointerCount > 0) {
+    // LFS objects weren't smudged at checkout — expected on Cloudflare preview
+    // builds where GIT_LFS_SKIP_SMUDGE=1 keeps us under the GitHub LFS quota.
+    console.log(
+      `[audio-validation] Skipped ${pointerCount} LFS pointer file(s) ` +
+        `(LFS objects not downloaded)`
+    );
+    return;
   }
 
   console.log("[audio-validation] All audio files match metadata");

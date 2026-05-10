@@ -1,4 +1,11 @@
-import { readFileSync, readdirSync, existsSync } from "fs";
+import {
+  readFileSync,
+  readdirSync,
+  existsSync,
+  openSync,
+  readSync,
+  closeSync
+} from "fs";
 import { createHash } from "crypto";
 import { join, dirname, extname } from "path";
 import { execFileSync } from "child_process";
@@ -6,6 +13,24 @@ import { fileURLToPath } from "url";
 import { config } from "./config.js";
 import dotenv from "dotenv";
 import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
+
+const LFS_POINTER_PREFIX = "version https://git-lfs.github.com/spec/v1";
+
+function isLfsPointer(filePath) {
+  let fd;
+  try {
+    fd = openSync(filePath, "r");
+    const buf = Buffer.alloc(LFS_POINTER_PREFIX.length);
+    const bytesRead = readSync(fd, buf, 0, buf.length, 0);
+    return (
+      bytesRead === buf.length && buf.toString("utf8") === LFS_POINTER_PREFIX
+    );
+  } catch {
+    return false;
+  } finally {
+    if (fd !== undefined) closeSync(fd);
+  }
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -103,6 +128,7 @@ async function syncFiles() {
   try {
     let totalFiles = 0;
     let uploadedFiles = 0;
+    const pointerFiles = [];
 
     for (const dir of R2_DIRS) {
       const srcDir = join(__dirname, "../..", SRC_PREFIX, dir);
@@ -121,6 +147,11 @@ async function syncFiles() {
         const key = `${dir}/${file}`;
         const contentType = getContentType(file);
 
+        if (isLfsPointer(filePath)) {
+          pointerFiles.push(key);
+          continue;
+        }
+
         totalFiles++;
         const unchanged = await isFileUnchanged(filePath, key);
         if (!unchanged) {
@@ -128,6 +159,22 @@ async function syncFiles() {
           uploadedFiles++;
         }
       }
+    }
+
+    if (pointerFiles.length > 0) {
+      // Refuse rather than upload pointer files as real content — that would
+      // corrupt R2. Reaching this branch means R2 sync ran with LFS objects
+      // not downloaded; either skip the sync step (preview builds) or run
+      // `git lfs pull` first (production builds).
+      console.error(
+        `\n❌ R2 sync aborted: ${pointerFiles.length} file(s) are LFS pointers, not real content:`
+      );
+      pointerFiles.forEach((k) => console.error(`  ${k}`));
+      console.error(
+        "\nRun 'git lfs pull' before sync, or skip R2 sync on builds " +
+          "where LFS objects aren't needed (e.g. previews).\n"
+      );
+      process.exit(1); // eslint-disable-line no-process-exit
     }
 
     console.log(

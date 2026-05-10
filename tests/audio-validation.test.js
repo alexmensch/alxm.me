@@ -71,6 +71,38 @@ describe("validateAudioMetadata", () => {
     });
   });
 
+  describe("LFS pointer files", () => {
+    const LFS_POINTER = Buffer.from(
+      "version https://git-lfs.github.com/spec/v1\n" +
+        "oid sha256:0000000000000000000000000000000000000000000000000000000000000000\n" +
+        "size 12345\n"
+    );
+
+    it("skips hash check when audio file is an LFS pointer", () => {
+      const mocks = createMocks({
+        metadata: {
+          "/assets/podcast/audio/episode1.mp3": { hash: "real-file-hash" }
+        },
+        files: ["episode1.mp3"],
+        fileContent: LFS_POINTER
+      });
+
+      assert.doesNotThrow(() => validateAudioMetadata(mocks));
+    });
+
+    it("still requires LFS-pointer files to have a metadata entry", () => {
+      const mocks = createMocks({
+        files: ["episode1.mp3"],
+        fileContent: LFS_POINTER
+      });
+
+      assert.throws(
+        () => validateAudioMetadata(mocks),
+        (err) => err.message.includes("validation failed")
+      );
+    });
+  });
+
   describe("failing validation", () => {
     it("throws when an audio file has no metadata entry", () => {
       const mocks = createMocks({ files: ["episode1.mp3"] });
