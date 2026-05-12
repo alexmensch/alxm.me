@@ -28,20 +28,23 @@
     @extend %contact-cta;
   }
 
+  // Nested so .contact-options .subscribe-form .button (0,3,0) beats
+  // _subscribe-form.scss's .subscribe-form .button (0,2,0), which sets a
+  // tight padding-block: 0.2ex meant for the article-end inline button.
   .subscribe-form {
     --flow-space: #{dt.get-size("2xs")};
-  }
 
-  .button {
-    @extend %contact-cta;
+    .button {
+      @extend %contact-cta;
 
-    width: 100%;
+      width: 100%;
 
-    // Beats .button:hover { ... !important } from _button.scss so the
-    // subscribe submit hovers the same secondary-glare as the link cards.
-    &:hover {
-      background: #{dt.get-color("secondary-glare")} !important;
-      color: #{dt.get-color("dark-shade")} !important;
+      // Beats .button:hover { ... !important } from _button.scss so the
+      // subscribe submit hovers the same secondary-glare as the link cards.
+      &:hover {
+        background: #{dt.get-color("secondary-glare")} !important;
+        color: #{dt.get-color("dark-shade")} !important;
+      }
     }
   }
 }
