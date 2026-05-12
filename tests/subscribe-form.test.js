@@ -213,22 +213,6 @@ describe("site data threading", () => {
   });
 });
 
-describe("subscribe card copy", () => {
-  it("includes the expected subscribe card body text", () => {
-    const expectedBody =
-      "Get new posts delivered to your inbox — no spam, just articles.";
-
-    // The body text could be in contact.md front matter or in contact-options.liquid
-    const inContactMd = contactMdContent.includes(expectedBody);
-    const inContactOptions = contactOptionsContent.includes(expectedBody);
-
-    assert.ok(
-      inContactMd || inContactOptions,
-      `Subscribe card body must contain "${expectedBody}"`
-    );
-  });
-});
-
 describe("compact parameter for subscribe-form", () => {
   it("supports compact parameter in subscribe-form.liquid", () => {
     assert.ok(

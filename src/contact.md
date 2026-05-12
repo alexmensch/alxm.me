@@ -10,7 +10,7 @@ options:
     cta: Book a call
     cta_url: https://calendly.com/hey-alex-marshall
   - type: subscribe
-    body: "Get new posts delivered to your inbox — no spam, just articles."
+    body: "Receive new articles I write (~every few months) directly to your inbox."
   - body: For general inquires, you can reach me at [hello@alxm.me](mailto:hello@alxm.me).
     cta: Email me
     cta_url: mailto:hello@alxm.me
