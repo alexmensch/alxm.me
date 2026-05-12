@@ -133,7 +133,9 @@ describe("subscribe form CTA copy", () => {
 
   it("uses updated default CTA text in subscribe-form.liquid", () => {
     assert.ok(
-      subscribeFormContent.includes("Did you enjoy this? Get new posts by email."),
+      subscribeFormContent.includes(
+        "Did you enjoy this? Get new posts by email."
+      ),
       'subscribe-form.liquid default CTA must be "Did you enjoy this? Get new posts by email."'
     );
   });
