@@ -1,13 +1,13 @@
 <div class="[ gutter flow ]">
-  <div class="[ contact-options-grid ] [ grid ]">
+  <div class="[ switcher ]">
     {% for option in options %}
     <div>
       <div class="[ contact-options ] [ box ] [ radius padding-xs ]">
         <div class="stack-split-1">
-          <p>{{ option.body | markdownify }}</p>
           {% if option.type == "subscribe" %}
-          {% render "partials/subscribe-form", site: site, compact: true %}
+          {% render "partials/subscribe-form", site: site, compact: true, cta: option.body %}
           {% else %}
+          <p>{{ option.body | markdownify }}</p>
           <a class="contact-options__link" href="{{ option.cta_url }}" target="_blank" rel="noopener">{{ option.cta }}</a>
           {% endif %}
         </div>

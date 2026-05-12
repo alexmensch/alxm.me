@@ -19,10 +19,6 @@
   }
 }
 
-.contact-options-grid {
-  --min-item-width: #{dt.get-value("measure", "short")};
-}
-
 .contact-options {
   outline-color: #{dt.get-color("secondary")};
   max-width: #{dt.get-value("measure", "compact")};

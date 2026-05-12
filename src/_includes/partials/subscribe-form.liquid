@@ -6,7 +6,7 @@
 {% else %}
 <div id="subscribe-container" class="[ subscribe-form ] [ flow box ] [ bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}">
 {% endif %}
-    <p id="subscribe-cta" class="[ font-sans ]">{{ cta }}</p>
+    <p id="subscribe-cta"{% unless compact %} class="[ font-sans ]"{% endunless %}>{{ cta }}</p>
     <form id="subscribe-form" class="[ subscribe-form__fields ] [ cluster flow ]" novalidate>
         <div>
             <input

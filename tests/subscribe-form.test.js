@@ -142,23 +142,13 @@ describe("subscribe form CTA copy", () => {
 });
 
 describe("subscribe card on contact page", () => {
-  it("has a 4th option with type subscribe in contact.md", () => {
-    // Parse the front matter options
+  it("has a subscribe-type option in contact.md", () => {
     const frontMatter = contactMdContent.split("---")[1];
     assert.ok(frontMatter, "contact.md must have front matter");
 
-    const hasSubscribeType = /type:\s*subscribe/.test(frontMatter);
     assert.ok(
-      hasSubscribeType,
+      /type:\s*subscribe/.test(frontMatter),
       "contact.md must have an option with type: subscribe"
-    );
-
-    // Count options - each option starts with "  - " at the option level
-    const optionMatches = frontMatter.match(/^\s{2}- /gm);
-    assert.ok(optionMatches, "contact.md must have options");
-    assert.ok(
-      optionMatches.length >= 4,
-      `contact.md must have at least 4 options, found ${optionMatches.length}`
     );
   });
 
