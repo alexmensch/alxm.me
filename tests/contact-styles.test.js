@@ -34,69 +34,58 @@ const CONTACT_OPTIONS_PATH = join(
   "contact-options.liquid"
 );
 
-describe("switcher-2 class in _switcher.scss", () => {
+describe("contact-options grid layout", () => {
   let switcherContent;
-
-  before(async () => {
-    switcherContent = await readFile(SWITCHER_PATH, "utf-8");
-  });
-
-  it("defines a .switcher-2 class", () => {
-    assert.ok(
-      switcherContent.includes(".switcher-2"),
-      "_switcher.scss must define a .switcher-2 class"
-    );
-  });
-
-  it("uses @include switcher(2, ...) for .switcher-2", () => {
-    // Extract the .switcher-2 block
-    const switcher2Index = switcherContent.indexOf(".switcher-2");
-    assert.notEqual(switcher2Index, -1, ".switcher-2 must exist");
-
-    const afterSwitcher2 = switcherContent.slice(switcher2Index);
-    const blockEnd = afterSwitcher2.indexOf("}");
-    const switcher2Block = afterSwitcher2.slice(0, blockEnd);
-
-    assert.ok(
-      /include\s+switcher\(\s*2/.test(switcher2Block),
-      ".switcher-2 must use @include switcher(2, ...)"
-    );
-  });
-
-  it("preserves the existing .switcher class unchanged", () => {
-    assert.ok(
-      switcherContent.includes(".switcher"),
-      "_switcher.scss must still contain .switcher class"
-    );
-    assert.ok(
-      /\.switcher\s*\{/.test(switcherContent),
-      "_switcher.scss must still define .switcher with its original block"
-    );
-
-    // Verify .switcher still uses switcher(3, ...)
-    const switcherIndex = switcherContent.search(/\.switcher\s*\{/);
-    const afterSwitcher = switcherContent.slice(switcherIndex);
-    const blockEnd = afterSwitcher.indexOf("}");
-    const switcherBlock = afterSwitcher.slice(0, blockEnd);
-
-    assert.ok(
-      /include\s+switcher\(\s*3/.test(switcherBlock),
-      ".switcher must still use @include switcher(3, ...)"
-    );
-  });
-});
-
-describe("contact-options.liquid uses switcher-2 class", () => {
+  let contactOptionsScss;
   let contactOptionsContent;
 
   before(async () => {
+    switcherContent = await readFile(SWITCHER_PATH, "utf-8");
+    contactOptionsScss = await readFile(CONTACT_OPTIONS_SCSS_PATH, "utf-8");
     contactOptionsContent = await readFile(CONTACT_OPTIONS_PATH, "utf-8");
   });
 
-  it("uses switcher-2 class on the container", () => {
+  it("preserves the existing .switcher class with switcher(3, ...)", () => {
+    const switcherIndex = switcherContent.search(/\.switcher\s*\{/);
+    assert.notEqual(switcherIndex, -1, "_switcher.scss must define .switcher");
+
+    const afterSwitcher = switcherContent.slice(switcherIndex);
+    const switcherBlock = afterSwitcher.slice(0, afterSwitcher.indexOf("}"));
+
     assert.ok(
-      contactOptionsContent.includes("switcher-2"),
-      "contact-options.liquid must use switcher-2 class"
+      /include\s+switcher\(\s*3/.test(switcherBlock),
+      ".switcher must use @include switcher(3, ...)"
+    );
+  });
+
+  it("defines .contact-options-grid with a measure-short --min-item-width", () => {
+    const index = contactOptionsScss.indexOf(".contact-options-grid");
+    assert.notEqual(
+      index,
+      -1,
+      "_contact-options.scss must define .contact-options-grid"
+    );
+
+    const block = contactOptionsScss
+      .slice(index)
+      .slice(0, contactOptionsScss.slice(index).indexOf("}"));
+
+    assert.ok(
+      /--min-item-width/.test(block),
+      ".contact-options-grid must set --min-item-width"
+    );
+    assert.ok(
+      /measure".*?,\s*"short"/.test(block),
+      ".contact-options-grid must use the measure short token"
+    );
+  });
+
+  it("uses grid composition + contact-options-grid block on the container", () => {
+    assert.ok(
+      /\[\s*contact-options-grid\s*\]\s*\[\s*grid\s*\]/.test(
+        contactOptionsContent
+      ),
+      "contact-options.liquid must use [ contact-options-grid ] [ grid ] on the container"
     );
   });
 });
