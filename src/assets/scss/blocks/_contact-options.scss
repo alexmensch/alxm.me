@@ -2,8 +2,17 @@
 @use "../config/fonts";
 
 %contact-cta {
+  display: block;
+  padding: 0;
+  padding-block: #{dt.get-size("2xs")};
   background: #{dt.get-color("secondary")};
+  color: #{dt.get-color("dark-shade")};
+  border-radius: 0;
   text-align: center;
+  text-decoration: none;
+
+  @include fonts.sans;
+  @include dt.use("weight", "bold");
 
   &:hover {
     background: #{dt.get-color("secondary-glare")};
@@ -21,13 +30,6 @@
 
   &__link {
     @extend %contact-cta;
-
-    padding-block: #{dt.get-size("2xs")};
-
-    @include fonts.sans;
-    @include dt.use("weight", "bold");
-
-    text-decoration: none;
   }
 
   .subscribe-form {
@@ -38,5 +40,12 @@
     @extend %contact-cta;
 
     width: 100%;
+
+    // Beats .button:hover { ... !important } from _button.scss so the
+    // subscribe submit hovers the same secondary-glare as the link cards.
+    &:hover {
+      background: #{dt.get-color("secondary-glare")} !important;
+      color: #{dt.get-color("dark-shade")} !important;
+    }
   }
 }
