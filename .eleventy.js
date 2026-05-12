@@ -221,6 +221,12 @@ export default async function (eleventyConfig) {
   // Prevent _index.scss files from being rendered by Eleventy
   eleventyConfig.ignores.add("src/assets/scss/**/_*.scss");
 
+  // Ignored partials aren't part of root.scss's dependency graph, so an
+  // explicit watch target is needed for `--serve` to rebuild root.css when
+  // a partial changes. Without this, only edits to root.scss itself
+  // trigger a Sass recompile.
+  eleventyConfig.addWatchTarget("src/assets/scss/");
+
   /* Custom filters */
   /******************/
 
