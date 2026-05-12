@@ -126,15 +126,15 @@ describe("subscribe form CTA copy", () => {
       articleContent.indexOf('render "partials/subscribe-form"')
     );
     assert.ok(
-      renderBlock.includes("Enjoyed this? Get new posts by email."),
-      'article.liquid subscribe-form render must use CTA text "Enjoyed this? Get new posts by email."'
+      renderBlock.includes("Did you enjoy this? Get new posts by email."),
+      'article.liquid subscribe-form render must use CTA text "Did you enjoy this? Get new posts by email."'
     );
   });
 
   it("uses updated default CTA text in subscribe-form.liquid", () => {
     assert.ok(
-      subscribeFormContent.includes("Enjoyed this? Get new posts by email."),
-      'subscribe-form.liquid default CTA must be "Enjoyed this? Get new posts by email."'
+      subscribeFormContent.includes("Did you enjoy this? Get new posts by email."),
+      'subscribe-form.liquid default CTA must be "Did you enjoy this? Get new posts by email."'
     );
   });
 });
