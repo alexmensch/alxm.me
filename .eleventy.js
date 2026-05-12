@@ -196,7 +196,15 @@ export default async function (eleventyConfig) {
 
         // Return the new permalink
         return outputFilePath;
-      }
+      },
+
+      // Default is true: Eleventy caches the compile() result for the
+      // lifetime of the process, keyed off the template's own content.
+      // Since partials (_*.scss) aren't part of root.scss's content, a
+      // partial edit wouldn't invalidate the cache and the dev server
+      // would keep serving stale CSS until restart. Disable to force
+      // a fresh sass.compileString() on every rebuild.
+      cache: false
     },
 
     // `compile` is called once per .scss file in the input directory
