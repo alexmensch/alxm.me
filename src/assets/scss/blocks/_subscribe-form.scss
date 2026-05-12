@@ -2,11 +2,14 @@
 @use "../config/fonts";
 
 .subscribe-form {
-  --flow-space: #{dt.get-size("2xs")};
+  // Scope --flow-space to children so the form's own margin (when it is a
+  // child of a .flow parent like .article__content) is not pulled down by
+  // its internal child rhythm via custom-property inheritance.
+  > * {
+    --flow-space: #{dt.get-size("2xs")};
+  }
 
   &__fields {
-    --flow-space: #{dt.get-size("2xs")};
-
     align-items: baseline;
   }
 
