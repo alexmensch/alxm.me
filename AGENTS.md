@@ -61,28 +61,26 @@ bd close <id>         # Complete work
 
 ## Session Completion
 
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
+When ending a work session, complete ALL steps below. Work is NOT complete until `git push` succeeds.
 
-**MANDATORY WORKFLOW:**
-
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
+1. **File issues for remaining work** — bead/issue for anything that needs follow-up.
+2. **Run quality gates** (if code changed) — tests, linters, builds.
+3. **Update issue status** — close finished work, update in-progress items.
+4. **Push to remote** — this is MANDATORY:
    ```bash
    git pull --rebase
-   bd dolt push
    git push
-   git status  # MUST show "up to date with origin"
+   git status   # MUST show "up to date with origin"
    ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
+   `.beads/issues.jsonl` propagates via the normal `git push` — no `bd dolt push` needed here (no Dolt remote configured; see the `bd-persistence` memory).
+5. **Clean up** — clear stashes; `git fetch --prune` then `git worktree remove` and `git branch -D` for the merged branch. Repos have auto-delete-on-merge enabled, so don't run `git push --delete`.
+6. **Verify** — all changes committed AND pushed.
+7. **Hand off** — provide context for the next session if more work remains.
 
-**CRITICAL RULES:**
+**Critical rules:**
 
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
+- Work is NOT complete until `git push` succeeds.
+- NEVER stop before pushing — that leaves work stranded locally.
+- NEVER say "ready to push when you are" — YOU must push.
+- If push fails, resolve and retry until it succeeds.
 <!-- END BEADS INTEGRATION -->
