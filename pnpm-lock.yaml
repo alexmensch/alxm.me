@@ -45,8 +45,8 @@ importers:
         specifier: ^3.7.2
         version: 3.7.2
       markdown-it:
-        specifier: ^14.1.1
-        version: 14.1.1
+        specifier: ^14.2.0
+        version: 14.2.0
       markdown-it-footnote:
         specifier: ^4.0.0
         version: 4.0.0
@@ -57,8 +57,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       sass:
-        specifier: ^1.99.0
-        version: 1.99.0
+        specifier: ^1.100.0
+        version: 1.100.0
       slugify:
         specifier: ^1.6.9
         version: 1.6.9
@@ -68,16 +68,16 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
-        version: 10.0.1(eslint@10.3.0)
+        version: 10.0.1(eslint@10.4.0)
       depcheck:
         specifier: ^1.4.7
         version: 1.4.7
       eslint:
-        specifier: ^10.3.0
-        version: 10.3.0
+        specifier: ^10.4.0
+        version: 10.4.0
       eslint-config-prettier:
         specifier: ^10.1.8
-        version: 10.1.8(eslint@10.3.0)
+        version: 10.1.8(eslint@10.4.0)
       globals:
         specifier: ^17.6.0
         version: 17.6.0
@@ -252,8 +252,8 @@ packages:
     resolution: {integrity: sha512-Y3kKLvC1dvTOT+oGlqNQ1XLqK6D1HU2YXPc52NmAlJZbMMWDzGYXMiPRJ8TYD39muD/OTjlZmNJ4ib7dvSrMBA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@eslint/config-helpers@0.5.5':
-    resolution: {integrity: sha512-eIJYKTCECbP/nsKaaruF6LW967mtbQbsw4JTtSVkUQc9MneSkbrgPJAbKl9nWr0ZeowV8BfsarBmPpBzGelA2w==}
+  '@eslint/config-helpers@0.6.0':
+    resolution: {integrity: sha512-ii6Bw9jJ2zi2cWA2Z+9/QZ/+3DX6kwaV5Q986D/CdP3Lap3w/pgQZ373FV7byY/i7L4IRH/G43I5dz1ClsCbpA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   '@eslint/core@1.2.1':
@@ -901,9 +901,9 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
-  chokidar@4.0.3:
-    resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
-    engines: {node: '>= 14.16.0'}
+  chokidar@5.0.0:
+    resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
+    engines: {node: '>= 20.19.0'}
 
   cliui@7.0.4:
     resolution: {integrity: sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==}
@@ -1158,8 +1158,8 @@ packages:
     resolution: {integrity: sha512-tD40eHxA35h0PEIZNeIjkHoDR4YjjJp34biM0mDvplBe//mB+IHCqHDGV7pxF+7MklTvighcCPPZC7ynWyjdTA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  eslint@10.3.0:
-    resolution: {integrity: sha512-XbEXaRva5cF0ZQB8w6MluHA0kZZfV2DuCMJ3ozyEOHLwDpZX2Lmm/7Pp0xdJmI0GL1W05VH5VwIFHEm1Vcw2gw==}
+  eslint@10.4.0:
+    resolution: {integrity: sha512-loXy6bWOoP3EP6JA7jo6p5jMpBJmHmsNZM5SFRHLdh1MGOPurMnNBj4ZlAbaqUAaQWbCr7jHV4P7gzAyryZWkQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     hasBin: true
     peerDependencies:
@@ -1594,6 +1594,9 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
+  linkify-it@5.0.1:
+    resolution: {integrity: sha512-wVoTjP4Q6R0NW5hiZkVJaFZPWgtXfoGF+6LucL3/FtiNjmcHhYjEr5f1Kqjirc1nBW07J/ZuRFumqr2oqccEWg==}
+
   liquidjs@10.25.7:
     resolution: {integrity: sha512-rPCjJLiD4eDhQjvv964AeXFC+HbeYBbZrd7Z82Q6hqv1lX7G+5w4SJcKLn9CAAAwHI4aS3dTdo083UB79K3pDA==}
     engines: {node: '>=16'}
@@ -1634,6 +1637,10 @@ packages:
 
   markdown-it@14.1.1:
     resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
+    hasBin: true
+
+  markdown-it@14.2.0:
+    resolution: {integrity: sha512-1TGiQiJVRQ3NPmZH6sx5Cfnmg6GQm9jvC1ch4TK511NjSJvjzKLzn5pPfZRNZkRPZP0HqCioSndqH8v2nRaWVQ==}
     hasBin: true
 
   markdownlint-cli2-formatter-default@0.0.6:
@@ -2030,9 +2037,9 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
-  readdirp@4.1.2:
-    resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
-    engines: {node: '>= 14.18.0'}
+  readdirp@5.0.0:
+    resolution: {integrity: sha512-9u/XQ1pvrQtYyMpZe7DXKv2p5CNvyVwzUB6uhLAnQwHMSgKMBR62lc7AHljaeteeHXn11XTAaLLUVZYVZyuRBQ==}
+    engines: {node: '>= 20.19.0'}
 
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
@@ -2069,9 +2076,9 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  sass@1.99.0:
-    resolution: {integrity: sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==}
-    engines: {node: '>=14.0.0'}
+  sass@1.100.0:
+    resolution: {integrity: sha512-B5j0rYMlinhhOo9tjQebMVVn0TfyXAF+wB3b2ggZUuJ/is/Y+7+JGjirAMxHZ9Z3hIP98NPfamlAkBHa1lAaXQ==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
 
   satori-html@0.3.2:
@@ -2455,7 +2462,7 @@ snapshots:
       kleur: 4.1.5
       liquidjs: 10.25.7
       luxon: 3.7.2
-      markdown-it: 14.1.1
+      markdown-it: 14.2.0
       minimist: 1.2.8
       moo: 0.5.2
       node-retrieve-globals: 6.0.1
@@ -2573,9 +2580,9 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@eslint-community/eslint-utils@4.9.1(eslint@10.3.0)':
+  '@eslint-community/eslint-utils@4.9.1(eslint@10.4.0)':
     dependencies:
-      eslint: 10.3.0
+      eslint: 10.4.0
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
@@ -2588,7 +2595,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/config-helpers@0.5.5':
+  '@eslint/config-helpers@0.6.0':
     dependencies:
       '@eslint/core': 1.2.1
 
@@ -2596,9 +2603,9 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/js@10.0.1(eslint@10.3.0)':
+  '@eslint/js@10.0.1(eslint@10.4.0)':
     optionalDependencies:
-      eslint: 10.3.0
+      eslint: 10.4.0
 
   '@eslint/object-schema@3.0.5': {}
 
@@ -3107,9 +3114,9 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  chokidar@4.0.3:
+  chokidar@5.0.0:
     dependencies:
-      readdirp: 4.1.2
+      readdirp: 5.0.0
 
   cliui@7.0.4:
     dependencies:
@@ -3319,9 +3326,9 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-prettier@10.1.8(eslint@10.3.0):
+  eslint-config-prettier@10.1.8(eslint@10.4.0):
     dependencies:
-      eslint: 10.3.0
+      eslint: 10.4.0
 
   eslint-scope@9.1.2:
     dependencies:
@@ -3334,12 +3341,12 @@ snapshots:
 
   eslint-visitor-keys@5.0.1: {}
 
-  eslint@10.3.0:
+  eslint@10.4.0:
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@10.3.0)
+      '@eslint-community/eslint-utils': 4.9.1(eslint@10.4.0)
       '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.23.5
-      '@eslint/config-helpers': 0.5.5
+      '@eslint/config-helpers': 0.6.0
       '@eslint/core': 1.2.1
       '@eslint/plugin-kit': 0.7.1
       '@humanfs/node': 0.16.8
@@ -3755,6 +3762,10 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
+  linkify-it@5.0.1:
+    dependencies:
+      uc.micro: 2.1.0
+
   liquidjs@10.25.7:
     dependencies:
       commander: 10.0.1
@@ -3788,6 +3799,15 @@ snapshots:
       argparse: 2.0.1
       entities: 4.5.0
       linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
+  markdown-it@14.2.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.1
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
@@ -4259,7 +4279,7 @@ snapshots:
     dependencies:
       picomatch: 2.3.2
 
-  readdirp@4.1.2: {}
+  readdirp@5.0.0: {}
 
   require-directory@2.1.1: {}
 
@@ -4289,9 +4309,9 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  sass@1.99.0:
+  sass@1.100.0:
     dependencies:
-      chokidar: 4.0.3
+      chokidar: 5.0.0
       immutable: 5.1.5
       source-map-js: 1.2.1
     optionalDependencies:
