@@ -6,8 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm run build           # Format, lint, test, build site, check permalinks
-pnpm run build:cf        # Full build + R2 sync (for Workers Builds)
-pnpm run deploy          # build:cf + wrangler deploy (manual deployment)
+pnpm run build:cf        # Full build + R2 sync
+pnpm run deploy          # build:cf + wrangler deploy (production)
+pnpm run deploy:stg      # build:cf + wrangler deploy --env=staging
 pnpm run 11ty:watch      # Dev server with hot reload
 pnpm run 11ty:debug      # Dev server with Eleventy debug output
 pnpm run clean           # Remove _site directory
@@ -122,19 +123,18 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
   - `src/assets/podcast/audio/` - Podcast episodes
 - To test these files locally: `cp -r src/assets/files src/assets/podcast/audio _site/assets/`
 
-**Git LFS in preview builds**:
+**Deployment** (manual from local — no Workers Builds auto-deploy):
 
-Large audio files and the cloud-anatomy PDF are tracked by Git LFS (see `.gitattributes`). To stay under the GitHub LFS bandwidth quota, Cloudflare Workers Builds preview deploys should run with `GIT_LFS_SKIP_SMUDGE=1` set as a build-time environment variable so the ephemeral build environment doesn't re-download every LFS object on every commit. The build is resilient to this:
-
-- `eleventy-plugins/audio-validation.js` detects LFS pointer files and skips hash validation for them
-- `_cloudflare/r2/sync.js` refuses to upload pointer files (would corrupt R2) — so preview builds must use `pnpm run build`, not `pnpm run build:cf`
-- Production (`master`) and staging (`stg`) deploys must NOT have `GIT_LFS_SKIP_SMUDGE` set, since R2 sync needs the real files
+- `pnpm run deploy` → production at `alxm.me` (top-level Worker `alxm-website`)
+- `pnpm run deploy:stg` → staging at `alxm-website-staging.<account>.workers.dev` (separate Worker via `[env.staging]` in `wrangler.toml`)
+- Staging shares the prod R2 bucket and KV namespace — it reads the same content. Re-declaring bindings under `[env.staging]` is required because Wrangler env blocks don't inherit them.
+- Auth: `wrangler login` (or `CLOUDFLARE_API_TOKEN` env var). R2 sync needs the `.env` keys (`CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_R2_ACCESS_KEY_ID`, `CLOUDFLARE_R2_SECRET_ACCESS_KEY`).
+- LFS files are smudged on the deploying machine — deploys don't consume LFS bandwidth. `eleventy-plugins/audio-validation.js` and `_cloudflare/r2/sync.js` still guard against pointer files defensively in case anyone deploys from a fresh checkout with `GIT_LFS_SKIP_SMUDGE=1`.
 
 **Other**:
 
 - KV stores writing collection items and permalink baseline
 - Environment variables required in `.env` for Cloudflare API access
-- Auto-deploy via Workers Builds (production: `master`, staging: `stg`)
 
 ### Open Graph Images
 
