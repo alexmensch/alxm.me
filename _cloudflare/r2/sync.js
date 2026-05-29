@@ -126,8 +126,7 @@ async function isFileUnchanged(filePath, key) {
 
 async function syncFiles() {
   try {
-    let totalFiles = 0;
-    let uploadedFiles = 0;
+    const candidates = [];
     const pointerFiles = [];
 
     for (const dir of R2_DIRS) {
@@ -145,22 +144,18 @@ async function syncFiles() {
       for (const file of files) {
         const filePath = join(srcDir, file);
         const key = `${dir}/${file}`;
-        const contentType = getContentType(file);
 
         if (isLfsPointer(filePath)) {
           pointerFiles.push(key);
           continue;
         }
 
-        totalFiles++;
-        const unchanged = await isFileUnchanged(filePath, key);
-        if (!unchanged) {
-          uploadFileToR2(filePath, key, contentType);
-          uploadedFiles++;
-        }
+        candidates.push({ filePath, key, contentType: getContentType(file) });
       }
     }
 
+    // Detect pointers across all directories before uploading anything — a
+    // partial upload followed by an abort would leave R2 in a mixed state.
     if (pointerFiles.length > 0) {
       // Refuse rather than upload pointer files as real content — that would
       // corrupt R2. Reaching this branch means R2 sync ran with LFS objects
@@ -175,6 +170,17 @@ async function syncFiles() {
           "where LFS objects aren't needed (e.g. previews).\n"
       );
       process.exit(1); // eslint-disable-line no-process-exit
+    }
+
+    const totalFiles = candidates.length;
+    let uploadedFiles = 0;
+
+    for (const { filePath, key, contentType } of candidates) {
+      const unchanged = await isFileUnchanged(filePath, key);
+      if (!unchanged) {
+        uploadFileToR2(filePath, key, contentType);
+        uploadedFiles++;
+      }
     }
 
     console.log(
