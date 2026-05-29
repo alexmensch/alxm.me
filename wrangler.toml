@@ -29,6 +29,7 @@ enabled = true
 [env.staging]
 name = "alxm-website-staging"
 workers_dev = true
+routes = []
 
 [env.staging.assets]
 directory = "./_site"
