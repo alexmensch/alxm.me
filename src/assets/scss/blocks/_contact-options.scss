@@ -1,23 +1,50 @@
 @use "../config/design-tokens" as dt;
 @use "../config/fonts";
 
+%contact-cta {
+  display: block;
+  padding: 0;
+  padding-block: #{dt.get-size("2xs")};
+  background: #{dt.get-color("secondary")};
+  color: #{dt.get-color("dark-shade")};
+  border-radius: 0;
+  text-align: center;
+  text-decoration: none;
+
+  @include fonts.sans;
+  @include dt.use("weight", "bold");
+
+  &:hover {
+    background: #{dt.get-color("secondary-glare")};
+  }
+}
+
 .contact-options {
   outline-color: #{dt.get-color("secondary")};
   max-width: #{dt.get-value("measure", "compact")};
   height: 100%;
 
   &__link {
-    background: #{dt.get-color("secondary")};
-    padding-block: #{dt.get-size("2xs")};
+    @extend %contact-cta;
+  }
 
-    @include fonts.sans;
-    @include dt.use("weight", "bold");
+  // Nested so .contact-options .subscribe-form .button (0,3,0) beats
+  // _subscribe-form.scss's .subscribe-form .button (0,2,0), which sets a
+  // tight padding-block: 0.2ex meant for the article-end inline button.
+  .subscribe-form {
+    --flow-space: #{dt.get-size("2xs")};
 
-    text-decoration: none;
-    text-align: center;
+    .button {
+      @extend %contact-cta;
 
-    &:hover {
-      background: #{dt.get-color("secondary-glare")};
+      width: 100%;
+
+      // Beats .button:hover { ... !important } from _button.scss so the
+      // subscribe submit hovers the same secondary-glare as the link cards.
+      &:hover {
+        background: #{dt.get-color("secondary-glare")} !important;
+        color: #{dt.get-color("dark-shade")} !important;
+      }
     }
   }
 }

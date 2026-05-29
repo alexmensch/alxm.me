@@ -4,8 +4,12 @@
     <div>
       <div class="[ contact-options ] [ box ] [ radius padding-xs ]">
         <div class="stack-split-1">
+          {% if option.type == "subscribe" %}
+          {% render "partials/subscribe-form", site: site, compact: true, cta: option.body %}
+          {% else %}
           <p>{{ option.body | markdownify }}</p>
           <a class="contact-options__link" href="{{ option.cta_url }}" target="_blank" rel="noopener">{{ option.cta }}</a>
+          {% endif %}
         </div>
       </div>
     </div>
