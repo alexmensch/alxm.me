@@ -1,7 +1,7 @@
 name = "alxm-website"
 main = "./worker/index.js"
 compatibility_date = "2025-07-01"
-preview_urls = true
+preview_urls = false
 account_id = "ecd2a3d65ecc1018f93da07542223581"
 
 [assets]
@@ -24,4 +24,27 @@ RSS_PATH = "/podcast/feed/what-i-knew.rss"
 RSS_LAST_MODIFIED = "2025-12-19"
 
 [observability.logs]
+enabled = true
+
+[env.staging]
+name = "alxm-website-staging"
+workers_dev = true
+routes = []
+
+[env.staging.assets]
+directory = "./_site"
+binding = "ASSETS"
+run_worker_first = true
+not_found_handling = "404-page"
+
+[[env.staging.r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "alxm-assets"
+
+[env.staging.vars]
+R2_PATHS = '["/assets/podcast/audio/", "/assets/files/"]'
+RSS_PATH = "/podcast/feed/what-i-knew.rss"
+RSS_LAST_MODIFIED = "2025-12-19"
+
+[env.staging.observability.logs]
 enabled = true
