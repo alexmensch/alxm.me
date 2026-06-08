@@ -1,0 +1,7 @@
+overrides:
+  liquidjs: "^10.26.0"
+  sharp: 0.34.5
+allowBuilds:
+  "@ffprobe-installer/darwin-arm64": true
+  "@parcel/watcher": true
+  sharp: true

@@ -35,13 +35,17 @@ const site = {
   },
   links: [],
   nav: [
-    { title: "Counselling", url: "/counselling/" },
-    { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Writing", url: "/writing/" },
     { title: "Artwork", url: "/artwork/", collection: true, theme: "artwork" },
-    { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
+    {
+      title: "Therapy",
+      url: "https://alexmarshalltherapy.com",
+      external: true
+    },
     { title: "Contact", url: "/contact/", footer: true },
     { title: "About", url: "/about/", footer: true },
+    { title: "Advisory", url: "/advisory/", hidden: true },
+    { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Styles", url: "/styles/", hidden: true }
   ]
 };

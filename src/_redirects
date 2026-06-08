@@ -28,9 +28,11 @@
 ## Site changes
 #  Redirects due to permalink changes
 ##
-/coaching                           /counselling                                       301
-/coaching/                          /counselling                                       301
-/coaching/*                         /counselling/:splat                                301
+/coaching                           https://alexmarshalltherapy.com                    301
+/coaching/                          https://alexmarshalltherapy.com                    301
+/coaching/*                         https://alexmarshalltherapy.com                    301
+/counselling                        https://alexmarshalltherapy.com                    301
+/counselling/                       https://alexmarshalltherapy.com                    301
 
 ## Canonical links
 #  Long-term canonical permalinks for specific content

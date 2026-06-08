@@ -1,0 +1,6 @@
+overrides:
+  fast-xml-parser: ">=5.3.4"
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true

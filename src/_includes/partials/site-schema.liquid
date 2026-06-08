@@ -8,8 +8,8 @@
       "name": "{{ site.authorName }}",
       "url": "https://{{ site.domain }}",
       "email": "{{ site.authorEmail }}",
-      "jobTitle": "Counsellor",
-      "description": "Humanistic counsellor and artist based in London.",
+      "jobTitle": "Therapist",
+      "description": "Humanistic therapist and artist based in London.",
       "sameAs": ["https://www.linkedin.com/in/awmars", "https://www.instagram.com/alexmensch"]
     },
     {
@@ -100,20 +100,6 @@
       "image": "https://{{ site.domain }}/assets/podcast/images/artwork-default-v2.jpg",
       "webFeed": "https://{{ site.domain }}/podcast/feed/what-i-knew.rss",
       "author": { "@id": "https://{{ site.domain }}/#person" }
-    }
-    {%- elsif schemaType == "counselling" %},
-    {
-      "@type": "ProfessionalService",
-      "name": "{{ site.authorName }} — Therapeutic Counselling",
-      "url": "https://{{ site.domain }}/counselling",
-      "description": "{{ meta.description | jsonEscape }}",
-      "provider": { "@id": "https://{{ site.domain }}/#person" },
-      "serviceType": "Therapeutic Counselling",
-      "areaServed": "United Kingdom",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceType": "Online"
-      }
     }
     {%- elsif schemaType == "advisory" %},
     {
