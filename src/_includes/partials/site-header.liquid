@@ -12,7 +12,7 @@
                             <li>
                                 {% if item.external %}
                                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
-                                        {{ item.title }}
+                                        {{ item.title }}<span class="nav__external-icon" aria-hidden="true">↗</span>
                                     </a>
                                 {% else %}
                                     <a

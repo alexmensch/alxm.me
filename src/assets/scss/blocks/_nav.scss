@@ -26,4 +26,15 @@
       }
     }
   }
+
+  // External-link marker: subordinate to the label — smaller, lighter,
+  // muted, and raised superscript-style so it reads as an affordance.
+  &__external-icon {
+    @include dt.use("weight", "normal");
+
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-inline-start: 0.15em;
+    opacity: 0.65;
+  }
 }
