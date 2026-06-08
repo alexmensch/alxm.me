@@ -10,12 +10,18 @@
                     {% for item in site.nav %}
                         {% unless item.hidden %}
                             <li>
-                                <a
-                                    href="{{ item.url | remove_last: "/" }}"
-                                    {{ item.url | getLinkActiveState: page.url }}
-                                    >
-                                    {{ item.title }}
-                                </a>
+                                {% if item.external %}
+                                    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+                                        {{ item.title }}
+                                    </a>
+                                {% else %}
+                                    <a
+                                        href="{{ item.url | remove_last: "/" }}"
+                                        {{ item.url | getLinkActiveState: page.url }}
+                                        >
+                                        {{ item.title }}
+                                    </a>
+                                {% endif %}
                             </li>
                         {% endunless %}
                     {% endfor %}

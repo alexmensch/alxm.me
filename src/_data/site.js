@@ -35,7 +35,11 @@ const site = {
   },
   links: [],
   nav: [
-    { title: "Counselling", url: "/counselling/" },
+    {
+      title: "Therapy ↗",
+      url: "https://alexmarshalltherapy.com",
+      external: true
+    },
     { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Writing", url: "/writing/" },
     { title: "Artwork", url: "/artwork/", collection: true, theme: "artwork" },
