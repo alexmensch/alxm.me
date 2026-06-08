@@ -67,17 +67,5 @@
     "sharp": "0.34.5",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "liquidjs": "^10.26.0",
-      "sharp": "0.34.5"
-    },
-    "onlyBuiltDependencies": [
-      "@ffprobe-installer/darwin-arm64",
-      "@ffprobe-installer/linux-x64",
-      "@parcel/watcher",
-      "sharp"
-    ]
   }
 }
