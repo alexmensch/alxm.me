@@ -25,16 +25,18 @@
         background: dt.get-color("primary-shade");
       }
     }
-  }
 
-  // External-link marker: subordinate to the label — smaller, lighter,
-  // muted, and raised superscript-style so it reads as an affordance.
-  &__external-icon {
-    @include dt.use("weight", "normal");
+    // External-link marker: the ↗ (with a leading non-breaking space) is
+    // always laid out but transparent, then faded in on hover. Reserving its
+    // space this way keeps the reveal from reflowing the adjacent nav items.
+    &[target="_blank"]::after {
+      content: "\00a0↗";
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
 
-    font-size: 0.7em;
-    vertical-align: super;
-    margin-inline-start: 0.15em;
-    opacity: 0.65;
+    &[target="_blank"]:hover::after {
+      opacity: 1;
+    }
   }
 }
