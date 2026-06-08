@@ -115,7 +115,7 @@ site.links = [
 
 site.newsletter = {
   apiUrl: "https://newsletter.alxm.me",
-  channelId: "alxm.me"
+  channelId: "alxm-me"
 };
 
 site.company = {
