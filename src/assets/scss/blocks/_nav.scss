@@ -26,17 +26,21 @@
       }
     }
 
-    // External-link marker: the ↗ (with a leading non-breaking space) is
-    // always laid out but transparent, then faded in on hover. Reserving its
-    // space this way keeps the reveal from reflowing the adjacent nav items.
+    // External-link marker: a small, muted ↗ shown on hover — instant, to
+    // match the link underline. Always laid out but transparent, so the reveal
+    // doesn't reflow adjacent nav items. font-size + margin live on the ::after,
+    // so the gap scales with the arrow rather than the full-size label.
     &[target="_blank"]::after {
-      content: "\00a0↗";
+      @include dt.use("weight", "normal");
+
+      content: "↗";
+      font-size: 0.7em;
+      margin-inline-start: 0.15em;
       opacity: 0;
-      transition: opacity 0.2s ease-in-out;
     }
 
     &[target="_blank"]:hover::after {
-      opacity: 1;
+      opacity: 0.65;
     }
   }
 }
