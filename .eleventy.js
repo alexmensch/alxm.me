@@ -153,7 +153,6 @@ export default async function (eleventyConfig) {
     "src/apple-touch-icon.png": "apple-touch-icon.png",
     "src/site.webmanifest": "site.webmanifest",
     "src/404.html": "404.html",
-    "src/_redirects": "_redirects",
     ".assetsignore": ".assetsignore"
   });
 
@@ -287,6 +286,9 @@ export default async function (eleventyConfig) {
   // Custom filter to determine if current page is within parent link path
   // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
   eleventyConfig.addFilter("getPageTheme", helpers.getPageTheme);
+
+  // True when an item's tags intersect the given list (e.g. site.counselling.tags)
+  eleventyConfig.addFilter("hasAnyTag", helpers.hasAnyTag);
 
   /* Shortcodes */
   /**************/

@@ -1,3 +1,7 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
 ## blog.moveolabs.com redirects
 #  Cloudflare redirect rule adds "/writing" to the incoming URI path
 ##
@@ -20,19 +24,28 @@
 /writing/cross-country-adventure-65e9eaba33c/              /writing/2016/02/20/cross-country-adventure/                301
 
 ## Quick links
-#  Redirects for convenience
+#  Convenience redirects. Destinations moved to the therapy site (see below).
 ##
-/awareness													/writing/2024/07/02/seeing-things-clearly/         301
-/biography													/writing/2025/06/17/a-personal-biography/          301
+/awareness                          {{ site.counselling.baseUrl }}/writing/2024/07/02/seeing-things-clearly/   301
+/biography                          {{ site.counselling.baseUrl }}/writing/2025/06/17/a-personal-biography/    301
 
 ## Site changes
 #  Redirects due to permalink changes
 ##
-/coaching                           https://alexmarshalltherapy.com                    301
-/coaching/                          https://alexmarshalltherapy.com                    301
-/coaching/*                         https://alexmarshalltherapy.com                    301
-/counselling                        https://alexmarshalltherapy.com                    301
-/counselling/                       https://alexmarshalltherapy.com                    301
+/coaching                           {{ site.counselling.baseUrl }}                     301
+/coaching/                          {{ site.counselling.baseUrl }}                     301
+/coaching/*                         {{ site.counselling.baseUrl }}                     301
+/counselling                        {{ site.counselling.baseUrl }}                     301
+/counselling/                       {{ site.counselling.baseUrl }}                     301
+
+## Moved to the therapy site
+#  Psychology-tagged writing is source-of-truth on the therapy site; local pages
+#  are no longer generated. Sources are the frozen, already-indexed permalinks
+#  (never regenerate these from live data — external links depend on them); the
+#  domain comes from site.counselling.baseUrl.
+##
+/writing/2024/07/02/seeing-things-clearly/  {{ site.counselling.baseUrl }}/writing/2024/07/02/seeing-things-clearly/   301
+/writing/2025/06/17/a-personal-biography/   {{ site.counselling.baseUrl }}/writing/2025/06/17/a-personal-biography/    301
 
 ## Canonical links
 #  Long-term canonical permalinks for specific content

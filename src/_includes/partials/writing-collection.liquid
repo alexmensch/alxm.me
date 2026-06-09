@@ -6,7 +6,11 @@
     {% for post in collection reversed %}
     <div>
       <div class="flow flow-space-xs">
+        {% if post.tags | hasAnyTag: site.counselling.tags %}
+        <h4><a class="external-link" href="{{ site.counselling.baseUrl }}{{ post.permalink }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a></h4>
+        {% else %}
         <h4><a href="{{ post.permalink }}">{{ post.title }}</a></h4>
+        {% endif %}
         <p><em>{{ post.date | date: "%e %b %Y" }}</em></p>
         <p>{{ post.summary }}</p>
       </div>
