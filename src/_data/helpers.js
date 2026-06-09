@@ -26,6 +26,10 @@ const helpers = {
   currentYear() {
     return new Date().getFullYear().toString();
   },
+  hasAnyTag(tags, allowed) {
+    if (!Array.isArray(tags) || !Array.isArray(allowed)) return false;
+    return tags.some((tag) => allowed.includes(tag));
+  },
   permalinkToPath(title, date) {
     return `${this.toDate(date, "/")}/${this.toSlug(title)}/`;
   },

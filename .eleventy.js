@@ -288,6 +288,9 @@ export default async function (eleventyConfig) {
   // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
   eleventyConfig.addFilter("getPageTheme", helpers.getPageTheme);
 
+  // True when an item's tags intersect the given list (e.g. site.counselling.tags)
+  eleventyConfig.addFilter("hasAnyTag", helpers.hasAnyTag);
+
   /* Shortcodes */
   /**************/
 
