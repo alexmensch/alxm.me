@@ -153,7 +153,6 @@ export default async function (eleventyConfig) {
     "src/apple-touch-icon.png": "apple-touch-icon.png",
     "src/site.webmanifest": "site.webmanifest",
     "src/404.html": "404.html",
-    "src/_redirects": "_redirects",
     ".assetsignore": ".assetsignore"
   });
 
