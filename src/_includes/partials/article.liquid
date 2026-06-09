@@ -52,7 +52,7 @@
       {% endfor %}
 
       {% assign year_items = year_items | sort: "date" %}
-      {% render "partials/writing-collection", collection: year_items, year: year %}
+      {% render "partials/writing-collection", collection: year_items, year: year, site: site %}
     {% endfor %}
   {% endif %}
 
