@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { handleR2Request } from "../worker/index.js";
+import { handleR2Request } from "../index.js";
 import { createRequest } from "./helpers/worker-mocks.js";
 
 // Helper: create a mock R2 bucket

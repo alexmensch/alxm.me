@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { handleRSSRequest } from "../worker/index.js";
+import { handleRSSRequest } from "../index.js";
 import { createRequest } from "./helpers/worker-mocks.js";
 
 // Helper: create a mock env with RSS-related config

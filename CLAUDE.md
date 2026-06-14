@@ -89,7 +89,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `src/_includes/partials/` - Reusable components
 - `src/_data/` - Global data files
 - `src/assets/scss/` - Styles organized by CUBE CSS methodology
-- `worker/` - Unified Cloudflare Worker (serves static assets, R2 files, RSS)
+- `worker/` - Thin Cloudflare Worker entry (`createFetchHandler({ rss })` from `@alxm/cf-worker`); shared logic lives in `packages/cf-worker/`
 - `_cloudflare/r2/` - R2 sync scripts (uploads large files to R2)
 - `eleventy-plugins/` - Custom Eleventy plugins
 - `tests/` - Test suite (Node.js built-in test runner, `node:test` + `assert/strict`)
@@ -112,13 +112,13 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 
 ### Cloudflare Integration
 
-**Unified Worker** (`worker/index.js`):
+**Unified Worker** — shared logic in the `@alxm/cf-worker` workspace package (`packages/cf-worker/`); each site's `worker/index.js` is a thin `export default createFetchHandler({ rss })` entry (alxm.me `rss: true`, alexmarshalltherapy.com `rss: false`):
 
 - Serves static assets from `_site/` via Workers static assets
 - Proxies large files from R2 (podcast audio, large PDFs) with MIME detection and range request support
-- Adds caching headers to RSS feed (Last-Modified, If-Modified-Since)
+- Adds caching headers to RSS feed (Last-Modified, If-Modified-Since) when `rss: true`
 - Adds `TDM-Reservation: 1` header to HTML responses (W3C TDM Protocol opt-out)
-- Configuration in `wrangler.toml` at project root
+- Configuration in each site's `wrangler.toml`; package owns the worker unit tests (run via root `pnpm test:packages`)
 
 **R2 Sync** (`_cloudflare/r2/`):
 

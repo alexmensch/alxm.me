@@ -16,6 +16,8 @@ importers:
         specifier: ^9.1.7
         version: 9.1.7
 
+  packages/cf-worker: {}
+
   sites/alexmarshalltherapy.com:
     dependencies:
       '@11ty/eleventy':
@@ -27,6 +29,9 @@ importers:
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.2
         version: 1.0.2
+      '@alxm/cf-worker':
+        specifier: workspace:*
+        version: link:../../packages/cf-worker
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -115,6 +120,9 @@ importers:
       '@11ty/eleventy-plugin-syntaxhighlight':
         specifier: ^5.0.2
         version: 5.0.2
+      '@alxm/cf-worker':
+        specifier: workspace:*
+        version: link:../../packages/cf-worker
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { getContentType, MIME_TYPES } from "../worker/index.js";
+import { getContentType, MIME_TYPES } from "../index.js";
 
 describe("MIME_TYPES map", () => {
   const expected = {
