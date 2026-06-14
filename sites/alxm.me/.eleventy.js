@@ -16,19 +16,28 @@ import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
+import { LoremIpsum } from "lorem-ipsum";
+import sharedConfig, { includesDir, makeHelpers } from "@alxm/eleventy-config";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
 
-import helpers from "./src/_data/helpers.js";
 import siteConfig from "./src/_data/site.js";
 import openGraph from "./src/_data/opengraph.js";
 import podcast from "./src/_data/podcast.js";
-import markdownLib from "./src/_build/markdown.js";
-import { articleImage, blockQuote } from "./src/_build/shortcodes.js";
+
+const helpers = makeHelpers();
 
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
+  // Shared markdown library, common filters/shortcodes, and the feedmail
+  // subscribe-form partial (resolved via the Liquid root added below).
+  eleventyConfig.addPlugin(sharedConfig, {
+    domain: siteConfig.domain,
+    loremIpsum: LoremIpsum,
+    pageTheme: true
+  });
+
   // Custom Cloudflare KV -> Collections fetch
   eleventyConfig.addPlugin(kvCollectionsPlugin, {
     accountId: "CLOUDFLARE_ACCOUNT_ID",
@@ -172,9 +181,13 @@ export default async function (eleventyConfig) {
     });
   });
 
-  /* Markdown Configuration */
-  /**************************/
-  eleventyConfig.setLibrary("md", markdownLib);
+  /* Liquid include resolution */
+  /*****************************/
+  // Add the @alxm/eleventy-config includes dir alongside the site's own so
+  // `{% render "partials/subscribe-form" %}` resolves the package-owned partial.
+  eleventyConfig.setLiquidOptions({
+    root: ["src/_includes", "src", includesDir]
+  });
 
   /* Sass support as a template format */
   /*************************************/
@@ -237,71 +250,19 @@ export default async function (eleventyConfig) {
   // trigger a Sass recompile.
   eleventyConfig.addWatchTarget("src/assets/scss/");
 
-  /* Custom filters */
-  /******************/
-
-  // Custom filter to determine if current page is within parent link path
-  // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
-  eleventyConfig.addFilter("getLinkActiveState", helpers.getLinkActiveState);
-
-  // Generate lorem ipsum for use in content
-  // Called like this: {{ count | loremIpsum: type }}
-  // Where type is one of: words, sentences, paragraphs
-  eleventyConfig.addFilter("loremIpsum", helpers.loremIpsum);
-
-  // Process input as Markdown, useful for Markdown included in frontmatter
-  eleventyConfig.addFilter("markdownify", (markdownString) =>
-    markdownLib.renderInline(markdownString)
-  );
+  /* Site-specific filters */
+  /*************************/
+  // Common filters (getLinkActiveState, loremIpsum, markdownify, dateToRfc3339,
+  // getNewestCollectionItemDate, markdownToHTML, escapeHTML, jsonEscape,
+  // getPageTheme, hasAnyTag) and the articleImage / blockQuote shortcodes are
+  // registered by the @alxm/eleventy-config plugin above.
 
   // Filters used for OpenGraph SVG generation
   eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
-  // Custom filter to convert date to RFC3339 format
-  // Called like this: {{ date | dateToRfc3339 }}
-  eleventyConfig.addFilter("dateToRfc3339", helpers.dateToRFC339);
-
-  // Custom filter to get the latest date on the items within a collection
-  // Called like this: {{ collections.name | getNewestCollectionItemDate }}
-  eleventyConfig.addFilter(
-    "getNewestCollectionItemDate",
-    helpers.getNewestCollectionItemDate
-  );
-
-  // Renders Markdown input to HTML
-  // Example: {{ markdown_content | markdownToHTML }}
-  eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
-
   // Renders Markdown input to CDATA-enclosed HTML
   // Example: {{ markdown_content | markdownToCDATA }}
   eleventyConfig.addFilter("markdownToCDATA", podcast.markdownToCDATA);
-
-  // Escapes HTML content
-  // Example: {{ html_content | escapeHTML }}
-  eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
-
-  // Escapes a string for safe embedding inside a JSON string value
-  // Example: "description": "{{ summary | jsonEscape }}"
-  eleventyConfig.addFilter("jsonEscape", (str) =>
-    JSON.stringify(String(str ?? "")).slice(1, -1)
-  );
-
-  // Custom filter to determine if current page is within parent link path
-  // Called like this: {{ pagePath | getLinkActiveState: parentPath }}
-  eleventyConfig.addFilter("getPageTheme", helpers.getPageTheme);
-
-  // True when an item's tags intersect the given list (e.g. site.counselling.tags)
-  eleventyConfig.addFilter("hasAnyTag", helpers.hasAnyTag);
-
-  /* Shortcodes */
-  /**************/
-
-  // Shortcode to add inline photos to articles
-  // 'src' is the filename within assets/images
-  // Valid ratios are set in assets/scss/blocks/_frame.scss
-  eleventyConfig.addLiquidShortcode("articleImage", articleImage);
-
-  eleventyConfig.addPairedShortcode("blockQuote", blockQuote);
 
   return {
     // Set directories to watch

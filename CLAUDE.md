@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Monorepo Layout
 
-This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cube-scss`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
+This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cube-scss`, `@alxm/eleventy-config`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
 
 **Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes per-site delegators that `cd` into the site and run its script: `alxm:*` for `sites/alxm.me/` (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) and `amt:*` for `sites/alexmarshalltherapy.com/` (e.g. `pnpm amt:build`, `pnpm amt:deploy:stg`).
 
@@ -76,11 +76,10 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 
 ### Key Files
 
-- `.eleventy.js` - Main Eleventy config: plugins, filters, shortcodes, Sass processing
-- `src/_build/markdown.js` - Configured markdown-it instance with all plugins (footnotes, smart arrows, external links)
-- `src/_build/shortcodes.js` - Shortcode functions (articleImage, blockQuote)
+- `.eleventy.js` - Main Eleventy config: site-specific plugins, filters, shortcodes, Sass processing. Adds `@alxm/eleventy-config` (markdown library + common filters/shortcodes + subscribe-form partial) via `addPlugin(sharedConfig, { domain, ... })`
 - `src/_data/site.js` - Site configuration, navigation structure (defines collections)
-- `src/_data/helpers.js` - Shared utility functions (slugify, date formatting, etc.)
+- `src/_data/helpers.js` - Thin re-export of `@alxm/eleventy-config/helpers` (keeps the `helpers` global in the data cascade); the implementation lives in `packages/eleventy-config/`
+- The configured markdown-it instance (`makeMarkdownLib`), shortcodes (`articleImage`, `blockQuote`, `cta`), and helpers all live in `packages/eleventy-config/` (`@alxm/eleventy-config`)
 
 ### Directory Structure
 
@@ -156,10 +155,11 @@ Uses `eleventy-plugin-og-image` with a custom `outputFileSlug` function that has
 - To force regeneration after template changes: `rm -rf _site/assets/images/og/`
 - Template: `src/_includes/open-graph/og-posts.og.liquid`
 
-### Custom Shortcodes (`src/_build/shortcodes.js`)
+### Custom Shortcodes (`packages/eleventy-config/shortcodes.js`)
 
 - `{% articleImage src, alt, ratio, portrait, href %}` - Inline article images (ratio is required)
 - `{% blockQuote %}content{% endblockQuote name, source, url %}` - Block quotes with attribution
+- `{% cta %}content{% endcta href, label, title %}` - Inline call-to-action block (opt-in via `shortcodes: { cta: true }`; alexmarshalltherapy.com only)
 
 ### Custom Filters
 
@@ -174,13 +174,13 @@ The site footer includes an email subscribe form that integrates with [feedmail]
 
 **Files:**
 
-- `src/_includes/partials/subscribe-form.liquid` - Form with AJAX submission
-- `src/assets/scss/blocks/_subscribe-form.scss` - Form styles (CUBE CSS conventions)
-- `src/_data/site.js` - `site.newsletter` config (apiUrl, siteId)
+- `packages/eleventy-config/includes/partials/subscribe-form.liquid` - Form with AJAX submission (shared; resolved via the package includes dir added to each site's Liquid `root` in `setLiquidOptions`)
+- `packages/cube-scss/scss/blocks/_subscribe-form.scss` - Form styles (CUBE CSS conventions)
+- `src/_data/site.js` - `site.newsletter` config (apiUrl, channelId)
 
 **How it works:**
 
-- Form POSTs to `https://feedmail.cc/api/subscribe` with email and siteId
+- Form POSTs to `https://feedmail.cc/api/subscribe` with email and channelId
 - The form is rendered in the footer via `{% render "partials/subscribe-form", site: site %}` in `site-footer.liquid`
 - feedmail handles verification emails, subscriber management, and feed-to-email delivery independently
 

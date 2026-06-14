@@ -39,6 +39,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@alxm/cf-worker": "workspace:*",
     "@alxm/cube-scss": "workspace:*",
+    "@alxm/eleventy-config": "workspace:*",
     "dotenv": "^17.4.2",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
     "eleventy-plugin-og-image": "^4.2.1",
@@ -46,12 +47,7 @@
     "get-audio-duration": "^4.0.1",
     "lorem-ipsum": "^3.0.0",
     "luxon": "^3.7.2",
-    "markdown-it": "^14.2.0",
-    "markdown-it-footnote": "^4.0.0",
-    "markdown-it-for-inline": "^2.0.1",
-    "markdown-it-smartarrows": "^1.0.1",
-    "sass": "^1.100.0",
-    "slugify": "^1.6.9"
+    "sass": "^1.100.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { articleImage, blockQuote, cta } from "../src/_build/shortcodes.js";
+import { articleImage, blockQuote, cta } from "../shortcodes.js";
 
 describe("articleImage shortcode", () => {
   it("produces an img tag with src and alt attributes", () => {

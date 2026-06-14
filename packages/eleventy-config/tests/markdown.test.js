@@ -1,6 +1,15 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import markdownLib from "../src/_build/markdown.js";
+import { makeMarkdownLib } from "../markdown.js";
+
+const markdownLib = makeMarkdownLib({ domain: "alxm.me" });
+
+describe("makeMarkdownLib options", () => {
+  it("throws when no domain is provided", () => {
+    assert.throws(() => makeMarkdownLib(), /domain/);
+    assert.throws(() => makeMarkdownLib({}), /domain/);
+  });
+});
 
 describe("Markdown external link handling", () => {
   it("adds target=_blank and rel=noopener to external links", () => {
@@ -20,15 +29,19 @@ describe("Markdown external link handling", () => {
   });
 
   it("does not add target=_blank to same-domain links", () => {
-    const result = markdownLib.render(
-      "[Home](https://alexmarshalltherapy.com/about/)"
-    );
+    const result = markdownLib.render("[Home](https://alxm.me/about/)");
     assert.ok(!result.includes('target="_blank"'));
+  });
+
+  it("marks links on a different domain as external", () => {
+    const lib = makeMarkdownLib({ domain: "alexmarshalltherapy.com" });
+    const result = lib.render("[Home](https://alxm.me/about/)");
+    assert.ok(result.includes('target="_blank"'));
   });
 
   it("handles protocol-relative URLs as external", () => {
     // Protocol-relative URLs like //example.com don't start with / or #
-    // and don't include alexmarshalltherapy.com, so they should be treated as external
+    // and don't include the domain, so they should be treated as external
     const result = markdownLib.render("[Link](//example.com)");
     assert.ok(result.includes('target="_blank"'));
   });
@@ -87,38 +100,38 @@ describe("Markdown footnote rendering", () => {
 describe("Markdown smart arrow substitutions", () => {
   it("converts --> to right arrow", () => {
     const result = markdownLib.render("A --> B");
-    assert.ok(result.includes("\u2192"));
+    assert.ok(result.includes("→"));
   });
 
   it("converts <-- to left arrow", () => {
     const result = markdownLib.render("A <-- B");
-    assert.ok(result.includes("\u2190"));
+    assert.ok(result.includes("←"));
   });
 
   it("converts <--> to bidirectional arrow", () => {
     const result = markdownLib.render("A <--> B");
-    assert.ok(result.includes("\u2194"));
+    assert.ok(result.includes("↔"));
   });
 
   it("converts ==> to double right arrow", () => {
     const result = markdownLib.render("A ==> B");
-    assert.ok(result.includes("\u21D2"));
+    assert.ok(result.includes("⇒"));
   });
 
   it("converts <== to double left arrow", () => {
     const result = markdownLib.render("A <== B");
-    assert.ok(result.includes("\u21D0"));
+    assert.ok(result.includes("⇐"));
   });
 
   it("converts <==> to double bidirectional arrow", () => {
     const result = markdownLib.render("A <==> B");
-    assert.ok(result.includes("\u21D4"));
+    assert.ok(result.includes("⇔"));
   });
 
   it("does not convert arrows in code blocks", () => {
     const result = markdownLib.render("```\n-->\n```");
     // In code blocks, arrows should remain as literal text
-    assert.ok(!result.includes("\u2192"));
+    assert.ok(!result.includes("→"));
     assert.ok(result.includes("--&gt;"));
   });
 });

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { includesDir } from "@alxm/eleventy-config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,11 +16,9 @@ const ARTICLE_PATH = join(
   "partials",
   "article.liquid"
 );
+// The subscribe-form partial is owned by @alxm/eleventy-config.
 const SUBSCRIBE_FORM_PATH = join(
-  __dirname,
-  "..",
-  "src",
-  "_includes",
+  includesDir,
   "partials",
   "subscribe-form.liquid"
 );
