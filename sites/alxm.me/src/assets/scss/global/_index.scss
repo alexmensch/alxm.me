@@ -1,4 +1,4 @@
-@forward "reset";
-@forward "variables";
+@forward "pkg:@alxm/cube-scss/global/reset";
+@forward "pkg:@alxm/cube-scss/global/variables";
 @forward "themes";
-@forward "global-styles";
+@forward "pkg:@alxm/cube-scss/global/global-styles";

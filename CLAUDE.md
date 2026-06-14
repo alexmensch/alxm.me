@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Monorepo Layout
 
-This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages will live under `packages/*`. Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
+This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cube-scss`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
 
 **Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes per-site delegators that `cd` into the site and run its script: `alxm:*` for `sites/alxm.me/` (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) and `amt:*` for `sites/alexmarshalltherapy.com/` (e.g. `pnpm amt:build`, `pnpm amt:deploy:stg`).
 
@@ -88,7 +88,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `src/_includes/layouts/` - Page layouts (Liquid)
 - `src/_includes/partials/` - Reusable components
 - `src/_data/` - Global data files
-- `src/assets/scss/` - Styles organized by CUBE CSS methodology
+- `src/assets/scss/` - Thin local SCSS (`root.scss` + divergent partials); the shared design system is `@alxm/cube-scss` (`packages/cube-scss/`)
 - `worker/` - Thin Cloudflare Worker entry (`createFetchHandler({ rss })` from `@alxm/cf-worker`); shared logic lives in `packages/cf-worker/`
 - `_cloudflare/r2/` - R2 sync scripts (uploads large files to R2)
 - `eleventy-plugins/` - Custom Eleventy plugins
@@ -96,13 +96,19 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 
 ### SCSS Structure (CUBE CSS)
 
-Styles use CUBE CSS methodology with Utopia fluid typography:
+Styles use CUBE CSS methodology with Utopia fluid typography. The shared design system lives in the `@alxm/cube-scss` workspace package (`packages/cube-scss/scss/`); each site keeps only a thin local `root.scss` plus its divergent partials:
 
-- `global/` - Reset, variables, themes, base styles
-- `config/` - Design tokens, fonts, Sass helpers
+- `global/` - Reset, variables, base styles (+ alxm-only `_themes.scss`, local)
+- `config/` - Design tokens, fonts, Sass helpers (Utopia is imported here as `pkg:utopia-core-scss/...`, a dep of the package, not the sites)
 - `compositions/` - Layout primitives (flow, stack, grid, sidebar, etc.)
-- `blocks/` - Component-specific styles
-- `utilities/` - Single-purpose utility classes
+- `blocks/` - Component-specific styles (+ alxm-only `_artwork.scss`, therapy-only `_cta.scss`, local)
+- `utilities/` - Single-purpose utility classes (+ alxm-only `_external-link.scss`, local)
+
+How the seam works:
+
+- `root.scss` `@use`s shared layers via `pkg:@alxm/cube-scss/<layer>` and local divergent layers via the site's own `_index.scss`. Each `.eleventy.js` adds `importers: [new sass.NodePackageImporter(...)]` to the `sass.compileString` call so `pkg:` URLs resolve through the pnpm workspace symlinks.
+- A site that adds a partial to a shared layer (themes, artwork, cta, external-link) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. CUBE cascade order (compositions → utilities → blocks; global/config before all) and within-layer ordering are load-bearing; preserving them is what keeps compiled CSS byte-identical.
+- Package SCSS is not covered by the sites' stylelint globs (`src/**`); lint it via `npx stylelint "packages/cube-scss/scss/**/*.scss"` if you edit it.
 
 There is a cube-css skill that exists in this repository which you must reference when making changes to styling, including CSS and fonts, in this repository.
 

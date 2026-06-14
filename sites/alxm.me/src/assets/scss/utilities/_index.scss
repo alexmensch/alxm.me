@@ -1,8 +1,9 @@
-@forward "anchor-styles";
-@forward "drop-cap";
-@forward "gutter";
-@forward "measure";
-@forward "radius";
-@forward "site-wrap";
-@forward "visually-hidden";
-@forward "wrapper";
+@forward "pkg:@alxm/cube-scss/utilities/anchor-styles";
+@forward "external-link";
+@forward "pkg:@alxm/cube-scss/utilities/drop-cap";
+@forward "pkg:@alxm/cube-scss/utilities/gutter";
+@forward "pkg:@alxm/cube-scss/utilities/measure";
+@forward "pkg:@alxm/cube-scss/utilities/radius";
+@forward "pkg:@alxm/cube-scss/utilities/site-wrap";
+@forward "pkg:@alxm/cube-scss/utilities/visually-hidden";
+@forward "pkg:@alxm/cube-scss/utilities/wrapper";

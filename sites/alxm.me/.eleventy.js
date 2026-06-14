@@ -215,7 +215,10 @@ export default async function (eleventyConfig) {
       }
 
       const result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || "."]
+        loadPaths: [parsed.dir || "."],
+        // Resolves pkg: URLs (@alxm/cube-scss and its utopia-core-scss dep)
+        // through the pnpm workspace symlinks.
+        importers: [new sass.NodePackageImporter(parsed.dir || ".")]
       });
 
       // This is the render function, `data` is the full data cascade
