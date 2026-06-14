@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Monorepo Layout
+
+This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/`; shared internal `workspace:*` packages will live under `packages/*`. Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
+
+**Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes `alxm:*` delegators (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) that `cd sites/alxm.me && pnpm <script>`.
+
 ## Build Commands
 
 ```bash

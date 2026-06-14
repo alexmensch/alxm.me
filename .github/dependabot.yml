@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/sites/alxm.me"
     schedule:
       interval: "weekly"

@@ -6,9 +6,7 @@ _site/
 .env
 .claude/*
 
-# Generated files
-_cloudflare/*/worker.js
-_cloudflare/*/wrangler.toml
+# Generated files (site-anchored generated files live in each site's .gitignore)
 permalinks.txt
 .assetsignore
 
