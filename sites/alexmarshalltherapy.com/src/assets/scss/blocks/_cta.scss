@@ -1,0 +1,16 @@
+@use "../config/design-tokens" as dt;
+
+.cta {
+  padding-block: var(--gutter);
+  padding-inline: var(--gutter);
+  margin-inline: calc(-1 * var(--gutter));
+  background: #{dt.get-color("light-shade")};
+
+  // .cta is exactly the text-measure wide in both placements, so auto
+  // margins centre the button against the visible text, not a wider box.
+  .button {
+    display: block;
+    inline-size: fit-content;
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="[ hero ] [ flow flow-space-xl ]">
+  {% if hero %}
+    {% assign header = hero.header %}
+    {% assign byline = hero.byline %}
+  {% endif %}
+
+  {% if byline %}
+    {% capture byline_html %}<p><em>{{ byline | markdownify }}</em></p>{% endcapture %}
+  {% endif %}
+
+  <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+  {% if byline %}
+    {{ byline_html }}
+  {% endif %}
+</div>

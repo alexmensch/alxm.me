@@ -1,0 +1,18 @@
+---
+layout: layouts/base
+---
+
+{% capture byline %}
+{% if version_date %}
+Last updated {{ version_date | date: "%e %B, %Y"}}, originally posted {{ date | date: "%e %B, %Y"}}
+{% else %}
+Posted {{ date | date: "%e %B, %Y"}}
+{% endif %}
+{% endcapture %}
+
+{% render "partials/article"
+          header: title,
+          byline: byline,
+          content: content,
+          subscription: subscription,
+          site: site %}

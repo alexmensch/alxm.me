@@ -1,0 +1,17 @@
+@mixin cluster($gap: "var(--flow-space)") {
+  display: flex;
+  flex-wrap: wrap;
+  gap: #{$gap};
+}
+
+.cluster {
+  @include cluster;
+
+  &[data-state="repel"] {
+    justify-content: space-between;
+  }
+
+  &[data-state="center"] {
+    align-items: center;
+  }
+}

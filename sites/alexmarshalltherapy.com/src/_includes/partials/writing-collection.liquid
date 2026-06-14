@@ -1,0 +1,16 @@
+<div class="[ gutter flow ]">
+  <div>
+    <h1 class="">{{ year }}</h1>
+  </div>
+  <div class="flow">
+    {% for post in collection reversed %}
+    <div>
+      <div class="flow flow-space-xs">
+        <h4><a href="{{ post.permalink }}">{{ post.title }}</a></h4>
+        <p><em>{{ post.date | date: "%e %b %Y" }}</em></p>
+        <p>{{ post.summary }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
