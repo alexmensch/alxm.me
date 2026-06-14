@@ -14,7 +14,8 @@
     "amt:build:cf": "cd sites/alexmarshalltherapy.com && pnpm build:cf",
     "amt:deploy": "cd sites/alexmarshalltherapy.com && pnpm deploy",
     "amt:deploy:stg": "cd sites/alexmarshalltherapy.com && pnpm deploy:stg",
-    "amt:watch": "cd sites/alexmarshalltherapy.com && pnpm 11ty:watch"
+    "amt:watch": "cd sites/alexmarshalltherapy.com && pnpm 11ty:watch",
+    "test:packages": "pnpm -r --filter \"./packages/*\" test"
   },
   "repository": {
     "type": "git",

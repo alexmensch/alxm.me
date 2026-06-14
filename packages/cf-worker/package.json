@@ -1,0 +1,15 @@
+{
+  "name": "@alxm/cf-worker",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared Cloudflare Worker fetch handler: R2 proxy, MIME detection, optional RSS",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "node --test 'tests/**/*.test.js'"
+  },
+  "license": "MIT"
+}
