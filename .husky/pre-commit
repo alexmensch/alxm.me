@@ -1,7 +1,7 @@
-# Check if any audio files are being committed
-if git diff --cached --name-only | grep -q "^src/assets/podcast/audio/.*\.mp3$"; then
+# Check if any alxm.me audio files are being committed
+if git diff --cached --name-only | grep -q "^sites/alxm\.me/src/assets/podcast/audio/.*\.mp3$"; then
   echo "Audio files detected in commit - validating metadata..."
-  pnpm run audio:validate
+  (cd sites/alxm.me && pnpm run audio:validate)
 fi
 
 # --- BEGIN BEADS INTEGRATION v1.0.5 ---

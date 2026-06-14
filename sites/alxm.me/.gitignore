@@ -1,0 +1,3 @@
+# Generated files (paths relative to this site)
+_cloudflare/*/worker.js
+_cloudflare/*/wrangler.toml
