@@ -1,0 +1,11 @@
+a.external-link {
+  &::after {
+    content: "\00a0↗";
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: translate(2px, -2px);
+  }
+}

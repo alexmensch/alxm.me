@@ -1,4 +1,4 @@
-@use "../../../../../node_modules/utopia-core-scss/src/utopia";
+@use "pkg:utopia-core-scss/src/utopia";
 @use "sass:map";
 
 @function generate-size-scale($params) {

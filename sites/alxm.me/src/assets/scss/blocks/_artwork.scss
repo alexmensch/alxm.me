@@ -1,5 +1,4 @@
-@use "../compositions";
-@use "../config/design-tokens" as dt;
+@use "pkg:@alxm/cube-scss/compositions";
 
 .artwork {
   &__gallery {

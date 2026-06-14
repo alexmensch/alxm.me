@@ -1,4 +1,4 @@
-@use "../config/design-tokens" as dt;
+@use "pkg:@alxm/cube-scss/config/design-tokens" as dt;
 
 .cta {
   padding-block: var(--gutter);
