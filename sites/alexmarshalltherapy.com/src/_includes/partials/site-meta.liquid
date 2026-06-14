@@ -1,0 +1,17 @@
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="{{ eleventy.generator }}" />
+        <meta name="author" content="{{ site.authorName }}" />
+{% if canonical_url %}
+        <link rel="canonical" href="{{ canonical_url }}" />
+{% else %}
+        <link rel="canonical" href="https://{{ site.domain }}{{ page.url }}" />
+{% endif %}
+{% if meta.description %}
+        <meta name="description" content="{{ meta.description }}" />
+{% elsif summary %}
+        <meta name="description" content="{{ summary }}" />
+{% endif %}
+{% if meta.noindex %}
+        <meta name="robots" content="noindex, follow" />
+{% endif %}

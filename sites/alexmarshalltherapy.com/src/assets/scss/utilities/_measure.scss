@@ -1,0 +1,5 @@
+@use "../config/design-tokens" as dt;
+
+.measure-reset {
+  --measure: #{dt.get-value("measure", "reset")};
+}

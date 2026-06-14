@@ -1,0 +1,22 @@
+.cover {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  padding: var(--padding);
+}
+
+.cover > * {
+  margin-block: var(--flow-space);
+}
+
+.cover > :first-child:not([data-target]) {
+  margin-block-start: 0;
+}
+
+.cover > :last-child:not([data-target]) {
+  margin-block-end: 0;
+}
+
+.cover > :is([data-target]) {
+  margin-block: auto;
+}

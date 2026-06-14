@@ -1,0 +1,62 @@
+<article class="[ article ] [ flow flow-space-m ]">
+  {% render "partials/hero"
+            hero: hero,
+            type: type,
+            header: header,
+            byline: byline,
+            site: site      %}
+
+  <div class="[ article__content ] [ flow ]">
+    {{ content }}
+    {% if subscription == true %}
+    {% render "partials/subscribe-form",
+              site: site,
+              cta: "Did you enjoy this? Get new posts by email.",
+              success_message: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
+    {% endif %}
+  </div>
+
+  {% if type == "writing" %}
+    {% comment %}
+    Filter to counsellingTags-owned items, then group by year
+    {% endcomment %}
+
+    {% assign items_with_dates_all = writing_collection | where: "date" %}
+    {% assign items_with_dates = "" | split: "" %}
+    {% for item in items_with_dates_all %}
+      {% if item.tags | hasAnyTag: site.counsellingTags %}
+        {% assign items_with_dates = items_with_dates | push: item %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign years_map = "" | split: "" %}
+    {% assign unique_years = "" | split: "" %}
+
+    {% for item in items_with_dates %}
+      {% assign item_year = item.date | date: "%Y" | plus: 0 %}
+      {% unless unique_years contains item_year %}
+        {% assign unique_years = unique_years | push: item_year %}
+      {% endunless %}
+    {% endfor %}
+
+    {% assign sorted_years = unique_years | sort | reverse %}
+
+    {% for year in sorted_years %}
+      {% assign year_items = "" | split: "" %}
+
+      {% for item in items_with_dates %}
+        {% assign item_year = item.date | date: "%Y" | plus: 0 %}
+        {% if item_year == year %}
+          {% assign year_items = year_items | push: item %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign year_items = year_items | sort: "date" %}
+      {% render "partials/writing-collection", collection: year_items, year: year %}
+    {% endfor %}
+  {% endif %}
+
+  {% if type == "contact" %}
+    {% render "partials/contact-options", options: options, site: site %}
+  {% endif %}
+</article>

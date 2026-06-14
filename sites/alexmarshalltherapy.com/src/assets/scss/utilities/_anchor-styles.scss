@@ -1,0 +1,19 @@
+a.arrow-shift {
+  &::after {
+    content: "\00a0→";
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: translateX(3px);
+  }
+}
+
+a.hover-show {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: revert;
+  }
+}

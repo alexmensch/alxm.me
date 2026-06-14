@@ -1,0 +1,13 @@
+overrides:
+  fast-xml-builder: "^1.1.7"
+  fast-xml-parser: ">=5.3.4"
+  undici: "^7.24.0"
+  ws: "^8.20.1"
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true

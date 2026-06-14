@@ -1,0 +1,11 @@
+.center {
+  box-sizing: content-box;
+  margin-inline: auto;
+  padding-inline: var(--padding);
+
+  &[data-state="intrinsic"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
