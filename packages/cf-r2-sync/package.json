@@ -1,0 +1,21 @@
+{
+  "name": "@alxm/cf-r2-sync",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Build-time R2 sync: upload large local assets to Cloudflare R2 (skip-unchanged via MD5, abort on un-smudged LFS pointers) and generate .assetsignore",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "node --test 'tests/**/*.test.js'"
+  },
+  "dependencies": {
+    "@alxm/cf-worker": "workspace:*",
+    "@aws-sdk/client-s3": "^3.1061.0",
+    "dotenv": "^17.4.2",
+    "wrangler": "^4.98.0"
+  },
+  "license": "MIT"
+}

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run format && pnpm run lint && pnpm test && npx @11ty/eleventy && node check-meta-descriptions.js",
-    "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run clean && pnpm run build && cd _cloudflare/r2 && pnpm install && node sync.js",
+    "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run clean && pnpm run build && node _cloudflare/r2/sync.js",
     "deploy": "pnpm run build:cf && npx wrangler deploy --env=''",
     "deploy:stg": "pnpm run clean && pnpm run build && npx wrangler deploy --env=staging",
     "clean": "rm -rf _site",
@@ -34,6 +34,7 @@
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-directory-output": "^1.0.2",
+    "@alxm/cf-r2-sync": "workspace:*",
     "@alxm/cf-worker": "workspace:*",
     "@alxm/cube-scss": "workspace:*",
     "@alxm/eleventy-config": "workspace:*",
