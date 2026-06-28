@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Monorepo Layout
 
-This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cf-r2-sync`, `@alxm/cube-scss`, `@alxm/eleventy-config`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
+This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cf-r2-sync`, `@alxm/cube-scss`, `@alxm/eleventy-config`, `@alxm/favicon-generator`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
 
 **Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes per-site delegators that `cd` into the site and run its script: `alxm:*` for `sites/alxm.me/` (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) and `amt:*` for `sites/alexmarshalltherapy.com/` (e.g. `pnpm amt:build`, `pnpm amt:deploy:stg`).
 
@@ -64,15 +64,15 @@ pnpm run audio:validate  # Check metadata matches audio files
 
 ### Favicons
 
-Favicons are generated from a font glyph using `scripts/generate-favicons.js`. The script extracts the "A" glyph from Inter Bold, centers it, and produces all favicon variants.
+Favicons are generated from a font glyph. The shared rendering logic lives in the `@alxm/favicon-generator` workspace package (`packages/favicon-generator/`); each site's `scripts/generate-favicons.js` is a thin wrapper that calls `generateFavicons({ fontPath, outDir, colorLight, colorDark })`. It extracts the "A" glyph from Inter Bold, centers it, and produces all favicon variants.
 
 ```bash
 node scripts/generate-favicons.js  # Regenerate all favicon files
 ```
 
 - Font source: `src/_build/fonts/Inter-Bold.ttf`
-- Change `FONT_PATH` in the script to use a different typeface
-- Dev dependencies: `sharp`, `png-to-ico`, `opentype.js`
+- Change `fontPath` / `colorLight` / `colorDark` in the site wrapper to use a different typeface or brand colors
+- The package owns the deps (`sharp`, `png-to-ico`, `opentype.js`); its placement math is unit-tested via root `pnpm test:packages`
 - Generated files (in `src/`): `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `favicon-192.png`, `favicon-512.png`
 - `favicon.svg` adapts to light/dark mode via CSS media query
 - `site.webmanifest` references the 192 and 512 PNG variants

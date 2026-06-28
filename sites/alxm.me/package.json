@@ -41,6 +41,7 @@
     "@alxm/cf-worker": "workspace:*",
     "@alxm/cube-scss": "workspace:*",
     "@alxm/eleventy-config": "workspace:*",
+    "@alxm/favicon-generator": "workspace:*",
     "dotenv": "^17.4.2",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
     "eleventy-plugin-og-image": "^4.2.1",
@@ -57,10 +58,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.6.0",
     "markdownlint-cli2": "^0.22.1",
-    "opentype.js": "^2.0.0",
-    "png-to-ico": "^3.0.1",
     "prettier": "^3.9.1",
-    "sharp": "0.35.2",
     "stylelint": "^17.14.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "wrangler": "^4.98.0"

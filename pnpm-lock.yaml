@@ -82,6 +82,18 @@ importers:
         specifier: ^1.6.9
         version: 1.6.9
 
+  packages/favicon-generator:
+    dependencies:
+      opentype.js:
+        specifier: ^2.0.0
+        version: 2.0.0
+      png-to-ico:
+        specifier: ^3.0.1
+        version: 3.0.1
+      sharp:
+        specifier: 0.35.2
+        version: 0.35.2
+
   sites/alexmarshalltherapy.com:
     dependencies:
       '@11ty/eleventy':
@@ -105,6 +117,9 @@ importers:
       '@alxm/eleventy-config':
         specifier: workspace:*
         version: link:../../packages/eleventy-config
+      '@alxm/favicon-generator':
+        specifier: workspace:*
+        version: link:../../packages/favicon-generator
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -142,9 +157,6 @@ importers:
       opentype.js:
         specifier: ^2.0.0
         version: 2.0.0
-      png-to-ico:
-        specifier: ^3.0.1
-        version: 3.0.1
       prettier:
         specifier: ^3.9.1
         version: 3.9.1
@@ -187,6 +199,9 @@ importers:
       '@alxm/eleventy-config':
         specifier: workspace:*
         version: link:../../packages/eleventy-config
+      '@alxm/favicon-generator':
+        specifier: workspace:*
+        version: link:../../packages/favicon-generator
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -230,18 +245,9 @@ importers:
       markdownlint-cli2:
         specifier: ^0.22.1
         version: 0.22.1
-      opentype.js:
-        specifier: ^2.0.0
-        version: 2.0.0
-      png-to-ico:
-        specifier: ^3.0.1
-        version: 3.0.1
       prettier:
         specifier: ^3.9.1
         version: 3.9.1
-      sharp:
-        specifier: 0.35.2
-        version: 0.35.2
       stylelint:
         specifier: ^17.14.0
         version: 17.14.0
