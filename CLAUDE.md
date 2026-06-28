@@ -8,6 +8,14 @@ This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` sit
 
 **Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes per-site delegators that `cd` into the site and run its script: `alxm:*` for `sites/alxm.me/` (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) and `amt:*` for `sites/alexmarshalltherapy.com/` (e.g. `pnpm amt:build`, `pnpm amt:deploy:stg`).
 
+### Workspace package quality gates
+
+`packages/*` are outside the sites' lint/test scope (a site's `pnpm build` only touches `src/**`), so they have their own root-level gates:
+
+- `pnpm test:packages` — runs each package's tests (`pnpm -r --filter "./packages/*" test`).
+- `pnpm lint:packages` — ESLint over `packages/**/*.js` (root `eslint.config.js`, rules kept in sync with the site configs) + Stylelint over `packages/**/*.scss` (root `.stylelintrc.json`).
+- `pnpm check:packages` — `lint:packages` then `test:packages`; the Husky **pre-push** hook runs this, so package regressions block a push.
+
 ## Build Commands
 
 ```bash
@@ -107,7 +115,7 @@ How the seam works:
 
 - `root.scss` `@use`s shared layers via `pkg:@alxm/cube-scss/<layer>` and local divergent layers via the site's own `_index.scss`. Each `.eleventy.js` adds `importers: [new sass.NodePackageImporter(...)]` to the `sass.compileString` call so `pkg:` URLs resolve through the pnpm workspace symlinks.
 - A site that adds a partial to a shared layer (themes, artwork, cta, external-link) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. CUBE cascade order (compositions → utilities → blocks; global/config before all) and within-layer ordering are load-bearing; preserving them is what keeps compiled CSS byte-identical.
-- Package SCSS is not covered by the sites' stylelint globs (`src/**`); lint it via `npx stylelint "packages/cube-scss/scss/**/*.scss"` if you edit it.
+- Package SCSS is outside the sites' stylelint globs (`src/**`); it is linted by the root `pnpm lint:packages` gate (see Workspace package quality gates above).
 
 There is a cube-css skill that exists in this repository which you must reference when making changes to styling, including CSS and fonts, in this repository.
 

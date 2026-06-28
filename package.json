@@ -2,6 +2,7 @@
   "name": "alxm-monorepo",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "description": "Monorepo for alxm.me and alexmarshalltherapy.com",
   "scripts": {
     "prepare": "husky",
@@ -15,7 +16,11 @@
     "amt:deploy": "cd sites/alexmarshalltherapy.com && pnpm deploy",
     "amt:deploy:stg": "cd sites/alexmarshalltherapy.com && pnpm deploy:stg",
     "amt:watch": "cd sites/alexmarshalltherapy.com && pnpm 11ty:watch",
-    "test:packages": "pnpm -r --filter \"./packages/*\" test"
+    "test:packages": "pnpm -r --filter \"./packages/*\" test",
+    "lint:packages": "pnpm run lint:packages:js && pnpm run lint:packages:css",
+    "lint:packages:js": "eslint packages",
+    "lint:packages:css": "stylelint \"packages/**/*.scss\"",
+    "check:packages": "pnpm run lint:packages && pnpm run test:packages"
   },
   "repository": {
     "type": "git",
@@ -24,6 +29,12 @@
   "author": "Alex Marshall",
   "license": "MIT",
   "devDependencies": {
-    "husky": "^9.1.7"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard-scss": "^16.0.0"
   }
 }
