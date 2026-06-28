@@ -7,6 +7,7 @@
 import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import opentype from "opentype.js";
+import { readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,7 +28,7 @@ const SIZE = 512;
 const PADDING = 0.06;
 
 function getGlyphPath(fontPath, char) {
-  const font = opentype.loadSync(fontPath);
+  const font = opentype.parse(readFileSync(fontPath));
   const glyph = font.charToGlyph(char);
 
   // Get the visual bounding box of the actual glyph shape
@@ -60,30 +61,27 @@ function getGlyphPath(fontPath, char) {
   // Desired visual left in SVG coords:
   const visualLeft = (SIZE - scaledW) / 2;
 
-  // The getPath x offset: shift so bbox.x1 * (fontSize/unitsPerEm) lands at visualLeft
-  // getPath uses fontSize to scale: pathScale = fontSize / unitsPerEm
-  // We want: bbox.x1 * pathScale + x = visualLeft (for left edge)
-  // We want: (unitsPerEm - bbox.y2) * pathScale + y_adjustment = visualTop (for top edge)
-  //
-  // Simpler approach: render at a known fontSize and use a transform.
-  // Let's render at unitsPerEm size (1:1) then apply SVG transform.
+  // Render at fontSize = unitsPerEm (1 path unit = 1 font unit), then place with an
+  // SVG transform. opentype.js v2's getPath emits Y mirrored relative to SVG's Y-down
+  // convention (the glyph's top edge lands at the most-negative path Y), so the
+  // transform flips Y via a negative Y scale to render the glyph upright. Anchoring
+  // the translate to the path's own bounding box keeps placement correct regardless of
+  // the constant offset getPath applies.
   const fontSize = font.unitsPerEm;
   const rawPath = glyph.getPath(0, 0, fontSize);
   const rawData = rawPath.toPathData();
+  const pathBox = rawPath.getBoundingBox();
 
-  // At fontSize = unitsPerEm, the path coordinates equal the font units directly.
-  // The baseline is at y=0 in the getPath output (Y-down SVG),
-  // and glyph extends from y=-bbox.y2 (top) to y=-bbox.y1 (bottom).
-  //
-  // We need to transform: scale then translate to center.
   const pathScale = scale; // target pixels per font unit
-  // After scaling, visual left edge = bbox.x1 * pathScale, we want it at visualLeft
-  const tx = visualLeft - bbox.x1 * pathScale;
-  // After scaling, visual top edge = -bbox.y2 * pathScale, we want it at visualTop
-  const ty = visualTop - -bbox.y2 * pathScale;
+  // scale(s, -s) maps path point (px, py) -> (px*s, -py*s); after the flip the glyph's
+  // left edge sits at pathBox.x1*s and its (visual) top edge at -pathBox.y2*s.
+  const tx = visualLeft - pathBox.x1 * pathScale;
+  const ty = visualTop + pathBox.y2 * pathScale;
 
-  // Return path data wrapped in a group transform
-  return { rawData, transform: `translate(${tx} ${ty}) scale(${pathScale})` };
+  return {
+    rawData,
+    transform: `translate(${tx} ${ty}) scale(${pathScale} ${-pathScale})`
+  };
 }
 
 function buildSvg({ glyph, fill, background, rounded = false }) {
