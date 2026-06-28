@@ -13,19 +13,26 @@ import {
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
+import sharedConfig, { includesDir, makeHelpers } from "@alxm/eleventy-config";
 
-import helpers from "./src/_data/helpers.js";
 import site from "./src/_data/site.js";
-import markdownLib from "./src/_build/markdown.js";
-import { articleImage, blockQuote, cta } from "./src/_build/shortcodes.js";
 import {
   renderArticleCard,
   renderIdentityCard
 } from "./src/_build/og-image.js";
 
+const helpers = makeHelpers();
+
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
+  // Shared markdown library, common filters/shortcodes, and the feedmail
+  // subscribe-form partial (resolved via the Liquid root added below).
+  eleventyConfig.addPlugin(sharedConfig, {
+    domain: site.domain,
+    shortcodes: { cta: true }
+  });
+
   // Custom Cloudflare KV -> Collections fetch
   eleventyConfig.addPlugin(kvCollectionsPlugin, {
     accountId: "CLOUDFLARE_ACCOUNT_ID",
@@ -106,9 +113,13 @@ export default async function (eleventyConfig) {
     ".assetsignore": ".assetsignore"
   });
 
-  /* Markdown Configuration */
-  /**************************/
-  eleventyConfig.setLibrary("md", markdownLib);
+  /* Liquid include resolution */
+  /*****************************/
+  // Add the @alxm/eleventy-config includes dir alongside the site's own so
+  // `{% render "partials/subscribe-form" %}` resolves the package-owned partial.
+  eleventyConfig.setLiquidOptions({
+    root: ["src/_includes", "src", includesDir]
+  });
 
   /* Sass support as a template format */
   /*************************************/
@@ -157,40 +168,6 @@ export default async function (eleventyConfig) {
   // Prevent _index.scss files from being rendered by Eleventy
   eleventyConfig.ignores.add("src/assets/scss/**/_*.scss");
 
-  /* Custom filters */
-  /******************/
-
-  // Custom filter to determine if current page is within parent link path
-  eleventyConfig.addFilter("getLinkActiveState", helpers.getLinkActiveState);
-
-  // True if an item's tags intersect the given allow-list (e.g. counsellingTags)
-  eleventyConfig.addFilter("hasAnyTag", helpers.hasAnyTag);
-
-  // Process input as Markdown, useful for Markdown included in frontmatter
-  eleventyConfig.addFilter("markdownify", (markdownString) =>
-    markdownLib.renderInline(markdownString)
-  );
-
-  // Custom filter to convert date to RFC3339 format
-  eleventyConfig.addFilter("dateToRfc3339", helpers.dateToRFC339);
-
-  // Custom filter to get the latest date on the items within a collection
-  eleventyConfig.addFilter(
-    "getNewestCollectionItemDate",
-    helpers.getNewestCollectionItemDate
-  );
-
-  // Renders Markdown input to HTML
-  eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
-
-  // Escapes HTML content
-  eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
-
-  // Escapes a string for safe embedding inside a JSON string value
-  eleventyConfig.addFilter("jsonEscape", (str) =>
-    JSON.stringify(String(str ?? "")).slice(1, -1)
-  );
-
   /* Open Graph card generation */
   /******************************/
   // Render a per-page OG card for any page whose og:image points under
@@ -232,16 +209,10 @@ export default async function (eleventyConfig) {
     if (count) console.log(`[og] rendered ${count} per-page card(s)`);
   });
 
-  /* Shortcodes */
-  /**************/
-
-  // Shortcode to add inline photos to articles
-  eleventyConfig.addLiquidShortcode("articleImage", articleImage);
-
-  eleventyConfig.addPairedShortcode("blockQuote", blockQuote);
-
-  // Visually-weighted inline CTA block (mid-page calls to action)
-  eleventyConfig.addPairedShortcode("cta", cta);
+  // Common filters (getLinkActiveState, hasAnyTag, markdownify, dateToRfc3339,
+  // getNewestCollectionItemDate, markdownToHTML, escapeHTML, jsonEscape) and the
+  // articleImage / blockQuote / cta shortcodes are registered by the
+  // @alxm/eleventy-config plugin above.
 
   return {
     dir: {

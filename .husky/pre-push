@@ -1,5 +1,10 @@
 command -v git-lfs >/dev/null 2>&1 && git lfs pre-push "$@"
 
+# Workspace packages (packages/*) sit outside the sites' lint/test scope, so
+# `pnpm build` in a site never exercises them. Gate pushes on them here.
+echo "Checking workspace packages (lint + test)..."
+pnpm run check:packages || exit 1
+
 # --- BEGIN BEADS INTEGRATION v1.0.5 ---
 # This section is managed by beads. Do not remove these markers.
 if command -v bd >/dev/null 2>&1; then

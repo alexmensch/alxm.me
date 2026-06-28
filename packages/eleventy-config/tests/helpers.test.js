@@ -1,6 +1,12 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import helpers from "../src/_data/helpers.js";
+import helpers, { makeHelpers } from "../helpers.js";
+
+describe("makeHelpers", () => {
+  it("returns the shared helpers object", () => {
+    assert.equal(makeHelpers(), helpers);
+  });
+});
 
 describe("currentYear", () => {
   it("returns the current year as a 4-digit string", () => {
@@ -250,6 +256,45 @@ describe("getLinkActiveState", () => {
   it("handles empty strings", () => {
     const result = helpers.getLinkActiveState("", "");
     assert.equal(typeof result, "string");
+  });
+
+  it("returns empty string when pagePath is not a string", () => {
+    assert.equal(helpers.getLinkActiveState("/writing/", undefined), "");
+    assert.equal(helpers.getLinkActiveState("/writing/", null), "");
+  });
+});
+
+describe("getPageTheme", () => {
+  const siteNav = [
+    { title: "Writing", url: "/writing/" },
+    { title: "Artwork", url: "/artwork/", theme: "artwork" },
+    { title: "Podcast", url: "/podcast/" }
+  ];
+
+  it("returns the theme for a matching path", () => {
+    const result = helpers.getPageTheme("/artwork/some-piece/", siteNav);
+    assert.equal(result, "artwork");
+  });
+
+  it("returns null when matching path has no theme property", () => {
+    const result = helpers.getPageTheme("/podcast/episode/", siteNav);
+    assert.equal(result, null);
+  });
+
+  it("returns null when no path matches", () => {
+    const result = helpers.getPageTheme("/unknown/path/", siteNav);
+    assert.equal(result, null);
+  });
+
+  it("returns null when theme is undefined", () => {
+    const nav = [{ title: "Writing", url: "/writing/", theme: undefined }];
+    const result = helpers.getPageTheme("/writing/post/", nav);
+    assert.equal(result, null);
+  });
+
+  it("returns null for empty nav array", () => {
+    const result = helpers.getPageTheme("/writing/", []);
+    assert.equal(result, null);
   });
 });
 
