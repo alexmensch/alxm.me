@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexmensch/alexmarshalltherapy.com.git"
+    "url": "git+https://github.com/alexmensch/alxm.me.git"
   },
   "author": "Alex Marshall",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexmensch/alexmarshalltherapy.com/issues"
+    "url": "https://github.com/alexmensch/alxm.me/issues"
   },
-  "homepage": "https://github.com/alexmensch/alexmarshalltherapy.com#readme",
+  "homepage": "https://github.com/alexmensch/alxm.me#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-img": "^6.0.4",
