@@ -39,6 +39,22 @@ describe("Markdown external link handling", () => {
     assert.ok(result.includes('target="_blank"'));
   });
 
+  it("treats a look-alike domain as external, not internal", () => {
+    const result = markdownLib.render("[Spoof](https://alxm.me.evil.com/x)");
+    assert.ok(result.includes('target="_blank"'));
+  });
+
+  it("treats a subdomain of the site as internal", () => {
+    const result = markdownLib.render("[Sub](https://www.alxm.me/about/)");
+    assert.ok(!result.includes('target="_blank"'));
+  });
+
+  it("does not add target=_blank to mailto links", () => {
+    const result = markdownLib.render("[Email](mailto:hello@alxm.me)");
+    assert.ok(result.includes('href="mailto:hello@alxm.me"'));
+    assert.ok(!result.includes('target="_blank"'));
+  });
+
   it("handles protocol-relative URLs as external", () => {
     // Protocol-relative URLs like //example.com don't start with / or #
     // and don't include the domain, so they should be treated as external

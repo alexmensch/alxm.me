@@ -11,6 +11,26 @@ import mdFN from "markdown-it-footnote";
 import mdIterator from "markdown-it-for-inline";
 import mdSmartArrows from "markdown-it-smartarrows";
 
+// A link is external when it resolves to an http(s) host that is neither the
+// site's own domain nor a subdomain of it. Anchors, relative URLs, and other
+// schemes (mailto:, tel:) are never external. Comparing the parsed host rather
+// than a substring of the href keeps look-alike domains (alxm.me.evil.com)
+// external and own-domain mailto addresses internal.
+function isExternalLink(href, domain) {
+  if (!href) return false;
+
+  let url;
+  try {
+    url = new URL(href.startsWith("//") ? `https:${href}` : href);
+  } catch {
+    return false;
+  }
+
+  if (url.protocol !== "http:" && url.protocol !== "https:") return false;
+
+  return url.hostname !== domain && !url.hostname.endsWith(`.${domain}`);
+}
+
 export function makeMarkdownLib({ domain } = {}) {
   if (!domain) {
     throw new Error("makeMarkdownLib requires a `domain` option");
@@ -20,20 +40,11 @@ export function makeMarkdownLib({ domain } = {}) {
     typographer: true,
     html: true
   })
-    // Footnotes
     .use(mdFN)
     .use(mdIterator, "href_blank", "link_open", (tokens, idx) => {
-      // eslint-disable-next-line no-unused-vars
-      const [attrName, href] = tokens[idx].attrs.find(
-        (attr) => attr[0] === "href"
-      );
+      const href = tokens[idx].attrs.find((attr) => attr[0] === "href")?.[1];
 
-      if (
-        href &&
-        !href.includes(domain) &&
-        (!href.startsWith("/") || href.startsWith("//")) &&
-        !href.startsWith("#")
-      ) {
+      if (isExternalLink(href, domain)) {
         tokens[idx].attrPush(["target", "_blank"]);
         tokens[idx].attrPush(["rel", "noopener"]);
       }

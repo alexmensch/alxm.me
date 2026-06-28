@@ -9,8 +9,7 @@
     ".": "./index.js",
     "./helpers": "./helpers.js",
     "./markdown": "./markdown.js",
-    "./shortcodes": "./shortcodes.js",
-    "./includes/*": "./includes/*"
+    "./shortcodes": "./shortcodes.js"
   },
   "scripts": {
     "test": "node --test 'tests/**/*.test.js'"

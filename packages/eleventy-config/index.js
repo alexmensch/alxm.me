@@ -74,11 +74,9 @@ export function makeLoremIpsum(LoremIpsum) {
 export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
   const { domain, loremIpsum, pageTheme = false, shortcodes = {} } = options;
 
-  if (!domain) {
-    throw new Error("@alxm/eleventy-config plugin requires a `domain` option");
-  }
-
   const helpers = makeHelpers();
+  // makeMarkdownLib throws if `domain` is missing — the single source of truth
+  // for that requirement.
   const markdownLib = makeMarkdownLib({ domain });
 
   /* Markdown library */
