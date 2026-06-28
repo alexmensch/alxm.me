@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Monorepo Layout
 
-This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cube-scss`, `@alxm/eleventy-config`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
+This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` site lives in `sites/alxm.me/` and the `alexmarshalltherapy.com` site in `sites/alexmarshalltherapy.com/`; shared internal `workspace:*` packages live under `packages/*` (`@alxm/cf-worker`, `@alxm/cf-r2-sync`, `@alxm/cube-scss`, `@alxm/eleventy-config`). Husky git hooks and the beads workspace (`.beads/`) stay at the repo root.
 
 **Unless stated otherwise, paths in this document are relative to `sites/alxm.me/`**, and the build/lint/deploy commands below run from inside that directory. From the repo root, the root `package.json` exposes per-site delegators that `cd` into the site and run its script: `alxm:*` for `sites/alxm.me/` (e.g. `pnpm alxm:build`, `pnpm alxm:deploy:stg`) and `amt:*` for `sites/alexmarshalltherapy.com/` (e.g. `pnpm amt:build`, `pnpm amt:deploy:stg`).
 
@@ -97,7 +97,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 - `src/_data/` - Global data files
 - `src/assets/scss/` - Thin local SCSS (`root.scss` + divergent partials); the shared design system is `@alxm/cube-scss` (`packages/cube-scss/`)
 - `worker/` - Thin Cloudflare Worker entry (`createFetchHandler({ rss })` from `@alxm/cf-worker`); shared logic lives in `packages/cf-worker/`
-- `_cloudflare/r2/` - R2 sync scripts (uploads large files to R2)
+- `_cloudflare/r2/` - Thin per-site R2 sync wrappers (`config.js` + `sync.js`/`generate-assetsignore.js` calling `@alxm/cf-r2-sync`); shared logic lives in `packages/cf-r2-sync/`
 - `eleventy-plugins/` - Custom Eleventy plugins
 - `tests/` - Test suite (Node.js built-in test runner, `node:test` + `assert/strict`)
 
@@ -133,10 +133,12 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 - Adds `TDM-Reservation: 1` header to HTML responses (W3C TDM Protocol opt-out)
 - Configuration in each site's `wrangler.toml`; package owns the worker unit tests (run via root `pnpm test:packages`)
 
-**R2 Sync** (`_cloudflare/r2/`):
+**R2 Sync** — shared logic in the `@alxm/cf-r2-sync` workspace package (`packages/cf-r2-sync/`); each site's `_cloudflare/r2/sync.js` is a thin wrapper that calls `syncFiles(config)` with per-site `{ bucketName, srcPrefix, r2Dirs, checkLfs, envPath }` (only `BUCKET_NAME`/`R2_DIRS` differ between sites) and `generate-assetsignore.js` calls `generateAssetsIgnore(config)`. The package owns the deps (`@aws-sdk/client-s3`, `dotenv`, `wrangler`) and reuses the MIME map from `@alxm/cf-worker`; its unit tests run via root `pnpm test:packages`.
 
 - Syncs large files to R2 bucket (see `config.js` for `R2_DIRS`)
-- Runs as part of `build:cf` command
+- Skips objects whose remote MD5 (R2 ETag) already matches the local file
+- Aborts before any upload if an un-smudged LFS pointer is detected (`checkLfs`)
+- Runs as part of `build:cf` command (deps resolve via the workspace; no separate install step)
 - Large files excluded from Eleventy passthrough for faster builds (~344MB):
   - `src/assets/files/` - PDFs, misc audio
   - `src/assets/podcast/audio/` - Podcast episodes
