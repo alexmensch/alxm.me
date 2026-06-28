@@ -23,7 +23,7 @@ This experience is so rare in the software market that products that support, ra
 
 ## Getting started
 
-More fundamental than choosing *what* to prioritize and build is *how* you decide to build, which has wide-reaching impact on the perception of your product. Some questions that we might explore when getting started are:
+More fundamental than choosing _what_ to prioritize and build is _how_ you decide to build, which has wide-reaching impact on the perception of your product. Some questions that we might explore when getting started are:
 
 - Are you happy with the level of customer satisfaction with your product? What do they love? What do they hate?
 - Do you have established product values that guide how you make product decisions?
