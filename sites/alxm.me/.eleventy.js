@@ -1,7 +1,5 @@
 import * as sass from "sass";
 import path from "node:path";
-import crypto from "node:crypto";
-import { promises as fs } from "node:fs";
 import "dotenv/config";
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
@@ -14,15 +12,15 @@ import {
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
-import EleventyPluginOgImage from "eleventy-plugin-og-image";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import { LoremIpsum } from "lorem-ipsum";
 import sharedConfig, { includesDir, makeHelpers } from "@alxm/eleventy-config";
 import permalinkTracker from "./eleventy-plugins/permalink-tracker.js";
 import audioValidationPlugin from "./eleventy-plugins/audio-validation.js";
+import { ogImagePlugin } from "@alxm/og-image/plugin";
 
 import siteConfig from "./src/_data/site.js";
-import openGraph from "./src/_data/opengraph.js";
+import { ogTheme } from "./src/_build/og-theme.js";
 import podcast from "./src/_data/podcast.js";
 
 const helpers = makeHelpers();
@@ -105,40 +103,12 @@ export default async function (eleventyConfig) {
     quiet: true
   });
 
-  eleventyConfig.addPlugin(EleventyPluginOgImage, {
-    outputFileExtension: "webp",
-    outputDir: "assets/images/og",
-    previewMode: false,
-    // Output absolute URL for og:image (social platforms require full URLs)
-    shortcodeOutput: async (ogImage) => {
-      const url = await ogImage.outputUrl();
-      return `<meta property="og:image" content="https://${siteConfig.domain}${url}" />`;
-    },
-    // Custom slug: hash input data instead of rendered HTML (faster builds)
-    // Trade-off: template changes won't trigger regeneration, only data changes
-    outputFileSlug: (ogImage) => {
-      const hash = crypto.createHash("sha256");
-      hash.update(JSON.stringify(ogImage.data));
-      return hash.digest("hex").substring(0, 8);
-    },
-    satoriOptions: {
-      fonts: [
-        {
-          name: "Inter",
-          data: await fs.readFile("./src/_build/fonts/Inter-Bold.ttf"),
-          weight: 700,
-          style: "normal"
-        },
-        {
-          name: "Source Serif 4",
-          data: await fs.readFile(
-            "./src/_build/fonts/SourceSerif4-BoldItalic.ttf"
-          ),
-          weight: 700,
-          style: "italic"
-        }
-      ]
-    }
+  ogImagePlugin(eleventyConfig, {
+    domain: siteConfig.domain,
+    siteName: siteConfig.siteName,
+    generatedDir: siteConfig.og.generatedDir,
+    defaultImage: siteConfig.og.defaultImage,
+    theme: ogTheme
   });
 
   // Directory output on build
@@ -256,9 +226,6 @@ export default async function (eleventyConfig) {
   // getNewestCollectionItemDate, markdownToHTML, escapeHTML, jsonEscape,
   // getPageTheme, hasAnyTag) and the articleImage / blockQuote shortcodes are
   // registered by the @alxm/eleventy-config plugin above.
-
-  // Filters used for OpenGraph SVG generation
-  eleventyConfig.addFilter("readablePostDate", openGraph.ogReadablePostDate);
 
   // Renders Markdown input to CDATA-enclosed HTML
   // Example: {{ markdown_content | markdownToCDATA }}

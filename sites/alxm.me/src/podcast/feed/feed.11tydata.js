@@ -14,7 +14,7 @@ export default {
      */
     pubDate: undefined,
     description: undefined,
-    ogData: undefined,
+    ogImage: undefined,
     itunes: undefined,
     enclosure: undefined
   }

@@ -118,6 +118,16 @@ site.newsletter = {
   channelId: "alxm-me"
 };
 
+// Open Graph preview cards. `defaultImage` is the committed static fallback;
+// pages whose og:image resolves under `generatedDir` get a card rendered for
+// them at build time (see the @alxm/og-image plugin in .eleventy.js).
+site.og = {
+  defaultImage: "/assets/images/og/default.png",
+  generatedDir: "/assets/images/og/auto",
+  width: 1200,
+  height: 630
+};
+
 // Psychology writing is source-of-truth on alexmarshalltherapy.com. tags drive
 // both the listing's link-out and the suppression of local page generation;
 // baseUrl (no trailing slash — permalinks start with "/") is prepended to the
