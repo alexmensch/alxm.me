@@ -44,6 +44,12 @@ const helpers = {
   dateToRFC339(date) {
     return date.toISOString();
   },
+  // Absolute URL of a page's generated OG card: the page permalink mirrored
+  // under `generatedDir` with a .png extension. The @alxm/og-image eleventy
+  // plugin renders the card to the path this points at.
+  ogImageUrl(permalink, domain, generatedDir) {
+    return `https://${domain}${generatedDir}${permalink.replace(/\/$/, "")}.png`;
+  },
   getLinkActiveState(itemPath, pagePath) {
     let response = "";
 
