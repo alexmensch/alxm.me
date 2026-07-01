@@ -1,8 +1,9 @@
 /**
  * Site-specific OG card theme, shared by .eleventy.js (per-article cards) and
  * scripts/generate-og-image.js (the static identity card). Colours are left to
- * @alxm/og-image's default palette (navy/cream/pink); only the dimensions,
- * author text, portrait, and fonts are site-supplied.
+ * @alxm/og-image's default palette (navy/cream/pink); only the author text,
+ * portrait, and fonts are site-supplied. Card dimensions are fixed by the
+ * package.
  */
 
 import { join, dirname } from "node:path";
@@ -12,8 +13,6 @@ import site from "../_data/site.js";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
 export const ogTheme = {
-  width: site.og.width,
-  height: site.og.height,
   author: { name: site.authorName, role: site.authorRole },
   portraitPath: join(root, "src", "assets", "images", "portrait.jpg"),
   fonts: {

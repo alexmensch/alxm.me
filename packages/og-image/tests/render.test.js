@@ -1,8 +1,7 @@
 import { describe, it, before } from "node:test";
 import assert from "node:assert/strict";
 import { tmpdir } from "node:os";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import sharp from "sharp";
 import {
   commandsToData,
@@ -10,28 +9,10 @@ import {
   wrapLines,
   renderArticleCard,
   renderIdentityCard,
-  DEFAULT_WIDTH,
-  DEFAULT_HEIGHT
+  OG_WIDTH,
+  OG_HEIGHT
 } from "../index.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// Brand fonts — both sites ship byte-identical copies under src/_build/fonts.
-const FONTS = join(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "sites",
-  "alxm.me",
-  "src",
-  "_build",
-  "fonts"
-);
-const fonts = {
-  inter: join(FONTS, "Inter-Bold.ttf"),
-  serif: join(FONTS, "SourceSerif4-BoldItalic.ttf")
-};
+import { writeStubFont } from "./fixtures/stub-font.js";
 
 // A deterministic monospace-ish font: every glyph 500 units wide, space 250,
 // no kerning, 1000 units per em — so measure()/wrapLines() have exact answers.
@@ -92,6 +73,7 @@ describe("wrapLines", () => {
 
 describe("card renderers", () => {
   let portraitPath;
+  let fonts;
   before(async () => {
     portraitPath = join(tmpdir(), "og-image-test-portrait.png");
     await sharp({
@@ -99,6 +81,9 @@ describe("card renderers", () => {
     })
       .png()
       .toFile(portraitPath);
+
+    const fontPath = writeStubFont(join(tmpdir(), "og-image-test-font.ttf"));
+    fonts = { inter: fontPath, serif: fontPath };
   });
 
   it("renderArticleCard returns a valid 1200x630 PNG", async () => {
@@ -108,8 +93,8 @@ describe("card renderers", () => {
     });
     const meta = await sharp(png).metadata();
     assert.equal(meta.format, "png");
-    assert.equal(meta.width, DEFAULT_WIDTH);
-    assert.equal(meta.height, DEFAULT_HEIGHT);
+    assert.equal(meta.width, OG_WIDTH);
+    assert.equal(meta.height, OG_HEIGHT);
   });
 
   it("renderArticleCard renders a name-only footer when role is unset", async () => {
@@ -118,8 +103,8 @@ describe("card renderers", () => {
       fonts
     });
     const meta = await sharp(png).metadata();
-    assert.equal(meta.width, DEFAULT_WIDTH);
-    assert.equal(meta.height, DEFAULT_HEIGHT);
+    assert.equal(meta.width, OG_WIDTH);
+    assert.equal(meta.height, OG_HEIGHT);
   });
 
   it("renderIdentityCard returns a valid 1200x630 PNG", async () => {
@@ -130,7 +115,18 @@ describe("card renderers", () => {
     });
     const meta = await sharp(png).metadata();
     assert.equal(meta.format, "png");
-    assert.equal(meta.width, DEFAULT_WIDTH);
-    assert.equal(meta.height, DEFAULT_HEIGHT);
+    assert.equal(meta.width, OG_WIDTH);
+    assert.equal(meta.height, OG_HEIGHT);
+  });
+
+  it("renderIdentityCard renders a name-only panel when role is unset", async () => {
+    const png = await renderIdentityCard({
+      author: { name: "Alex Marshall" },
+      portraitPath,
+      fonts
+    });
+    const meta = await sharp(png).metadata();
+    assert.equal(meta.width, OG_WIDTH);
+    assert.equal(meta.height, OG_HEIGHT);
   });
 });

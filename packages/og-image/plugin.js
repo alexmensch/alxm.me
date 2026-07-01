@@ -12,7 +12,6 @@
  *   domain, siteName,
  *   titleSeparator = " • ",   // stripped, with siteName, off og:title
  *   generatedDir,             // e.g. "/assets/images/og/auto"
- *   defaultImage,             // site-wide fallback (used by the meta template)
  *   theme                     // passed through to the renderers
  * }
  */

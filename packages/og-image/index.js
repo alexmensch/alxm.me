@@ -4,7 +4,6 @@ export {
   measure,
   wrapLines,
   commandsToData,
-  textPath,
-  DEFAULT_WIDTH,
-  DEFAULT_HEIGHT
+  OG_WIDTH,
+  OG_HEIGHT
 } from "./render.js";

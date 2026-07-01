@@ -1,16 +1,17 @@
 /**
- * Open Graph card rendering. Cards are `width`x`height` PNGs built as an SVG
- * composited with sharp. Text is rendered to vector paths via opentype.js
+ * Open Graph card rendering. Cards are OG_WIDTH x OG_HEIGHT PNGs built as an
+ * SVG composited with sharp. Text is rendered to vector paths via opentype.js
  * charToGlyph rather than @font-face: librsvg (sharp's SVG backend) resolves
  * embedded fonts unreliably, and opentype 2.0.0's string-level getPath/toSVG
  * are broken for these fonts (ccmp crash, then stray NaN that aborts the path
  * mid-render). Going glyph-by-glyph sidesteps both — the same technique
  * @alxm/favicon-generator uses.
  *
- * Everything site-specific (dimensions, palette, author text, fonts, portrait)
- * is passed in via `theme`, so both sites share one engine:
+ * The card size is fixed at the standard OG dimensions: the layout geometry
+ * (positions and font sizes) is hand-tuned for OG_WIDTH x OG_HEIGHT, not
+ * derived from them, so it is not a free variable. Everything else that is
+ * site-specific is passed in via `theme`, so both sites share one engine:
  *   theme = {
- *     width, height,
  *     colors: { background, text, accent },
  *     author: { name, role },      // role optional — omit for name-only footer
  *     portraitPath,                // used by the identity card
@@ -22,19 +23,18 @@ import sharp from "sharp";
 import opentype from "opentype.js";
 import { readFileSync } from "node:fs";
 
-export const DEFAULT_WIDTH = 1200;
-export const DEFAULT_HEIGHT = 630;
+export const OG_WIDTH = 1200;
+export const OG_HEIGHT = 630;
 
+// Mirrors the sites' brand tokens (src/assets/scss/global/_variables.scss).
 const DEFAULT_COLORS = {
-  background: "#2e3a50", // navy
-  text: "#fdf8f3", // cream
-  accent: "#fa576e" // pink
+  background: "#2e3a50", // --color-dark (navy)
+  text: "#fdf8f3", // --color-light (cream)
+  accent: "#fa576e" // --color-primary (pink)
 };
 
 function resolveTheme(theme = {}) {
   return {
-    width: theme.width ?? DEFAULT_WIDTH,
-    height: theme.height ?? DEFAULT_HEIGHT,
     colors: { ...DEFAULT_COLORS, ...theme.colors },
     author: theme.author ?? {},
     portraitPath: theme.portraitPath,
@@ -96,7 +96,7 @@ export function measure(font, text, size) {
 }
 
 /** A single line of text as an SVG <path>, filled with `color`. */
-export function textPath(font, text, x, baseline, size, color) {
+function textPath(font, text, x, baseline, size, color) {
   const scale = size / font.unitsPerEm;
   const out = new opentype.Path();
   let penX = x;
@@ -129,10 +129,10 @@ export function wrapLines(font, text, size, maxWidth) {
   return lines;
 }
 
-function svgToCard(body, background, width, height) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${body}</svg>`;
+function svgToCard(body, background) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 ${OG_WIDTH} ${OG_HEIGHT}">${body}</svg>`;
   return sharp({
-    create: { width, height, channels: 3, background }
+    create: { width: OG_WIDTH, height: OG_HEIGHT, channels: 3, background }
   })
     .composite([{ input: Buffer.from(svg), left: 0, top: 0 }])
     .png()
@@ -144,8 +144,7 @@ function svgToCard(body, background, width, height) {
  * with the name (Inter Bold) and, if present, the role (Source Serif italic).
  */
 export async function renderIdentityCard(theme) {
-  const { width, height, colors, author, portraitPath, fonts } =
-    resolveTheme(theme);
+  const { colors, author, portraitPath, fonts } = resolveTheme(theme);
   const inter = loadFont(fonts.inter);
   const serif = loadFont(fonts.serif);
 
@@ -154,7 +153,7 @@ export async function renderIdentityCard(theme) {
   const panelX = PHOTO_W + PAD;
 
   const portrait = await sharp(portraitPath)
-    .resize(PHOTO_W, height, { fit: "cover", position: "centre" })
+    .resize(PHOTO_W, OG_HEIGHT, { fit: "cover", position: "centre" })
     .toBuffer();
 
   const roleLine = author.role
@@ -165,10 +164,15 @@ export async function renderIdentityCard(theme) {
     ${textPath(inter, author.name, panelX, 300, 68, colors.text)}
     ${roleLine}
   `;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${body}</svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_WIDTH}" height="${OG_HEIGHT}" viewBox="0 0 ${OG_WIDTH} ${OG_HEIGHT}">${body}</svg>`;
 
   return sharp({
-    create: { width, height, channels: 3, background: colors.background }
+    create: {
+      width: OG_WIDTH,
+      height: OG_HEIGHT,
+      channels: 3,
+      background: colors.background
+    }
   })
     .composite([
       { input: portrait, left: 0, top: 0 },
@@ -185,12 +189,12 @@ export async function renderIdentityCard(theme) {
  * footer shows the name, plus a divider and role when a role is set.
  */
 export async function renderArticleCard(title, theme) {
-  const { width, height, colors, author, fonts } = resolveTheme(theme);
+  const { colors, author, fonts } = resolveTheme(theme);
   const inter = loadFont(fonts.inter);
   const serif = loadFont(fonts.serif);
 
   const PAD = 80;
-  const maxWidth = width - PAD * 2;
+  const maxWidth = OG_WIDTH - PAD * 2;
   const maxLines = 4;
 
   // Pick the largest size at which the title fits within maxLines.
@@ -243,5 +247,5 @@ export async function renderArticleCard(title, theme) {
     ${footer}
   `;
 
-  return svgToCard(body, colors.background, width, height);
+  return svgToCard(body, colors.background);
 }
