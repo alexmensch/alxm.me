@@ -1,3 +1,5 @@
+import { OG_WIDTH, OG_HEIGHT } from "@alxm/og-image";
+
 const site = {
   domain: "alexmarshalltherapy.com",
   authorName: "Alex Marshall",
@@ -13,12 +15,14 @@ const site = {
 
 // Open Graph preview cards. `defaultImage` is the committed static fallback;
 // pages whose og:image resolves under `generatedDir` get a card rendered for
-// them at build time (see the eleventy.after hook in .eleventy.js).
+// them at build time (see the eleventy.after hook in .eleventy.js). width/height
+// come from @alxm/og-image so the og:image:width/height meta tags always match
+// the rendered card and can't drift.
 site.og = {
   defaultImage: "/assets/images/og/default.png",
   generatedDir: "/assets/images/og/auto",
-  width: 1200,
-  height: 630
+  width: OG_WIDTH,
+  height: OG_HEIGHT
 };
 
 // Atom feed for the writing collection. Only items whose tags intersect
