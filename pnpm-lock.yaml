@@ -94,6 +94,15 @@ importers:
         specifier: 0.35.2
         version: 0.35.2
 
+  packages/og-image:
+    dependencies:
+      opentype.js:
+        specifier: ^2.0.0
+        version: 2.0.0
+      sharp:
+        specifier: 0.35.2
+        version: 0.35.2
+
   sites/alexmarshalltherapy.com:
     dependencies:
       '@11ty/eleventy':
@@ -120,6 +129,9 @@ importers:
       '@alxm/favicon-generator':
         specifier: workspace:*
         version: link:../../packages/favicon-generator
+      '@alxm/og-image':
+        specifier: workspace:*
+        version: link:../../packages/og-image
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -154,15 +166,9 @@ importers:
       markdownlint-cli2:
         specifier: ^0.22.1
         version: 0.22.1
-      opentype.js:
-        specifier: ^2.0.0
-        version: 2.0.0
       prettier:
         specifier: ^3.9.1
         version: 3.9.1
-      sharp:
-        specifier: 0.35.2
-        version: 0.35.2
       stylelint:
         specifier: ^17.14.0
         version: 17.14.0

@@ -1,6 +1,5 @@
 import * as sass from "sass";
 import path from "node:path";
-import { writeFile, mkdir } from "node:fs/promises";
 import "dotenv/config";
 
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
@@ -15,11 +14,10 @@ import purgeCssPlugin from "eleventy-plugin-purgecss";
 import kvCollectionsPlugin from "eleventy-plugin-cloudflare-kv";
 import sharedConfig, { includesDir, makeHelpers } from "@alxm/eleventy-config";
 
+import { ogImagePlugin } from "@alxm/og-image/plugin";
+
 import site from "./src/_data/site.js";
-import {
-  renderArticleCard,
-  renderIdentityCard
-} from "./src/_build/og-image.js";
+import { ogTheme } from "./src/_build/og-theme.js";
 
 const helpers = makeHelpers();
 
@@ -170,43 +168,12 @@ export default async function (eleventyConfig) {
 
   /* Open Graph card generation */
   /******************************/
-  // Render a per-page OG card for any page whose og:image points under
-  // site.og.generatedDir. Pages opt in by setting `ogImage` there (e.g.
-  // src/writing/writing.11tydata.js) — this hook names no collection. It runs
-  // off the post-build `results`: a custom collection's getAll() races
-  // pagination, and results carry no page data, so the title is recovered from
-  // the rendered og:title. The card is written to the exact path the page's
-  // og:image already points at, so the URL and the file can never disagree. A
-  // card that fails to render falls back to the static identity card.
-  eleventyConfig.on("eleventy.after", async ({ dir, results }) => {
-    const origin = `https://${site.domain}`;
-    const generatedPrefix = `${origin}${site.og.generatedDir}/`;
-    let fallback;
-    let count = 0;
-    for (const page of results) {
-      const ogImage = page.content?.match(
-        /property="og:image" content="([^"]+)"/
-      )?.[1];
-      if (!ogImage?.startsWith(generatedPrefix)) continue;
-      const title = page.content
-        .match(/property="og:title" content="([^"]+)"/)?.[1]
-        ?.replace(` • ${site.siteName}`, "")
-        .trim();
-      let png;
-      if (title) {
-        try {
-          png = await renderArticleCard(title);
-        } catch (err) {
-          console.warn(`[og] ${ogImage}: ${err.message}`);
-        }
-      }
-      if (!png) png = fallback ??= await renderIdentityCard();
-      const outPath = path.join(dir.output, ogImage.slice(origin.length));
-      await mkdir(path.dirname(outPath), { recursive: true });
-      await writeFile(outPath, png);
-      count++;
-    }
-    if (count) console.log(`[og] rendered ${count} per-page card(s)`);
+  ogImagePlugin(eleventyConfig, {
+    domain: site.domain,
+    siteName: site.siteName,
+    generatedDir: site.og.generatedDir,
+    defaultImage: site.og.defaultImage,
+    theme: ogTheme
   });
 
   // Common filters (getLinkActiveState, hasAnyTag, markdownify, dateToRfc3339,

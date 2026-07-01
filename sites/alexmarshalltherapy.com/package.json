@@ -39,6 +39,7 @@
     "@alxm/cube-scss": "workspace:*",
     "@alxm/eleventy-config": "workspace:*",
     "@alxm/favicon-generator": "workspace:*",
+    "@alxm/og-image": "workspace:*",
     "dotenv": "^17.4.2",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
     "eleventy-plugin-purgecss": "^0.6.0",
@@ -52,9 +53,7 @@
     "globals": "^17.6.0",
     "husky": "^9.1.7",
     "markdownlint-cli2": "^0.22.1",
-    "opentype.js": "^2.0.0",
     "prettier": "^3.9.1",
-    "sharp": "0.35.2",
     "stylelint": "^17.14.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "wrangler": "^4.98.0"
