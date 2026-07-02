@@ -107,7 +107,6 @@ export default async function (eleventyConfig) {
     domain: siteConfig.domain,
     siteName: siteConfig.siteName,
     generatedDir: siteConfig.og.generatedDir,
-    defaultImage: siteConfig.og.defaultImage,
     theme: ogTheme
   });
 

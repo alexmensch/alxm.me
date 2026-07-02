@@ -12,8 +12,6 @@ import site from "../_data/site.js";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
 export const ogTheme = {
-  width: site.og.width,
-  height: site.og.height,
   author: { name: site.authorName },
   portraitPath: join(root, "src", "assets", "images", "portrait-og.jpg"),
   fonts: {

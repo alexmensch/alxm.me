@@ -15,7 +15,7 @@
  *     colors: { background, text, accent },
  *     author: { name, role },      // role optional — omit for name-only footer
  *     portraitPath,                // used by the identity card
- *     fonts: { inter, serif }      // absolute paths to .ttf files
+ *     fonts: { inter, serif }      // .ttf paths; serif loaded only when a role is set
  *   }
  */
 
