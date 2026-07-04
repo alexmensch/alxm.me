@@ -58,7 +58,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.6.0",
     "markdownlint-cli2": "^0.22.1",
-    "prettier": "^3.9.1",
+    "prettier": "^3.9.4",
     "stylelint": "^17.14.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "wrangler": "^4.98.0"
