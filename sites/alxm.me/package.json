@@ -42,13 +42,12 @@
     "@alxm/cube-scss": "workspace:*",
     "@alxm/eleventy-config": "workspace:*",
     "@alxm/favicon-generator": "workspace:*",
+    "@alxm/og-image": "workspace:*",
     "dotenv": "^17.4.2",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
-    "eleventy-plugin-og-image": "^4.2.1",
     "eleventy-plugin-purgecss": "^0.6.0",
     "get-audio-duration": "^4.0.1",
     "lorem-ipsum": "^3.0.0",
-    "luxon": "^3.7.2",
     "sass": "^1.100.0"
   },
   "devDependencies": {
