@@ -14,13 +14,13 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
-        version: 10.0.1(eslint@10.13.0)
+        version: 10.0.1(eslint@10.13.0(supports-color@10.2.2))
       eslint:
         specifier: ^10.6.0
-        version: 10.13.0
+        version: 10.13.0(supports-color@10.2.2)
       eslint-config-prettier:
         specifier: ^10.1.8
-        version: 10.1.8(eslint@10.13.0)
+        version: 10.1.8(eslint@10.13.0(supports-color@10.2.2))
       globals:
         specifier: ^17.6.0
         version: 17.13.0
@@ -29,10 +29,10 @@ importers:
         version: 9.1.7
       stylelint:
         specifier: ^17.14.0
-        version: 17.16.0
+        version: 17.16.0(supports-color@10.2.2)
       stylelint-config-standard-scss:
         specifier: ^17.0.0
-        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0)
+        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2))
 
   packages/cf-r2-sync:
     dependencies:
@@ -66,8 +66,8 @@ importers:
         specifier: ^3.7.2
         version: 3.7.2
       markdown-it:
-        specifier: ^14.2.0
-        version: 14.3.3
+        specifier: ^15.0.3
+        version: 15.0.3
       markdown-it-footnote:
         specifier: ^4.0.0
         version: 4.0.0
@@ -97,10 +97,10 @@ importers:
     dependencies:
       '@11ty/eleventy':
         specifier: ^3.1.6
-        version: 3.1.7
+        version: 3.1.7(supports-color@10.2.2)
       '@11ty/eleventy-img':
         specifier: ^6.0.4
-        version: 6.0.4
+        version: 6.0.4(supports-color@10.2.2)
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.2
         version: 1.0.2
@@ -124,7 +124,7 @@ importers:
         version: 17.4.2
       eleventy-plugin-cloudflare-kv:
         specifier: ^1.0.6
-        version: 1.0.6(@11ty/eleventy@3.1.7)
+        version: 1.0.6(@11ty/eleventy@3.1.7(supports-color@10.2.2))
       eleventy-plugin-purgecss:
         specifier: ^0.6.0
         version: 0.6.0
@@ -134,16 +134,16 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
-        version: 10.0.1(eslint@10.13.0)
+        version: 10.0.1(eslint@10.13.0(supports-color@10.2.2))
       depcheck:
         specifier: ^1.4.7
-        version: 1.4.7
+        version: 1.4.7(supports-color@10.2.2)
       eslint:
         specifier: ^10.6.0
-        version: 10.13.0
+        version: 10.13.0(supports-color@10.2.2)
       eslint-config-prettier:
         specifier: ^10.1.8
-        version: 10.1.8(eslint@10.13.0)
+        version: 10.1.8(eslint@10.13.0(supports-color@10.2.2))
       globals:
         specifier: ^17.6.0
         version: 17.13.0
@@ -152,7 +152,7 @@ importers:
         version: 9.1.7
       markdownlint-cli2:
         specifier: ^0.24.0
-        version: 0.24.0
+        version: 0.24.0(supports-color@10.2.2)
       opentype.js:
         specifier: ^2.0.0
         version: 2.0.0
@@ -164,10 +164,10 @@ importers:
         version: 0.35.2
       stylelint:
         specifier: ^17.14.0
-        version: 17.16.0
+        version: 17.16.0(supports-color@10.2.2)
       stylelint-config-standard-scss:
         specifier: ^17.0.0
-        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0)
+        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2))
       wrangler:
         specifier: ^4.98.0
         version: 4.154.0
@@ -176,10 +176,10 @@ importers:
     dependencies:
       '@11ty/eleventy':
         specifier: ^3.1.6
-        version: 3.1.7
+        version: 3.1.7(supports-color@10.2.2)
       '@11ty/eleventy-img':
         specifier: ^6.0.4
-        version: 6.0.4
+        version: 6.0.4(supports-color@10.2.2)
       '@11ty/eleventy-plugin-directory-output':
         specifier: ^1.0.2
         version: 1.0.2
@@ -206,10 +206,10 @@ importers:
         version: 17.4.2
       eleventy-plugin-cloudflare-kv:
         specifier: ^1.0.6
-        version: 1.0.6(@11ty/eleventy@3.1.7)
+        version: 1.0.6(@11ty/eleventy@3.1.7(supports-color@10.2.2))
       eleventy-plugin-og-image:
         specifier: ^4.2.1
-        version: 4.3.0(@11ty/eleventy@3.1.7)
+        version: 4.3.0(@11ty/eleventy@3.1.7(supports-color@10.2.2))
       eleventy-plugin-purgecss:
         specifier: ^0.6.0
         version: 0.6.0
@@ -228,31 +228,31 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
-        version: 10.0.1(eslint@10.13.0)
+        version: 10.0.1(eslint@10.13.0(supports-color@10.2.2))
       depcheck:
         specifier: ^1.4.7
-        version: 1.4.7
+        version: 1.4.7(supports-color@10.2.2)
       eslint:
         specifier: ^10.6.0
-        version: 10.13.0
+        version: 10.13.0(supports-color@10.2.2)
       eslint-config-prettier:
         specifier: ^10.1.8
-        version: 10.1.8(eslint@10.13.0)
+        version: 10.1.8(eslint@10.13.0(supports-color@10.2.2))
       globals:
         specifier: ^17.6.0
         version: 17.13.0
       markdownlint-cli2:
         specifier: ^0.24.0
-        version: 0.24.0
+        version: 0.24.0(supports-color@10.2.2)
       prettier:
         specifier: ^3.9.1
         version: 3.9.10
       stylelint:
         specifier: ^17.14.0
-        version: 17.16.0
+        version: 17.16.0(supports-color@10.2.2)
       stylelint-config-standard-scss:
         specifier: ^17.0.0
-        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0)
+        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2))
       wrangler:
         specifier: ^4.98.0
         version: 4.154.0
@@ -2933,17 +2933,17 @@ snapshots:
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
 
-  '@11ty/eleventy-dev-server@2.1.2':
+  '@11ty/eleventy-dev-server@2.1.2(supports-color@10.2.2)':
     dependencies:
       '@11ty/chokidar-with-glob-support': 1.1.0
       '@11ty/eleventy-utils': 2.0.7
-      debug: 4.4.3
-      finalhandler: 1.3.2
+      debug: 4.4.3(supports-color@10.2.2)
+      finalhandler: 1.3.2(supports-color@10.2.2)
       mime: 3.0.0
       minimist: 1.2.8
       morphdom: 2.7.8
       please-upgrade-node: 3.2.0
-      send: 1.2.1
+      send: 1.2.1(supports-color@10.2.2)
       ssri: 11.0.0
       urlpattern-polyfill: 10.1.0
       ws: 8.22.0
@@ -2952,22 +2952,22 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@11ty/eleventy-fetch@5.1.3':
+  '@11ty/eleventy-fetch@5.1.3(supports-color@10.2.2)':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
       '@rgrove/parse-xml': 4.2.3
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       flatted: 3.4.4
       p-queue: 6.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@11ty/eleventy-img@6.0.4':
+  '@11ty/eleventy-img@6.0.4(supports-color@10.2.2)':
     dependencies:
-      '@11ty/eleventy-fetch': 5.1.3
+      '@11ty/eleventy-fetch': 5.1.3(supports-color@10.2.2)
       '@11ty/eleventy-utils': 2.0.7
       brotli-size: 4.0.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       entities: 6.0.1
       image-size: 1.2.1
       p-queue: 6.6.2
@@ -2975,10 +2975,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@11ty/eleventy-plugin-bundle@3.0.7(posthtml@0.16.7)':
+  '@11ty/eleventy-plugin-bundle@3.0.7(posthtml@0.16.7)(supports-color@10.2.2)':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       posthtml-match-helper: 2.0.3(posthtml@0.16.7)
     transitivePeerDependencies:
       - posthtml
@@ -2995,20 +2995,20 @@ snapshots:
 
   '@11ty/eleventy-utils@2.0.7': {}
 
-  '@11ty/eleventy@3.1.7':
+  '@11ty/eleventy@3.1.7(supports-color@10.2.2)':
     dependencies:
       '@11ty/chokidar-with-glob-support': 1.1.0
       '@11ty/dependency-tree': 4.0.2
       '@11ty/dependency-tree-esm': 2.0.4
-      '@11ty/eleventy-dev-server': 2.1.2
-      '@11ty/eleventy-plugin-bundle': 3.0.7(posthtml@0.16.7)
+      '@11ty/eleventy-dev-server': 2.1.2(supports-color@10.2.2)
+      '@11ty/eleventy-plugin-bundle': 3.0.7(posthtml@0.16.7)(supports-color@10.2.2)
       '@11ty/eleventy-utils': 2.0.7
       '@11ty/lodash-custom': 4.17.21
       '@11ty/posthtml-urls': 1.0.3
       '@11ty/recursive-copy': 4.0.4
       '@sindresorhus/slugify': 2.2.1
       bcp-47-normalize: 2.3.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       dependency-graph: 1.0.0
       entities: 6.0.1
       filesize: 10.1.6
@@ -3261,7 +3261,7 @@ snapshots:
       '@babel/parser': 7.29.11
       '@babel/types': 7.29.11
 
-  '@babel/traverse@7.29.10':
+  '@babel/traverse@7.29.10(supports-color@10.2.2)':
     dependencies:
       '@babel/code-frame': 7.29.7
       '@babel/generator': 7.29.8
@@ -3269,7 +3269,7 @@ snapshots:
       '@babel/parser': 7.29.11
       '@babel/template': 7.29.7
       '@babel/types': 7.29.11
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -3428,17 +3428,17 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@eslint-community/eslint-utils@4.10.1(eslint@10.13.0)':
+  '@eslint-community/eslint-utils@4.10.1(eslint@10.13.0(supports-color@10.2.2))':
     dependencies:
-      eslint: 10.13.0
+      eslint: 10.13.0(supports-color@10.2.2)
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
 
-  '@eslint/config-array@0.23.5':
+  '@eslint/config-array@0.23.5(supports-color@10.2.2)':
     dependencies:
       '@eslint/object-schema': 3.0.5
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       minimatch: 10.2.6
     transitivePeerDependencies:
       - supports-color
@@ -3451,9 +3451,9 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/js@10.0.1(eslint@10.13.0)':
+  '@eslint/js@10.0.1(eslint@10.13.0(supports-color@10.2.2))':
     optionalDependencies:
-      eslint: 10.13.0
+      eslint: 10.13.0(supports-color@10.2.2)
 
   '@eslint/object-schema@3.0.5': {}
 
@@ -4085,13 +4085,17 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  debug@2.6.9:
+  debug@2.6.9(supports-color@10.2.2):
     dependencies:
       ms: 2.0.0
+    optionalDependencies:
+      supports-color: 10.2.2
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@10.2.2):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 10.2.2
 
   decode-named-character-reference@1.3.0:
     dependencies:
@@ -4099,15 +4103,15 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  depcheck@1.4.7:
+  depcheck@1.4.7(supports-color@10.2.2):
     dependencies:
       '@babel/parser': 7.29.11
-      '@babel/traverse': 7.29.10
+      '@babel/traverse': 7.29.10(supports-color@10.2.2)
       '@vue/compiler-sfc': 3.5.44
       callsite: 1.0.0
       camelcase: 6.3.0
       cosmiconfig: 7.1.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       deps-regex: 0.2.0
       findup-sync: 5.0.0
       ignore: 5.3.2
@@ -4167,14 +4171,14 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  eleventy-plugin-cloudflare-kv@1.0.6(@11ty/eleventy@3.1.7):
+  eleventy-plugin-cloudflare-kv@1.0.6(@11ty/eleventy@3.1.7(supports-color@10.2.2)):
     dependencies:
-      '@11ty/eleventy': 3.1.7
+      '@11ty/eleventy': 3.1.7(supports-color@10.2.2)
       gray-matter: 4.0.3
 
-  eleventy-plugin-og-image@4.3.0(@11ty/eleventy@3.1.7):
+  eleventy-plugin-og-image@4.3.0(@11ty/eleventy@3.1.7(supports-color@10.2.2)):
     dependencies:
-      '@11ty/eleventy': 3.1.7
+      '@11ty/eleventy': 3.1.7(supports-color@10.2.2)
       '@11ty/eleventy-utils': 2.0.7
       '@resvg/resvg-js': 2.6.2
       satori: 0.26.0
@@ -4254,9 +4258,9 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-prettier@10.1.8(eslint@10.13.0):
+  eslint-config-prettier@10.1.8(eslint@10.13.0(supports-color@10.2.2)):
     dependencies:
-      eslint: 10.13.0
+      eslint: 10.13.0(supports-color@10.2.2)
 
   eslint-scope@9.1.2:
     dependencies:
@@ -4269,11 +4273,11 @@ snapshots:
 
   eslint-visitor-keys@5.0.1: {}
 
-  eslint@10.13.0:
+  eslint@10.13.0(supports-color@10.2.2):
     dependencies:
-      '@eslint-community/eslint-utils': 4.10.1(eslint@10.13.0)
+      '@eslint-community/eslint-utils': 4.10.1(eslint@10.13.0(supports-color@10.2.2))
       '@eslint-community/regexpp': 4.12.2
-      '@eslint/config-array': 0.23.5
+      '@eslint/config-array': 0.23.5(supports-color@10.2.2)
       '@eslint/config-helpers': 0.7.0
       '@eslint/core': 1.2.1
       '@eslint/plugin-kit': 0.7.3
@@ -4283,7 +4287,7 @@ snapshots:
       '@types/estree': 1.0.9
       ajv: 6.15.0
       cross-spawn: 7.0.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       escape-string-regexp: 4.0.0
       eslint-scope: 9.1.2
       eslint-visitor-keys: 5.0.1
@@ -4394,9 +4398,9 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
-  finalhandler@1.3.2:
+  finalhandler@1.3.2(supports-color@10.2.2):
     dependencies:
-      debug: 2.6.9
+      debug: 2.6.9(supports-color@10.2.2)
       encodeurl: 2.0.0
       escape-html: 1.0.3
       on-finished: 2.4.2
@@ -4719,27 +4723,27 @@ snapshots:
       punycode.js: 2.3.1
       uc.micro: 3.0.0
 
-  markdownlint-cli2-formatter-default@0.0.6(markdownlint-cli2@0.24.0):
+  markdownlint-cli2-formatter-default@0.0.6(markdownlint-cli2@0.24.0(supports-color@10.2.2)):
     dependencies:
-      markdownlint-cli2: 0.24.0
+      markdownlint-cli2: 0.24.0(supports-color@10.2.2)
 
-  markdownlint-cli2@0.24.0:
+  markdownlint-cli2@0.24.0(supports-color@10.2.2):
     dependencies:
       globby: 16.2.4
       js-yaml: 5.4.3
       jsonc-parser: 3.3.1
       jsonpointer: 5.0.1
       markdown-it: 15.0.3
-      markdownlint: 0.42.0
-      markdownlint-cli2-formatter-default: 0.0.6(markdownlint-cli2@0.24.0)
+      markdownlint: 0.42.0(supports-color@10.2.2)
+      markdownlint-cli2-formatter-default: 0.0.6(markdownlint-cli2@0.24.0(supports-color@10.2.2))
       micromatch: 4.0.8
       smol-toml: 1.9.1
     transitivePeerDependencies:
       - supports-color
 
-  markdownlint@0.42.0:
+  markdownlint@0.42.0(supports-color@10.2.2):
     dependencies:
-      micromark: 4.0.3
+      micromark: 4.0.3(supports-color@10.2.2)
       micromark-core-commonmark: 2.0.4
       micromark-extension-directive: 4.0.0
       micromark-extension-gfm-autolink-literal: 2.1.0
@@ -4940,10 +4944,10 @@ snapshots:
 
   micromark-util-types@2.0.3: {}
 
-  micromark@4.0.3:
+  micromark@4.0.3(supports-color@10.2.2):
     dependencies:
       '@types/debug': 4.1.13
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       decode-named-character-reference: 1.3.0
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.3
@@ -5289,9 +5293,9 @@ snapshots:
 
   semver@7.8.5: {}
 
-  send@1.2.1:
+  send@1.2.1(supports-color@10.2.2):
     dependencies:
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
@@ -5400,33 +5404,33 @@ snapshots:
 
   strip-final-newline@2.0.0: {}
 
-  stylelint-config-recommended-scss@17.0.1(postcss@8.5.32)(stylelint@17.16.0):
+  stylelint-config-recommended-scss@17.0.1(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.5.32)
-      stylelint: 17.16.0
-      stylelint-config-recommended: 18.0.0(stylelint@17.16.0)
-      stylelint-scss: 7.4.0(stylelint@17.16.0)
+      stylelint: 17.16.0(supports-color@10.2.2)
+      stylelint-config-recommended: 18.0.0(stylelint@17.16.0(supports-color@10.2.2))
+      stylelint-scss: 7.4.0(stylelint@17.16.0(supports-color@10.2.2))
     optionalDependencies:
       postcss: 8.5.32
 
-  stylelint-config-recommended@18.0.0(stylelint@17.16.0):
+  stylelint-config-recommended@18.0.0(stylelint@17.16.0(supports-color@10.2.2)):
     dependencies:
-      stylelint: 17.16.0
+      stylelint: 17.16.0(supports-color@10.2.2)
 
-  stylelint-config-standard-scss@17.0.0(postcss@8.5.32)(stylelint@17.16.0):
+  stylelint-config-standard-scss@17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)):
     dependencies:
-      stylelint: 17.16.0
-      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.32)(stylelint@17.16.0)
-      stylelint-config-standard: 40.0.0(stylelint@17.16.0)
+      stylelint: 17.16.0(supports-color@10.2.2)
+      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2))
+      stylelint-config-standard: 40.0.0(stylelint@17.16.0(supports-color@10.2.2))
     optionalDependencies:
       postcss: 8.5.32
 
-  stylelint-config-standard@40.0.0(stylelint@17.16.0):
+  stylelint-config-standard@40.0.0(stylelint@17.16.0(supports-color@10.2.2)):
     dependencies:
-      stylelint: 17.16.0
-      stylelint-config-recommended: 18.0.0(stylelint@17.16.0)
+      stylelint: 17.16.0(supports-color@10.2.2)
+      stylelint-config-recommended: 18.0.0(stylelint@17.16.0(supports-color@10.2.2))
 
-  stylelint-scss@7.4.0(stylelint@17.16.0):
+  stylelint-scss@7.4.0(stylelint@17.16.0(supports-color@10.2.2)):
     dependencies:
       '@csstools/css-calc': 3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
       '@csstools/css-parser-algorithms': 4.0.2(@csstools/css-tokenizer@4.0.2)
@@ -5439,9 +5443,9 @@ snapshots:
       postcss-resolve-nested-selector: 0.1.7
       postcss-selector-parser: 7.1.7
       postcss-value-parser: 4.2.0
-      stylelint: 17.16.0
+      stylelint: 17.16.0(supports-color@10.2.2)
 
-  stylelint@17.16.0:
+  stylelint@17.16.0(supports-color@10.2.2):
     dependencies:
       '@csstools/css-calc': 3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
       '@csstools/css-parser-algorithms': 4.0.2(@csstools/css-tokenizer@4.0.2)
@@ -5454,7 +5458,7 @@ snapshots:
       cosmiconfig: 9.0.2
       css-functions-list: 3.3.3
       css-tree: 3.2.1
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       fast-glob: 3.3.3
       fastest-levenshtein: 1.0.16
       file-entry-cache: 11.1.5
