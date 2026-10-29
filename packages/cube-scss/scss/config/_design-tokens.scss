@@ -2,11 +2,11 @@
 @use "helpers/tokens";
 @use "config";
 
-/* stylelint-disable scss/dollar-variable-pattern */
+// stylelint-disable scss/dollar-variable-pattern
 $_config-tokens: config.$tokens;
 $_config-size-scale: config.$size-scale;
 $_config-colors: config.$colors;
-/* stylelint-enable scss/dollar-variable-pattern */
+// stylelint-enable scss/dollar-variable-pattern
 
 @mixin use($token, $variant, $config: $_config-tokens) {
   $var: tokens.get-variant($token, $variant, $config);
