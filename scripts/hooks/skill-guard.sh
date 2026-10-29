@@ -8,6 +8,11 @@
 
 set -euo pipefail
 
+if ! command -v jq >/dev/null 2>&1; then
+  echo "skill-guard: jq is not installed, so stylesheet edits cannot be checked. Install jq (brew install jq) and retry." >&2
+  exit 2
+fi
+
 STATE_DIR="${TMPDIR:-/tmp}/claude-skill-guard"
 mkdir -p "$STATE_DIR"
 marker() { echo "$STATE_DIR/$1-${GUARD_SESSION:-$PPID}"; }
