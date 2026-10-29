@@ -7,7 +7,7 @@
 
     @each $var, $value in $variants {
       .#{$category}-#{$var} {
-        #{$property}: #{$value};
+        #{$property}: #{$value} !important;
       }
     }
   }

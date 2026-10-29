@@ -1,5 +1,5 @@
 @use "../config/mixins";
 
 .radius {
-  @include mixins.radius;
+  @include mixins.radius($important: true);
 }
