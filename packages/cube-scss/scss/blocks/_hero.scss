@@ -5,10 +5,17 @@
   padding-block: var(--gutter);
   padding-inline: var(--gutter);
 
+  &__heading {
+    padding-block-end: var(--gutter);
+  }
+
+  &__subheader {
+    color: var(--hero-header-text);
+  }
+
   &__header {
     @include dt.use("text-mega", -2);
 
-    padding-block-end: var(--gutter);
     color: var(--hero-header-text);
 
     mark {

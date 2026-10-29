@@ -95,11 +95,11 @@ site.newsletter = {
   channelId: "alexmarshalltherapy-com"
 };
 
-// Tags this site owns canonically. An article is rendered here as a full
-// self-canonical page iff its tags intersect this set; everything else is
-// skipped. Both sites hold the same value and apply identical membership
-// semantics, differing only in the render branch.
+// Articles are rendered here iff their tags intersect counsellingTags; all
+// others are skipped. alxm.me is canonical for every rendered article, so each
+// page's rel=canonical points there and the sitemap leaves them out.
 site.counsellingTags = ["psychology"];
+site.writingCanonicalBaseUrl = "https://alxm.me";
 
 site.company = {
   name: "Thoughtful Design Ltd",

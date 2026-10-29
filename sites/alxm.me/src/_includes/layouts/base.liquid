@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="{{ page.url | getPageTheme: site.nav }}">
     <head>
-        {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
+        {% if page.url == "/" %}
+            {% assign pageTitle = site.siteName %}
+        {% else %}
+            {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
+        {% endif %}
         <title>{{ pageTitle }}</title>
         {% render "partials/site-meta" meta: meta, summary: summary, site: site, eleventy: eleventy, page: page %}
         {% render "partials/site-opengraph" ogImage: ogImage, page: page, pageTitle: pageTitle, summary: summary, site: site %}
