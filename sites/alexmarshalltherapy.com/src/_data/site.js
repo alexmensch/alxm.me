@@ -80,13 +80,11 @@ site.links = [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap",
-    lazy: true
+    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
   },
   {
     rel: "stylesheet",
-    href: "https://rsms.me/inter/inter.css",
-    lazy: true
+    href: "https://rsms.me/inter/inter.css"
   }
 ];
 
