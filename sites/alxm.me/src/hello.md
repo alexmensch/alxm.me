@@ -2,8 +2,9 @@
 layout: "layouts/home"
 hide_header: true
 hide_footer: true
-title: Home
+title: Hello
 meta:
+  noindex: true
   description: "Alex Marshall is a humanistic therapist and artist based in London, supporting people through deep personal change. He also writes on a variety of topics."
 main:
   title: Hello, I’m Alex
