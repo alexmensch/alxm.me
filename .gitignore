@@ -10,7 +10,8 @@ _site/
 permalinks.txt
 .assetsignore
 
-# Claude skills
+# Shared Claude Code config: project skills and hooks
+!.claude/settings.json
 !.claude/skills/
 !.claude/skills/**
 
