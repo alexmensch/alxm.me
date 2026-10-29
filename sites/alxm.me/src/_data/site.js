@@ -40,11 +40,6 @@ const site = {
     { title: "Coaching", url: "/coaching/" },
     { title: "Writing", url: "/writing/" },
     { title: "Artwork", url: "/artwork/", collection: true, theme: "artwork" },
-    {
-      title: "Therapy",
-      url: "https://alexmarshalltherapy.com",
-      external: true
-    },
     { title: "Contact", url: "/contact/", footer: true },
     { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Styles", url: "/styles/", hidden: true }
