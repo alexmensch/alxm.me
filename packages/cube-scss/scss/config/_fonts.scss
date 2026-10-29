@@ -1,7 +1,9 @@
 @use "mixins";
 
 @mixin base($important: false) {
-  font-family: "Source Serif 4", Georgia, serif mixins.important($important);
+  $imp: mixins.important($important);
+
+  font-family: "Source Serif 4", Georgia, serif $imp;
 }
 
 @mixin sans($important: false) {
