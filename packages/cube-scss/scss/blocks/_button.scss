@@ -1,9 +1,9 @@
 @use "../config/design-tokens" as dt;
 @use "../config/fonts";
-@use "../utilities";
+@use "../config/mixins";
 
 .button {
-  @include utilities.radius;
+  @include mixins.radius;
 
   display: inline-block;
   padding: #{dt.get-size("2xs")};
