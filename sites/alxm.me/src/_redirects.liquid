@@ -32,11 +32,10 @@ eleventyExcludeFromCollections: true
 ## Site changes
 #  Redirects due to permalink changes
 ##
-/coaching                           {{ site.counselling.baseUrl }}                     301
-/coaching/                          {{ site.counselling.baseUrl }}                     301
-/coaching/*                         {{ site.counselling.baseUrl }}                     301
-/counselling                        {{ site.counselling.baseUrl }}                     301
-/counselling/                       {{ site.counselling.baseUrl }}                     301
+/counselling                        /coaching                                          301
+/counselling/                       /coaching                                          301
+/advisory                           /coaching                                          301
+/advisory/                          /coaching                                          301
 /about                              /                                                  301
 /about/                             /                                                  301
 

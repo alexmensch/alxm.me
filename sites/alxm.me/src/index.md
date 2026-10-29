@@ -31,4 +31,4 @@ Before I reshaped my life’s priorities, I spent [nearly 20 years](https://www.
 
 This experience is so rare in the software market that products that support, rather than frustrate, users’ needs are lauded as “magical” in their experience. Building these types of powerful experiences are the result of deep empathy with target customers, elevating design thinking to a high level of importance across engineering, product, and design, and having strong opinions on how you want your customers to experience you.
 
-As a former startup founder, I work with and advise a select set of B2B startups that are pre-Series C. If the above approach resonates with you, and your company falls into this category, you can [read more](/advisory) or [contact me](/contact) to have an introductory conversation.
+As a former startup founder, I work with and advise a select set of B2B startups that are pre-Series C. If the above approach resonates with you, and your company falls into this category, you can [read more](/coaching) or [contact me](/contact) to have an introductory conversation.

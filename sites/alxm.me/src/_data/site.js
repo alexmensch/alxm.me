@@ -37,6 +37,7 @@ const site = {
   },
   links: [],
   nav: [
+    { title: "Coaching", url: "/coaching/" },
     { title: "Writing", url: "/writing/" },
     { title: "Artwork", url: "/artwork/", collection: true, theme: "artwork" },
     {
@@ -45,7 +46,6 @@ const site = {
       external: true
     },
     { title: "Contact", url: "/contact/", footer: true },
-    { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Styles", url: "/styles/", hidden: true }
   ]
