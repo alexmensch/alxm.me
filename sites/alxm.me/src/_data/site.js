@@ -131,15 +131,6 @@ site.og = {
   height: OG_HEIGHT
 };
 
-// Psychology writing is source-of-truth on alexmarshalltherapy.com. tags drive
-// both the listing's link-out and the suppression of local page generation;
-// baseUrl (no trailing slash — permalinks start with "/") is prepended to the
-// permalink for the external link and the 301 destinations.
-site.counselling = {
-  baseUrl: "https://alexmarshalltherapy.com",
-  tags: ["psychology"]
-};
-
 site.company = {
   name: "Thoughtful Design Ltd",
   number: "15642102",
