@@ -117,7 +117,7 @@ How the seam works:
 - A site that adds a partial to a shared layer (themes, artwork, cta, external-link) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. CUBE cascade order (compositions → utilities → blocks; global/config before all) and within-layer ordering are load-bearing; preserving them is what keeps compiled CSS byte-identical.
 - Package SCSS is outside the sites' stylelint globs (`src/**`); it is linted by the root `pnpm lint:packages` gate (see Workspace package quality gates above).
 
-There is a cube-css skill that exists in this repository which you must reference when making changes to styling, including CSS and fonts, in this repository.
+Load the user-level `cube-css` skill before any styling change (CSS, SCSS, fonts).
 
 ### Collections
 
