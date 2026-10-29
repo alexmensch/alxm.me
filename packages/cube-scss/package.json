@@ -5,6 +5,7 @@
   "description": "Shared CUBE CSS design system (SCSS): global, config (Utopia tokens), compositions, utilities, blocks",
   "type": "module",
   "exports": {
+    "./lib/*": "./lib/*",
     "./*": "./scss/*"
   },
   "scripts": {
