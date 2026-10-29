@@ -39,7 +39,7 @@ if [ -f "$state_file" ]; then exit 0; fi
 
 reason="Refusing $tool on $(basename "$file_path") — invoke the $skill skill first this session.
 
-Stylesheets here are CUBE CSS over Every Layout primitives: which layer a rule belongs in, why utilities load last and carry !important, the no-width-media-query mandate, and the review gates (a hardcoded value on first use, a z-index where source order would do, a minmax() with no min(…, 100%) guard). CLAUDE.md § SCSS Structure documents where files live, not the system underneath, so having read it is not having loaded the skill. Reach for the utopia skill alongside it when the change touches a type size, a space step or a clamp().
+CLAUDE.md § SCSS Structure documents where files live, not the system underneath; having read it is not having loaded the skill.
 
 Fix: call the Skill tool with skill '$skill', then retry the edit.
 
