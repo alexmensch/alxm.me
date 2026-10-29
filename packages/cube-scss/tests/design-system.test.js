@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { compile, rules } from "./compile.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,13 +14,6 @@ const SWITCHER_PATH = join(
   "scss",
   "compositions",
   "_switcher.scss"
-);
-const CONTACT_OPTIONS_SCSS_PATH = join(
-  __dirname,
-  "..",
-  "scss",
-  "blocks",
-  "_contact-options.scss"
 );
 
 describe("switcher composition", () => {
@@ -43,35 +37,14 @@ describe("switcher composition", () => {
   });
 });
 
-describe("button override in _contact-options.scss", () => {
-  let contactOptionsScss;
-
-  before(async () => {
-    contactOptionsScss = await readFile(CONTACT_OPTIONS_SCSS_PATH, "utf-8");
-  });
-
-  it("exists as a SCSS file", () => {
-    assert.ok(
-      contactOptionsScss,
-      "_contact-options.scss must exist and have content"
+describe("subscribe button in _contact-options.scss", () => {
+  it("hovers to secondary-glare like the contact link cards", () => {
+    const hover = rules(compile("blocks/_contact-options.scss")).find((r) =>
+      r.selectors.includes(".contact-options .subscribe-form .button:hover")
     );
-  });
-
-  it("scopes styles under .contact-options", () => {
+    assert.ok(hover, "no hover rule for the contact-options subscribe button");
     assert.ok(
-      contactOptionsScss.includes(".contact-options"),
-      "_contact-options.scss must scope styles under .contact-options"
-    );
-  });
-
-  it("overrides ghost button styles", () => {
-    const hasButtonOverride =
-      contactOptionsScss.includes("button") ||
-      contactOptionsScss.includes("ghost");
-
-    assert.ok(
-      hasButtonOverride,
-      "_contact-options.scss must override ghost button styles"
+      hover.declarations.includes("background: var(--color-secondary-glare)")
     );
   });
 });
