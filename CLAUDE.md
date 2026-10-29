@@ -115,6 +115,7 @@ How the seam works:
 
 - `root.scss` `@use`s shared layers via `pkg:@alxm/cube-scss/<layer>` and local divergent layers via the site's own `_index.scss`. Each `.eleventy.js` adds `importers: [new sass.NodePackageImporter(...)]` to the `sass.compileString` call so `pkg:` URLs resolve through the pnpm workspace symlinks.
 - A site that adds a partial to a shared layer (themes, artwork, cta, external-link) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. Layer order in `root.scss` is config → global → compositions → blocks → utilities (the `cube-css` skill's order), and within-layer ordering is load-bearing. A partial may `@use` only layers that `root.scss` loads before its own — Sass emits a module's CSS where it is first loaded, so a block pulling in `utilities` for a mixin would drag that whole layer out of position. Mixins shared between layers live in `config/`.
+- Template class attributes must be in the `cube-css` skill's grouping (one bracket per layer, brackets and classes in cascade order). Each site's `tests/class-attributes.test.js` checks this with `@alxm/cube-scss/lib/class-audit.js`, which derives each class's layer and order from the compiled CSS and prints the expected form.
 - Package SCSS is outside the sites' stylelint globs (`src/**`); it is linted by the root `pnpm lint:packages` gate (see Workspace package quality gates above).
 
 Load the user-level `cube-css` skill before any styling change (CSS, SCSS, fonts).

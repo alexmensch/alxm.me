@@ -1,11 +1,11 @@
-<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
+<a class="[ button skip-link ]" href="#main-content">Skip to content</a>
 <header role="banner" class="site-header">
-    <div class="[ wrapper ] [ center ] [ gutter ]">
-        <div class="[ site-header__inner cluster ] [ flow-space-s font-sans ]" data-state="repel">
-            <a href="/" aria-label="{{ site.siteName }} - Home" class="[ site-header__brand ] [ text-2 ] [ weight-black ]">
+    <div class="[ center ] [ wrapper ] [ gutter ]">
+        <div class="[ cluster site-header__inner ] [ flow-space-s font-sans ]" data-state="repel">
+            <a href="/" aria-label="{{ site.siteName }} - Home" class="[ site-header__brand ] [ text-2 weight-black ]">
                 {{ site.siteName }}
             </a>
-            <nav class="[ nav ] [ weight-extra-bold flow-space-xs ]" aria-label="Primary">
+            <nav class="[ nav ] [ flow-space-xs weight-extra-bold ]" aria-label="Primary">
                 <ul class="cluster">
                     {% for item in site.nav %}
                         {% unless item.hidden %}

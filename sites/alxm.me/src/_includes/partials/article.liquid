@@ -1,4 +1,4 @@
-<article class="[ article ] [ flow flow-space-m ]">
+<article class="[ flow ] [ article ] [ flow-space-m ]">
   {% render "partials/hero"
             hero: hero,
             type: type,
@@ -6,7 +6,7 @@
             byline: byline,
             site: site      %}
 
-  <div class="[ article__content ] [ flow ]">
+  <div class="[ flow ] [ article__content ]">
     {% if type == "episode" %}
     {% render "partials/media-player", label: "Listen", src: recording %}
     {% endif %}
@@ -59,7 +59,7 @@
   {% if type == "artwork" %}
     {% assign sorted_artworks = artworks | sort: "data.date" | reverse %}
 
-    <div class="[ gutter artwork__gallery ]">
+    <div class="[ artwork__gallery ] [ gutter ]">
       {% for artwork in sorted_artworks %}
         {% render "partials/artwork-collection", artwork: artwork %}
       {% endfor %}

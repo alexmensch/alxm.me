@@ -10,7 +10,7 @@ export function articleImage(src, alt, ratio, portrait, href) {
   const tag = href ? "a" : "div";
   const attrs = href ? `href="${href}"` : "";
   const html = `<div class="[ article__photo ]" ${portrait ? "data-portrait" : ""}>
-<div class="[ box ] [ shadow-2xs-xs padding-none ]" data-shadow>
+<div class="[ box ] [ padding-none shadow-2xs-xs ]" data-shadow>
 <${tag} ${attrs} class="frame" data-fit-content data-ratio="${ratio}" ${portrait ? "" : "data-landscape"}>
 <img src="/assets/images/${src}" alt="${alt}" />
 </${tag}>
@@ -20,7 +20,7 @@ export function articleImage(src, alt, ratio, portrait, href) {
 }
 
 export function blockQuote(content, name, source, url = false) {
-  const html = `<div class="[ quote ] [ flow ]">
+  const html = `<div class="[ flow ] [ quote ]">
 <blockquote>
 <p>${content}</p>
 </blockquote>
@@ -35,7 +35,7 @@ export function cta(content, href, label, title = false) {
   }
 
   const heading = title ? `<h2>${title}</h2>\n` : "";
-  const html = `<div class="[ cta ] [ flow flow-space-m ]">
+  const html = `<div class="[ flow ] [ cta ] [ flow-space-m ]">
 ${heading}<p>${content}</p>
 <a class="[ button ]" href="${href}">${label}</a>
 </div>`;

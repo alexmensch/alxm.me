@@ -85,7 +85,7 @@ describe("Markdown footnote rendering", () => {
   it("renders footnote definitions in a custom section", () => {
     const input = "Text[^1].\n\n[^1]: Note content.";
     const result = markdownLib.render(input);
-    assert.ok(result.includes('<section class="[ footnotes ] [ flow ]">'));
+    assert.ok(result.includes('<section class="[ flow ] [ footnotes ]">'));
     assert.ok(result.includes("<h2>Notes</h2>"));
   });
 

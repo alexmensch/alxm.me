@@ -9,7 +9,7 @@
         {% render "partials/site-includes" site: site %}
     </head>
     <body>
-        <div class="[ site-wrap ] [ flow flow-space-xl ]">
+        <div class="[ flow ] [ site-wrap ] [ flow-space-xl ]">
             {%unless hide_header %}
                 {% render "partials/site-header"
                     site: site,
@@ -17,7 +17,7 @@
                     %}
             {%endunless %}
             <main tabindex="-1" id="main-content">
-                <div class="[ wrapper ] [ center ] [ gutter ]">
+                <div class="[ center ] [ wrapper ] [ gutter ]">
                     {{ content }}
                 </div>
             </main>

@@ -1,11 +1,11 @@
-<div class="[ gutter flow ]">
+<div class="[ flow ] [ gutter ]">
   <div>
     <h1 class="">{{ year }}</h1>
   </div>
   <div class="flow">
     {% for post in collection reversed %}
     <div>
-      <div class="flow flow-space-xs">
+      <div class="[ flow ] [ flow-space-xs ]">
         {% if post.tags | hasAnyTag: site.counselling.tags %}
         <h4><a class="external-link" href="{{ site.counselling.baseUrl }}{{ post.permalink }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a></h4>
         {% else %}

@@ -2,12 +2,12 @@
 {% assign success_message = success_message | default: "Thanks for subscribing! Check your inbox and spam folder for a verification email." %}
 
 {% if compact %}
-<div id="subscribe-container" class="[ subscribe-form ] [ flow ]" data-success-message="{{ success_message }}">
+<div id="subscribe-container" class="[ flow ] [ subscribe-form ]" data-success-message="{{ success_message }}">
 {% else %}
-<div id="subscribe-container" class="[ subscribe-form ] [ flow box ] [ bg-light-shade padding-s border-thin border-style-dotted radius ]" data-success-message="{{ success_message }}">
+<div id="subscribe-container" class="[ box flow ] [ subscribe-form ] [ bg-light-shade border-thin border-style-dotted padding-s radius ]" data-success-message="{{ success_message }}">
 {% endif %}
     <p id="subscribe-cta"{% unless compact %} class="[ font-sans ]"{% endunless %}>{{ cta }}</p>
-    <form id="subscribe-form" class="[ subscribe-form__fields ] [ cluster flow ]" novalidate>
+    <form id="subscribe-form" class="[ cluster flow ] [ subscribe-form__fields ]" novalidate>
         <div>
             <input
                 type="email"

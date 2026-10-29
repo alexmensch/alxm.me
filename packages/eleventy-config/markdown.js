@@ -52,7 +52,7 @@ export function makeMarkdownLib({ domain } = {}) {
 
   // Footnote HTML customization
   markdownLib.renderer.rules.footnote_block_open = () =>
-    '<section class="[ footnotes ] [ flow ]">\n' +
+    '<section class="[ flow ] [ footnotes ]">\n' +
     "<h2>Notes</h2>\n" +
     '<ol role="list">\n';
 
