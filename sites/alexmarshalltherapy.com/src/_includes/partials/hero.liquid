@@ -1,6 +1,7 @@
 <div class="[ flow ] [ hero ] [ flow-space-xl ]">
   {% if hero %}
     {% assign header = hero.header %}
+    {% assign subheader = hero.subheader %}
     {% assign byline = hero.byline %}
   {% endif %}
 
@@ -8,7 +9,12 @@
     {% capture byline_html %}<p><em>{{ byline | markdownify }}</em></p>{% endcapture %}
   {% endif %}
 
-  <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+  <hgroup class="[ flow ] [ hero__heading ] [ flow-space-s ]">
+    <h1 class="hero__header"><mark>{{ header }}</mark></h1>
+    {% if subheader %}
+    <p class="[ hero__subheader ] [ text-2 ]">{{ subheader }}</p>
+    {% endif %}
+  </hgroup>
   {% if byline %}
     {{ byline_html }}
   {% endif %}
