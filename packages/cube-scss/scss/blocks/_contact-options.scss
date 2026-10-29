@@ -38,13 +38,6 @@
       @extend %contact-cta;
 
       width: 100%;
-
-      // Beats .button:hover { ... !important } from _button.scss so the
-      // subscribe submit hovers the same secondary-glare as the link cards.
-      &:hover {
-        background: #{dt.get-color("secondary-glare")} !important;
-        color: #{dt.get-color("dark-shade")} !important;
-      }
     }
   }
 }

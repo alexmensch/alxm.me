@@ -141,7 +141,7 @@ describe("cta shortcode", () => {
   it("renders the body content inside the cta block", () => {
     const html = cta("Book a session with me today.", "/contact", "Contact me");
     assert.ok(html.includes("Book a session with me today."));
-    assert.ok(html.includes('class="[ cta ] [ flow flow-space-m ]"'));
+    assert.ok(html.includes('class="[ flow ] [ cta ] [ flow-space-m ]"'));
   });
 
   it("renders an anchor with the given href and label", () => {

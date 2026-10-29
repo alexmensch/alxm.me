@@ -1,7 +1,5 @@
-@mixin radius {
-  border-radius: 0.25rem;
-}
+@use "../config/mixins";
 
 .radius {
-  @include radius;
+  @include mixins.radius($important: true);
 }

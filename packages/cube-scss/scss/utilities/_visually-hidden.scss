@@ -1,15 +1,5 @@
-@mixin visually-hidden {
-  border: 0;
-  clip-path: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
-}
+@use "../config/mixins";
 
 .visually-hidden {
-  @include visually-hidden;
+  @include mixins.visually-hidden($important: true);
 }

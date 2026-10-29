@@ -1,21 +1,19 @@
-@mixin base {
-  font-family: "Source Serif 4", Georgia, serif;
+@use "mixins";
+
+@mixin base($important: false) {
+  $imp: mixins.important($important);
+
+  font-family: "Source Serif 4", Georgia, serif $imp;
 }
 
-@mixin sans {
-  font-family: Inter, Helvetica, sans-serif;
+@mixin sans($important: false) {
+  $imp: mixins.important($important);
+
+  font-family: Inter, Helvetica, sans-serif $imp;
   font-feature-settings:
     "frac" 1,
     "ss01" 1,
     "ss03" 1,
     "cv01" 1,
-    "cv05" 1;
-}
-
-.font-base {
-  @include base;
-}
-
-.font-sans {
-  @include sans;
+    "cv05" 1 $imp;
 }

@@ -1,0 +1,29 @@
+@use "sass:string";
+
+@function important($important) {
+  @if $important {
+    @return string.unquote("!important");
+  }
+
+  @return null;
+}
+
+@mixin radius($important: false) {
+  $imp: important($important);
+
+  border-radius: 0.25rem $imp;
+}
+
+@mixin visually-hidden($important: false) {
+  $imp: important($important);
+
+  border: 0 $imp;
+  clip-path: rect(0 0 0 0) $imp;
+  height: auto $imp;
+  margin: 0 $imp;
+  overflow: hidden $imp;
+  padding: 0 $imp;
+  position: absolute $imp;
+  width: 1px $imp;
+  white-space: nowrap $imp;
+}

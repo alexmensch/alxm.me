@@ -1,5 +1,5 @@
-@use "../utilities";
 @use "../config/design-tokens" as dt;
+@use "../config/mixins";
 
 .skip-link {
   position: absolute;
@@ -8,6 +8,6 @@
   z-index: 99;
 
   &:not(:focus) {
-    @include utilities.visually-hidden;
+    @include mixins.visually-hidden;
   }
 }

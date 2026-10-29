@@ -10,9 +10,8 @@ _site/
 permalinks.txt
 .assetsignore
 
-# Claude skills
-!.claude/skills/
-!.claude/skills/**
+# Shared Claude Code config
+!.claude/settings.json
 
 # Beads / Dolt files (added by bd init)
 .dolt/

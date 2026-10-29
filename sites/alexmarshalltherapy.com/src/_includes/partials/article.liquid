@@ -1,4 +1,4 @@
-<article class="[ article ] [ flow flow-space-m ]">
+<article class="[ flow ] [ article ] [ flow-space-m ]">
   {% render "partials/hero"
             hero: hero,
             type: type,
@@ -6,7 +6,7 @@
             byline: byline,
             site: site      %}
 
-  <div class="[ article__content ] [ flow ]">
+  <div class="[ flow ] [ article__content ]">
     {{ content }}
     {% if subscription == true %}
     {% render "partials/subscribe-form",

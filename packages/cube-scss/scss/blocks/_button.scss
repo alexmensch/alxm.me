@@ -1,9 +1,9 @@
 @use "../config/design-tokens" as dt;
 @use "../config/fonts";
-@use "../utilities";
+@use "../config/mixins";
 
 .button {
-  @include utilities.radius;
+  @include mixins.radius;
 
   display: inline-block;
   padding: #{dt.get-size("2xs")};
@@ -16,14 +16,14 @@
   @include fonts.sans;
   @include dt.use("weight", "extra-bold");
 
-  // Make sure hover state trumps all variants
-  &:hover {
-    background: dt.get-color("secondary") !important;
-    color: dt.get-color("dark-shade") !important;
-  }
-
   &[data-variant="ghost"] {
     background: transparent;
     color: dt.get-color("secondary-glare");
+  }
+
+  // Equal specificity to the variants above; source order makes hover win.
+  &:hover {
+    background: dt.get-color("secondary");
+    color: dt.get-color("dark-shade");
   }
 }

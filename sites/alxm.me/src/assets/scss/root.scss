@@ -1,5 +1,5 @@
-@use "global";
 @use "pkg:@alxm/cube-scss/config";
+@use "global";
 @use "pkg:@alxm/cube-scss/compositions";
-@use "utilities";
 @use "blocks";
+@use "pkg:@alxm/cube-scss/utilities";
