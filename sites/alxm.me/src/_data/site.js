@@ -45,7 +45,6 @@ const site = {
       external: true
     },
     { title: "Contact", url: "/contact/", footer: true },
-    { title: "About", url: "/about/", footer: true },
     { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Styles", url: "/styles/", hidden: true }

@@ -1,10 +1,10 @@
 ---
 layout: layouts/landing
-title: About me
+title: "[Homepage title — to be written]"
 meta:
   description: "Alex Marshall is a former Silicon Valley founder turned humanistic counsellor and artist. Based in London."
 hero:
-  header: The currents that have shaped my life
+  header: "[Homepage H1 — to be written]"
 ---
 
 {% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}The good life is a _process_, not a state of being. It is a direction, not a destination. […] This process of the good life is not, I am convinced, a life for the faint-hearted. It involves the stretching and growing of becoming more and more of one's potentialities. It involves the courage to be. It means launching oneself fully into the stream of life.{% endblockQuote %}
