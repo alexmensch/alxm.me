@@ -15,7 +15,7 @@
  *     colors: { background, text, accent },
  *     author: { name, role },      // role optional — omit for name-only footer
  *     portraitPath,                // used by the identity card
- *     fonts: { inter, serif }      // absolute paths to .ttf files
+ *     fonts: { inter, serif }      // .ttf paths; serif loaded only when a role is set
  *   }
  */
 
@@ -146,7 +146,6 @@ function svgToCard(body, background) {
 export async function renderIdentityCard(theme) {
   const { colors, author, portraitPath, fonts } = resolveTheme(theme);
   const inter = loadFont(fonts.inter);
-  const serif = loadFont(fonts.serif);
 
   const PHOTO_W = 470;
   const PAD = 60;
@@ -157,7 +156,7 @@ export async function renderIdentityCard(theme) {
     .toBuffer();
 
   const roleLine = author.role
-    ? textPath(serif, author.role, panelX, 400, 40, colors.text)
+    ? textPath(loadFont(fonts.serif), author.role, panelX, 400, 40, colors.text)
     : "";
   const body = `
     <rect x="${panelX}" y="332" width="110" height="6" rx="3" fill="${colors.accent}" />
@@ -191,7 +190,6 @@ export async function renderIdentityCard(theme) {
 export async function renderArticleCard(title, theme) {
   const { colors, author, fonts } = resolveTheme(theme);
   const inter = loadFont(fonts.inter);
-  const serif = loadFont(fonts.serif);
 
   const PAD = 80;
   const maxWidth = OG_WIDTH - PAD * 2;
@@ -238,7 +236,7 @@ export async function renderArticleCard(title, theme) {
     const sepWidth = measure(inter, sep, nameSize);
     footer = `${namePath}
     ${textPath(inter, sep, PAD + nameWidth, footerBaseline, nameSize, colors.accent)}
-    ${textPath(serif, author.role, PAD + nameWidth + sepWidth, footerBaseline, roleSize, colors.text)}`;
+    ${textPath(loadFont(fonts.serif), author.role, PAD + nameWidth + sepWidth, footerBaseline, roleSize, colors.text)}`;
   }
 
   const body = `

@@ -58,6 +58,25 @@ describe("hasAnyTag", () => {
   });
 });
 
+describe("ogImageUrl", () => {
+  const domain = "alxm.me";
+  const dir = "/assets/images/og/auto";
+
+  it("mirrors the permalink under generatedDir with a .png extension", () => {
+    assert.equal(
+      helpers.ogImageUrl("/writing/foo/", domain, dir),
+      "https://alxm.me/assets/images/og/auto/writing/foo.png"
+    );
+  });
+
+  it("strips only a single trailing slash", () => {
+    assert.equal(
+      helpers.ogImageUrl("/podcast/ep-1/", domain, dir),
+      "https://alxm.me/assets/images/og/auto/podcast/ep-1.png"
+    );
+  });
+});
+
 describe("permalinkToPath", () => {
   it("formats a title and date into a URL path", () => {
     const result = helpers.permalinkToPath(

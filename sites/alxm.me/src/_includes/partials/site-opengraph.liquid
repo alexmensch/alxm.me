@@ -1,12 +1,27 @@
-{% if ogData %}
-    {% ogImage "./_includes/open-graph/og-posts.og.liquid", ogData %}
-    {% if summary %}
-    <meta property="og:description" content="{{ summary }}" />
-    {% endif %}
-    <meta property="og:type" content="article" />
+{% comment %}
+  og:image must be an absolute URL — social platforms reject relative paths.
+  Defaults to the static fallback card (site.og.defaultImage); collection pages
+  override it by setting `ogImage` (an absolute URL under site.og.generatedDir)
+  in their .11tydata.js, which the @alxm/og-image plugin renders at build time.
+{% endcomment %}
+{% if ogImage %}
+    {% assign og_image = ogImage %}
+    {% assign og_type = "article" %}
 {% else %}
-    <meta property="og:type" content="website" />
+    {% capture og_image %}https://{{ site.domain }}{{ site.og.defaultImage }}{% endcapture %}
+    {% assign og_type = "website" %}
 {% endif %}
+{% if summary %}
+    <meta property="og:description" content="{{ summary }}" />
+{% endif %}
+    <meta property="og:type" content="{{ og_type }}" />
     <meta name="title" property="og:title" content="{{ pageTitle }}" />
     <meta property="og:url" content="https://{{ site.domain }}{{ page.url }}" />
     <meta name="locale" property="og:locale" content="en_GB" />
+    <meta property="og:image" content="{{ og_image }}" />
+    <meta property="og:image:width" content="{{ site.og.width }}" />
+    <meta property="og:image:height" content="{{ site.og.height }}" />
+    <meta property="og:image:alt" content="{{ site.authorName }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ og_image }}" />
+    <meta name="twitter:image:alt" content="{{ site.authorName }}" />

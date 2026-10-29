@@ -1,3 +1,5 @@
+import { OG_WIDTH, OG_HEIGHT } from "@alxm/og-image";
+
 const site = {
   domain: "alxm.me",
   authorName: "Alex Marshall",
@@ -116,6 +118,18 @@ site.links = [
 site.newsletter = {
   apiUrl: "https://newsletter.alxm.me",
   channelId: "alxm-me"
+};
+
+// Open Graph preview cards. `defaultImage` is the committed static fallback;
+// pages whose og:image resolves under `generatedDir` get a card rendered for
+// them at build time (see the @alxm/og-image plugin in .eleventy.js). width/height
+// come from @alxm/og-image so the og:image:width/height meta tags always match
+// the rendered card and can't drift.
+site.og = {
+  defaultImage: "/assets/images/og/default.png",
+  generatedDir: "/assets/images/og/auto",
+  width: OG_WIDTH,
+  height: OG_HEIGHT
 };
 
 // Psychology writing is source-of-truth on alexmarshalltherapy.com. tags drive

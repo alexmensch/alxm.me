@@ -97,10 +97,11 @@ describe("card renderers", () => {
     assert.equal(meta.height, OG_HEIGHT);
   });
 
-  it("renderArticleCard renders a name-only footer when role is unset", async () => {
+  it("renders a name-only footer with no serif font when role is unset", async () => {
+    // A role-less theme must not require a serif font (lazy-loaded).
     const png = await renderArticleCard("Title without a role footer", {
       author: { name: "Alex Marshall" },
-      fonts
+      fonts: { inter: fonts.inter }
     });
     const meta = await sharp(png).metadata();
     assert.equal(meta.width, OG_WIDTH);
