@@ -1,0 +1,9 @@
+@use "../config/fonts";
+
+.font-base {
+  @include fonts.base;
+}
+
+.font-sans {
+  @include fonts.sans;
+}

@@ -8,8 +8,6 @@ $_config-size-scale: config.$size-scale;
 $_config-colors: config.$colors;
 /* stylelint-enable scss/dollar-variable-pattern */
 
-@include tokens.generate($_config-tokens);
-
 @mixin use($token, $variant, $config: $_config-tokens) {
   $var: tokens.get-variant($token, $variant, $config);
 

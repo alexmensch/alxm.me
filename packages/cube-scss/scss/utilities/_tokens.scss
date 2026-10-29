@@ -1,0 +1,4 @@
+@use "../config/config";
+@use "../config/helpers/tokens";
+
+@include tokens.generate(config.$tokens);
