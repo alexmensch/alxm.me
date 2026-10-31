@@ -40,6 +40,6 @@ I enjoy bringing this experience into session with my [executive coaching](/coac
 
 ## Creativity and self-expression
 
-In addition to my love and curiosity for working with people in all of their beauitful complexity, I am an [artist](/artist), drawing or painting from life, usually with graphite, charcoal, or oil paint as the medium. I see art as a relational activity between self, subject, and viewer. My preferred subjects are nature and the human figure.
+In addition to my love and curiosity for working with people in all of their beautiful complexity, I am an [artist](/artwork), drawing or painting from life, usually with graphite, charcoal, or oil paint as the medium. I see art as a relational activity between self, subject, and viewer. My preferred subjects are nature and the human figure.
 
 Our subjective experiences of the world are unique and irreducible, and what art holds the capacity for is the communication of experience from the artist to the viewer through the chosen subject and medium. The variability in art's interpretation is its power, not its shortcoming. Only through the most honest expression of our experience can we see the complexity and messiness that underpins our reality.
