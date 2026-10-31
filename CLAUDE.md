@@ -84,7 +84,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 
 ### Key Files
 
-- `.eleventy.js` - Main Eleventy config: site-specific plugins, filters, shortcodes, Sass processing. Adds `@alxm/eleventy-config` (markdown library + common filters/shortcodes + subscribe-form partial) via `addPlugin(sharedConfig, { domain, ... })`
+- `.eleventy.js` - Main Eleventy config: site-specific plugins, filters, shortcodes, Sass processing. Adds `@alxm/eleventy-config` (markdown library + common filters/shortcodes + shared hero, site-includes and subscribe-form partials) via `addPlugin(sharedConfig, { domain, ... })`
 - `src/_data/site.js` - Site configuration, navigation structure (defines collections)
 - `src/_data/helpers.js` - Thin re-export of `@alxm/eleventy-config/helpers` (keeps the `helpers` global in the data cascade); the implementation lives in `packages/eleventy-config/`
 - The configured markdown-it instance (`makeMarkdownLib`), shortcodes (`articleImage`, `blockQuote`, `cta`), and helpers all live in `packages/eleventy-config/` (`@alxm/eleventy-config`)

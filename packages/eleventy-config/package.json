@@ -2,7 +2,7 @@
   "name": "@alxm/eleventy-config",
   "version": "0.0.0",
   "private": true,
-  "description": "Shared Eleventy config: markdown-it library, helpers, shortcodes, common filter/shortcode registration, and the feedmail subscribe-form partial",
+  "description": "Shared Eleventy config: markdown-it library, helpers, shortcodes, common filter/shortcode registration, and the shared hero, site-includes and subscribe-form partials",
   "type": "module",
   "main": "index.js",
   "exports": {
