@@ -8,8 +8,8 @@
       "name": "{{ site.authorName }}",
       "url": "https://{{ site.domain }}",
       "email": "{{ site.authorEmail }}",
-      "jobTitle": "Therapist",
-      "description": "Humanistic therapist and artist based in London.",
+      "jobTitle": "Executive Coach",
+      "description": "Executive coach and artist based in London.",
       "sameAs": ["https://www.linkedin.com/in/awmars", "https://www.instagram.com/alexmensch"]
     },
     {
@@ -101,14 +101,14 @@
       "webFeed": "https://{{ site.domain }}/podcast/feed/what-i-knew.rss",
       "author": { "@id": "https://{{ site.domain }}/#person" }
     }
-    {%- elsif schemaType == "advisory" %},
+    {%- elsif schemaType == "coaching" %},
     {
       "@type": "Service",
-      "name": "{{ site.authorName }} — Product Advisory",
-      "url": "https://{{ site.domain }}/advisory",
+      "name": "{{ site.authorName }} — Executive Coaching",
+      "url": "https://{{ site.domain }}{{ page.url }}",
       "description": "{{ meta.description | jsonEscape }}",
       "provider": { "@id": "https://{{ site.domain }}/#person" },
-      "serviceType": "Product Advisory"
+      "serviceType": "Executive Coaching"
     }
     {%- elsif layout contains "artwork-preview" %},
     {

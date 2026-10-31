@@ -28,8 +28,8 @@ const helpers = makeHelpers();
 export default async function (eleventyConfig) {
   /* 11ty Plugins */
   /****************/
-  // Shared markdown library, common filters/shortcodes, and the feedmail
-  // subscribe-form partial (resolved via the Liquid root added below).
+  // Shared markdown library, common filters/shortcodes, and the shared
+  // hero, site-includes and subscribe-form partials (resolved via the Liquid root added below).
   eleventyConfig.addPlugin(sharedConfig, {
     domain: siteConfig.domain,
     loremIpsum: LoremIpsum,
@@ -153,7 +153,7 @@ export default async function (eleventyConfig) {
   /* Liquid include resolution */
   /*****************************/
   // Add the @alxm/eleventy-config includes dir alongside the site's own so
-  // `{% render "partials/subscribe-form" %}` resolves the package-owned partial.
+  // the package-owned partials (hero, site-includes, subscribe-form) resolve.
   eleventyConfig.setLiquidOptions({
     root: ["src/_includes", "src", includesDir]
   });

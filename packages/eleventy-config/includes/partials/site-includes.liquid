@@ -1,0 +1,12 @@
+{% comment %}
+  Lazy stylesheets load async via a preload swap, except under `--serve`: the
+  dev server's DOM-diff reload reverts the swapped rel and drops the fonts.
+{% endcomment %}
+{% for link in site.links %}
+  {%- if link.lazy and eleventy.env.runMode != "serve" %}
+  <link rel="preload" href="{{ link.href }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{ link.href }}" /></noscript>
+  {%- else %}
+  <link{% for attr in link %}{% unless attr[0] == "lazy" %} {{ attr[0] }}="{{ attr[1] }}"{% endunless %}{% endfor %} />
+  {%- endif %}
+{% endfor %}

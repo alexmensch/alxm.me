@@ -37,16 +37,10 @@ const site = {
   },
   links: [],
   nav: [
+    { title: "Coaching", url: "/coaching/" },
     { title: "Writing", url: "/writing/" },
     { title: "Artwork", url: "/artwork/", collection: true, theme: "artwork" },
-    {
-      title: "Therapy",
-      url: "https://alexmarshalltherapy.com",
-      external: true
-    },
     { title: "Contact", url: "/contact/", footer: true },
-    { title: "About", url: "/about/", footer: true },
-    { title: "Advisory", url: "/advisory/", hidden: true },
     { title: "Podcast", url: "/podcast/", collection: true, hidden: true },
     { title: "Styles", url: "/styles/", hidden: true }
   ]
@@ -130,15 +124,6 @@ site.og = {
   generatedDir: "/assets/images/og/auto",
   width: OG_WIDTH,
   height: OG_HEIGHT
-};
-
-// Psychology writing is source-of-truth on alexmarshalltherapy.com. tags drive
-// both the listing's link-out and the suppression of local page generation;
-// baseUrl (no trailing slash — permalinks start with "/") is prepended to the
-// permalink for the external link and the 301 destinations.
-site.counselling = {
-  baseUrl: "https://alexmarshalltherapy.com",
-  tags: ["psychology"]
 };
 
 site.company = {

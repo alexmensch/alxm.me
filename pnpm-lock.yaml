@@ -84,6 +84,10 @@ importers:
       slugify:
         specifier: ^1.6.9
         version: 1.6.9
+    devDependencies:
+      liquidjs:
+        specifier: ^10.26.0
+        version: 10.30.0
 
   packages/favicon-generator:
     dependencies:

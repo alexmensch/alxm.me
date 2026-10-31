@@ -22,16 +22,4 @@ eleventyExcludeFromCollections: true
   </url>
 {%- endunless %}
 {%- endfor %}
-{%- for post in collections.writing %}
-{%- if post.tags | hasAnyTag: site.counsellingTags %}
-  <url>
-    <loc>https://{{ site.domain }}{{ post.permalink }}</loc>
-    {%- if post.version_date %}
-    <lastmod>{{ post.version_date | dateToRfc3339 }}</lastmod>
-    {%- elsif post.date %}
-    <lastmod>{{ post.date | dateToRfc3339 }}</lastmod>
-    {%- endif %}
-  </url>
-{%- endif %}
-{%- endfor %}
 </urlset>

@@ -78,6 +78,32 @@ describe("eleventy-config plugin", () => {
     assert.ok(result.includes("<strong>bold</strong>"));
   });
 
+  it("wires markdownToHTML through the configured markdown library", () => {
+    const config = makeMockConfig();
+    plugin(config, { domain: "alxm.me" });
+    const html = config.calls.filters.markdownToHTML(
+      "One [out](https://example.com).\n\nTwo [in](https://alxm.me/x)."
+    );
+    assert.ok(
+      html.includes(
+        '<p>One <a href="https://example.com" target="_blank" rel="noopener">out</a>.</p>'
+      )
+    );
+    assert.ok(html.includes('<p>Two <a href="https://alxm.me/x">in</a>.</p>'));
+  });
+
+  it("renders paired shortcode bodies as inline markdown", () => {
+    const config = makeMockConfig();
+    plugin(config, { domain: "alxm.me", shortcodes: { cta: true } });
+    const { blockQuote, cta } = config.calls.pairedShortcodes;
+
+    const quote = blockQuote("\nA _process_ with <b>html</b>\n", "A", "S");
+    assert.ok(quote.includes("<p>A <em>process</em> with <b>html</b></p>"));
+
+    const box = cta("A **free** session", "/contact", "Contact me");
+    assert.ok(box.includes("<p>A <strong>free</strong> session</p>"));
+  });
+
   it("does not register opt-in filters/shortcodes by default", () => {
     const config = makeMockConfig();
     plugin(config, { domain: "alxm.me" });

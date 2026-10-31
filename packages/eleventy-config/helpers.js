@@ -1,16 +1,7 @@
 import slugify from "slugify";
 import { DateTime } from "luxon";
-import MarkdownIt from "markdown-it";
-
-const markdown = new MarkdownIt({
-  html: true, // Enable HTML tags in source
-  xhtmlOut: true, // Use '/' to close single tags (<br />)
-  breaks: false, // Convert '\n' in paragraphs into <br>
-  linkify: true // Autoconvert URL-like text to links
-});
 
 const helpers = {
-  md: markdown,
   currentYear() {
     return new Date().getFullYear().toString();
   },
@@ -85,9 +76,6 @@ const helpers = {
       },
       collection[0].date || collection[0].data?.date || new Date()
     );
-  },
-  markdownToHTML(content) {
-    return String(markdown.render(content));
   },
   escapeHTML(string) {
     return String(string).replace(

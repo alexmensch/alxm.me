@@ -84,7 +84,7 @@ This is an Eleventy static site using Liquid and Nunjucks templates, deployed to
 
 ### Key Files
 
-- `.eleventy.js` - Main Eleventy config: site-specific plugins, filters, shortcodes, Sass processing. Adds `@alxm/eleventy-config` (markdown library + common filters/shortcodes + subscribe-form partial) via `addPlugin(sharedConfig, { domain, ... })`
+- `.eleventy.js` - Main Eleventy config: site-specific plugins, filters, shortcodes, Sass processing. Adds `@alxm/eleventy-config` (markdown library + common filters/shortcodes + shared hero, site-includes and subscribe-form partials) via `addPlugin(sharedConfig, { domain, ... })`
 - `src/_data/site.js` - Site configuration, navigation structure (defines collections)
 - `src/_data/helpers.js` - Thin re-export of `@alxm/eleventy-config/helpers` (keeps the `helpers` global in the data cascade); the implementation lives in `packages/eleventy-config/`
 - The configured markdown-it instance (`makeMarkdownLib`), shortcodes (`articleImage`, `blockQuote`, `cta`), and helpers all live in `packages/eleventy-config/` (`@alxm/eleventy-config`)
@@ -108,13 +108,13 @@ Styles use CUBE CSS methodology with Utopia fluid typography. The shared design 
 - `global/` - Reset, variables, base styles (+ alxm-only `_themes.scss`, local)
 - `config/` - Design tokens, fonts, Sass functions and mixins; emits no CSS (Utopia is imported here as `pkg:utopia-core-scss/...`, a dep of the package, not the sites)
 - `compositions/` - Layout primitives (flow, stack, grid, sidebar, etc.)
-- `blocks/` - Component-specific styles, including anything with a state or descendant selector (+ alxm-only `_artwork.scss` and `_external-link.scss`, therapy-only `_cta.scss`, local)
+- `blocks/` - Component-specific styles, including anything with a state or descendant selector (+ alxm-only `_artwork.scss`, therapy-only `_cta.scss`, local)
 - `utilities/` - Single-purpose classes, generated token classes included; every declaration is `!important`
 
 How the seam works:
 
 - `root.scss` `@use`s shared layers via `pkg:@alxm/cube-scss/<layer>` and local divergent layers via the site's own `_index.scss`. Each `.eleventy.js` adds `importers: [new sass.NodePackageImporter(...)]` to the `sass.compileString` call so `pkg:` URLs resolve through the pnpm workspace symlinks.
-- A site that adds a partial to a shared layer (themes, artwork, cta, external-link) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. Layer order in `root.scss` is config → global → compositions → blocks → utilities (the `cube-css` skill's order), and within-layer ordering is load-bearing. A partial may `@use` only layers that `root.scss` loads before its own — Sass emits a module's CSS where it is first loaded, so a block pulling in `utilities` for a mixin would drag that whole layer out of position. Mixins shared between layers live in `config/`.
+- A site that adds a partial to a shared layer (themes, artwork, cta) keeps a **local** `_index.scss` for that layer and `@forward`s the package leaves + its local leaf **at the original cascade position** — not appended at the end. Layer order in `root.scss` is config → global → compositions → blocks → utilities (the `cube-css` skill's order), and within-layer ordering is load-bearing. A partial may `@use` only layers that `root.scss` loads before its own — Sass emits a module's CSS where it is first loaded, so a block pulling in `utilities` for a mixin would drag that whole layer out of position. Mixins shared between layers live in `config/`.
 - Template class attributes must be in the `cube-css` skill's grouping (one bracket per layer, brackets and classes in cascade order). Each site's `tests/class-attributes.test.js` checks this with `@alxm/cube-scss/lib/class-audit.js`, which derives each class's layer and order from the compiled CSS and prints the expected form.
 - Package SCSS is outside the sites' stylelint globs (`src/**`); it is linted by the root `pnpm lint:packages` gate (see Workspace package quality gates above).
 

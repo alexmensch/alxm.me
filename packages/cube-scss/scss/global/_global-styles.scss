@@ -89,6 +89,10 @@ blockquote {
 
   @include dt.use("text", 1);
 
+  em {
+    font-style: normal;
+  }
+
   & > blockquote {
     margin-block-start: #{dt.get-size("xs")};
   }

@@ -71,7 +71,7 @@
     {
       "@type": "BlogPosting",
       "headline": "{{ title | jsonEscape }}",
-      "url": "https://{{ site.domain }}{{ page.url }}",
+      "url": "{{ canonicalUrl }}",
       "datePublished": "{{ date | dateToRfc3339 }}",
       "dateModified": "{% if version_date %}{{ version_date | dateToRfc3339 }}{% else %}{{ date | dateToRfc3339 }}{% endif %}",
       "author": { "@id": "https://{{ site.domain }}/#person" },

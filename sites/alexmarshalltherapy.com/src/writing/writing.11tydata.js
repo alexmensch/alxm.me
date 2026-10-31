@@ -13,6 +13,8 @@ export default {
     date: (data) => data.post.date,
     version_date: (data) => data.post.version_date,
     meta: (data) => data.post.meta,
+    canonical_url: (data) =>
+      `${site.writingCanonicalBaseUrl}${data.post.permalink}`,
     ogImage: (data) =>
       helpers.ogImageUrl(data.post.permalink, site.domain, site.og.generatedDir)
   }

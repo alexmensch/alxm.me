@@ -36,6 +36,18 @@ describe("markdownToCDATA", () => {
     assert.ok(result.includes("<strong>bold</strong>"));
   });
 
+  it("renders with the site's markdown library (external links open in a new tab)", () => {
+    const result = podcast.markdownToCDATA(
+      "[out](https://example.com) [in](https://alxm.me/x)"
+    );
+    assert.ok(
+      result.includes(
+        '<a href="https://example.com" target="_blank" rel="noopener">out</a>'
+      )
+    );
+    assert.ok(result.includes('<a href="https://alxm.me/x">in</a>'));
+  });
+
   it("handles input with nested HTML tags", () => {
     const result = podcast.markdownToCDATA(
       '<div class="test"><p>nested</p></div>'
