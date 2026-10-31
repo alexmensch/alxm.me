@@ -101,7 +101,9 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
     "getNewestCollectionItemDate",
     helpers.getNewestCollectionItemDate
   );
-  eleventyConfig.addFilter("markdownToHTML", helpers.markdownToHTML);
+  eleventyConfig.addFilter("markdownToHTML", (markdownString) =>
+    markdownLib.render(markdownString)
+  );
   eleventyConfig.addFilter("escapeHTML", helpers.escapeHTML);
   eleventyConfig.addFilter("jsonEscape", (str) =>
     JSON.stringify(String(str ?? "")).slice(1, -1)

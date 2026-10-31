@@ -78,6 +78,20 @@ describe("eleventy-config plugin", () => {
     assert.ok(result.includes("<strong>bold</strong>"));
   });
 
+  it("wires markdownToHTML through the configured markdown library", () => {
+    const config = makeMockConfig();
+    plugin(config, { domain: "alxm.me" });
+    const html = config.calls.filters.markdownToHTML(
+      "One [out](https://example.com).\n\nTwo [in](https://alxm.me/x)."
+    );
+    assert.ok(
+      html.includes(
+        '<p>One <a href="https://example.com" target="_blank" rel="noopener">out</a>.</p>'
+      )
+    );
+    assert.ok(html.includes('<p>Two <a href="https://alxm.me/x">in</a>.</p>'));
+  });
+
   it("renders paired shortcode bodies as inline markdown", () => {
     const config = makeMockConfig();
     plugin(config, { domain: "alxm.me", shortcodes: { cta: true } });

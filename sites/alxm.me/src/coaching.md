@@ -9,7 +9,11 @@ hero:
 cta:
   header: Free, no-commitment initial session
   body: |
-    The most important factor in the outcome of our work together is our relationship and the degree to which you can fully be yourself in the therapeutic space. Honouring this, I offer a free, no-commitment initial session to allow you to both see how I work and decide whether I am the right fit for you.<br/><br/>[Contact me](/contact) for a free initial consultation, and we can discuss your reasons for seeking support, your hopes for the future, and any questions you have.<br/><br/>Note that my work is not clinical psychotherapy or psychiatric in nature. If you are experiencing severe or persistent symptoms, I encourage you to contact your GP or the NHS by calling 111.
+    The most important factor in the outcome of our work together is our relationship and the degree to which you can fully be yourself in the therapeutic space. Honouring this, I offer a free, no-commitment initial session to allow you to both see how I work and decide whether I am the right fit for you.
+
+    [Contact me](/contact) for a free initial consultation, and we can discuss your reasons for seeking support, your hopes for the future, and any questions you have.
+
+    Note that my work is not clinical psychotherapy or psychiatric in nature. If you are experiencing severe or persistent symptoms, I encourage you to contact your GP or the NHS by calling 111.
 company_info: true
 ---
 

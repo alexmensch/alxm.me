@@ -368,34 +368,6 @@ describe("getNewestCollectionItemDate", () => {
   });
 });
 
-describe("markdownToHTML", () => {
-  it("renders bold text", () => {
-    const result = helpers.markdownToHTML("**bold**");
-    assert.ok(result.includes("<strong>bold</strong>"));
-  });
-
-  it("renders italic text", () => {
-    const result = helpers.markdownToHTML("*italic*");
-    assert.ok(result.includes("<em>italic</em>"));
-  });
-
-  it("renders links", () => {
-    const result = helpers.markdownToHTML("[link](https://example.com)");
-    assert.ok(result.includes('<a href="https://example.com">link</a>'));
-  });
-
-  it("passes through HTML unchanged", () => {
-    const result = helpers.markdownToHTML('<div class="test">content</div>');
-    assert.ok(result.includes('<div class="test">content</div>'));
-  });
-
-  it("does not add external link attributes (plain markdown-it instance)", () => {
-    // The helpers.md instance is a plain markdown-it without the external link plugin
-    const result = helpers.markdownToHTML("[link](https://example.com)");
-    assert.ok(!result.includes('target="_blank"'));
-  });
-});
-
 describe("escapeHTML", () => {
   it("escapes ampersands", () => {
     assert.ok(helpers.escapeHTML("&").includes("&amp;"));

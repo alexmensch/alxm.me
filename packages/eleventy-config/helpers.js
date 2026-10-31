@@ -86,9 +86,6 @@ const helpers = {
       collection[0].date || collection[0].data?.date || new Date()
     );
   },
-  markdownToHTML(content) {
-    return String(markdown.render(content));
-  },
   escapeHTML(string) {
     return String(string).replace(
       /[&<>'"]/g,
