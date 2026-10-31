@@ -7,16 +7,11 @@
 
   &__heading {
     padding-block-end: var(--gutter);
-  }
-
-  &__subheader {
     color: var(--hero-header-text);
   }
 
   &__header {
     @include dt.use("text-mega", -2);
-
-    color: var(--hero-header-text);
 
     mark {
       color: inherit;
