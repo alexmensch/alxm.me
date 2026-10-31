@@ -5,7 +5,7 @@ hide_footer: true
 title: Hello
 meta:
   noindex: true
-  description: "Alex Marshall is an executive coach and artist based in London, working with founders, executives, and product leaders. He also writes on a variety of topics."
+  description: "Alex Marshall is an executive coach and artist based in London, working with founders, executives, and product leaders. He is also an artist and writes on a variety of topics."
 main:
   title: Hello, I’m Alex
   text:
