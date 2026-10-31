@@ -3,9 +3,14 @@
     <head>
         {% capture pageTitle %}{{ title }} • {{ site.siteName }}{% endcapture %}
         <title>{{ pageTitle }}</title>
-        {% render "partials/site-meta" meta: meta, summary: summary, site: site, eleventy: eleventy, page: page, canonical_url: canonical_url %}
-        {% render "partials/site-opengraph" page: page, pageTitle: pageTitle, summary: summary, site: site, ogImage: ogImage %}
-        {% render "partials/site-schema" site: site, page: page, layout: layout, schemaType: schemaType, title: title, date: date, version_date: version_date, summary: summary, meta: meta, image: image, medium: medium, size: size, price: price, available: available %}
+        {% if canonical_url %}
+            {% assign canonicalUrl = canonical_url %}
+        {% else %}
+            {% capture canonicalUrl %}https://{{ site.domain }}{{ page.url }}{% endcapture %}
+        {% endif %}
+        {% render "partials/site-meta" meta: meta, summary: summary, site: site, eleventy: eleventy, canonicalUrl: canonicalUrl %}
+        {% render "partials/site-opengraph" pageTitle: pageTitle, summary: summary, site: site, ogImage: ogImage, canonicalUrl: canonicalUrl %}
+        {% render "partials/site-schema" site: site, page: page, canonicalUrl: canonicalUrl, layout: layout, schemaType: schemaType, title: title, date: date, version_date: version_date, summary: summary, meta: meta, image: image, medium: medium, size: size, price: price, available: available %}
         {% render "partials/site-includes" site: site %}
     </head>
     <body>
