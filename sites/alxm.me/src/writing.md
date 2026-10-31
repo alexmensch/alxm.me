@@ -11,4 +11,4 @@ This is a collection of my writing on various topics that I’m interested in, f
 
 I deeply appreciate writing as a mechanism for organizing thinking on a subject. Part of this comes from many years as a product manager in the software industry, where writing is the role’s primary form of influence. It’s also a great litmus test for clarity of thinking on a subject. Paul Graham’s advice on [writing simply](https://www.paulgraham.com/simply.html) resonates strongly with me, and I aim to edit for both clarity and a natural cadence in the language.
 
-None of the content below is written with the assitance of LLMs, and training on this content is expressly forbidden.
+None of the content below is written with the assistance of LLMs, and training on this content is expressly forbidden.
