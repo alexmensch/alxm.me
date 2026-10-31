@@ -1,6 +1,5 @@
 ---
 layout: layouts/landing
-title:
 meta:
   description: "Alex Marshall is a former Silicon Valley founder turned executive coach and artist. Based in London."
 hero:
