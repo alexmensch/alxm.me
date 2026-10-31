@@ -10,7 +10,7 @@
         {% render "partials/site-meta" meta: meta, summary: summary, site: site, eleventy: eleventy, page: page %}
         {% render "partials/site-opengraph" ogImage: ogImage, page: page, pageTitle: pageTitle, summary: summary, site: site %}
         {% render "partials/site-schema" site: site, page: page, layout: layout, schemaType: schemaType, title: title, date: date, version_date: version_date, summary: summary, meta: meta, image: image, medium: medium, size: size, price: price, available: available %}
-        {% render "partials/site-includes" site: site %}
+        {% render "partials/site-includes" site: site, eleventy: eleventy %}
     </head>
     <body>
         <div class="[ flow ] [ site-wrap ] [ flow-space-xl ]">

@@ -88,15 +88,18 @@ site.links = [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+    href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap",
+    lazy: true
   },
   {
     rel: "stylesheet",
-    href: "https://rsms.me/inter/inter.css"
+    href: "https://rsms.me/inter/inter.css",
+    lazy: true
   },
   {
     rel: "stylesheet",
-    href: "/assets/css/syntax.css"
+    href: "/assets/css/syntax.css",
+    lazy: true
   },
   {
     rel: "alternate",
