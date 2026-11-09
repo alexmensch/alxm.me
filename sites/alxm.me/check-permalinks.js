@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { pathToFileURL } from "url";
 import { config } from "dotenv";
 
 config({ quiet: true });
@@ -181,7 +182,7 @@ async function main() {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href) {
   main();
 }
 
