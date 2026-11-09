@@ -4,7 +4,27 @@ import { config } from "dotenv";
 
 config({ quiet: true });
 
-const BASELINE_KV_KEY = "permalink-baseline";
+const DEFAULT_TARGET = "production";
+
+export const BASELINE_TARGETS = {
+  production: { key: "permalink-baseline" },
+  staging: { key: "permalink-baseline-staging", fallback: "production" }
+};
+
+export function resolveTarget(deployEnv = DEFAULT_TARGET) {
+  if (!Object.hasOwn(BASELINE_TARGETS, deployEnv)) {
+    throw new Error(
+      `Unknown DEPLOY_ENV "${deployEnv}"; expected one of: ${Object.keys(BASELINE_TARGETS).join(", ")}`
+    );
+  }
+  return { name: deployEnv, ...BASELINE_TARGETS[deployEnv] };
+}
+
+function updateCommand(target) {
+  const prefix =
+    target.name === DEFAULT_TARGET ? "" : `DEPLOY_ENV=${target.name} `;
+  return `${prefix}node check-permalinks.js --update-baseline`;
+}
 
 function kvConfig() {
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
@@ -61,13 +81,84 @@ export function parsePermalinkList(content) {
   );
 }
 
-async function getBaselinePermalinks() {
-  const kvContent = await fetchKVValue(BASELINE_KV_KEY);
-  if (kvContent === null) {
-    return null;
+async function readBaseline(target) {
+  const content = await fetchKVValue(target.key);
+  if (content !== null) {
+    return { key: target.key, permalinks: parsePermalinkList(content) };
   }
-  console.log("📁 Using baseline from Cloudflare KV");
-  return parsePermalinkList(kvContent);
+  return target.fallback ? readBaseline(resolveTarget(target.fallback)) : null;
+}
+
+export async function checkPermalinks({
+  deployEnv,
+  updateBaseline,
+  currentContent
+}) {
+  const target = resolveTarget(deployEnv);
+
+  if (updateBaseline) {
+    await storeKVValue(target.key, currentContent);
+    console.log(`\n✅ Updated baseline "${target.key}" in Cloudflare KV`);
+    return;
+  }
+
+  const baseline = await readBaseline(target);
+
+  if (baseline === null) {
+    if (target.fallback) {
+      throw new Error(
+        `No baseline at "${target.key}" or its fallback. Accept the current permalinks with: ${updateCommand(target)}`
+      );
+    }
+    await storeKVValue(target.key, currentContent);
+    console.log(
+      `✅ Created initial permalink baseline "${target.key}" in Cloudflare KV`
+    );
+    return;
+  }
+
+  console.log(
+    baseline.key === target.key
+      ? `📁 Using baseline "${baseline.key}" from Cloudflare KV`
+      : `📁 "${target.key}" absent; comparing against fallback "${baseline.key}"`
+  );
+
+  const currentPermalinks = parsePermalinkList(currentContent);
+  const { added: newPermalinks, removed: missingPermalinks } = diffPermalinks(
+    baseline.permalinks,
+    currentPermalinks
+  );
+
+  console.log("📊 Permalink Analysis:");
+  console.log(`   Baseline: ${baseline.permalinks.size} permalinks`);
+  console.log(`   Current:  ${currentPermalinks.size} permalinks`);
+
+  if (missingPermalinks.length > 0) {
+    console.log("\n❌ MISSING PERMALINKS (these URLs will break):");
+    missingPermalinks.forEach((permalink) => {
+      console.log(`   ${permalink}`);
+    });
+    console.log("\n💡 If permalink changes are intentional:");
+    console.log("   1. Add redirects for the missing URLs");
+    console.log(`   2. Update KV baseline: ${updateCommand(target)}`);
+
+    throw new Error("Must verify permalink changes by updating baseline.");
+  }
+
+  if (newPermalinks.length > 0) {
+    console.log("\n🆕 NEW PERMALINKS:");
+    newPermalinks.forEach((permalink) => {
+      console.log(`   ${permalink}`);
+    });
+    console.log("\n📝 To accept these new permalinks, update your baseline:");
+    console.log(`   ${updateCommand(target)}`);
+  }
+
+  if (missingPermalinks.length === 0 && newPermalinks.length === 0) {
+    console.log(
+      "\n✅ All permalinks match baseline - no broken links detected"
+    );
+  }
 }
 
 async function main() {
@@ -79,63 +170,11 @@ async function main() {
         "No current permalinks file found. Run 11ty build first."
       );
     }
-
-    if (process.argv.includes("--update-baseline")) {
-      const currentContent = fs.readFileSync(currentFile, "utf8");
-      await storeKVValue(BASELINE_KV_KEY, currentContent);
-      console.log("\n✅ Updated baseline in Cloudflare KV");
-      return;
-    }
-
-    const baselinePermalinks = await getBaselinePermalinks();
-
-    if (baselinePermalinks === null) {
-      const currentContent = fs.readFileSync(currentFile, "utf8");
-      await storeKVValue(BASELINE_KV_KEY, currentContent);
-      console.log("✅ Created initial permalink baseline in Cloudflare KV");
-      return;
-    }
-    const currentPermalinks = parsePermalinkList(
-      fs.readFileSync(currentFile, "utf8")
-    );
-
-    const { added: newPermalinks, removed: missingPermalinks } = diffPermalinks(
-      baselinePermalinks,
-      currentPermalinks
-    );
-
-    console.log("📊 Permalink Analysis:");
-    console.log(`   Baseline: ${baselinePermalinks.size} permalinks`);
-    console.log(`   Current:  ${currentPermalinks.size} permalinks`);
-
-    if (missingPermalinks.length > 0) {
-      console.log("\n❌ MISSING PERMALINKS (these URLs will break):");
-      missingPermalinks.forEach((permalink) => {
-        console.log(`   ${permalink}`);
-      });
-      console.log("\n💡 If permalink changes are intentional:");
-      console.log("   1. Add redirects for the missing URLs");
-      console.log(
-        "   2. Update KV baseline: node check-permalinks.js --update-baseline"
-      );
-
-      throw new Error("Must verify permalink changes by updating baseline.");
-    }
-
-    if (newPermalinks.length > 0) {
-      console.log("\n🆕 NEW PERMALINKS:");
-      newPermalinks.forEach((permalink) => {
-        console.log(`   ${permalink}`);
-      });
-      console.log("\n📝 To accept these new permalinks, update your baseline:");
-      console.log("   node check-permalinks.js --update-baseline");
-    }
-
-    if (missingPermalinks.length === 0 && newPermalinks.length === 0) {
-      console.log(
-        "\n✅ All permalinks match baseline - no broken links detected"
-      );
-    }
+    await checkPermalinks({
+      deployEnv: process.env.DEPLOY_ENV,
+      updateBaseline: process.argv.includes("--update-baseline"),
+      currentContent: fs.readFileSync(currentFile, "utf8")
+    });
   } catch (error) {
     console.error("❌ Permalink check failed:\n", error);
     process.exit(1); // eslint-disable-line no-process-exit
@@ -151,5 +190,3 @@ export function diffPermalinks(baselineSet, currentSet) {
   const removed = [...baselineSet].filter((p) => !currentSet.has(p));
   return { added, removed };
 }
-
-export { main };

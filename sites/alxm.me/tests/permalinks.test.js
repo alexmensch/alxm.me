@@ -1,7 +1,10 @@
 import { describe, it, beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import {
+  BASELINE_TARGETS,
+  checkPermalinks,
   diffPermalinks,
+  resolveTarget,
   fetchKVValue,
   parsePermalinkList
 } from "../check-permalinks.js";
@@ -94,6 +97,110 @@ describe("fetchKVValue", () => {
   it("throws when credentials are missing", async () => {
     delete process.env.CLOUDFLARE_API_TOKEN;
     await assert.rejects(fetchKVValue("k"), /credentials not configured/);
+  });
+});
+
+describe("resolveTarget", () => {
+  it("defaults to production when DEPLOY_ENV is unset", () => {
+    assert.equal(resolveTarget(undefined).key, "permalink-baseline");
+  });
+
+  it("resolves staging to its own key with a production fallback", () => {
+    const target = resolveTarget("staging");
+    assert.equal(target.key, "permalink-baseline-staging");
+    assert.equal(target.fallback, "production");
+  });
+
+  it("throws on an unknown value, naming the valid set", () => {
+    assert.throws(() => resolveTarget("stagign"), /production, staging/);
+  });
+
+  it("rejects inherited object keys", () => {
+    assert.throws(() => resolveTarget("toString"), /Unknown DEPLOY_ENV/);
+  });
+});
+
+describe("checkPermalinks", () => {
+  const kv = useStubbedKV();
+  const PROD = BASELINE_TARGETS.production.key;
+  const STG = BASELINE_TARGETS.staging.key;
+  const quietly = async (fn) => {
+    const log = console.log;
+    console.log = () => {};
+    try {
+      return await fn();
+    } finally {
+      console.log = log;
+    }
+  };
+  const check = (options) => quietly(() => checkPermalinks(options));
+
+  it("staging compares against production when its own key is absent", async () => {
+    kv.store.set(PROD, "/about/\n");
+    await assert.rejects(
+      check({ deployEnv: "staging", currentContent: "/\n" }),
+      /Must verify/
+    );
+    assert.deepEqual(
+      kv.requests.map((r) => r.key),
+      [STG, PROD]
+    );
+  });
+
+  it("staging uses its own key when present", async () => {
+    kv.store.set(PROD, "/about/\n");
+    kv.store.set(STG, "/\n");
+    await check({ deployEnv: "staging", currentContent: "/\n" });
+    assert.deepEqual(
+      kv.requests.map((r) => r.key),
+      [STG]
+    );
+  });
+
+  it("staging fails on a KV server error without falling back", async () => {
+    kv.store.set(PROD, "/\n");
+    kv.fail.set(STG, 503);
+    await assert.rejects(
+      check({ deployEnv: "staging", currentContent: "/\n" }),
+      /HTTP 503/
+    );
+    assert.ok(!kv.requests.some((r) => r.key === PROD));
+  });
+
+  it("staging fails rather than seeding when no baseline exists anywhere", async () => {
+    await assert.rejects(
+      check({ deployEnv: "staging", currentContent: "/\n" }),
+      /DEPLOY_ENV=staging node check-permalinks\.js --update-baseline/
+    );
+    assert.ok(!kv.requests.some((r) => r.method === "PUT"));
+  });
+
+  it("production seeds its own key on first run", async () => {
+    await check({ currentContent: "/\n" });
+    assert.equal(kv.store.get(PROD), "/\n");
+  });
+
+  it("--update-baseline writes only the target's key", async () => {
+    kv.store.set(PROD, "/about/\n");
+    await check({
+      deployEnv: "staging",
+      updateBaseline: true,
+      currentContent: "/\n"
+    });
+    assert.equal(kv.store.get(STG), "/\n");
+    assert.equal(kv.store.get(PROD), "/about/\n");
+    assert.deepEqual(
+      kv.requests.filter((r) => r.method === "PUT").map((r) => r.key),
+      [STG]
+    );
+  });
+
+  it("fails the build when an update write fails", async () => {
+    kv.fail.set(PROD, 500);
+    await assert.rejects(
+      check({ updateBaseline: true, currentContent: "/\n" }),
+      /KV write .* HTTP 500/
+    );
   });
 });
 
