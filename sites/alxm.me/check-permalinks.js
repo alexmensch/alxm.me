@@ -2,84 +2,72 @@ import fs from "fs";
 import path from "path";
 import { config } from "dotenv";
 
-// Load environment variables from .env file
 config({ quiet: true });
 
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const NAMESPACE_ID = process.env.CLOUDFLARE_KV_PERMALINK_NS_ID;
-const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
-const KV_BASE_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}`;
 const BASELINE_KV_KEY = "permalink-baseline";
 
-async function fetchKVValue(key) {
-  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
-    return null; // Fall back to file-based approach
-  }
-
-  try {
-    const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`
-      }
-    });
-
-    if (response.status === 404) {
-      return null; // Key doesn't exist
-    }
-
-    if (!response.ok) {
-      console.warn(`⚠️ Failed to fetch from KV: ${response.status}`);
-      return null;
-    }
-
-    return response.text();
-  } catch (error) {
-    console.warn("⚠️ KV fetch error, falling back to file:", error.message);
-    return null;
-  }
-}
-
-async function storeKVValue(key, value) {
-  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
-    return false;
-  }
-
-  try {
-    const response = await fetch(`${KV_BASE_URL}/values/${key}`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-        "Content-Type": "text/plain"
-      },
-      body: value
-    });
-
-    return response.ok;
-  } catch (error) {
-    console.warn("⚠️ KV store error:", error.message);
-    return false;
-  }
-}
-
-async function getBaselinePermalinks() {
-  if (!ACCOUNT_ID || !API_TOKEN || !NAMESPACE_ID) {
+function kvConfig() {
+  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+  const namespaceId = process.env.CLOUDFLARE_KV_PERMALINK_NS_ID;
+  const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+  if (!accountId || !namespaceId || !apiToken) {
     throw new Error(
       "❌ Cloudflare KV credentials not configured. Cannot proceed without KV."
     );
   }
+  return {
+    baseUrl: `https://api.cloudflare.com/client/v4/accounts/${accountId}/storage/kv/namespaces/${namespaceId}`,
+    apiToken
+  };
+}
 
-  const kvContent = await fetchKVValue(BASELINE_KV_KEY);
-  if (kvContent) {
-    console.log("📁 Using baseline from Cloudflare KV");
-    return new Set(
-      kvContent
-        .split("\n")
-        .map((line) => line.trim())
-        .filter((line) => line.length > 0)
-    );
+export async function fetchKVValue(key) {
+  const { baseUrl, apiToken } = kvConfig();
+  const response = await fetch(`${baseUrl}/values/${key}`, {
+    headers: { Authorization: `Bearer ${apiToken}` }
+  });
+
+  if (response.status === 404) {
+    return null;
   }
+  if (!response.ok) {
+    throw new Error(`KV read of "${key}" failed: HTTP ${response.status}`);
+  }
+  return response.text();
+}
 
-  return new Set();
+export async function storeKVValue(key, value) {
+  const { baseUrl, apiToken } = kvConfig();
+  const response = await fetch(`${baseUrl}/values/${key}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${apiToken}`,
+      "Content-Type": "text/plain"
+    },
+    body: value
+  });
+
+  if (!response.ok) {
+    throw new Error(`KV write of "${key}" failed: HTTP ${response.status}`);
+  }
+}
+
+export function parsePermalinkList(content) {
+  return new Set(
+    content
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0)
+  );
+}
+
+async function getBaselinePermalinks() {
+  const kvContent = await fetchKVValue(BASELINE_KV_KEY);
+  if (kvContent === null) {
+    return null;
+  }
+  console.log("📁 Using baseline from Cloudflare KV");
+  return parsePermalinkList(kvContent);
 }
 
 async function main() {
@@ -94,37 +82,21 @@ async function main() {
 
     if (process.argv.includes("--update-baseline")) {
       const currentContent = fs.readFileSync(currentFile, "utf8");
-      const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
-
-      if (kvStored) {
-        console.log("\n✅ Updated baseline in Cloudflare KV");
-      } else {
-        throw new Error("Failed to update KV baseline");
-      }
+      await storeKVValue(BASELINE_KV_KEY, currentContent);
+      console.log("\n✅ Updated baseline in Cloudflare KV");
       return;
     }
 
     const baselinePermalinks = await getBaselinePermalinks();
 
-    // Check if this is the first run (no baseline exists in KV)
-    if (baselinePermalinks.size === 0) {
+    if (baselinePermalinks === null) {
       const currentContent = fs.readFileSync(currentFile, "utf8");
-
-      const kvStored = await storeKVValue(BASELINE_KV_KEY, currentContent);
-
-      if (kvStored) {
-        console.log("✅ Created initial permalink baseline in Cloudflare KV");
-      } else {
-        throw new Error("Failed to store baseline in KV");
-      }
+      await storeKVValue(BASELINE_KV_KEY, currentContent);
+      console.log("✅ Created initial permalink baseline in Cloudflare KV");
       return;
     }
-    const currentPermalinks = new Set(
-      fs
-        .readFileSync(currentFile, "utf8")
-        .split("\n")
-        .map((line) => line.trim())
-        .filter((line) => line.length > 0)
+    const currentPermalinks = parsePermalinkList(
+      fs.readFileSync(currentFile, "utf8")
     );
 
     const { added: newPermalinks, removed: missingPermalinks } = diffPermalinks(
@@ -170,7 +142,6 @@ async function main() {
   }
 }
 
-// Run if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
