@@ -10,7 +10,7 @@
     "build": "pnpm run format && pnpm run lint && pnpm test && npx @11ty/eleventy && node check-permalinks.js",
     "build:cf": "node _cloudflare/r2/generate-assetsignore.js && pnpm run build && node _cloudflare/r2/sync.js",
     "deploy": "pnpm run build:cf && npx wrangler deploy --env=''",
-    "deploy:stg": "pnpm run build:cf && npx wrangler deploy --env=staging",
+    "deploy:stg": "DEPLOY_ENV=staging pnpm run build:cf && npx wrangler deploy --env=staging",
     "clean": "rm -rf _site",
     "format": "npx prettier . -wl",
     "11ty:watch": "npx @11ty/eleventy --serve",

@@ -22,7 +22,7 @@ This repository is a **pnpm-workspace monorepo** (epic `az8`). The `alxm.me` sit
 pnpm run build           # Format, lint, test, build site, check permalinks
 pnpm run build:cf        # Full build + R2 sync
 pnpm run deploy          # build:cf + wrangler deploy (production)
-pnpm run deploy:stg      # build:cf + wrangler deploy --env=staging
+pnpm run deploy:stg      # DEPLOY_ENV=staging build:cf + wrangler deploy --env=staging
 pnpm run 11ty:watch      # Dev server with hot reload
 pnpm run 11ty:debug      # Dev server with Eleventy debug output
 pnpm run clean           # Remove _site directory
@@ -42,10 +42,16 @@ pnpm run format          # Prettier formatting
 
 ### Permalinks
 
-The build includes permalink tracking to prevent broken URLs:
+The build ends with `node check-permalinks.js`, which compares `permalinks.txt` against a baseline in Cloudflare KV. The target is `DEPLOY_ENV` (unset = production); `BASELINE_TARGETS` in `check-permalinks.js` maps each to its key:
+
+- **production** — `permalink-baseline`; auto-seeded if absent.
+- **staging** (`deploy:stg` sets `DEPLOY_ENV=staging`) — `permalink-baseline-staging`; if absent, compares read-only against production's baseline. Accepting changes for staging never touches production's.
+
+An unknown `DEPLOY_ENV`, a KV error or missing credentials fails the build. On a mismatch the output prints the exact accept command for the target:
 
 ```bash
-node check-permalinks.js --update-baseline  # Accept new/changed permalinks
+node check-permalinks.js --update-baseline                     # Accept for production
+DEPLOY_ENV=staging node check-permalinks.js --update-baseline  # Accept for staging
 ```
 
 ### Podcast Audio Metadata
@@ -148,14 +154,14 @@ Collections are auto-generated from `src/_data/site.js` nav items with `collecti
 **Deployment** (manual from local — no Workers Builds auto-deploy):
 
 - `pnpm run deploy` → production at `alxm.me` (top-level Worker `alxm-website`)
-- `pnpm run deploy:stg` → staging at `alxm-website-staging.<account>.workers.dev` (separate Worker via `[env.staging]` in `wrangler.toml`)
-- Staging shares the prod R2 bucket and KV namespace — it reads the same content. Re-declaring bindings under `[env.staging]` is required because Wrangler env blocks don't inherit them.
+- `pnpm run deploy:stg` → staging at `alxm-website-staging.<account>.workers.dev` (separate Worker via `[env.staging]` in `wrangler.toml`); sets `DEPLOY_ENV=staging` so the build checks the staging permalink baseline (see Permalinks)
+- Staging shares the prod R2 bucket and KV namespace — it reads the same content; only the permalink baseline is keyed per target. Re-declaring bindings under `[env.staging]` is required because Wrangler env blocks don't inherit them.
 - Auth: `wrangler login` (or `CLOUDFLARE_API_TOKEN` env var). R2 sync needs the `.env` keys (`CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_R2_ACCESS_KEY_ID`, `CLOUDFLARE_R2_SECRET_ACCESS_KEY`).
 - LFS files are smudged on the deploying machine — deploys don't consume LFS bandwidth. `eleventy-plugins/audio-validation.js` and `_cloudflare/r2/sync.js` still guard against pointer files defensively in case anyone deploys from a fresh checkout with `GIT_LFS_SKIP_SMUDGE=1`.
 
 **Other**:
 
-- KV stores writing collection items and permalink baseline
+- KV stores writing collection items and the per-target permalink baselines
 - Environment variables required in `.env` for Cloudflare API access
 
 ### Open Graph Images
