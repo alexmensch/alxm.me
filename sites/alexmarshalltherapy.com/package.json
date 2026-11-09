@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/alexmensch/alxm.me#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy": "^3.1.8",
     "@11ty/eleventy-img": "^7.1.1",
     "@11ty/eleventy-plugin-directory-output": "^1.0.2",
     "@alxm/cf-r2-sync": "workspace:*",
@@ -48,9 +48,9 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "depcheck": "^1.4.7",
-    "eslint": "^10.6.0",
+    "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.6.0",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
     "markdownlint-cli2": "^0.24.0",
     "prettier": "^3.9.1",
