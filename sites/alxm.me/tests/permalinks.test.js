@@ -175,6 +175,17 @@ describe("checkPermalinks", () => {
     assert.ok(!kv.requests.some((r) => r.method === "PUT"));
   });
 
+  for (const [label, failure] of [
+    ["an HTTP error", 500],
+    ["a network error", new Error("ECONNRESET")]
+  ]) {
+    it(`production fails on ${label} without seeding`, async () => {
+      kv.fail.set(PROD, failure);
+      await assert.rejects(check({ currentContent: "/\n" }));
+      assert.ok(!kv.requests.some((r) => r.method === "PUT"));
+    });
+  }
+
   it("production seeds its own key on first run", async () => {
     await check({ currentContent: "/\n" });
     assert.equal(kv.store.get(PROD), "/\n");
