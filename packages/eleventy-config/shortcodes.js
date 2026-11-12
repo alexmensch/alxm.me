@@ -41,3 +41,20 @@ ${heading}<p>${content}</p>
 </div>`;
   return html;
 }
+
+export function highlights(paragraphs) {
+  if (paragraphs.length === 0) {
+    throw new Error("highlights shortcode requires at least one paragraph");
+  }
+
+  const boxes = paragraphs
+    .map(
+      (paragraph) => `<div class="[ box ] [ padding-xs radius ]">
+<p>${paragraph}</p>
+</div>`
+    )
+    .join("\n");
+  return `<div class="[ grid ] [ highlights ]">
+${boxes}
+</div>`;
+}

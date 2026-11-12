@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { articleImage, blockQuote, cta } from "../shortcodes.js";
+import { articleImage, blockQuote, cta, highlights } from "../shortcodes.js";
 
 describe("articleImage shortcode", () => {
   it("produces an img tag with src and alt attributes", () => {
@@ -171,5 +171,26 @@ describe("cta shortcode", () => {
 
   it("throws when label is missing", () => {
     assert.throws(() => cta("Body", "/contact", undefined), Error);
+  });
+});
+
+describe("highlights shortcode", () => {
+  it("wraps each paragraph in a box inside one grid", () => {
+    const html = highlights(["One", "Two"]);
+    assert.ok(html.startsWith('<div class="[ grid ] [ highlights ]">'));
+    assert.equal(
+      html.match(/class="\[ box \] \[ padding-xs radius \]"/g).length,
+      2
+    );
+    assert.ok(html.includes("<p>One</p>"));
+    assert.ok(html.includes("<p>Two</p>"));
+  });
+
+  it("emits no blank line, so markdown keeps it one HTML block", () => {
+    assert.ok(!/\n\s*\n/.test(highlights(["One", "Two", "Three"])));
+  });
+
+  it("throws when there are no paragraphs", () => {
+    assert.throws(() => highlights([]), /at least one paragraph/);
   });
 });
