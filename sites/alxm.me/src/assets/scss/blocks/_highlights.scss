@@ -1,0 +1,9 @@
+@use "pkg:@alxm/cube-scss/config/design-tokens" as dt;
+
+.highlights {
+  --min-item-width: #{dt.get-value("measure", "compact")};
+
+  & > * {
+    outline-color: #{dt.get-color("secondary")};
+  }
+}
