@@ -27,28 +27,15 @@ My approach involves working with all aspects of your life as they present thems
 
 What my clients value most, beyond my warm, unconditional presence, is being able to draw from my diverse range of experience as required in the moment.
 
-<div class="[ grid ] [ highlights ]">
-<div class="[ box ] [ padding-xs radius ]">
-
+{% highlights %}
 **20+ years in the software industry**. From startup to large corporation, public to private, entry-level to C-suite, sales to engineering roles, hiring and team-building, and navigating mergers, I’ve worn many hats. Benefit from my broad understanding across the industry.
-
-</div>
-<div class="[ box ] [ padding-xs radius ]">
 
 **VC-backed startup founder**. Being a Silicon Valley startup founder is unlike any other experience in business. I have firsthand experience of the immense pressure, extreme acceleration of responsibility, fundraising challenges, existential crises, executive team formation, and co-founder relationship struggles.
 
-</div>
-<div class="[ box ] [ padding-xs radius ]">
-
 **Product & design leader**. I’ve built product and design teams from the ground up and have launched products used by millions of people worldwide. I bring a rare combination of engineering, design, psychology, and commercial factors into product strategy.
 
-</div>
-<div class="[ box ] [ padding-xs radius ]">
-
 **Trained coach and therapist**. I offer a full breadth of approaches to help my clients listen to the answers they already hold within themselves. I draw from both therapeutic and coaching approaches as the moment demands in our work together.
-
-</div>
-</div>
+{% endhighlights %}
 
 I trained as a coach with [Co-Active](https://coactive.com), the world’s leading coach training programme, and my approach is also heavily influenced by the [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) school of psychotherapy.
 
