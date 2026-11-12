@@ -39,7 +39,7 @@ What my clients value most, beyond my warm, unconditional presence, is being abl
 
 I trained as a coach with [Co-Active](https://coactive.com), the world’s leading coach training programme, and my approach is also heavily influenced by the [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) school of psychotherapy.
 
-The creative, present-moment approach that I bring to my work is inherited from my practice supervisor, who has over 30 years of experience as a therapist. His own teacher, [James Bugental](https://en.wikipedia.org/wiki/James_Bugental), was the founder of existential-humanistic psychotherapy, and it is this legacy that I bring into the presence I offer you.
+The creative, present-moment approach that I bring to my work is inherited from my practice supervisor, who has over 30 years of experience as a therapist. His own teacher, [James Bugental](https://en.wikipedia.org/wiki/James_Bugental), was one of the founding figures of existential-humanistic psychotherapy, and it is this legacy that I bring into the presence I offer you.
 
 ## What to expect
 
