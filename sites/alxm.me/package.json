@@ -45,7 +45,7 @@
     "@alxm/og-image": "workspace:*",
     "dotenv": "^18.0.9",
     "eleventy-plugin-cloudflare-kv": "^1.0.6",
-    "eleventy-plugin-purgecss": "^0.6.0",
+    "eleventy-plugin-purgecss": "^0.7.0",
     "get-audio-duration": "^4.0.1",
     "lorem-ipsum": "^3.0.0",
     "sass": "^1.100.0"
