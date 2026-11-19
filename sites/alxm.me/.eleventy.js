@@ -33,7 +33,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(sharedConfig, {
     domain: siteConfig.domain,
     loremIpsum: LoremIpsum,
-    pageTheme: true
+    pageTheme: true,
+    shortcodes: { highlights: true }
   });
 
   // Custom Cloudflare KV -> Collections fetch
@@ -223,8 +224,8 @@ export default async function (eleventyConfig) {
   /*************************/
   // Common filters (getLinkActiveState, loremIpsum, markdownify, dateToRfc3339,
   // getNewestCollectionItemDate, markdownToHTML, escapeHTML, jsonEscape,
-  // getPageTheme, hasAnyTag) and the articleImage / blockQuote shortcodes are
-  // registered by the @alxm/eleventy-config plugin above.
+  // getPageTheme, hasAnyTag) and the articleImage / blockQuote / highlights
+  // shortcodes are registered by the @alxm/eleventy-config plugin above.
 
   // Renders Markdown input to CDATA-enclosed HTML
   // Example: {{ markdown_content | markdownToCDATA }}

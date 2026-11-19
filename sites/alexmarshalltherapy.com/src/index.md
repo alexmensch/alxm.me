@@ -23,7 +23,7 @@ I practice a warm, relational tradition of depth therapy that prioritises intima
 
 This creative, present-moment approach to our work together is inherited from my supervisor, who has over 30 years of experience as a therapist. His own teacher, James Bugental, was the founder of existential-humanistic psychotherapy, and it is this legacy that I bring into the care and presence I offer you.
 
-{% cta "/contact", "Get in touch" %}The most important factor in the outcome of our work together is our relationship and the degree to which you can fully be yourself in the therapeutic space. Honouring this, I offer a <strong>free, no-commitment initial session</strong> to allow you to see how I work and decide whether I am the right fit for you.{% endcta %}
+{% cta "/contact", "Get in touch" %}The most important factor in the outcome of our work together is our relationship and the degree to which you can fully be yourself in the therapeutic space. Honouring this, I offer a **free, no-commitment initial session** to allow you to see how I work and decide whether I am the right fit for you.{% endcta %}
 
 ## Common starting points
 

@@ -1,3 +1,4 @@
+import { company } from "@alxm/eleventy-config/company";
 import { OG_WIDTH, OG_HEIGHT } from "@alxm/og-image";
 
 const site = {
@@ -126,17 +127,6 @@ site.og = {
   height: OG_HEIGHT
 };
 
-site.company = {
-  name: "Thoughtful Design Ltd",
-  number: "15642102",
-  vat: "GB465435281",
-  address: {
-    street: "82A James Carter Road",
-    locality: "Mildenhall",
-    region: "England",
-    postalCode: "IP28 7DE",
-    country: "GB"
-  }
-};
+site.company = company;
 
 export default site;
