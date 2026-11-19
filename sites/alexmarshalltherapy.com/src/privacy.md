@@ -12,7 +12,7 @@ Last updated: 26 February 2026
 
 ## Who we are
 
-This website is operated by Thoughtful Design Ltd (&numero;15642102), a limited company registered in England and Wales with VAT number GB465435281. Our registered address is 82A James Carter Road, Mildenhall, England, IP28 7DE.
+This website is operated by {{ site.company.name }} (&numero;{{ site.company.number }}), a limited company registered in England and Wales with VAT number {{ site.company.vat }}. Our registered address is {{ site.company.addressLine }}.
 
 For any questions about this policy or how your data is handled, you can contact us at [hello@alexmarshalltherapy.com](mailto:hello@alexmarshalltherapy.com).
 

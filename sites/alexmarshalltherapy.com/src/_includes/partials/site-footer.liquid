@@ -16,8 +16,8 @@
             </ul>
         </nav>
         <div class="flow">
-            <p>Services are provided via Thoughtful Design (&numero;15642102), a limited company registered in England and Wales with VAT number GB465435281.</p>
-            <address class="flow-space-2xs">Thoughtful Design Ltd, 82A James Carter Road, Mildenhall, England, IP28 7DE</address>
+            <p>Services are provided via {{ site.company.shortName }} (&numero;{{ site.company.number }}), a limited company registered in England and Wales with VAT number {{ site.company.vat }}.</p>
+            <address class="flow-space-2xs">{{ site.company.name }}, {{ site.company.addressLine }}</address>
         </div>
         <div class="cluster" data-state="repel">
             <p>Copyright &copy; {{ helpers.currentYear }} {{ site.authorName }}</p>
