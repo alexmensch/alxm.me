@@ -2,8 +2,9 @@
 layout: layouts/landing
 title: Privacy Policy
 company_info: true
-meta:
-  description: "Privacy policy for Thoughtful Design Ltd, detailing how personal data is handled in relation to therapeutic counselling services provided by Alex Marshall."
+eleventyComputed:
+  meta:
+    description: "Privacy policy for {{ site.company.name }}, detailing how personal data is handled in relation to therapeutic counselling services provided by Alex Marshall."
 hero:
   header: Privacy policy
 ---
@@ -14,7 +15,7 @@ Last updated: 26 February 2026
 
 This website is operated by {{ site.company.name }} (&numero;{{ site.company.number }}), a limited company registered in {{ site.company.jurisdiction }} with VAT number {{ site.company.vat }}. Our registered address is {{ site.company.address }}.
 
-For any questions about this policy or how your data is handled, you can contact us at [hello@alexmarshalltherapy.com](mailto:hello@alexmarshalltherapy.com).
+For any questions about this policy or how your data is handled, you can contact us at [{{ site.authorEmail }}](mailto:{{ site.authorEmail }}).
 
 ## What personal data we collect
 
@@ -76,7 +77,7 @@ Under the UK General Data Protection Regulation (UK GDPR), you have the right to
 - **Data portability** --- receive your data in a structured, commonly used format
 - **Object** to the processing of your data
 
-To exercise any of these rights, please contact us at [hello@alexmarshalltherapy.com](mailto:hello@alexmarshalltherapy.com).
+To exercise any of these rights, please contact us at [{{ site.authorEmail }}](mailto:{{ site.authorEmail }}).
 
 If you are not satisfied with how we handle your data, you have the right to lodge a complaint with the [Information Commissioner's Office (ICO)](https://ico.org.uk).
 
