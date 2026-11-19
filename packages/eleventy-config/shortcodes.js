@@ -41,6 +41,7 @@ ${heading}<p>${content}</p>
 </div>`;
   return html;
 }
+cta.markdownParams = [3];
 
 export function highlights(content) {
   return `<div class="[ grid ] [ highlights ]" data-subgrid>
@@ -58,3 +59,4 @@ export function highlight(content, title) {
 ${rows.join("\n")}
 </div>`;
 }
+highlight.markdownParams = [1];

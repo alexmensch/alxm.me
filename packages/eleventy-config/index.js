@@ -100,12 +100,14 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
   // A paired shortcode's output starts with an HTML tag, so markdown-it emits
   // it as a raw HTML block and never parses the body; render it here instead.
   const withMarkdownBody =
-    (shortcode, inlineMarkdownArgs = []) =>
+    (shortcode) =>
     (content, ...args) =>
       shortcode(
         markdownify(content.trim()),
-        ...args.map((arg, position) =>
-          arg && inlineMarkdownArgs.includes(position) ? markdownify(arg) : arg
+        ...args.map((arg, index) =>
+          arg && shortcode.markdownParams?.includes(index + 1)
+            ? markdownify(arg)
+            : arg
         )
       );
 
@@ -138,13 +140,10 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
     eleventyConfig.addFilter("loremIpsum", makeLoremIpsum(loremIpsum));
   }
   if (shortcodes.cta) {
-    eleventyConfig.addPairedShortcode("cta", withMarkdownBody(cta, [2]));
+    eleventyConfig.addPairedShortcode("cta", withMarkdownBody(cta));
   }
   if (shortcodes.highlights) {
     eleventyConfig.addPairedShortcode("highlights", highlights);
-    eleventyConfig.addPairedShortcode(
-      "highlight",
-      withMarkdownBody(highlight, [0])
-    );
+    eleventyConfig.addPairedShortcode("highlight", withMarkdownBody(highlight));
   }
 }
