@@ -8,6 +8,7 @@
   "exports": {
     ".": "./index.js",
     "./company": "./company.js",
+    "./content-audit": "./content-audit.js",
     "./helpers": "./helpers.js",
     "./markdown": "./markdown.js",
     "./shortcodes": "./shortcodes.js"
