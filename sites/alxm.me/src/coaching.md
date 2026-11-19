@@ -51,7 +51,7 @@ I trained as a coach with [Co-Active](https://coactive.com), the world’s leadi
 
 {% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}[…] we cannot change, we cannot move away from what we are, until we thoroughly accept what we are. Then change seems to come about almost unnoticed.{% endblockQuote %}
 
-Both my personal experience and what I see in my work with clients suggest that the answers and clarity we seek are already within us. Our accumulated experiences can obscure this clarity, creating beliefs and patterns that may have outlived their usefulness. When we start feel stuck in an area, what we're experiencing is our growth bumping into these established patterns, like a wheel falling into a rut.
+Both my personal experience and what I see in my work with clients suggest that the answers and clarity we seek are already within us. Our accumulated experiences can obscure this clarity, creating beliefs and patterns that may have outlived their usefulness. When we start to feel stuck in an area, what we're experiencing is our growth bumping into these established patterns, like a wheel falling into a rut.
 
 My role in our relationship is not to advise or direct you, but to encourage and support you in bringing [awareness](/writing/2024/07/02/seeing-things-clearly/) to your unconscious patterns so that you may transform them into conscious choices. By exploring what arises in unconditional safety, you will begin to see your choices more clearly. With greater awareness comes the confidence to make new choices and see different results.
 
