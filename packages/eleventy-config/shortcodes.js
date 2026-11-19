@@ -41,3 +41,22 @@ ${heading}<p>${content}</p>
 </div>`;
   return html;
 }
+cta.markdownParams = [3];
+
+export function highlights(content) {
+  return `<div class="[ grid ] [ highlights ]" data-subgrid>
+${content.trim().replace(/\n\s*\n/g, "\n")}
+</div>`;
+}
+
+export function highlight(content, title) {
+  if (!title) {
+    throw new Error("highlight shortcode requires a title parameter");
+  }
+
+  const rows = [`<h3>${title}</h3>`, `<p>${content}</p>`];
+  return `<div class="[ box ] [ padding-xs radius ]" style="--subgrid-rows: ${rows.length}">
+${rows.join("\n")}
+</div>`;
+}
+highlight.markdownParams = [1];

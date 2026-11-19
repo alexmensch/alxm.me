@@ -104,12 +104,44 @@ describe("eleventy-config plugin", () => {
     assert.ok(box.includes("<p>A <strong>free</strong> session</p>"));
   });
 
+  it("registers highlights and highlight, rendering highlight bodies as markdown", () => {
+    const config = makeMockConfig();
+    plugin(config, { domain: "alxm.me", shortcodes: { highlights: true } });
+    const { highlights, highlight } = config.calls.pairedShortcodes;
+
+    const box = highlight("\nA **bold** claim\n", "Title");
+    assert.ok(box.includes("<h3>Title</h3>\n<p>A <strong>bold</strong> claim</p>"));
+    assert.ok(highlights(box).includes(box));
+  });
+
+  it("renders cta and highlight titles as inline markdown, like their bodies", () => {
+    const config = makeMockConfig();
+    plugin(config, {
+      domain: "alxm.me",
+      shortcodes: { cta: true, highlights: true }
+    });
+    const { cta, highlight } = config.calls.pairedShortcodes;
+
+    assert.ok(
+      highlight("Body", "Product & Alex's design").includes(
+        "<h3>Product &amp; Alex’s design</h3>"
+      )
+    );
+    assert.ok(
+      cta("Body", "/contact", "Contact me", "Alex's & session").includes(
+        "<h2>Alex’s &amp; session</h2>"
+      )
+    );
+    assert.ok(!cta("Body", "/contact", "Contact me").includes("<h2"));
+  });
+
   it("does not register opt-in filters/shortcodes by default", () => {
     const config = makeMockConfig();
     plugin(config, { domain: "alxm.me" });
     assert.equal(config.calls.filters.getPageTheme, undefined);
     assert.equal(config.calls.filters.loremIpsum, undefined);
     assert.equal(config.calls.pairedShortcodes.cta, undefined);
+    assert.equal(config.calls.pairedShortcodes.highlights, undefined);
   });
 
   it("registers opt-in filters/shortcodes when enabled", () => {

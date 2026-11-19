@@ -10,11 +10,23 @@ import { fileURLToPath } from "node:url";
 
 import { makeHelpers } from "./helpers.js";
 import { makeMarkdownLib } from "./markdown.js";
-import { articleImage, blockQuote, cta } from "./shortcodes.js";
+import {
+  articleImage,
+  blockQuote,
+  cta,
+  highlight,
+  highlights
+} from "./shortcodes.js";
 
 export { makeHelpers } from "./helpers.js";
 export { makeMarkdownLib } from "./markdown.js";
-export { articleImage, blockQuote, cta } from "./shortcodes.js";
+export {
+  articleImage,
+  blockQuote,
+  cta,
+  highlight,
+  highlights
+} from "./shortcodes.js";
 
 /**
  * Absolute path to the package's Liquid includes dir. Add it to a site's
@@ -69,7 +81,7 @@ export function makeLoremIpsum(LoremIpsum) {
  * @param {string} options.domain        Required. Site domain for the markdown external-link rule.
  * @param {Function} [options.loremIpsum] The `LoremIpsum` class; registers the loremIpsum filter when passed.
  * @param {boolean} [options.pageTheme]  Registers the getPageTheme filter when truthy.
- * @param {object} [options.shortcodes]  Optional shortcode toggles, e.g. { cta: true }.
+ * @param {object} [options.shortcodes]  Optional shortcode toggles, e.g. { cta: true, highlights: true }.
  */
 export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
   const { domain, loremIpsum, pageTheme = false, shortcodes = {} } = options;
@@ -90,7 +102,14 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
   const withMarkdownBody =
     (shortcode) =>
     (content, ...args) =>
-      shortcode(markdownify(content.trim()), ...args);
+      shortcode(
+        markdownify(content.trim()),
+        ...args.map((arg, index) =>
+          arg && shortcode.markdownParams?.includes(index + 1)
+            ? markdownify(arg)
+            : arg
+        )
+      );
 
   /* Common filters */
   eleventyConfig.addFilter("getLinkActiveState", helpers.getLinkActiveState);
@@ -122,5 +141,9 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
   }
   if (shortcodes.cta) {
     eleventyConfig.addPairedShortcode("cta", withMarkdownBody(cta));
+  }
+  if (shortcodes.highlights) {
+    eleventyConfig.addPairedShortcode("highlights", highlights);
+    eleventyConfig.addPairedShortcode("highlight", withMarkdownBody(highlight));
   }
 }
