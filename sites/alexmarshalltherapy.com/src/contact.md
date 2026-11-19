@@ -16,7 +16,7 @@ options:
     cta_url: mailto:hello@alexmarshalltherapy.com
 ---
 
-Whether you're interested in learning more about counselling or have any other questions, please don't hesitate to get in touch. You may email me at <a href="mailto:hello@alexmarshalltherapy.com">hello@alexmarshalltherapy.com</a> or choose one of the options below.
+Whether you're interested in learning more about counselling or have any other questions, please don't hesitate to get in touch. You may email me at [{{ site.authorEmail }}](mailto:{{ site.authorEmail }}) or choose one of the options below.
 
 ---
 

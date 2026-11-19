@@ -14,18 +14,18 @@ _What I Knew_ celebrates the courage that it takes to make big personal changes.
 The show is available on
 {% for link in site.podcastURL.remotes %}
 {%- if forloop.length == 1 -%}
-<a href="{{ link.url }}">{{ link.name }}</a>
+[{{ link.name }}]({{ link.url }})
 {%- elsif forloop.length == 2 -%}
 {%- if forloop.first -%}
-<a href="{{ link.url }}">{{ link.name }}</a> and{{ space }}
+[{{ link.name }}]({{ link.url }}) and{{ space }}
 {%- else -%}
-<a href="{{ link.url }}">{{ link.name }}</a>
+[{{ link.name }}]({{ link.url }})
 {%- endif -%}
 {%- else -%}
 {%- if forloop.last -%}
-and <a href="{{ link.url }}">{{ link.name }}</a>
+and [{{ link.name }}]({{ link.url }})
 {%- else -%}
-<a href="{{ link.url }}">{{ link.name }}</a>,{{ space }}
+[{{ link.name }}]({{ link.url }}),{{ space }}
 {%- endif -%}
 {%- endif -%}
 {%- endfor -%}
