@@ -4,7 +4,6 @@ import {
   articleImage,
   blockQuote,
   cta,
-  HIGHLIGHT_ROWS,
   highlight,
   highlights
 } from "../shortcodes.js";
@@ -182,19 +181,12 @@ describe("cta shortcode", () => {
 });
 
 describe("highlights shortcode", () => {
-  it("wraps its body in a subgrid grid spanning HIGHLIGHT_ROWS rows", () => {
+  it("wraps its body in a subgrid-enabled grid", () => {
     const html = highlights("\n<div>One</div>\n");
     assert.ok(
-      html.startsWith(
-        `<div class="[ grid ] [ highlights ]" data-subgrid style="--subgrid-rows: ${HIGHLIGHT_ROWS}">`
-      )
+      html.startsWith('<div class="[ grid ] [ highlights ]" data-subgrid>')
     );
     assert.ok(html.includes("<div>One</div>"));
-  });
-
-  it("declares one subgrid row per element inside a highlight box", () => {
-    const innerLines = highlight("Body", "Title").split("\n").slice(1, -1);
-    assert.equal(innerLines.length, HIGHLIGHT_ROWS);
   });
 
   it("collapses blank lines, so markdown keeps it one HTML block", () => {
@@ -204,9 +196,13 @@ describe("highlights shortcode", () => {
 });
 
 describe("highlight shortcode", () => {
-  it("renders a box with an h3 title above the body", () => {
+  it("renders a box spanning two subgrid rows: an h3 title above the body", () => {
     const html = highlight("Body text", "A title");
-    assert.ok(html.startsWith('<div class="[ box ] [ padding-xs radius ]">'));
+    assert.ok(
+      html.startsWith(
+        '<div class="[ box ] [ padding-xs radius ]" style="--subgrid-rows: 2">'
+      )
+    );
     assert.ok(html.includes("<h3>A title</h3>\n<p>Body text</p>"));
   });
 

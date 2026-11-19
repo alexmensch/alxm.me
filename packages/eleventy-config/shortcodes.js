@@ -42,10 +42,8 @@ ${heading}<p>${content}</p>
   return html;
 }
 
-export const HIGHLIGHT_ROWS = 2;
-
 export function highlights(content) {
-  return `<div class="[ grid ] [ highlights ]" data-subgrid style="--subgrid-rows: ${HIGHLIGHT_ROWS}">
+  return `<div class="[ grid ] [ highlights ]" data-subgrid>
 ${content.trim().replace(/\n\s*\n/g, "\n")}
 </div>`;
 }
@@ -55,8 +53,8 @@ export function highlight(content, title) {
     throw new Error("highlight shortcode requires a title parameter");
   }
 
-  return `<div class="[ box ] [ padding-xs radius ]">
-<h3>${title}</h3>
-<p>${content}</p>
+  const rows = [`<h3>${title}</h3>`, `<p>${content}</p>`];
+  return `<div class="[ box ] [ padding-xs radius ]" style="--subgrid-rows: ${rows.length}">
+${rows.join("\n")}
 </div>`;
 }
