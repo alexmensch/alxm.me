@@ -7,7 +7,7 @@ hero:
   subheader: "Curiosity-driven humanist, artist, product designer, and science nerd"
 ---
 
-{% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}The good life is a _process_, not a state of being. It is a direction, not a destination. […] This process of the good life is not, I am convinced, a life for the faint-hearted. It involves the stretching and growing of becoming more and more of one's potentialities. It involves the courage to be. It means launching oneself fully into the stream of life.{% endblockQuote %}
+{% blockQuote "Carl Rogers", "On Becoming a Person", "https://www.abebooks.co.uk/Becoming-Person-Rogers-Carl-Constable/16269127392/bd" %}The good life is a process, not a state of being. It is a direction, not a destination. […] This process of the good life is not, I am convinced, a life for the faint-hearted. It involves the stretching and growing of becoming more and more of one's potentialities. It involves the courage to be. It means launching oneself fully into the stream of life.{% endblockQuote %}
 
 ## From founder to executive coach
 

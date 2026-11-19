@@ -9,4 +9,12 @@
 
 .grid {
   @include grid;
+
+  // Requires --subgrid-rows: the number of rows each child spans.
+  &[data-subgrid] > * {
+    display: grid;
+    grid-row: span var(--subgrid-rows);
+    grid-template-rows: subgrid;
+    gap: var(--flow-space);
+  }
 }
