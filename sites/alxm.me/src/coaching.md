@@ -19,7 +19,7 @@ As an executive coach, I support leaders’ personal growth as they navigate dif
 
 If you currently find yourself stuck at a plateau in leadership or executive performance, are facing a critical career or company juncture, struggle with the balance and influence that work and home have on each other, or feel you would benefit from speaking in confidence to someone who’s been there before, [let’s talk](/contact).
 
-{% articleImage "portrait-coaching.jpg", "Portrait photo of Alex", "4-5", true %}
+{% articleImage "portrait-og.jpg", "Portrait photo of Alex", "4-5", true %}
 
 ## What I offer
 
