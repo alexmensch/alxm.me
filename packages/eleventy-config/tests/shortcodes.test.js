@@ -1,6 +1,12 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { articleImage, blockQuote, cta, highlights } from "../shortcodes.js";
+import {
+  articleImage,
+  blockQuote,
+  cta,
+  highlight,
+  highlights
+} from "../shortcodes.js";
 
 describe("articleImage shortcode", () => {
   it("produces an img tag with src and alt attributes", () => {
@@ -175,22 +181,28 @@ describe("cta shortcode", () => {
 });
 
 describe("highlights shortcode", () => {
-  it("wraps each paragraph in a box inside one grid", () => {
-    const html = highlights(["One", "Two"]);
-    assert.ok(html.startsWith('<div class="[ grid ] [ highlights ]">'));
-    assert.equal(
-      html.match(/class="\[ box \] \[ padding-xs radius \]"/g).length,
-      2
+  it("wraps its body in a subgrid-enabled grid", () => {
+    const html = highlights("\n<div>One</div>\n");
+    assert.ok(
+      html.startsWith('<div class="[ grid ] [ highlights ]" data-subgrid>')
     );
-    assert.ok(html.includes("<p>One</p>"));
-    assert.ok(html.includes("<p>Two</p>"));
+    assert.ok(html.includes("<div>One</div>"));
   });
 
-  it("emits no blank line, so markdown keeps it one HTML block", () => {
-    assert.ok(!/\n\s*\n/.test(highlights(["One", "Two", "Three"])));
+  it("collapses blank lines, so markdown keeps it one HTML block", () => {
+    const html = highlights("<div>One</div>\n\n  \n<div>Two</div>");
+    assert.ok(!/\n\s*\n/.test(html));
+  });
+});
+
+describe("highlight shortcode", () => {
+  it("renders a box with an h3 title above the body", () => {
+    const html = highlight("Body text", "A title");
+    assert.ok(html.startsWith('<div class="[ box ] [ padding-xs radius ]">'));
+    assert.ok(html.includes("<h3>A title</h3>\n<p>Body text</p>"));
   });
 
-  it("throws when there are no paragraphs", () => {
-    assert.throws(() => highlights([]), /at least one paragraph/);
+  it("throws when the title is missing", () => {
+    assert.throws(() => highlight("Body"), /requires a title/);
   });
 });

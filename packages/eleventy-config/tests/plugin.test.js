@@ -104,15 +104,14 @@ describe("eleventy-config plugin", () => {
     assert.ok(box.includes("<p>A <strong>free</strong> session</p>"));
   });
 
-  it("splits the highlights body into one markdown box per paragraph", () => {
+  it("registers highlights and highlight, rendering highlight bodies as markdown", () => {
     const config = makeMockConfig();
     plugin(config, { domain: "alxm.me", shortcodes: { highlights: true } });
-    const html = config.calls.pairedShortcodes.highlights(
-      "\n**One**. First.\n\n  \n**Two**. Second\nline.\n"
-    );
-    assert.ok(html.includes("<p><strong>One</strong>. First.</p>"));
-    assert.ok(html.includes("<p><strong>Two</strong>. Second\nline.</p>"));
-    assert.equal(html.match(/\[ box \]/g).length, 2);
+    const { highlights, highlight } = config.calls.pairedShortcodes;
+
+    const box = highlight("\nA **bold** claim\n", "Title");
+    assert.ok(box.includes("<h3>Title</h3>\n<p>A <strong>bold</strong> claim</p>"));
+    assert.ok(highlights(box).includes(box));
   });
 
   it("does not register opt-in filters/shortcodes by default", () => {

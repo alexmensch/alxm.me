@@ -42,19 +42,19 @@ ${heading}<p>${content}</p>
   return html;
 }
 
-export function highlights(paragraphs) {
-  if (paragraphs.length === 0) {
-    throw new Error("highlights shortcode requires at least one paragraph");
+export function highlights(content) {
+  return `<div class="[ grid ] [ highlights ]" data-subgrid>
+${content.trim().replace(/\n\s*\n/g, "\n")}
+</div>`;
+}
+
+export function highlight(content, title) {
+  if (!title) {
+    throw new Error("highlight shortcode requires a title parameter");
   }
 
-  const boxes = paragraphs
-    .map(
-      (paragraph) => `<div class="[ box ] [ padding-xs radius ]">
-<p>${paragraph}</p>
-</div>`
-    )
-    .join("\n");
-  return `<div class="[ grid ] [ highlights ]">
-${boxes}
+  return `<div class="[ box ] [ padding-xs radius ]">
+<h3>${title}</h3>
+<p>${content}</p>
 </div>`;
 }

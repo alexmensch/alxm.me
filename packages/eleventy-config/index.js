@@ -10,11 +10,23 @@ import { fileURLToPath } from "node:url";
 
 import { makeHelpers } from "./helpers.js";
 import { makeMarkdownLib } from "./markdown.js";
-import { articleImage, blockQuote, cta, highlights } from "./shortcodes.js";
+import {
+  articleImage,
+  blockQuote,
+  cta,
+  highlight,
+  highlights
+} from "./shortcodes.js";
 
 export { makeHelpers } from "./helpers.js";
 export { makeMarkdownLib } from "./markdown.js";
-export { articleImage, blockQuote, cta, highlights } from "./shortcodes.js";
+export {
+  articleImage,
+  blockQuote,
+  cta,
+  highlight,
+  highlights
+} from "./shortcodes.js";
 
 /**
  * Absolute path to the package's Liquid includes dir. Add it to a site's
@@ -124,14 +136,7 @@ export default function eleventyConfigPlugin(eleventyConfig, options = {}) {
     eleventyConfig.addPairedShortcode("cta", withMarkdownBody(cta));
   }
   if (shortcodes.highlights) {
-    eleventyConfig.addPairedShortcode("highlights", (content) =>
-      highlights(
-        content
-          .split(/\n\s*\n/)
-          .map((paragraph) => paragraph.trim())
-          .filter(Boolean)
-          .map(markdownify)
-      )
-    );
+    eleventyConfig.addPairedShortcode("highlights", highlights);
+    eleventyConfig.addPairedShortcode("highlight", withMarkdownBody(highlight));
   }
 }

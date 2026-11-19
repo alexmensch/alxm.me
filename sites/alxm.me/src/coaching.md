@@ -28,13 +28,21 @@ My approach involves working with all aspects of your life as they present thems
 What my clients value most, beyond my warm, unconditional presence, is being able to draw from my diverse range of experience as required in the moment.
 
 {% highlights %}
-**20+ years in the software industry**. From startup to large corporation, public to private, entry-level to C-suite, sales to engineering roles, hiring and team-building, and navigating mergers, I’ve worn many hats in my career. I bring this breadth of understanding into my work with you.
+{% highlight "20+ years in the software industry" %}
+From startup to large corporation, public to private, entry-level to C-suite, sales to engineering roles, hiring and team-building, and navigating mergers, I’ve worn many hats in my career. I bring this breadth of understanding into my work with you.
+{% endhighlight %}
 
-**VC-backed startup founder**. Being a Silicon Valley startup founder is unlike any other experience in business. I have firsthand experience of the immense pressure, extreme acceleration of responsibility, fundraising challenges, existential crises, executive team formation, and co-founder relationship struggles.
+{% highlight "VC-backed startup founder" %}
+Being a Silicon Valley startup founder is unlike any other experience in business. I have firsthand experience of the immense pressure, extreme acceleration of responsibility, fundraising challenges, existential crises, executive team formation, and co-founder relationship struggles.
+{% endhighlight %}
 
-**Product & design leader**. I’ve built product and design teams from the ground up and have launched products used by millions of people worldwide. I bring a rare combination of engineering, design, psychology, and commercial factors into product strategy.
+{% highlight "Product & design leader" %}
+I’ve built product and design teams from the ground up and have launched products used by millions of people worldwide. I bring a rare combination of engineering, design, psychology, and commercial factors into product strategy.
+{% endhighlight %}
 
-**Trained coach and therapist**. I offer a full breadth of approaches to help my clients listen to the answers they already hold within themselves. I draw from both therapeutic and coaching approaches as the moment demands in our work together.
+{% highlight "Trained coach and therapist" %}
+I offer a full breadth of approaches to help my clients listen to the answers they already hold within themselves. I draw from both therapeutic and coaching approaches as the moment demands in our work together.
+{% endhighlight %}
 {% endhighlights %}
 
 I trained as a coach with [Co-Active](https://coactive.com), the world’s leading coach training programme. My approach is also heavily influenced by the [humanistic](https://en.wikipedia.org/wiki/Humanistic_psychology#Counseling_and_therapy) school of psychotherapy, which emphasises a creative, empowering, present-moment approach. My practice is supervised by a master therapist with over 40 years of client and teaching experience.
