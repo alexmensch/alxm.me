@@ -42,8 +42,10 @@ ${heading}<p>${content}</p>
   return html;
 }
 
+export const HIGHLIGHT_ROWS = 2;
+
 export function highlights(content) {
-  return `<div class="[ grid ] [ highlights ]" data-subgrid>
+  return `<div class="[ grid ] [ highlights ]" data-subgrid style="--subgrid-rows: ${HIGHLIGHT_ROWS}">
 ${content.trim().replace(/\n\s*\n/g, "\n")}
 </div>`;
 }

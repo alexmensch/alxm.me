@@ -4,6 +4,7 @@ import {
   articleImage,
   blockQuote,
   cta,
+  HIGHLIGHT_ROWS,
   highlight,
   highlights
 } from "../shortcodes.js";
@@ -181,12 +182,19 @@ describe("cta shortcode", () => {
 });
 
 describe("highlights shortcode", () => {
-  it("wraps its body in a subgrid-enabled grid", () => {
+  it("wraps its body in a subgrid grid spanning HIGHLIGHT_ROWS rows", () => {
     const html = highlights("\n<div>One</div>\n");
     assert.ok(
-      html.startsWith('<div class="[ grid ] [ highlights ]" data-subgrid>')
+      html.startsWith(
+        `<div class="[ grid ] [ highlights ]" data-subgrid style="--subgrid-rows: ${HIGHLIGHT_ROWS}">`
+      )
     );
     assert.ok(html.includes("<div>One</div>"));
+  });
+
+  it("declares one subgrid row per element inside a highlight box", () => {
+    const innerLines = highlight("Body", "Title").split("\n").slice(1, -1);
+    assert.equal(innerLines.length, HIGHLIGHT_ROWS);
   });
 
   it("collapses blank lines, so markdown keeps it one HTML block", () => {
