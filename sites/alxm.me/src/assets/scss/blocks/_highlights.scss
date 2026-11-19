@@ -2,8 +2,11 @@
 
 .highlights {
   --min-item-width: #{dt.get-value("measure", "compact")};
+  --subgrid-rows: 2;
 
   & > * {
+    --flow-space: #{dt.get-size("2xs")};
+
     outline-color: #{dt.get-color("secondary")};
   }
 }
