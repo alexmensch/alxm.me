@@ -17,7 +17,7 @@
         </nav>
         {%if company_info %}
             <div class="flow">
-                <p>Services are provided via {{ site.company.shortName }} (&numero;{{ site.company.number }}), a limited company registered in England and Wales with VAT number {{ site.company.vat }}. Read our <a href="/privacy">privacy policy</a>.</p>
+                <p>Services are provided via {{ site.company.shortName }} (&numero;{{ site.company.number }}), a limited company registered in {{ site.company.jurisdiction }} with VAT number {{ site.company.vat }}. Read our <a href="/privacy">privacy policy</a>.</p>
                 <address class="flow-space-2xs">{{ site.company.name }}, {{ site.company.address }}</address>
             </div>
         {%endif %}

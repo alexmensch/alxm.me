@@ -12,7 +12,7 @@ Last updated: 19 November 2026
 
 ## Who we are
 
-This website is operated by {{ site.company.name }} (&numero;{{ site.company.number }}), a limited company registered in England and Wales with VAT number {{ site.company.vat }}. Our registered address is {{ site.company.address }}.
+This website is operated by {{ site.company.name }} (&numero;{{ site.company.number }}), a limited company registered in {{ site.company.jurisdiction }} with VAT number {{ site.company.vat }}. Our registered address is {{ site.company.address }}.
 
 For any questions about this policy or how your data is handled, you can contact us at [hello@alxm.me](mailto:hello@alxm.me).
 
